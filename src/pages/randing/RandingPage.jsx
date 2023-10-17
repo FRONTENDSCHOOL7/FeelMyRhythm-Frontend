@@ -1,6 +1,10 @@
 import React from 'react';
+import Randing from '../../components/randing/Randing';
 
 export default function RandingPage() {
-  let a = 1;
-  return <div>RandingPage</div>;
+  return (
+    <>
+      <Randing />
+    </>
+  );
 }
