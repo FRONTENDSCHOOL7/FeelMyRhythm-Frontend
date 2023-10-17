@@ -12,6 +12,12 @@ module.exports = {
     'react/jsx-pascal-case': 'error',
     'react/jsx-key': 'error',
     'dot-notation': 'error',
-    'linebreak-style': 0
+    'linebreak-style': 0,
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto'
+      }
+    ]
   }
 };
