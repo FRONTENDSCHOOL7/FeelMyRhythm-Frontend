@@ -13,6 +13,7 @@ module.exports = {
     'react/jsx-key': 'error',
     'dot-notation': 'error',
     'linebreak-style': 0,
+    'no-unused-vars': 'off',
     'prettier/prettier': [
       'error',
       {
