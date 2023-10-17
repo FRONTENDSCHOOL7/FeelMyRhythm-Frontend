@@ -22,7 +22,7 @@ export default function RandingPage() {
           <S.FacebookBtn>페이스북 계정으로 로그인</S.FacebookBtn>
         </S.BottomBox>
         <S.SignBox>
-          <S.SignContent>이메일로 로그인</S.SignContent>
+          <S.SignContent onClick={() => onMoveLocation('signin')}>이메일로 로그인</S.SignContent>
           <S.PipeContent>|</S.PipeContent>
           <S.SignContent onClick={() => onMoveLocation('signup')}>회원가입</S.SignContent>
         </S.SignBox>

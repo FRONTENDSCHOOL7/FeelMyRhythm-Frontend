@@ -7,6 +7,7 @@ import Write from '../pages/write/Write';
 import Profile from '../pages/profile/Profile';
 import SignUpPage from '../pages/sign/signUp/SignUpPage';
 import ProfileSettingPage from '../pages/sign/signUp/ProfileSettingPage';
+import SignInPage from '../pages/sign/signIn/SignInPage';
 
 export default function Router() {
   return (
@@ -18,6 +19,7 @@ export default function Router() {
       <Route path='/profile' element={<Profile />} />
       <Route path='/signup' element={<SignUpPage />} />
       <Route path='/profilesetting' element={<ProfileSettingPage />} />
+      <Route path='/signin' element={<SignInPage />} />
     </Routes>
   );
 }
