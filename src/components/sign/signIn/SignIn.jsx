@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './signIn.styled';
-import {useLocation, useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
   const navigate = useNavigate();
