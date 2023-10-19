@@ -10,7 +10,7 @@ export const ChatListsLayout = styled.ul`
   padding-top: 24px;
   gap: 20px;
   min-height: 712px;
-  width: 390px;
+  width: 100vw;
   align-items: center;
   overflow-x: scroll;
 `;

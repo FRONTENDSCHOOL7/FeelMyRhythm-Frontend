@@ -26,7 +26,7 @@ export const ContentBox = styled.div`
   padding-bottom: 6px;
 
   font-family: Spoqa Han Sans Neo;
-  color: ${({$isActive}) => ($isActive !== 'none' ? '#f26e22' : '#767676')};
+  color: ${({ $isActive }) => ($isActive !== 'none' ? '#f26e22' : '#767676')};
   font-size: 10px;
   font-weight: 700;
   line-height: 14px;
@@ -57,18 +57,18 @@ export const IconImg = styled.img`
   padding-bottom: 4px;
 `;
 
-export const HomeImg = styled(IconImg).attrs(({$isActive}) => ({
+export const HomeImg = styled(IconImg).attrs(({ $isActive }) => ({
   src: $isActive !== 'none' ? homeFill : home
 }))``;
 
-export const ChatImg = styled(IconImg).attrs(({$isActive}) => ({
+export const ChatImg = styled(IconImg).attrs(({ $isActive }) => ({
   src: $isActive !== 'none' ? chatFill : chat
 }))``;
 
-export const WriteImg = styled(IconImg).attrs(({$isActive}) => ({
+export const WriteImg = styled(IconImg).attrs(({ $isActive }) => ({
   src: $isActive !== 'none' ? writeFill : write
 }))``;
 
-export const ProfileImg = styled(IconImg).attrs(({$isActive}) => ({
+export const ProfileImg = styled(IconImg).attrs(({ $isActive }) => ({
   src: $isActive !== 'none' ? profileFill : profile
 }))``;
