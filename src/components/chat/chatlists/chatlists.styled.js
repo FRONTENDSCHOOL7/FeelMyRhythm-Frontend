@@ -18,11 +18,17 @@ export const ChatListsLayout = styled.ul`
 export const Li = styled.li`
   width: 358px;
   height: 42px;
-  background-color: pink;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
+`;
+export const OrangeDot = styled.img`
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 `;
 
 export const StyledProfileImg = styled.img`
@@ -50,6 +56,11 @@ export const P = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  width: 238px;
+  height: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 export const Span = styled.span`
   color: #dbdbdb;
