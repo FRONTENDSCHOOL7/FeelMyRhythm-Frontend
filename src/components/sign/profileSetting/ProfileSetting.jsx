@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './profileSetting.styled';
 import defaultProfile from '../../../images/sign/default_profile.png';
 import imgChange from '../../../images/sign/imgChange.svg';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfileSetting() {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ export default function ProfileSetting() {
         <label for='imgChange'>
           <S.ChangeImg src={imgChange} />
         </label>
-        <input style={{display: 'none'}} type='file' id='imgChange' />
+        <input style={{ display: 'none' }} type='file' id='imgChange' />
       </S.ImgBox>
 
       <S.InputBox>

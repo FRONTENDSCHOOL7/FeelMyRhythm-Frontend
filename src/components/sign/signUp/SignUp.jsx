@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './signUp.styled';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
   const navigate = useNavigate();

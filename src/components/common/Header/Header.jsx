@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './Header.styled';
+import * as S from './header.styled';
 import search from '../../../images/header/icon_search.svg';
 
 export default function Header() {
