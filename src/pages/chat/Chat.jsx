@@ -9,8 +9,8 @@ export default function Chat() {
   return (
     <>
       <ChatHeader />
-      <ChatLists />
-      {/* <ChatRoom /> */}
+      {/* <ChatLists /> */}
+      <ChatRoom />
       <Footer />
     </>
   );

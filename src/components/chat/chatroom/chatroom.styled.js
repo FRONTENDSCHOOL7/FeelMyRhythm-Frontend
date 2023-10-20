@@ -10,7 +10,7 @@ export const ChatRoomLayout = styled.div`
   overflow-x: scroll;
   background-color: #f2f2f2;
 `;
-export const OthersChatsBox = styled.div`
+export const OthersChatBox = styled.div`
   display: flex;
   flex-direction: row;
   width: 100vw;
@@ -58,7 +58,7 @@ export const Time = styled.p`
   transform: translate(6px, -50%);
 `;
 
-export const MeChatsBox = styled.div`
+export const MeChatBox = styled.div`
   display: flex;
   flex-direction: row;
   width: 100vw;
