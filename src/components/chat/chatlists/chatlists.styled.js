@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-const styleConstants = {
+const STYLE_CONSTANTS = {
   textColor: '#767676',
   fontFamily: "'Spoqa Han Sans Neo', sans-serif"
 };
-export const ChatListsLayout = styled.ul`
+
+export const ChatListLayout = styled.ul`
   display: flex;
   flex-direction: column;
   padding-top: 24px;
@@ -15,7 +16,7 @@ export const ChatListsLayout = styled.ul`
   overflow-x: scroll;
 `;
 
-export const Li = styled.li`
+export const ChatListItem = styled.li`
   width: 358px;
   height: 42px;
   display: flex;
@@ -23,35 +24,39 @@ export const Li = styled.li`
   align-items: center;
   position: relative;
 `;
-export const OrangeDot = styled.img`
+
+export const AlertIcon = styled.img`
   width: 12px;
   height: 12px;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 `;
 
-export const StyledProfileImg = styled.img`
+export const ProfileImage = styled.img`
   width: 42px;
   height: 42px;
   margin-right: 12px;
 `;
-export const UserChatBox = styled.div`
+
+export const ChatBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
 `;
-export const H2 = styled.p`
+
+export const ChatUserName = styled.p`
   color: #000;
-  font-family: ${styleConstants.fontFamily};
+  font-family: ${STYLE_CONSTANTS.fontFamily};
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 `;
-export const P = styled.p`
-  color: ${styleConstants.textColor};
-  font-family: ${styleConstants.fontFamily};
+
+export const ChatMessage = styled.p`
+  color: ${STYLE_CONSTANTS.textColor};
+  font-family: ${STYLE_CONSTANTS.fontFamily};
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -62,14 +67,15 @@ export const P = styled.p`
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
-export const Span = styled.span`
+
+export const ChatDate = styled.span`
   color: #dbdbdb;
-  font-family: ${styleConstants.fontFamily};
+  font-family: ${STYLE_CONSTANTS.fontFamily};
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   position: absolute;
   bottom: 3px;
-  right: 0px;
+  right: 0;
 `;
