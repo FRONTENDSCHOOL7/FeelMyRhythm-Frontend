@@ -30,9 +30,7 @@ const UserProfile = ({
       setLikes(likes - 1);
     }
     setIsLiked(!isLiked);
-  }; // 여기서 함수를 종료, JSX를 반환하지 않음
-
-  // 이 부분은 handleLike 함수 밖에 있어야 하며, UserProfile 컴포넌트의 반환 부분입니다.
+  };
   return (
     <S.ContainerBox>
       <S.AboutUserBox>

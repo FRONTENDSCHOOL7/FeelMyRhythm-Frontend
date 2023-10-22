@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ChatHeaderLayout = styled.div`
   display: flex;
   padding: 13px 0;
-  width: 390px;
+  width: 100vw;
   height: 48px;
   border-bottom: 0.5px solid #dbdbdb;
   display: flex;
