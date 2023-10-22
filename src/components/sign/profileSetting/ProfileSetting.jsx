@@ -7,7 +7,6 @@ import { createAccountNameValid, createImage, createUser } from '../../../apis/s
 import { useMutation } from '@tanstack/react-query';
 import { AiOutlineCheck } from 'react-icons/ai';
 
-
 export default function ProfileSetting() {
   const [userInfo, setUserInfo] = useState({
     user: { email: '', password: '', username: '', accountname: '', intro: '' }

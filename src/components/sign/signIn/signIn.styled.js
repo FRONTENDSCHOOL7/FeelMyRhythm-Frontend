@@ -59,7 +59,7 @@ export const WarningContent = styled.p`
 `;
 
 export const Button = styled.button`
-  background-color: #ffc7a7;
+  background-color: ${({ valid }) => (valid === 'done' ? '#F26E22' : '#FFC7A7')};
   border-radius: 44px;
   border: none;
 

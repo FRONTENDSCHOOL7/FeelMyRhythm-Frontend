@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './header.styled';
+import * as S from './Header.styled';
 import { useNavigate } from 'react-router-dom';
 import search from '../../../images/header/icon_search.svg';
 
