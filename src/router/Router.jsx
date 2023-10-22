@@ -4,7 +4,7 @@ import RandingPage from '../pages/randing/RandingPage';
 import Home from '../pages/home/Home';
 import SearchPage from '../pages/home/search/SearchPage';
 import Chat from '../pages/chat/Chat';
-import Write from '../pages/write/Write';
+import Write from '../pages/write/WritePage';
 import Profile from '../pages/profile/Profile';
 import SignUpPage from '../pages/sign/signUp/SignUpPage';
 import ProfileSettingPage from '../pages/sign/signUp/ProfileSettingPage';
