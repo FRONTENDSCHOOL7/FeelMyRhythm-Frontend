@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './Footer.styled';
-import {useLocation, useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Footer() {
   const [btnActiveState, setBtnActiveState] = useState('home');
@@ -15,7 +15,7 @@ export default function Footer() {
     uselocation.pathname === '/chat' && setBtnActiveState('chat');
     uselocation.pathname === '/write' && setBtnActiveState('write');
     uselocation.pathname === '/profile' && setBtnActiveState('profile');
-  }, []);
+  }, [uselocation]);
 
   // 버튼 상태 변경, 라우팅
   const handleClickState = (btnName) => {

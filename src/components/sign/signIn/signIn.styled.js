@@ -18,7 +18,6 @@ export const Title = styled.h2`
 
 export const InputBox = styled.div`
   border-bottom: 1px solid #dbdbdb;
-  /* margin-bottom: 16px; */
 `;
 
 export const SubContent = styled.p`
