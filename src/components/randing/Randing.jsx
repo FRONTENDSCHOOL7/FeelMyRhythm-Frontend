@@ -8,9 +8,7 @@ export default function RandingPage() {
 
   // navigate 및 회원정보 초기화
   const onMoveLocation = (location) => {
-    if (location === 'signup') {
-      navigate(`/${location}`);
-    }
+    navigate(`/${location}`);
   };
 
   return (
