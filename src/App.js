@@ -5,6 +5,7 @@ import { useSetRecoilState } from 'recoil';
 import { atomMyInfo } from './store/store';
 import { GlobalStyle } from './style/GlobalStyle.styled';
 
+
 function App() {
   const setMyInfo = useSetRecoilState(atomMyInfo);
 
