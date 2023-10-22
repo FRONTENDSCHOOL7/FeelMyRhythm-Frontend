@@ -15,7 +15,7 @@ export default function Footer() {
     uselocation.pathname === '/chat' && setBtnActiveState('chat');
     uselocation.pathname === '/write' && setBtnActiveState('write');
     uselocation.pathname === '/profile' && setBtnActiveState('profile');
-  }, []);
+  }, [uselocation]);
 
   // 버튼 상태 변경, 라우팅
   const handleClickState = (btnName) => {

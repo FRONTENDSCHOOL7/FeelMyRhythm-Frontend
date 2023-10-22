@@ -6,8 +6,11 @@ import { useNavigate } from 'react-router-dom';
 export default function RandingPage() {
   const navigate = useNavigate();
 
+  // navigate 및 회원정보 초기화
   const onMoveLocation = (location) => {
-    navigate(`/${location}`);
+    if (location === 'signup') {
+      navigate(`/${location}`);
+    }
   };
 
   return (
