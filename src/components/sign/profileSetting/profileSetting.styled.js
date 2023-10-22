@@ -52,6 +52,10 @@ export const InputBox = styled.div`
   border-bottom: 1px solid #dbdbdb;
 `;
 
+export const NonPaddingInputBox = styled(InputBox)`
+  padding-top: 0;
+`;
+
 export const SubContent = styled.p`
   color: #767676;
   font-family: Spoqa Han Sans Neo;
@@ -60,9 +64,9 @@ export const SubContent = styled.p`
 
   padding-bottom: 10px;
 `;
-
 export const Input = styled.input`
-  width: 100%;
+  width: 80%;
+  height: 32px;
 
   padding: 0;
   border: none;
@@ -80,7 +84,7 @@ export const Input = styled.input`
 `;
 
 export const WarningContent = styled.p`
-  color: #eb5757;
+  color: ${({ valid }) => (valid === '사용 가능한 계정ID 입니다.' ? 'green' : '#eb5757')};
   font-family: Spoqa Han Sans Neo;
   font-size: 12px;
   font-weight: 500;
@@ -91,7 +95,7 @@ export const WarningContent = styled.p`
 `;
 
 export const Button = styled.button`
-  background-color: #ffc7a7;
+  background-color: ${({ valid }) => (valid === 'done' ? '#F26E22' : '#FFC7A7')};
   border-radius: 44px;
   border: none;
 
@@ -103,4 +107,28 @@ export const Button = styled.button`
   font-family: Spoqa Han Sans Neo;
   font-size: 14px;
   font-weight: 500;
+`;
+
+export const CheckBox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const CheckaccountButton = styled.button`
+  width: 70px;
+  height: 32px;
+  background: #fff;
+
+  font-size: ${({ valid }) => (valid === 'success' ? '16px' : '12px')};
+  color: ${({ valid }) => (valid === 'success' ? 'green' : '#767676')};
+  font-weight: 500;
+
+  margin-bottom: ${({ valid }) => (valid === 'success' ? '5px' : '8px')};
+  margin-left: auto;
+
+  text-align: ${({ valid }) => (valid === 'success' ? 'right' : 'center')};
+  border: ${({ valid }) => (valid === 'success' ? 'none' : '1px solid #dbdbdb')};
+
+  cursor: ${({ valid }) => (valid === 'success' ? 'default' : 'pointer')};
+  border-radius: 30px;
 `;
