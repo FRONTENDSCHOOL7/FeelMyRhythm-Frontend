@@ -2,17 +2,13 @@ import React from 'react';
 import * as S from './randing.styled';
 import logo from '../../images/randingPage/logo_main.svg';
 import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
-import { atomUserInfo } from '../../store/store';
 
 export default function RandingPage() {
   const navigate = useNavigate();
-  const setUserInfo = useSetRecoilState(atomUserInfo);
 
   // navigate 및 회원정보 초기화
   const onMoveLocation = (location) => {
     if (location === 'signup') {
-      setUserInfo({ user: { email: '', password: '', username: '', accountname: '', intro: '' } });
       navigate(`/${location}`);
     }
   };
