@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Default() {
   const navigate = useNavigate();
-
   const handleBackClick = () => {
     navigate(-1);
   };

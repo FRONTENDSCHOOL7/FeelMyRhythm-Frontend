@@ -23,7 +23,7 @@ export default function AppRouter() {
       <Route path='/signup' element={<SignUpPage />} />
       <Route path='/profilesetting' element={<ProfileSettingPage />} />
       <Route path='/signin' element={<SignInPage />} />
-      <Route path='/default' element={<Default />} />
+      <Route path='/*' element={<Default />} />
     </Routes>
   );
 }
