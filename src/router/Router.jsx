@@ -11,8 +11,9 @@ import Followings from '../pages/followings/Followings';
 import SignUpPage from '../pages/sign/signUp/SignUpPage';
 import ProfileSettingPage from '../pages/sign/signUp/ProfileSettingPage';
 import SignInPage from '../pages/sign/signIn/SignInPage';
+import Default from '../pages/default/Default';
 
-export default function Router() {
+export default function AppRouter() {
   return (
     <Routes>
       <Route path='/' element={<RandingPage />} />
@@ -26,6 +27,7 @@ export default function Router() {
       <Route path='/signup' element={<SignUpPage />} />
       <Route path='/profilesetting' element={<ProfileSettingPage />} />
       <Route path='/signin' element={<SignInPage />} />
+      <Route path='/*' element={<Default />} />
     </Routes>
   );
 }
