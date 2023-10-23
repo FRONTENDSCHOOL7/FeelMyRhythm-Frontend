@@ -1,8 +1,16 @@
 import React from 'react';
 import * as S from './randing.styled';
 import logo from '../../images/randingPage/logo_main.svg';
+import { useNavigate } from 'react-router-dom';
 
 export default function RandingPage() {
+  const navigate = useNavigate();
+
+  // navigate 및 회원정보 초기화
+  const onMoveLocation = (location) => {
+    navigate(`/${location}`);
+  };
+
   return (
     <S.RandingPageLayout>
       <S.ImgBox>
@@ -15,9 +23,9 @@ export default function RandingPage() {
           <S.FacebookBtn>페이스북 계정으로 로그인</S.FacebookBtn>
         </S.BottomBox>
         <S.SignBox>
-          <S.SignContent>이메일로 로그인</S.SignContent>
+          <S.SignContent onClick={() => onMoveLocation('signin')}>이메일로 로그인</S.SignContent>
           <S.PipeContent>|</S.PipeContent>
-          <S.SignContent>회원가입</S.SignContent>
+          <S.SignContent onClick={() => onMoveLocation('signup')}>회원가입</S.SignContent>
         </S.SignBox>
       </S.BottomBoxBox>
     </S.RandingPageLayout>
