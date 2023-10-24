@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './chatroommodal.styled';
-import deco from '../../../images/chat/modal-design.png';
+import deco from '../../../assets/images/chat/modal-design.png';
 import { useNavigate } from 'react-router-dom';
 
 const ChatRoomModal = ({ isOpen, onClose, children }) => {

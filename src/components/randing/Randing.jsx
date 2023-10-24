@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './randing.styled';
-import logo from '../../images/randingPage/logo_main.svg';
+import logo from '../../assets/images/randingPage/logo_main.svg';
 import { useNavigate } from 'react-router-dom';
 
 export default function RandingPage() {

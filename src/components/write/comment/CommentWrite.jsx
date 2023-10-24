@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './CommentWrite.styled';
-import userImg from '../../../images/write/profile-img.png';
+import userImg from '../../../assets/images/write/profile-img.png';
 
 export default function CommentWrite() {
   return (

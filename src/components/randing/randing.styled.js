@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import kakao from '../../images/randingPage/logo_kakao.svg';
-import google from '../../images/randingPage/logo_google.svg';
-import facebook from '../../images/randingPage/logo_facebook.svg';
+import kakao from '../../assets/images/randingPage/logo_kakao.svg';
+import google from '../../assets/images/randingPage/logo_google.svg';
+import facebook from '../../assets/images/randingPage/logo_facebook.svg';
 
 export const RandingPageLayout = styled.main`
   display: flex;

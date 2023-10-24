@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from './chatfooter.styled';
-import img from '../../../images/chat/img-button.png';
+import img from '../../../assets/images/chat/img-button.png';
 
 export default function ChatFooter({ onSendMessage }) {
   const [inputValue, setInputValue] = useState('');

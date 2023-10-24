@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './ProfilePlayList.styled';
-import test_img from '../../images/profile/basic-profile-img.svg';
+import test_img from '../../assets/images/profile/basic-profile-img.svg';
 
 export default function ProfilePlaylist() {
   return (

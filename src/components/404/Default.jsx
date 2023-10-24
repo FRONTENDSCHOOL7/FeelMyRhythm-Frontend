@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './default.styled';
-import { ReactComponent as Gamgul404Logo } from '../../images/home/icon-404.svg';
+import { ReactComponent as Gamgul404Logo } from '../../assets/images/home/icon-404.svg';
 import { useNavigate } from 'react-router-dom';
 
 export default function Default() {

@@ -1,8 +1,8 @@
 import React from 'react';
 import ChatItem from './ChatItem';
 import * as S from './chatlists.styled';
-import ProfileImg from '../../../images/chat/Ellipse 1.png';
-import AlertImg from '../../../images/chat/orange-dot.png';
+import ProfileImg from '../../../assets/images/chat/Ellipse 1.png';
+import AlertImg from '../../../assets/images/chat/orange-dot.png';
 
 const chatData = [
   {

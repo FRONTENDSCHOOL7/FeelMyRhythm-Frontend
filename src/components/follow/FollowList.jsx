@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './FollowList.styled';
-import basicProfile from '../../images/profile/basic-profile-img.svg';
+import basicProfile from '../../assets/images/profile/basic-profile-img.svg';
 
 export default function PostFollowers() {
   return (

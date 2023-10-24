@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './chatroom.styled';
-import ProfileImg from '../../../images/chat/Ellipse 1.png';
-import SendImg from '../../../images/chat/Rectangle 65.png';
+import ProfileImg from '../../../assets/images/chat/Ellipse 1.png';
+import SendImg from '../../../assets/images/chat/Rectangle 65.png';
 import ChatFooter from '../chatfooter/ChatFooter';
 export default function Chatroom() {
   const [messages, setMessages] = useState([]);

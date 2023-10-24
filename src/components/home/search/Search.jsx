@@ -2,9 +2,9 @@
 import React from 'react';
 import * as S from './userProfile.styled';
 import UserProfile from './UserProfile';
-import ProfileImage1 from '../../../images/home/basic-profile.png';
-import ProfileImage2 from '../../../images/home/profile-image2.png';
-import ProfileImage3 from '../../../images/home/profile-image3.png';
+import ProfileImage1 from '../../../assets/images/home/basic-profile.png';
+import ProfileImage2 from '../../../assets/images/home/profile-image2.png';
+import ProfileImage3 from '../../../assets/images/home/profile-image3.png';
 
 export default function Search() {
   const userData = [

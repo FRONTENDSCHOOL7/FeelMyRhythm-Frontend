@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import addImg from '../../images/post/upload-file.png';
+import addImg from '../../assets/images/post/upload-file.png';
 
 export const PostDetail = styled.div``;
 

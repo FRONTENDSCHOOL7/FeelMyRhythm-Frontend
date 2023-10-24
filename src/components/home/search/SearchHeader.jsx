@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './SearchHeader.styled.js';
-import arrow from '../../../images/home/icon-arrow-left.svg';
+import arrow from '../../../assets/images/home/icon-arrow-left.svg';
 import { useNavigate } from 'react-router-dom';
 
 export default function SearchHeader() {
