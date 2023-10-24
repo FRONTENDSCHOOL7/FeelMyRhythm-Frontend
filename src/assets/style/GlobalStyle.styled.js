@@ -4,12 +4,18 @@ import reset from 'styled-reset';
 export const GlobalStyle = createGlobalStyle`
 ${reset}
 
-body{
-  display: flex;
-  justify-content: center;
+* {
+  box-sizing: border-box;
 }
 
-button{
+body {
+  display: flex;
+  justify-content: center;
+  font-family: 'Spoqa Han Sans Neo';
+  line-height: normal;
+}
+
+button {
   cursor: pointer;
 }
 
