@@ -39,7 +39,10 @@ const UserProfile = ({
           <S.H2>{username}</S.H2>
           <S.H3>{handle}</S.H3>
         </S.UserInfoBox>
-        <S.Button>
+        <S.Button
+          onClick={(e) => {
+            e.stopPropagation();
+          }}>
           <KebabIcon />
         </S.Button>
       </S.AboutUserBox>
