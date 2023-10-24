@@ -6,7 +6,7 @@ export default function Post() {
   return (
     <S.PostDetail>
       <S.Upload>
-        {/* <S.UserImg src={userlogo} /> */}
+        <S.UserImg src={userlogo} />
         <S.TxtInput type='text' placeholder='게시글 입력하기...' />
       </S.Upload>
       <S.UploadBtn type='button'></S.UploadBtn>
