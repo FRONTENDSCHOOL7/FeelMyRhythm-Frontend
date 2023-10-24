@@ -12,6 +12,7 @@ import SignUpPage from '../pages/sign/signUp/SignUpPage';
 import ProfileSettingPage from '../pages/sign/signUp/ProfileSettingPage';
 import SignInPage from '../pages/sign/signIn/SignInPage';
 import Default from '../pages/default/Default';
+import Post from '../pages/post/Post';
 
 export default function AppRouter() {
   return (
@@ -27,6 +28,7 @@ export default function AppRouter() {
       <Route path='/signup' element={<SignUpPage />} />
       <Route path='/profilesetting' element={<ProfileSettingPage />} />
       <Route path='/signin' element={<SignInPage />} />
+      <Route path='/post' element={<Post />} />
       <Route path='/*' element={<Default />} />
     </Routes>
   );
