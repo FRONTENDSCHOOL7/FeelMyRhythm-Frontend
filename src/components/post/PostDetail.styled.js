@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import addImg from '../../assets/images/post/upload-file.png';
 
-export const PostDetail = styled.div``;
+export const PostDetail = styled.div`
+  padding-left: 16px;
+  padding-top: 20px;
+`;
 
 export const UploadBtn = styled.button`
   position: absolute;
@@ -21,12 +24,18 @@ export const Upload = styled.div`
 export const UserImg = styled.img`
   width: 42px;
   height: 42px;
-  padding: 20px 0 0 16px;
 `;
 
-export const TxtInput = styled.input`
+export const TxtInput = styled.textarea`
   border: 0;
-  margin: 20px 0 0 12px;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+  padding-top: 12px;
+  padding-left: 13px;
+  width: 80%;
+  height: 70vh;
+  font-weight: 400;
 
   ::placeholder {
     font-size: 14px;
