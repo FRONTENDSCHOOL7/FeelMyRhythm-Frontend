@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CommentwriteLayout = styled.div`
+export const CommentWriteLayout = styled.div`
   display: flex;
   border-top: 1px solid #dbdbdb;
 `;
@@ -23,7 +23,7 @@ export const PostBtn = styled.button`
   border: 0;
   color: #c4c4c4;
   text-align: right;
-  font-family: Spoqa Han Sans Neo;
+  font-family: 'Spoqa Han Sans Neo';
   font-size: 14px;
   background-color: transparent;
 
