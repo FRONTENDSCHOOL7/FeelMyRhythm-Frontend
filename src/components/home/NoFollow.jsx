@@ -14,7 +14,7 @@ export default function Default() {
       <S.StyledGamgulLogo>
         <GamgulLogo />
       </S.StyledGamgulLogo>
-      <S.P>유저를 검색해 팔로우 해보세요!</S.P>
+      <S.SuggestContent>유저를 검색해 팔로우 해보세요!</S.SuggestContent>
       <S.Button onClick={handleSearchClick}>검색하기</S.Button>
     </S.DefaultLayout>
   );
