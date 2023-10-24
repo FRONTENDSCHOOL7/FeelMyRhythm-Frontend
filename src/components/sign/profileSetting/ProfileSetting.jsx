@@ -140,7 +140,7 @@ export default function ProfileSetting() {
     mutationFn: createUser,
     onSuccess: () => {
       window.localStorage.removeItem('loginInfo');
-      navigate('/home');
+      navigate('/signin');
     }
   });
 
