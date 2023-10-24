@@ -31,7 +31,7 @@ export const SubContent = styled.p`
 
 export const Input = styled.input`
   width: 100%;
-
+  height: 32px;
   padding: 0;
   border: none;
   outline: none;
