@@ -19,15 +19,11 @@ export const LogoImg = styled.img`
   padding-top: 180px;
   display: flex;
   margin: 0 auto;
-  width: 144px;
-  height: 144px;
 `;
 
 export const BottomBoxBox = styled.div`
   background-color: white;
-  padding-top: 50px;
-  padding-bottom: 125px;
-  padding: 50px 34px 125px 34px;
+  padding: 50px 34px 88px 34px;
 `;
 
 export const BottomBox = styled.div`

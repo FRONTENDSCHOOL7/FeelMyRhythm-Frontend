@@ -15,6 +15,7 @@ export default function RandingPage() {
     <S.RandingPageLayout>
       <S.ImgBox>
         <S.LogoImg src={logo} />
+        {/* <S.LogoImg src={logo} /> */}
       </S.ImgBox>
       <S.BottomBoxBox>
         <S.BottomBox>
