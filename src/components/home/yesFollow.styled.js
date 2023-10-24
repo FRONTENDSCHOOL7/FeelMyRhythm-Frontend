@@ -84,7 +84,7 @@ export const ContentsBox = styled.div`
   margin-left: 54px;
   cursor: pointer;
 `;
-export const P = styled.p`
+export const DescriptionContent = styled.p`
   color: #000;
   font-family: ${styleConstants.fontFamily};
   font-size: 14px;

@@ -24,13 +24,10 @@ const UserProfile = ({
   const [likes, setLikes] = useState(initialLikes);
 
   const handleLike = () => {
-    if (!isLiked) {
-      setLikes(likes + 1);
-    } else {
-      setLikes(likes - 1);
-    }
+    setLikes(isLiked ? likes - 1 : likes + 1);
     setIsLiked(!isLiked);
   };
+
   return (
     <S.ContainerBox>
       <S.AboutUserBox>
@@ -47,7 +44,7 @@ const UserProfile = ({
         </S.Button>
       </S.AboutUserBox>
       <S.ContentsBox>
-        <S.P>{description}</S.P>
+        <S.DescriptionContent>{description}</S.DescriptionContent>
         <S.Img src={photo} alt={altText} />
       </S.ContentsBox>
 
