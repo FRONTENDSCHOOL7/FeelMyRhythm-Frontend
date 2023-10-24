@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProfileNav from '../../components/profile/Profile';
+import ProfileNav from '../../components/profile/ProfileNav';
 import Footer from '../../components/common/Footer/Footer';
 import ProfileInfo from '../../components/profile/ProfileInfo';
 import ProfilePlayList from '../../components/profile/ProfilePlayList';

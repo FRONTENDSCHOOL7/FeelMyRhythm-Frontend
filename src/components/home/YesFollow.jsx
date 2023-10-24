@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import * as S from './yesFollow.styled';
-import { ReactComponent as KebabIcon } from '../../images/home/icon-more-vertical.svg';
-import { ReactComponent as HeartIcon } from '../../images/home/icon-heart.svg';
-import { ReactComponent as MessageIcon } from '../../images/home/icon-message-circle.svg';
-import { ReactComponent as ColoredHearIcon } from '../../images/home/heart.svg';
-import ProfileImage1 from '../../images/home/basic-profile.png';
-import ProfileImage2 from '../../images/home/profile-image2.png';
-import ProfileImage3 from '../../images/home/profile-image3.png';
-import PostImage from '../../images/home/mandarin.png';
+import { ReactComponent as KebabIcon } from '../../assets/images/home/icon-more-vertical.svg';
+import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart.svg';
+import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
+import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/heart.svg';
+import ProfileImage1 from '../../assets/images/home/basic-profile.png';
+import ProfileImage2 from '../../assets/images/home/profile-image2.png';
+import ProfileImage3 from '../../assets/images/home/profile-image3.png';
+import PostImage from '../../assets/images/home/mandarin.png';
 
 const UserProfile = ({
   profileImage,

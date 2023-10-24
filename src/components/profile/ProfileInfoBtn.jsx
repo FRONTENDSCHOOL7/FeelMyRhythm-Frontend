@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import * as S from './ProfileInfo.styled';
-import iconChat from '../../images/profile/icon-chat.svg';
-import iconShare from '../../images/profile/icon-share.svg';
+import iconChat from '../../assets/images/profile/icon-chat.svg';
+import iconShare from '../../assets/images/profile/icon-share.svg';
 
 export default function ProfileInfoBtn() {
   const [follow, setFollow] = useState(true);

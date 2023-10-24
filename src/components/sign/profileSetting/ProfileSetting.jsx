@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as S from './profileSetting.styled';
-import defaultProfile from '../../../images/sign/default_profile.png';
-import imgChange from '../../../images/sign/imgChange.svg';
+import defaultProfile from '../../../assets/images/sign/default_profile.png';
+import imgChange from '../../../assets/images/sign/imgChange.svg';
 import { useNavigate } from 'react-router-dom';
 import { createAccountNameValid, createImage, createUser } from '../../../apis/sign/signUpAPI';
 import { useMutation } from '@tanstack/react-query';

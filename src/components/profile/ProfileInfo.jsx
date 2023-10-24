@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './ProfileInfo.styled';
-import basicProfile from '../../images/profile/basic-profile-img.svg';
+import basicProfile from '../../assets/images/profile/basic-profile-img.svg';
 import ProfileInfoBtn from './ProfileInfoBtn';
 import ProfileMyInfoBtn from './ProfileInfoMyBtn';
 

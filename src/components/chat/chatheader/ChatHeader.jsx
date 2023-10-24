@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import * as S from './chatheader.styled';
 import { useNavigate } from 'react-router-dom';
-import arrow from '../../../images/chat/icon-arrow-left.png';
-import kebab from '../../../images/chat/icon- more-vertical.png';
+import arrow from '../../../assets/images/chat/icon-arrow-left.png';
+import kebab from '../../../assets/images/chat/icon- more-vertical.png';
 import ChatRoomModal from './ChatRoomModal';
 
 export default function ChatHeader() {

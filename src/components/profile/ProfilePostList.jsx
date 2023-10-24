@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import * as S from './ProfilePostList.styled';
 import PostListBento from './PostListBento';
 import PostListHam from './PostListHam';

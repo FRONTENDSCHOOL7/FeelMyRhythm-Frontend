@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import kebobIcon from '../../../images/write/more-vertical.png';
+import kebobIcon from '../../../assets/images/write/more-vertical.png';
 
 export const CommentLayout = styled.div`
   /* flex: 1 auto; */

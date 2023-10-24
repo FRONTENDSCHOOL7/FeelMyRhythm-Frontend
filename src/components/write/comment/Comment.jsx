@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './Comment.styled';
-import profile from '../../../images/write/Ellipse 4.png';
+import profile from '../../../assets/images/write/Ellipse 4.png';
 
 export default function Comment() {
   return (

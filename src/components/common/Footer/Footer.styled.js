@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import home from '../../../images/footer/icon_home.svg';
-import homeFill from '../../../images/footer/icon_home_fill.svg';
-import chat from '../../../images/footer/icon_chat.svg';
-import chatFill from '../../../images/footer/icon_chat_fill.svg';
-import write from '../../../images/footer/icon_write.svg';
-import writeFill from '../../../images/footer/icon_write_fill.svg';
-import profile from '../../../images/footer/icon_profile.svg';
-import profileFill from '../../../images/footer/icon_profile_fill.svg';
+import home from '../../../assets/images/footer/icon_home.svg';
+import homeFill from '../../../assets/images/footer/icon_home_fill.svg';
+import chat from '../../../assets/images/footer/icon_chat.svg';
+import chatFill from '../../../assets/images/footer/icon_chat_fill.svg';
+import write from '../../../assets/images/footer/icon_write.svg';
+import writeFill from '../../../assets/images/footer/icon_write_fill.svg';
+import profile from '../../../assets/images/footer/icon_profile.svg';
+import profileFill from '../../../assets/images/footer/icon_profile_fill.svg';
 
 export const FooterLayout = styled.div`
   display: flex;

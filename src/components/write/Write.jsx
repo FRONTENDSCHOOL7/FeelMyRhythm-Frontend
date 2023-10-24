@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './Write.styled';
-import imageIcon from '../../images/write/icon-image.svg';
+import imageIcon from '../../assets/images/write/icon-image.svg';
 
 export default function Write() {
   return (
