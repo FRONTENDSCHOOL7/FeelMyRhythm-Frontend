@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import ProfileNav from '../../components/profile/ProfileNav';
 import Footer from '../../components/common/Footer/Footer';
-import ProfileInfo from '../../components/profile/ProfileInfo';
-import ProfilePlayList from '../../components/profile/ProfilePlayList';
-import ProfilePostList from '../../components/profile/ProfilePostList';
+import ProfileInfo from '../../components/profile/ProfileInfo/ProfileInfo';
+import ProfilePlayList from '../../components/profile/PlayList/ProfilePlayList';
+import ProfilePostList from '../../components/profile/PostList/ProfilePostList';
 import ProfileModal from '../../components/profile/ProfileModal';
 import styled from 'styled-components';
 
