@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-import kakao from '../../assets/images/randingPage/logo_kakao.svg';
-import google from '../../assets/images/randingPage/logo_google.svg';
-import facebook from '../../assets/images/randingPage/logo_facebook.svg';
 
 export const RandingPageLayout = styled.main`
   display: flex;
@@ -53,28 +50,6 @@ export const LoginBtn = styled.button`
     left: 14px;
   }
 `;
-
-export const KakaoBtn = styled(LoginBtn)`
-  border: 1px solid #f2c94c;
-  &::before {
-    background-image: url(${kakao});
-  }
-`;
-
-export const GoogleBtn = styled(LoginBtn)`
-  border: 1px solid #767676;
-  &::before {
-    background-image: url(${google});
-  }
-`;
-
-export const FacebookBtn = styled(LoginBtn)`
-  border: 1px solid #2d9cdb;
-  &::before {
-    background-image: url(${facebook});
-  }
-`;
-
 export const SignBox = styled.div`
   display: flex;
   justify-content: center;
