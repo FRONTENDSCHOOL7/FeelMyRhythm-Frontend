@@ -11,25 +11,5 @@ module.exports = {
   bracketSameLine: true,
   jsxBracketSameLine: true,
   arrowParens: 'always',
-  quoteProps: 'as-needed',
-  importOrder: [
-    '^react(.*)',
-    '^@tanstack/(.*)$',
-    '^@map/(.*)$',
-    '^@marker/(.*)$',
-    '^@utils/(.*)$',
-    '^@stores/(.*)$',
-    '^@hooks/(.*)$',
-    '^@common/(.*)$',
-    '^@components/(.*)$',
-    '^@ui/(.*)$',
-    '^App',
-    '^mocks',
-    '^style/(.*)$',
-    '^@constants',
-    '^[./]',
-    '^types'
-  ],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true
+  quoteProps: 'as-needed'
 };

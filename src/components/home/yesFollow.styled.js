@@ -102,24 +102,20 @@ export const IconsBox = styled.div`
   display: flex;
   flex-direction: row;
   width: 304px;
-  margin-top: 12px;
-  margin-left: 54px;
+  padding-top: 12px;
+  padding-left: 54px;
 `;
 
 export const StyledHeartBox = styled.div`
-  width: 20px;
-  height: 20px;
-  margin-right: 6px;
+  cursor: pointer;
 `;
 
 export const StyledMessageBox = styled.div`
-  width: 20px;
-  height: 20px;
-  margin-right: 6px;
+  cursor: pointer;
 `;
 export const Span = styled.span`
   color: ${styleConstants.textColor};
-  margin-right: 16px;
+  padding-right: 16px;
 `;
 export const Date = styled.p`
   color: ${styleConstants.textColor};

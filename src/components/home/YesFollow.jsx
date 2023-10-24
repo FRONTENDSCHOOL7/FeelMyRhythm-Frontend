@@ -52,12 +52,14 @@ const UserProfile = ({
       </S.ContentsBox>
 
       <S.IconsBox>
-        <S.StyledHeartBox onClick={handleLike}>{isLiked ? <ColoredHearIcon /> : <HeartIcon />}</S.StyledHeartBox>
-        <S.Span className='heartnum'>{likes}</S.Span>
+        <S.StyledHeartBox onClick={handleLike}>
+          {isLiked ? <ColoredHearIcon /> : <HeartIcon />}
+          <S.Span className='heartnum'>{likes}</S.Span>
+        </S.StyledHeartBox>
         <S.StyledMessageBox>
           <MessageIcon />
+          <S.Span className='messnum'>{comments}</S.Span>
         </S.StyledMessageBox>
-        <S.Span className='messnum'>{comments}</S.Span>
       </S.IconsBox>
       <S.Date>{date}</S.Date>
     </S.ContainerBox>
