@@ -27,7 +27,8 @@ export default function SignUp() {
   // 유저 정보 onChange
   const handleChangeUserInfo = (e) => {
     e.target.type === 'email' && setUserInfo({ ...userInfo, user: { ...userInfo.user, email: e.target.value } });
-    e.target.type === 'password' && setUserInfo({ ...userInfo, user: { ...userInfo.user, password: e.target.value } });
+    (e.target.type === 'password' || e.target.type === 'text') &&
+      setUserInfo({ ...userInfo, user: { ...userInfo.user, password: e.target.value } });
   };
 
   // 이메일 중복확인 API
