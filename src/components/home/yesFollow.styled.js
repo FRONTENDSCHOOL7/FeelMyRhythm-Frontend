@@ -80,7 +80,10 @@ export const Button = styled.button`
   margin: 0;
   cursor: pointer;
 `;
-
+export const ContentsBox = styled.div`
+  margin-left: 54px;
+  cursor: pointer;
+`;
 export const P = styled.p`
   color: #000;
   font-family: ${styleConstants.fontFamily};
@@ -88,13 +91,11 @@ export const P = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-left: 54px;
   margin-top: 12px;
 `;
 
 export const Img = styled.img`
   margin-top: 16px;
-  margin-left: 54px;
   height: 228px;
 `;
 export const IconsBox = styled.div`

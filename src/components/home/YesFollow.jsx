@@ -46,9 +46,10 @@ const UserProfile = ({
           <KebabIcon />
         </S.Button>
       </S.AboutUserBox>
-
-      <S.P>{description}</S.P>
-      <S.Img src={photo} alt={altText} />
+      <S.ContentsBox>
+        <S.P>{description}</S.P>
+        <S.Img src={photo} alt={altText} />
+      </S.ContentsBox>
 
       <S.IconsBox>
         <S.StyledHeartBox onClick={handleLike}>{isLiked ? <ColoredHearIcon /> : <HeartIcon />}</S.StyledHeartBox>
