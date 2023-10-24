@@ -1,15 +1,15 @@
 import React from 'react';
 import Header from '../../components/common/Header/Header';
 import Footer from '../../components/common/Footer/Footer';
-import Write from '../../components/write/Write';
-import { WriteLayout } from './Write.styled';
+import WriteComment from '../../components/write/comment'
+import * as S from './Write.styled';
 
 export default function WritePage() {
   return (
-    <WriteLayout>
+    <S.WriteLayout>
       <Header />
-      <Write />
+      <WriteComment />
       <Footer />
-    </WriteLayout>
+    </S.WriteLayout>
   );
 }
