@@ -64,7 +64,7 @@ export const Button = styled.button`
   border: none;
 
   margin-top: 14px;
-  padding: 13px 148px;
+  padding: 13px 143px;
 
   color: #fff;
 
