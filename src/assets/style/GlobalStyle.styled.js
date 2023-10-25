@@ -6,12 +6,12 @@ ${reset}
 
 * {
   box-sizing: border-box;
+  font-family: 'Spoqa Han Sans Neo';
 }
 
 body {
   display: flex;
   justify-content: center;
-  font-family: 'Spoqa Han Sans Neo';
   line-height: normal;
 }
 
