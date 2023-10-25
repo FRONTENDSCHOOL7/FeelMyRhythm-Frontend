@@ -5,7 +5,7 @@ import search from '../../../assets/images/navbar/icon_search.svg';
 import arrowLeft from '../../../assets/images/navbar/icon-arrow-left.svg';
 import KebabBtn from '../../../assets/images/navbar/icon_kebab.svg';
 
-export default function Header() {
+export default function Header({ postContent, writeMutate }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -13,6 +13,10 @@ export default function Header() {
 
   const handleSearchClick = () => {
     navigate('/home/search');
+  };
+
+  const onCreatePost = () => {
+    writeMutate(postContent);
   };
 
   return (
@@ -26,13 +30,14 @@ export default function Header() {
       {pathname === '/write' && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
-          <S.KebabBtnImg src={KebabBtn} />
+          <S.SaveBtn valid={postContent.post.content !== '' ? 'done' : 'none'} onClick={onCreatePost}>
+            업로드
+          </S.SaveBtn>
         </>
       )}
       {pathname === '/post' && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
-          <S.SaveBtn>업로드</S.SaveBtn>
         </>
       )}
       {pathname === '/profile' && (
