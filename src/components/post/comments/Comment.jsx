@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './Comment.styled';
-import profile1 from '../../../assets/images/write/Ellipse 4.png';
-import profile2 from '../../../assets/images/write/Ellipse 4-2.png';
+import profile1 from '../../../assets/images/post/Ellipse 4.png';
+import profile2 from '../../../assets/images/post/Ellipse 4-2.png';
 
 export default function Comment() {
   const comments = [

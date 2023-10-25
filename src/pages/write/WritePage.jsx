@@ -1,15 +1,13 @@
 import React from 'react';
-import NavBar from '../../components/common/NavBar/NavBar';
-import WriteComment from '../../components/write/comment/Comment';
-import CommentWrite from '../../components/write/comment/CommentWrite';
 import * as S from './WritePage.styled';
+import NavBar from '../../components/common/NavBar/NavBar';
+import Write from '../../components/write/Write';
 
 export default function WritePage() {
   return (
-    <S.WriteLayout>
+    <S.WritePageLayout>
       <NavBar />
-      <WriteComment />
-      <CommentWrite />
-    </S.WriteLayout>
+      <Write />
+    </S.WritePageLayout>
   );
 }
