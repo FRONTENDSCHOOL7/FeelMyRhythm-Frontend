@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../../components/common/NavBar/NavBar';
+import Main from '../../components/write/comment/Main';
 import WriteComment from '../../components/write/comment/Comment';
 import CommentWrite from '../../components/write/comment/CommentWrite';
 import * as S from './WritePage.styled';
