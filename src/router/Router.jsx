@@ -12,7 +12,7 @@ import SignUpPage from '../pages/sign/signUp/SignUpPage';
 import ProfileSettingPage from '../pages/sign/signUp/ProfileSettingPage';
 import SignInPage from '../pages/sign/signIn/SignInPage';
 import Default from '../pages/default/Default';
-import Post from '../pages/post/Post';
+import Post from '../pages/post/PostPage';
 
 export default function AppRouter() {
   return (
