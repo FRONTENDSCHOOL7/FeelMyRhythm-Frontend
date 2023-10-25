@@ -67,9 +67,11 @@ export const FollowerImgBox = styled.div`
   img {
     width: 100%;
   }
+  cursor: pointer;
 `;
 export const FollowerTextBox = styled.div`
   width: 62%;
+  cursor: pointer;
 `;
 export const FollowerTitleContent = styled.p`
   font-size: 14px;
