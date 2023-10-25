@@ -7,7 +7,6 @@ const styleConstants = {
   fontFamily: "'Spoqa Han Sans Neo', sans-serif"
 };
 
-// 베이스 컨테이너 스타일을 위한 공통 컴포넌트
 const FlexCenterContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -25,7 +24,7 @@ export const StyledGamgulLogo = styled.div`
   margin-bottom: 20px;
 `;
 
-export const P = styled.p`
+export const SuggestContent = styled.p`
   color: ${styleConstants.textColor};
   text-align: center;
   font-family: ${styleConstants.fontFamily};

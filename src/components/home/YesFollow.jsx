@@ -24,13 +24,10 @@ const UserProfile = ({
   const [likes, setLikes] = useState(initialLikes);
 
   const handleLike = () => {
-    if (!isLiked) {
-      setLikes(likes + 1);
-    } else {
-      setLikes(likes - 1);
-    }
+    setLikes(isLiked ? likes - 1 : likes + 1);
     setIsLiked(!isLiked);
   };
+
   return (
     <S.ContainerBox>
       <S.AboutUserBox>
@@ -39,22 +36,27 @@ const UserProfile = ({
           <S.H2>{username}</S.H2>
           <S.H3>{handle}</S.H3>
         </S.UserInfoBox>
-        <S.Button>
+        <S.Button
+          onClick={(e) => {
+            e.stopPropagation();
+          }}>
           <KebabIcon />
         </S.Button>
       </S.AboutUserBox>
-
-      <S.P>{description}</S.P>
-      <S.Img src={photo} alt={altText} />
+      <S.ContentsBox>
+        <S.DescriptionContent>{description}</S.DescriptionContent>
+        <S.Img src={photo} alt={altText} />
+      </S.ContentsBox>
 
       <S.IconsBox>
         <S.StyledHeartBox onClick={handleLike}>{isLiked ? <ColoredHearIcon /> : <HeartIcon />}</S.StyledHeartBox>
-        <S.Span className='heartnum'>{likes}</S.Span>
+        <S.NumBox className='heartnum'>{likes}</S.NumBox>
         <S.StyledMessageBox>
           <MessageIcon />
         </S.StyledMessageBox>
-        <S.Span className='messnum'>{comments}</S.Span>
+        <S.NumBox className='messnum'>{comments}</S.NumBox>
       </S.IconsBox>
+
       <S.Date>{date}</S.Date>
     </S.ContainerBox>
   );
@@ -67,10 +69,10 @@ export default function Default() {
       username: '애월읍 위니브 감귤농장',
       handle: '@weniv_Mandarin',
       description:
-        '옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게 뛰노는 인생의 힘있다.',
+        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque fugiat accusamus, quidem repellendus iusto incidunt, accusantium enim tenetur architecto neque corrupti modi recusandae aperiam exercitationem iure? Impedit totam qui corporis aliquid ad, optio quam quos nam aspernatur, dicta voluptas nihil magni id ipsa dignissimos hic iure? Tempore voluptates quo eligendi.',
       photo: PostImage,
       altText: '감귤사진',
-      likes: 100,
+      likes: 9,
       comments: 12,
       date: '2020년 10월 21일'
     },
@@ -82,7 +84,7 @@ export default function Default() {
         '옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게 뛰노는 인생의 힘있다.',
       photo: PostImage,
       altText: '감귤사진',
-      likes: 120,
+      likes: 13,
       comments: 12,
       date: '2020년 10월 21일'
     },
@@ -90,11 +92,10 @@ export default function Default() {
       profileImage: ProfileImage3,
       username: '감귤의 품격-애월읍',
       handle: '@mandarin_king',
-      description:
-        '옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게 뛰노는 인생의 힘있다.',
+      description: '옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다~!',
       photo: PostImage,
       altText: '감귤사진',
-      likes: 40,
+      likes: 4032,
       comments: 12,
       date: '2020년 10월 21일'
     }
