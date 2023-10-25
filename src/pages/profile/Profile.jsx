@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ProfileNav from '../../components/profile/ProfileNav';
-import Footer from '../../components/common/Footer/Footer';
+import NavBar from '../../components/common/NavBar/NavBar';
+import TabMenu from '../../components/common/TabMenu/TabMenu';
 import ProfileInfo from '../../components/profile/ProfileInfo';
 import ProfilePlayList from '../../components/profile/ProfilePlayList';
 import ProfilePostList from '../../components/profile/ProfilePostList';
@@ -16,11 +16,12 @@ export default function Profile() {
   const [modal, setModal] = useState(false);
   return (
     <ContBox>
-      <ProfileNav modal={modal} setModal={setModal} />
+      <NavBar />
+      {/* <ProfileNav modal={modal} setModal={setModal} /> */}
       <ProfileInfo />
       <ProfilePlayList />
       <ProfilePostList />
-      <Footer />
+      <TabMenu />
       {modal ? <ProfileModal /> : ''}
     </ContBox>
   );
