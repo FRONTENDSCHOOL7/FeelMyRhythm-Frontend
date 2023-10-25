@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import * as S from './Footer.styled';
+import * as S from './TabMenu.styled';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Footer() {

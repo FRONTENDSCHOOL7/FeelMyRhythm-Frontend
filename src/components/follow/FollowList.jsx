@@ -9,7 +9,6 @@ export default function PostFollowers() {
 
   return (
     <S.ProfileFollowersLayout>
-      {/* nav bar 추가 */}
       <S.FollowerRowBox>
         <S.FollowerBox>
           <S.FollowerImgBox onClick={() => navigate('/profile')}>

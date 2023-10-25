@@ -1,16 +1,24 @@
 import styled from 'styled-components';
-import home from '../../../assets/images/footer/icon_home.svg';
-import homeFill from '../../../assets/images/footer/icon_home_fill.svg';
-import chat from '../../../assets/images/footer/icon_chat.svg';
-import chatFill from '../../../assets/images/footer/icon_chat_fill.svg';
-import write from '../../../assets/images/footer/icon_write.svg';
-import writeFill from '../../../assets/images/footer/icon_write_fill.svg';
-import profile from '../../../assets/images/footer/icon_profile.svg';
-import profileFill from '../../../assets/images/footer/icon_profile_fill.svg';
+import home from '../../../assets/images/tabmenu/icon_home.svg';
+import homeFill from '../../../assets/images/tabmenu/icon_home_fill.svg';
+import chat from '../../../assets/images/tabmenu/icon_chat.svg';
+import chatFill from '../../../assets/images/tabmenu/icon_chat_fill.svg';
+import write from '../../../assets/images/tabmenu/icon_write.svg';
+import writeFill from '../../../assets/images/tabmenu/icon_write_fill.svg';
+import profile from '../../../assets/images/tabmenu/icon_profile.svg';
+import profileFill from '../../../assets/images/tabmenu/icon_profile_fill.svg';
 
 export const FooterLayout = styled.div`
+  width: 100vw;
   display: flex;
+  justify-content: center;
   gap: 14px;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+
+  background-color: #fff;
+  border-top: 0.5px solid #dbdbdb;
 
   padding-left: 6px;
   padding-right: 6px;

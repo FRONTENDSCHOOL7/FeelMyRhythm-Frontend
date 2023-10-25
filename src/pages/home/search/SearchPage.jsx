@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from '../../../components/common/Footer/Footer';
+import TabMenu from '../../../components/common/TabMenu/TabMenu';
 import SearchHeader from '../../../components/home/search/SearchHeader';
 import Search from '../../../components/home/search/Search';
 import * as S from './searchPage.styled';
@@ -9,7 +9,7 @@ export default function SearchPage() {
     <S.HomeLayout>
       <SearchHeader />
       <Search />
-      <Footer />
+      <TabMenu />
     </S.HomeLayout>
   );
 }
