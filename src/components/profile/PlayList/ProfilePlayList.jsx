@@ -8,10 +8,10 @@ export default function ProfilePlaylist() {
     <S.ProfilePlayListLayout>
       <S.TitleContent>좋아하는 글</S.TitleContent>
       <S.PLContainerBox>
-        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음집'} userId={'@' + 'esoby'} />
-        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음'} userId={'@' + 'esobyesobyesobyesoby'} />
-        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음'} userId={'@' + 'esoby'} />
-        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음'} userId={'@' + 'esoby'} />
+        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음집'} userid={'esoby'} />
+        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음'} userId={'esobyesobyesobyesoby'} />
+        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음'} userId={'esoby'} />
+        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음'} userId={'esoby'} />
       </S.PLContainerBox>
     </S.ProfilePlayListLayout>
   );
