@@ -1,24 +1,34 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as S from './ProfileInfo.styled';
-import basicProfile from '../../assets/images/profile/basic-profile-img.svg';
+import basicProfile from '../../../assets/images/profile/basic-profile-img.svg';
 import ProfileInfoBtn from './ProfileInfoBtn';
 import ProfileMyInfoBtn from './ProfileInfoMyBtn';
 
 export default function ProfileInfo() {
-  const user_flag = false;
+  const user_flag = true;
+  const navigate = useNavigate();
+
+  const handleFollowClick = (url) => {
+    navigate('/' + url);
+  };
 
   return (
     <S.ProfileInfoLayout>
       <S.RowBox>
         <S.ColBox>
-          <S.FollowNum $fontColor='#000'>2950</S.FollowNum>
+          <S.FollowNum onClick={() => handleFollowClick('followers')} $fontColor='#000'>
+            2950
+          </S.FollowNum>
           <S.FollowText>followers</S.FollowText>
         </S.ColBox>
         <S.ImgBox>
           <img src={basicProfile} alt='회원 프로필 사진'></img>
         </S.ImgBox>
         <S.ColBox>
-          <S.FollowNum $fontColor='#767676'>128</S.FollowNum>
+          <S.FollowNum onClick={() => handleFollowClick('followings')} $fontColor='#767676'>
+            128
+          </S.FollowNum>
           <S.FollowText>followings</S.FollowText>
         </S.ColBox>
       </S.RowBox>

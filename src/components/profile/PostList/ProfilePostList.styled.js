@@ -1,17 +1,10 @@
-import styled, { css } from 'styled-components';
-
-const mainColor = `#f26e22`;
-
-const common = css`
-  line-height: normal;
-  box-sizing: border-box;
-`;
+import styled from 'styled-components';
 
 export const ProfilePostListLayout = styled.div`
-  ${common}
   width: 100vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #fff;
   margin-top: 6px;
 `;
@@ -26,11 +19,10 @@ export const PostListHeader = styled.header`
   background: #fff;
   border-left: none;
   border-right: none;
-  /*  */
 `;
 
-const change_svg = `
-  svg path {
+const set_button_dark = `
+  path {
     fill: #767676;
     stroke: #767676;
   }
@@ -45,7 +37,7 @@ export const HamButton = styled.button`
   border: none;
   background-color: #fff;
   margin-right: 16px;
-  ${({ $flag }) => ($flag ? change_svg : '')}
+  ${({ $flag }) => ($flag ? set_button_dark : '')}
 `;
 
 export const BentoButton = styled.button`
@@ -57,36 +49,15 @@ export const BentoButton = styled.button`
   border: none;
   background-color: #fff;
   margin-right: 16px;
-  ${({ $flag }) => ($flag ? '' : change_svg)}
+  ${({ $flag }) => ($flag ? '' : set_button_dark)}
 `;
 
 export const PostListBox = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const PostBox = styled.div`
-  width: 100vw;
-  height: 200px;
-  background-color: skyblue;
-  margin-bottom: 20px;
-`;
-
-export const PostAlbumBox = styled.div`
-  width: 100vw;
+  width: 390px;
   display: flex;
   flex-wrap: wrap;
-  padding: 16px;
-`;
 
-export const PostThumbnailBox = styled.div`
-  display: flex;
-  flex-shrink: 0;
-  width: 114px;
-  height: 114px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-
-  /* ee */
-  background-color: skyblue;
+  ${({ $flag }) => {
+    return $flag ? `flex-direction : column;` : `padding: 16px;`;
+  }}
 `;

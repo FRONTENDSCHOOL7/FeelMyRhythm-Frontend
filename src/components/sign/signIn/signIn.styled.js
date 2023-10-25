@@ -31,7 +31,7 @@ export const SubContent = styled.p`
 
 export const Input = styled.input`
   width: 100%;
-
+  height: 32px;
   padding: 0;
   border: none;
   outline: none;
@@ -64,7 +64,7 @@ export const Button = styled.button`
   border: none;
 
   margin-top: 14px;
-  padding: 13px 148px;
+  padding: 13px 143px;
 
   color: #fff;
 

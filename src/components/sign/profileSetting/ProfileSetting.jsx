@@ -140,7 +140,7 @@ export default function ProfileSetting() {
     mutationFn: createUser,
     onSuccess: () => {
       window.localStorage.removeItem('loginInfo');
-      navigate('/home');
+      navigate('/signin');
     }
   });
 
@@ -155,7 +155,7 @@ export default function ProfileSetting() {
       userNameRef.current.focus();
       return;
     }
-    if (warningAccountName !== '사용 가능한 계정ID 입니다.' || accountname === '') {
+    if (accountname === '' || warningAccountName !== '사용 가능한 계정ID 입니다.') {
       accountNameRef.current.focus();
       return;
     }
@@ -197,6 +197,7 @@ export default function ProfileSetting() {
           <S.Input
             type='text'
             placeholder='영문, 숫자, 특수문자(.),(_)만 사용 가능'
+            ref={accountNameRef}
             onChange={(e) => handleChangeUserInfo(e, 'accountname')}
           />
           <S.CheckaccountButton

@@ -1,14 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const mainColor = `#f26e22`;
 
-const common = css`
-  line-height: normal;
-  box-sizing: border-box;
-`;
-
 export const ProfileInfoLayout = styled.div`
-  ${common}
   width: 100vw;
   height: 314px;
   display: flex;
@@ -49,6 +43,7 @@ export const FollowNum = styled.p`
   color: ${({ $fontColor }) => $fontColor};
   font-size: 18px;
   font-weight: 700;
+  cursor: pointer;
 `;
 
 export const TitleContent = styled.p`
@@ -76,14 +71,14 @@ export const RowButtonBox = styled(RowBox)`
   margin-top: 24px;
 `;
 
-export const IconButton = styled.button`
-  width: 34px;
-  height: 34px;
-  border-radius: 30px;
-  border: 1px solid var(--DBDBDB, #dbdbdb);
-  background-color: #fff;
-  padding-top: 3px;
-`;
+// export const IconButton = styled.button`
+//   width: 34px;
+//   height: 34px;
+//   border-radius: 30px;
+//   border: 1px solid var(--DBDBDB, #dbdbdb);
+//   background-color: #fff;
+//   padding-top: 3px;
+// `;
 
 export const FollowButton = styled.button`
   color: ${({ $follow }) => (!$follow ? '#dbdbdb' : '#fff')};

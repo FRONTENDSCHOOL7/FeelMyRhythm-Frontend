@@ -10,12 +10,12 @@ export const DefaultLayout = styled.div`
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
-  min-height: 712px;
+  /* min-height: 712px; */
   width: 390px;
   overflow-y: auto;
   overflow-x: hidden;
   margin-top: 24px;
-  gap: 24px;
+  /* gap: 24px; */
 `;
 export const ContainerBox = styled.div`
   display: flex;
@@ -29,7 +29,6 @@ export const AboutUserBox = styled.div`
   align-items: center;
   width: 358px;
   position: relative;
-  cursor: pointer;
 `;
 
 export const StyledProfileImg = styled.img`
@@ -58,7 +57,6 @@ export const H2 = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin-bottom: 2px;
 `;
 export const H3 = styled.h3`
   color: ${styleConstants.textColor};
@@ -80,55 +78,45 @@ export const Button = styled.button`
   margin: 0;
   cursor: pointer;
 `;
-export const ContentsBox = styled.div`
-  margin-left: 54px;
-  cursor: pointer;
-`;
-export const DescriptionContent = styled.p`
+
+export const P = styled.p`
   color: #000;
   font-family: ${styleConstants.fontFamily};
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-left: 54px;
   margin-top: 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 export const Img = styled.img`
   margin-top: 16px;
+  margin-left: 54px;
   height: 228px;
 `;
 export const IconsBox = styled.div`
   display: flex;
   flex-direction: row;
-  padding-top: 12px;
-  padding-left: 54px;
-  align-items: center;
-  gap: 6px;
+  width: 304px;
+  margin-top: 12px;
+  margin-left: 54px;
 `;
 
 export const StyledHeartBox = styled.div`
   width: 20px;
   height: 20px;
-
-  cursor: pointer;
+  margin-right: 6px;
 `;
 
 export const StyledMessageBox = styled.div`
   width: 20px;
   height: 20px;
-
-  cursor: pointer;
+  margin-right: 6px;
 `;
-export const NumBox = styled.div`
+export const Span = styled.span`
   color: ${styleConstants.textColor};
-  font-size: 12px;
-  padding-right: 10px;
+  margin-right: 16px;
 `;
 export const Date = styled.p`
   color: ${styleConstants.textColor};
@@ -136,6 +124,7 @@ export const Date = styled.p`
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
-  padding-left: 54px;
-  padding-top: 16px;
+  line-height: 12px;
+  margin-left: 54px;
+  margin-top: 16px;
 `;
