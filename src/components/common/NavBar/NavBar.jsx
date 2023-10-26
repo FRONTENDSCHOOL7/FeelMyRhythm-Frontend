@@ -9,8 +9,6 @@ export default function Header() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  console.log(pathname);
-
   const handleSearchClick = () => {
     navigate('/home/search');
   };
@@ -35,19 +33,19 @@ export default function Header() {
           <S.SaveBtn>업로드</S.SaveBtn>
         </>
       )}
-      {pathname === '/profile' && (
+      {pathname.includes('profile') && !pathname.includes('follow') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.KebabBtnImg src={KebabBtn} />
         </>
       )}
-      {pathname === '/followers' && (
+      {pathname.includes('follower') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.HeaderContent>Followers</S.HeaderContent>
         </>
       )}
-      {pathname === '/followings' && (
+      {pathname.includes('following') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.HeaderContent>Followings</S.HeaderContent>
