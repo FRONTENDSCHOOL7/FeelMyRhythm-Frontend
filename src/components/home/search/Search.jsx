@@ -3,17 +3,17 @@ import * as S from './userProfile.styled';
 import UserProfile from './UserProfile';
 
 export default function Search({ searchResults }) {
-  const displayData = searchResults.length ? searchResults : searchResults;
-
+  const usernames = searchResults.map((profile) => profile.username);
   return (
     <S.SearchLayout>
-      {displayData.map((profile, index) => (
+      {searchResults.map((profile, index) => (
         <UserProfile
           key={index}
           src={profile.image}
           alt='profile'
           userName={profile.username}
           handle={profile.accountname}
+          color={usernames.includes(profile.username) ? 'orange' : '#000'}
         />
       ))}
     </S.SearchLayout>
