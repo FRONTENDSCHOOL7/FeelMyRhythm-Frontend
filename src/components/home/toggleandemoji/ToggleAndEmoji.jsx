@@ -1,16 +1,13 @@
 import React from 'react';
-import * as S from './toggleAndEmoji.styled';
+import * as S from './toggleandemoji.styled';
+import Toggle from './toggle/Toggle';
+import Emoji from './emoji/Emoji';
 
 export default function ToggleAndEmoji() {
   return (
     <S.SecondBarLayout>
-      <S.ToggleBox>
-        <label className='switch'>
-          <S.Input type='checkbox' />
-          <S.Slider />
-        </label>
-      </S.ToggleBox>
-      <S.EmojiBox>😀</S.EmojiBox>
+      <Toggle />
+      <Emoji />
     </S.SecondBarLayout>
   );
 }
