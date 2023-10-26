@@ -9,7 +9,7 @@ export const HeaderLayout = styled.div`
   align-items: center;
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 9999;
 
   background-color: #fff;
 
