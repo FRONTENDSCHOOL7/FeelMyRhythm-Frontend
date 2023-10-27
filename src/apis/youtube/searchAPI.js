@@ -4,7 +4,7 @@ export const youtubeSearch = async (keyword) => {
   const { data } = await youtubeAPI.get('search', {
     params: {
       part: 'snippet',
-      maxResults: 25,
+      maxResults: 10,
       type: 'video',
       q: keyword
     }

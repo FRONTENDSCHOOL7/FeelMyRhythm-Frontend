@@ -4,15 +4,16 @@ import NavBar from '../../components/common/NavBar/NavBar';
 import Write from '../../components/write/Write';
 import { useMutation } from '@tanstack/react-query';
 import { createPost } from '../../apis/write/writeAPI';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function WritePage() {
   const navigate = useNavigate();
-
+  const { state } = useLocation();
+  console.log(state);
   const [postContent, setPostContent] = useState({
     post: {
       content: '',
-      image: ''
+      image: state === null ? 'ms7-3' : `ms7-3🈳${state.id}🈳${state.title}🈳${state.thumbnail}`
     }
   });
 
@@ -34,7 +35,12 @@ export default function WritePage() {
   return (
     <S.WritePageLayout>
       <NavBar postContent={postContent} writeMutate={writeMutate} />
-      <Write postContent={postContent} setPostContent={setPostContent} handleChangeInput={handleChangeInput} />
+      <Write
+        state={state}
+        postContent={postContent}
+        setPostContent={setPostContent}
+        handleChangeInput={handleChangeInput}
+      />
     </S.WritePageLayout>
   );
 }

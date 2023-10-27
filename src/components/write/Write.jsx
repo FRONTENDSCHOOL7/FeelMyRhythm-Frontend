@@ -1,8 +1,11 @@
 import React from 'react';
-import * as S from './Write.sytled';
+import * as S from './Write.styled';
 import userlogo from '../../assets/images/write/profile-img.png';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function Write({ postContent, handleChangeInput }) {
+export default function Write({ state, postContent, handleChangeInput }) {
+  const navigate = useNavigate();
+
   return (
     <S.WriteLayout>
       <S.Upload>
@@ -14,7 +17,13 @@ export default function Write({ postContent, handleChangeInput }) {
           onChange={(e) => handleChangeInput(e)}
         />
       </S.Upload>
-      <S.UploadBtn type='button'></S.UploadBtn>
+      {state && (
+        <S.VideoBox>
+          <S.Video src={`http://www.youtube.com/embed/${state.id}`} />
+          <S.VideoContent>{state.title}</S.VideoContent>
+        </S.VideoBox>
+      )}
+      <S.UploadBtn type='button' onClick={() => navigate('/youtubesearch')} />
     </S.WriteLayout>
   );
 }
