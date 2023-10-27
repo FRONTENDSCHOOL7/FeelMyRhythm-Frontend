@@ -4,7 +4,6 @@ const mainColor = `#f26e22`;
 
 export const ProfileInfoLayout = styled.div`
   width: 100vw;
-  height: 314px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -13,6 +12,8 @@ export const ProfileInfoLayout = styled.div`
   border: 0.5px solid #dbdbdb;
   border-left: none;
   border-right: none;
+  padding-top: 78px;
+  padding-bottom: 26px;
 `;
 
 export const RowBox = styled.div`
@@ -31,6 +32,15 @@ export const ImgBox = styled.div`
   height: 110px;
   border-radius: 50%;
   margin: 0 40px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dbdbdb;
+  & img {
+    min-width: 110px;
+    min-height: 110px;
+  }
 `;
 
 export const FollowText = styled.p`

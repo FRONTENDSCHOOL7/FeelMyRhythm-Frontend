@@ -6,12 +6,10 @@ import arrowLeft from '../../../assets/images/navbar/icon-arrow-left.svg';
 import KebabBtn from '../../../assets/images/navbar/icon_kebab.svg';
 import Modal from '../Modal/Modal';
 
-export default function Header() {
+export default function Header({ postContent, writeMutate }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  console.log(pathname);
 
   const handleSearchClick = () => {
     navigate('/home/search');
@@ -23,7 +21,10 @@ export default function Header() {
 
   const handleKebabClick = () => {
     setIsModalOpen(true);
-  };
+
+  const onCreatePost = () => {
+    writeMutate(postContent);
+
 
   return (
     <S.HeaderLayout>
@@ -37,27 +38,29 @@ export default function Header() {
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
+          <S.SaveBtn valid={postContent.post.content !== '' ? 'done' : 'none'} onClick={onCreatePost}>
+            업로드
+          </S.SaveBtn>
         </>
       )}
       {pathname === '/post' && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
-          <S.SaveBtn>업로드</S.SaveBtn>
         </>
       )}
-      {pathname === '/profile' && (
+      {pathname.includes('profile') && !pathname.includes('follow') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
         </>
       )}
-      {pathname === '/followers' && (
+      {pathname.includes('follower') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.HeaderContent>Followers</S.HeaderContent>
         </>
       )}
-      {pathname === '/followings' && (
+      {pathname.includes('following') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.HeaderContent>Followings</S.HeaderContent>

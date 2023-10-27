@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const WriteLayout = styled.div`
-  display: flex;
-  flex-direction: column;
+export const WritePageLayout = styled.div`
   height: 100vh;
+  width: 100vw;
 `;

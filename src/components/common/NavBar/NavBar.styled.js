@@ -44,7 +44,7 @@ export const KebabBtnImg = styled.img`
 `;
 
 export const SaveBtn = styled.button`
-  background-color: #ffc7a7;
+  background-color: ${({ valid }) => (valid === 'done' ? '#F26E22' : '#FFC7A7')};
   border-radius: 32px;
 
   margin-left: auto;
