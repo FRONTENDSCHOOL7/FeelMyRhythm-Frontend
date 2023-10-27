@@ -13,7 +13,6 @@ function App() {
       readUserInfo()
         .then(({ user }) => {
           setMyInfo(user);
-          console.log(user);
           return user;
         })
         .catch((error) => error),

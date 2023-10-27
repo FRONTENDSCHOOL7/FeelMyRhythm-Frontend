@@ -58,3 +58,13 @@ export const SaveBtn = styled.button`
 
   border: none;
 `;
+
+export const YoutubeSearchInput = styled.input`
+  width: 60%;
+  margin-left: 4px;
+  padding-left: 7px;
+  border-radius: 32px;
+  background: #f2f2f2;
+  border: none;
+  outline: none;
+`;

@@ -13,6 +13,8 @@ import ProfileSettingPage from '../pages/sign/signUp/ProfileSettingPage';
 import SignInPage from '../pages/sign/signIn/SignInPage';
 import Default from '../pages/default/Default';
 import Post from '../pages/post/PostPage';
+import YoutubeSearch from '../pages/write/YoutubeSearchPage';
+import YoutubeVideoDetail from '../pages/write/YoutubeVideoDetail';
 
 export default function AppRouter() {
   return (
@@ -30,6 +32,8 @@ export default function AppRouter() {
       <Route path='/signin' element={<SignInPage />} />
       <Route path='/post' element={<Post />} />
       <Route path='/*' element={<Default />} />
+      <Route path='youtubesearch' element={<YoutubeSearch />} />
+      <Route path='youtubesearch/:id' element={<YoutubeVideoDetail />} />
     </Routes>
   );
 }

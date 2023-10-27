@@ -4,12 +4,19 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import search from '../../../assets/images/navbar/icon_search.svg';
 import arrowLeft from '../../../assets/images/navbar/icon-arrow-left.svg';
 import KebabBtn from '../../../assets/images/navbar/icon_kebab.svg';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { atomYoutubeSearchCount, atomYoutubeSearchKeyword } from '../../../store/store';
 import Modal from '../Modal/Modal';
+
 
 export default function Header({ postContent, writeMutate }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { state } = useLocation();
+  const setYoutubeSearchCount = useSetRecoilState(atomYoutubeSearchCount);
+  const [youtubeSearchKeyword, setYoutubeSearchKeyword] = useRecoilState(atomYoutubeSearchKeyword);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const handleSearchClick = () => {
     navigate('/home/search');
@@ -25,6 +32,14 @@ export default function Header({ postContent, writeMutate }) {
   const onCreatePost = () => {
     writeMutate(postContent);
 
+
+  const onSearchVideo = () => {
+    setYoutubeSearchCount((prev) => prev + 1);
+  };
+
+  const handleOnchangeInput = (e) => {
+    setYoutubeSearchKeyword(e.target.value);
+  };
 
   return (
     <S.HeaderLayout>
@@ -71,6 +86,17 @@ export default function Header({ postContent, writeMutate }) {
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.HeaderContent>user_name</S.HeaderContent>
           <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
+        </>
+      )}
+      {pathname.includes('/youtubesearch') && (
+        <>
+          <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+        </>
+      )}
+      {pathname === '/youtubesearch' && (
+        <>
+          <S.YoutubeSearchInput value={youtubeSearchKeyword} onChange={(e) => handleOnchangeInput(e)} />
+          <S.SaveBtn onClick={onSearchVideo}>검색</S.SaveBtn>
         </>
       )}
       <Modal isOpen={isModalOpen} onClose={toggleModal}></Modal>
