@@ -1,14 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const mainColor = `#f26e22`;
 
-const common = css`
-  line-height: normal;
-  box-sizing: border-box;
-`;
-
 export const ProfileFollowersLayout = styled.div`
-  ${common}
   width: 100vw;
   background: #fff;
 
@@ -17,31 +11,8 @@ export const ProfileFollowersLayout = styled.div`
   flex-direction: column;
 `;
 
-export const ProfileHeaderLayout = styled.div`
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  height: 48px;
-
-  border-bottom: 0.5px solid #dbdbdb;
-  background-color: #fff;
-`;
-
-export const NavButton = styled.button`
-  border: none;
-  background-color: #fff;
-  width: fit-content;
-  height: fit-content;
-  padding: 3px 0 0 16px;
-`;
-
-export const NavContent = styled.p`
-  font-size: 14px;
-  margin-left: 8px;
-`;
-
 export const FollowerRowBox = styled.div`
-  padding: 24px 16px;
+  padding: 0 16px;
 
   display: flex;
   flex-direction: column;

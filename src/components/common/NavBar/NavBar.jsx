@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './NavBar.styled';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import search from '../../../assets/images/navbar/icon_search.svg';
@@ -6,6 +6,8 @@ import arrowLeft from '../../../assets/images/navbar/icon-arrow-left.svg';
 import KebabBtn from '../../../assets/images/navbar/icon_kebab.svg';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { atomYoutubeSearchCount, atomYoutubeSearchKeyword } from '../../../store/store';
+import Modal from '../Modal/Modal';
+
 
 export default function Header({ postContent, writeMutate }) {
   const navigate = useNavigate();
@@ -13,14 +15,23 @@ export default function Header({ postContent, writeMutate }) {
   const { state } = useLocation();
   const setYoutubeSearchCount = useSetRecoilState(atomYoutubeSearchCount);
   const [youtubeSearchKeyword, setYoutubeSearchKeyword] = useRecoilState(atomYoutubeSearchKeyword);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const handleSearchClick = () => {
     navigate('/home/search');
   };
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleKebabClick = () => {
+    setIsModalOpen(true);
+
   const onCreatePost = () => {
     writeMutate(postContent);
-  };
+
 
   const onSearchVideo = () => {
     setYoutubeSearchCount((prev) => prev + 1);
@@ -41,6 +52,7 @@ export default function Header({ postContent, writeMutate }) {
       {pathname === '/write' && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+          <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
           <S.SaveBtn valid={postContent.post.content !== '' ? 'done' : 'none'} onClick={onCreatePost}>
             업로드
           </S.SaveBtn>
@@ -51,19 +63,19 @@ export default function Header({ postContent, writeMutate }) {
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
         </>
       )}
-      {pathname === '/profile' && (
+      {pathname.includes('profile') && !pathname.includes('follow') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
-          <S.KebabBtnImg src={KebabBtn} />
+          <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
         </>
       )}
-      {pathname === '/followers' && (
+      {pathname.includes('follower') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.HeaderContent>Followers</S.HeaderContent>
         </>
       )}
-      {pathname === '/followings' && (
+      {pathname.includes('following') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.HeaderContent>Followings</S.HeaderContent>
@@ -73,7 +85,7 @@ export default function Header({ postContent, writeMutate }) {
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.HeaderContent>user_name</S.HeaderContent>
-          <S.KebabBtnImg src={KebabBtn} />
+          <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
         </>
       )}
       {pathname.includes('/youtubesearch') && (
@@ -87,6 +99,7 @@ export default function Header({ postContent, writeMutate }) {
           <S.SaveBtn onClick={onSearchVideo}>검색</S.SaveBtn>
         </>
       )}
+      <Modal isOpen={isModalOpen} onClose={toggleModal}></Modal>
     </S.HeaderLayout>
   );
 }

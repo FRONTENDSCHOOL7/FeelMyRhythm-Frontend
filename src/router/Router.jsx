@@ -24,9 +24,9 @@ export default function AppRouter() {
       <Route path='/home/search' element={<SearchPage />} />
       <Route path='/chat' element={<Chat />} />
       <Route path='/write' element={<Write />} />
-      <Route path='/profile' element={<Profile />} />
-      <Route path='/followers' element={<Followers />} />
-      <Route path='/followings' element={<Followings />} />
+      <Route path='/profile/:accountname' element={<Profile />} />
+      <Route path='/profile/:accountname/follower' element={<Followers />} />
+      <Route path='/profile/:accountname/following' element={<Followings />} />
       <Route path='/signup' element={<SignUpPage />} />
       <Route path='/profilesetting' element={<ProfileSettingPage />} />
       <Route path='/signin' element={<SignInPage />} />

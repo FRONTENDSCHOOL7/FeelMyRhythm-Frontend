@@ -1,27 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './FollowList.styled';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
+import { followUser } from '../../apis/profile/followAPI';
+import { unfollowUser } from '../../apis/profile/unfollowAPI';
 import basicProfile from '../../assets/images/profile/basic-profile-img.svg';
 
-export default function PostFollowers() {
-  const [flag, setFlag] = useState(false);
+export default function FollowList({ data }) {
+  const [follow, setFollow] = useState(data.isfollow);
   const navigate = useNavigate();
+
+  const followMutation = useMutation({
+    mutationFn: followUser,
+    onSuccess: (res) => {
+      setFollow(true);
+    },
+    onError: (err) => {}
+  });
+  const unfollowMutation = useMutation({
+    mutationFn: unfollowUser,
+    onSuccess: (res) => {
+      setFollow(false);
+    },
+    onError: (err) => {}
+  });
+
+  useEffect(() => {
+    setFollow(data.isfollow);
+  }, [data.isfollow]);
 
   return (
     <S.ProfileFollowersLayout>
       <S.FollowerRowBox>
         <S.FollowerBox>
-          <S.FollowerImgBox onClick={() => navigate('/profile')}>
-            <img src={basicProfile} alt='' />
+          <S.FollowerImgBox onClick={() => navigate('/profile/' + data.accountname)}>
+            <img src={String(data.image).includes('Ellipse.png') ? basicProfile : data.image} alt='' />
           </S.FollowerImgBox>
-          <S.FollowerTextBox onClick={() => navigate('/profile')}>
-            <S.FollowerTitleContent>애월읍 한라봉 최고 맛집</S.FollowerTitleContent>
-            <S.FollowerIntroContent>정성을 다해 농사짓는 한라봉</S.FollowerIntroContent>
+          <S.FollowerTextBox onClick={() => navigate('/profile/' + data.accountname)}>
+            <S.FollowerTitleContent>{data.username}</S.FollowerTitleContent>
+            <S.FollowerIntroContent>{data.intro}</S.FollowerIntroContent>
           </S.FollowerTextBox>
-          {flag ? (
-            <S.FollowerButton onClick={() => setFlag(!flag)}>팔로우</S.FollowerButton>
+          {!follow ? (
+            <S.FollowerButton onClick={() => followMutation.mutate(data.accountname)}>팔로우</S.FollowerButton>
           ) : (
-            <S.FollowerPauseButton onClick={() => setFlag(!flag)}>취소</S.FollowerPauseButton>
+            <S.FollowerPauseButton onClick={() => unfollowMutation.mutate(data.accountname)}>
+              취소
+            </S.FollowerPauseButton>
           )}
         </S.FollowerBox>
       </S.FollowerRowBox>

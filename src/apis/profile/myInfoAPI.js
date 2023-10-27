@@ -1,7 +1,6 @@
 import { api } from '../baseURL';
 
-// 로그인
 export const readUserInfo = async () => {
-  const { data } = await api.get('/user/myinfo');
+  const { data } = await api.get('/user/myinfo', { timeout: 10000 });
   return data;
 };
