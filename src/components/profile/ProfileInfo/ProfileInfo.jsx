@@ -4,38 +4,41 @@ import * as S from './ProfileInfo.styled';
 import basicProfile from '../../../assets/images/profile/basic-profile-img.svg';
 import ProfileInfoBtn from './ProfileInfoBtn';
 import ProfileMyInfoBtn from './ProfileInfoMyBtn';
+import { atom, useRecoilState, useRecoilValue } from 'recoil';
+import { atomMyInfo } from '../../../store/store';
 
-export default function ProfileInfo() {
-  const user_flag = true;
+export default function ProfileInfo({ profile }) {
+  const user = useRecoilValue(atomMyInfo);
+  const user_flag = user.accountname === profile.accountname;
   const navigate = useNavigate();
 
   const handleFollowClick = (url) => {
-    navigate('/' + url);
+    navigate('/profile/' + profile.accountname + url);
   };
 
   return (
     <S.ProfileInfoLayout>
       <S.RowBox>
         <S.ColBox>
-          <S.FollowNum onClick={() => handleFollowClick('followers')} $fontColor='#000'>
-            2950
+          <S.FollowNum onClick={() => handleFollowClick('/follower')} $fontColor='#000'>
+            {profile.followerCount}
           </S.FollowNum>
           <S.FollowText>followers</S.FollowText>
         </S.ColBox>
         <S.ImgBox>
-          <img src={basicProfile} alt='회원 프로필 사진'></img>
+          <img src={String(profile.image).includes('Ellipse.png') ? basicProfile : profile.image} alt=''></img>
         </S.ImgBox>
         <S.ColBox>
-          <S.FollowNum onClick={() => handleFollowClick('followings')} $fontColor='#767676'>
-            128
+          <S.FollowNum onClick={() => handleFollowClick('/following')} $fontColor='#767676'>
+            {profile.followingCount}
           </S.FollowNum>
           <S.FollowText>followings</S.FollowText>
         </S.ColBox>
       </S.RowBox>
-      <S.TitleContent>애월읍 위니브 감귤농장</S.TitleContent>
-      <S.IDContent>@ weniv_Mandarin</S.IDContent>
-      <S.IntroContent>애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</S.IntroContent>
-      <S.RowButtonBox>{user_flag ? <ProfileMyInfoBtn /> : <ProfileInfoBtn />}</S.RowButtonBox>
+      <S.TitleContent>{profile.username}</S.TitleContent>
+      <S.IDContent>{'@' + profile.accountname}</S.IDContent>
+      <S.IntroContent>{profile.intro}</S.IntroContent>
+      <S.RowButtonBox>{user_flag ? <ProfileMyInfoBtn /> : <ProfileInfoBtn profile={profile} />}</S.RowButtonBox>
     </S.ProfileInfoLayout>
   );
 }
