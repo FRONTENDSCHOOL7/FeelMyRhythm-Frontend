@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './toggleandemoji.styled';
+import * as S from './toggleAndEmoji.styled';
 import Toggle from './toggle/Toggle';
 import Emoji from './emoji/Emoji';
 
