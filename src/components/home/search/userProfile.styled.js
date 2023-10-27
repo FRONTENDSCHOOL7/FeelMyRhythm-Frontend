@@ -19,7 +19,6 @@ export const AboutUserBox = styled.div`
   flex-direction: row;
   align-items: center;
   width: 358px;
-
   position: relative;
 `;
 
@@ -42,7 +41,7 @@ export const UserInfoBox = styled.div`
 `;
 
 export const H2 = styled.h2`
-  color: #000;
+  color: ${(props) => (props.color ? '#F26E22' : '#000')};
   font-family: ${styleConstants.fontFamily};
   font-size: 14px;
   font-style: normal;
