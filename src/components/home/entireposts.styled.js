@@ -13,6 +13,6 @@ export const DefaultLayout = styled.div`
   width: 100vw;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-top: 24px;
+  padding-bottom: 65px;
   gap: 24px;
 `;

@@ -7,13 +7,13 @@ import * as S from './entireposts.styled';
 export default function EntirePosts() {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
 
-  useEffect(() => {
-    console.log('작동하고있니?!?!?!?!');
-  }, [data]);
+  useEffect(() => {}, [data]);
 
   return (
     <S.DefaultLayout>
-      {data && Array.isArray(data.posts) && data.posts.map((post, i) => <UserProfile key={i} {...post} />)}
+      {data &&
+        Array.isArray(data.posts) &&
+        data.posts.map((post, i) => String(post.image).split('🈳')[0] === 'ms7-3' && <UserProfile key={i} {...post} />)}
     </S.DefaultLayout>
   );
 }
