@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 const styleConstants = {
   textColor: '#767676',
   fontFamily: "'Spoqa Han Sans Neo', sans-serif"
@@ -6,14 +7,16 @@ const styleConstants = {
 export const ContainerBox = styled.div`
   display: flex;
   flex-direction: column;
-  height: 434px;
-  width: 358px;
+  /* height: 434px; */
+  /* width: 358px; */
+  width: 100vw;
+  padding: 16px 20px;
 `;
 export const AboutUserBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 358px;
+  /* width: 358px; */
   position: relative;
   cursor: pointer;
 `;
@@ -87,7 +90,7 @@ export const DescriptionContent = styled.p`
 
 export const Img = styled.img`
   margin-top: 16px;
-  height: 228px;
+  height: 220px;
 `;
 export const IconsBox = styled.div`
   display: flex;

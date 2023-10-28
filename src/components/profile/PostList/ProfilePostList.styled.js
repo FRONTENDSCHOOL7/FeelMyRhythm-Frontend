@@ -53,7 +53,6 @@ export const BentoButton = styled.button`
 `;
 
 export const PostListBox = styled.div`
-  width: 390px;
   display: flex;
   flex-wrap: wrap;
   ${({ $flag }) => {

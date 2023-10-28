@@ -9,7 +9,11 @@ export default function PostItem({ flag, post }) {
 
   return (
     <S.PostBox $flag={flag} onClick={() => navigate('/post/' + post.id)}>
-      {flag ? <UserProfile key={post.author.username} {...post} /> : <S.albumImg src={post.image} />}
+      {flag ? (
+        <UserProfile key={post.author.username} {...post} />
+      ) : (
+        <S.albumImg src={String(post.image).split('🈳')[3]} />
+      )}
     </S.PostBox>
   );
 }

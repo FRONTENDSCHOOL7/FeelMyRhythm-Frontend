@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const set_ham = `
   margin-bottom: 20px;
-  padding : 16px 21px;
 `;
 
 const set_ben = `

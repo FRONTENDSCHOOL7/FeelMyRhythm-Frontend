@@ -4,8 +4,14 @@ import { ReactComponent as KebabIcon } from '../../assets/images/home/icon-more-
 import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart.svg';
 import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/heart.svg';
 import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
+import basicProfile from '../../assets/images/home/basic-profile.png';
 
 const UserProfile = ({ author, content, image, createdAt, updatedAt, hearted, heartCount, commentCount }) => {
+  createdAt = new Date(createdAt);
+  const year = createdAt.getFullYear();
+  const month = createdAt.getMonth() + 1;
+  const date = createdAt.getDate();
+  const formatDate = `${year}년 ${month}월 ${date}일`;
   const [isLiked, setIsLiked] = useState(hearted);
   const [likes, setLikes] = useState(heartCount);
 
@@ -17,7 +23,10 @@ const UserProfile = ({ author, content, image, createdAt, updatedAt, hearted, he
   return (
     <S.ContainerBox>
       <S.AboutUserBox>
-        <S.StyledProfileImg src={author.image} alt='프로필' />
+        <S.StyledProfileImg
+          src={String(author.image).includes('Ellipse.png') ? basicProfile : author.image}
+          alt='프로필'
+        />
         <S.UserInfoBox>
           <S.H2>{author.username}</S.H2>
           <S.H3>{author.accountname}</S.H3>
@@ -31,7 +40,7 @@ const UserProfile = ({ author, content, image, createdAt, updatedAt, hearted, he
       </S.AboutUserBox>
       <S.ContentsBox>
         <S.DescriptionContent>{content}</S.DescriptionContent>
-        <S.Img src={image} alt={content} />
+        <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
       </S.ContentsBox>
 
       <S.IconsBox>
@@ -43,8 +52,7 @@ const UserProfile = ({ author, content, image, createdAt, updatedAt, hearted, he
         <S.NumBox className='messnum'>{commentCount}</S.NumBox>
       </S.IconsBox>
 
-      <S.Date>{createdAt}</S.Date>
-      {/*2023년 10월 28일 이런식으로 바꾸고싶음 */}
+      <S.Date>{formatDate}</S.Date>
     </S.ContainerBox>
   );
 };
