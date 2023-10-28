@@ -13,9 +13,7 @@ export default function EntirePosts() {
 
   return (
     <S.DefaultLayout>
-      {data &&
-        Array.isArray(data.posts) &&
-        data.posts.map((post) => <UserProfile key={post.author.username} {...post} />)}
+      {data && Array.isArray(data.posts) && data.posts.map((post, i) => <UserProfile key={i} {...post} />)}
     </S.DefaultLayout>
   );
 }
