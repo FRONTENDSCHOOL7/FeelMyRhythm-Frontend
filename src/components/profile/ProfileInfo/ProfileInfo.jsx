@@ -28,7 +28,7 @@ export default function ProfileInfo() {
         setFollowingCnt(res.profile.followingCount);
         return res;
       }),
-    queryKey: [user.accountname, profile]
+    queryKey: [user.accountname, accountname]
   });
 
   const handleFollowClick = (url) => {
@@ -67,7 +67,9 @@ export default function ProfileInfo() {
           <S.FollowText>followers</S.FollowText>
         </S.ColBox>
         <S.ImgBox>
-          <img src={String(profile.image).includes('Ellipse.png') ? basicProfile : profile.image} alt=''></img>
+          <img
+            src={!profile.image || String(profile.image).includes('Ellipse.png') ? basicProfile : profile.image}
+            alt=''></img>
         </S.ImgBox>
         <S.ColBox>
           <S.FollowNum onClick={() => handleFollowClick('/following')} $fontColor='#767676'>
