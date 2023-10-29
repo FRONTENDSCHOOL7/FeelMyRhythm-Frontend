@@ -5,8 +5,10 @@ import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart
 import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/heart.svg';
 import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
 import basicProfile from '../../assets/images/home/basic-profile.png';
+import { useMutation } from '@tanstack/react-query';
+import { createBookMark, createHeart, createUnHeart } from '../../apis/home/heartAPI';
 
-const UserProfile = ({ author, content, image, createdAt, updatedAt, hearted, heartCount, commentCount }) => {
+const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, commentCount, _id }) => {
   createdAt = new Date(createdAt);
   const year = createdAt.getFullYear();
   const month = createdAt.getMonth() + 1;
@@ -15,7 +17,29 @@ const UserProfile = ({ author, content, image, createdAt, updatedAt, hearted, he
   const [isLiked, setIsLiked] = useState(hearted);
   const [likes, setLikes] = useState(heartCount);
 
-  const handleLike = () => {
+  const { mutate: mutateHeart } = useMutation({
+    mutationFn: createHeart,
+    onSuccess: () => {
+      mutateBookMark({
+        product: {
+          itemName: `ms7-3/${image}`,
+          itemImage: 'null',
+          link: _id,
+          price: 1
+        }
+      });
+    }
+  });
+
+  const { mutate: mutateBookMark } = useMutation({
+    mutationFn: createBookMark,
+    onSuccess: (res) => {
+      console.log(res);
+    }
+  });
+
+  const handleLike = (isLiked) => {
+    mutateHeart(_id);
     setLikes(isLiked ? likes - 1 : likes + 1);
     setIsLiked(!isLiked);
   };
@@ -44,7 +68,9 @@ const UserProfile = ({ author, content, image, createdAt, updatedAt, hearted, he
       </S.ContentsBox>
 
       <S.IconsBox>
-        <S.StyledHeartBox onClick={handleLike}>{isLiked ? <ColoredHearIcon /> : <HeartIcon />}</S.StyledHeartBox>
+        <S.StyledHeartBox onClick={() => handleLike(isLiked)}>
+          {isLiked ? <ColoredHearIcon /> : <HeartIcon />}
+        </S.StyledHeartBox>
         <S.NumBox className='heartnum'>{likes}</S.NumBox>
         <S.StyledMessageBox>
           <MessageIcon />
