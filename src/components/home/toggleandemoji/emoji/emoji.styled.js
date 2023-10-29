@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const EmojiBox = styled.div`
   width: 120px;
   height: 34px;
+  z-index: 10;
 `;
 
 export const ButtonSelected = styled.button`
@@ -52,15 +53,14 @@ export const Ul = styled.ul`
   list-style: none;
   margin-top: 3px;
   padding: 0;
-
   width: 120px;
   border: 1px solid rgba(242, 110, 34, 0.5);
   border-radius: 12px;
   background: white;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
   //0.3초 효과주고싶음 트랜지션,오퍼시티 넣기
-  opacity: ${(props) => (props.isActive ? 1 : 0)};
-  visibility: ${(props) => (props.isActive ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.isEmotionActive ? 1 : 0)};
+  visibility: ${(props) => (props.isEmotionActive ? 'visible' : 'hidden')};
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease;

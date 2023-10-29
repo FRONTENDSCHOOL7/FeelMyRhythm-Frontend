@@ -26,17 +26,19 @@ export default function Header({ postContent, writeMutate }) {
 
   const handleKebabClick = () => {
     setIsModalOpen(true);
+  }
 
-    const onCreatePost = () => {
-      writeMutate(postContent);
+  const onSearchVideo = () => {
+    setYoutubeSearchCount((prev) => prev + 1);
+  };
 
-      const onSearchVideo = () => {
-        setYoutubeSearchCount((prev) => prev + 1);
-      };
-
-      const handleOnchangeInput = (e) => {
-        setYoutubeSearchKeyword(e.target.value);
-      };
+  const onCreatePost = () => {
+    writeMutate(postContent);
+  }
+  
+  const handleOnchangeInput = (e) => {
+    setYoutubeSearchKeyword(e.target.value);
+  };
 
       return (
         <S.HeaderLayout>

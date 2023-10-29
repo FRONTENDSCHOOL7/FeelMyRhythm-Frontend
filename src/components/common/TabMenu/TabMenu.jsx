@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './TabMenu.styled';
+import { atomMyInfo } from '../../../store/store';
+import { useRecoilValue } from 'recoil';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+  const user = useRecoilValue(atomMyInfo);
   const [btnActiveState, setBtnActiveState] = useState('home');
   const navigate = useNavigate();
   const uselocation = useLocation();
-
-  console.log(btnActiveState);
 
   // 새로고침 예외처리
   useEffect(() => {
     uselocation.pathname === '/home' && setBtnActiveState('home');
     uselocation.pathname === '/chat' && setBtnActiveState('chat');
     uselocation.pathname === '/write' && setBtnActiveState('write');
-    uselocation.pathname === '/profile' && setBtnActiveState('profile');
+    uselocation.pathname.includes('/profile/') && setBtnActiveState('profile');
   }, [uselocation]);
 
   // 버튼 상태 변경, 라우팅
   const handleClickState = (btnName) => {
     setBtnActiveState(btnName);
-    navigate(`/${btnName}`);
+    if (btnName === 'profile') navigate(`/${btnName}/${user.accountname}`);
+    else navigate(`/${btnName}`);
   };
 
   return (
