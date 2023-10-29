@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { showEntirePosts } from '../../apis/home/entirePosts';
 import UserProfile from './UserProfile';
-import * as S from './entireposts.styled';
+import * as S from './entirePosts.styled';
 
 export default function EntirePosts() {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
