@@ -10,8 +10,6 @@ export default function Footer() {
   const navigate = useNavigate();
   const uselocation = useLocation();
 
-  console.log(btnActiveState);
-
   // 새로고침 예외처리
   useEffect(() => {
     uselocation.pathname === '/home' && setBtnActiveState('home');
