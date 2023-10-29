@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './noFollow.styled';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as GamgulLogo } from '../../assets/images/home/symbol-logo-gray.svg';
+import { ReactComponent as GamgulLogo } from '../../../assets/images/home/symbol-logo-gray.svg';
 
 export default function Default() {
   const navigate = useNavigate();
