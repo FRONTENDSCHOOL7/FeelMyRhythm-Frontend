@@ -8,7 +8,6 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { atomYoutubeSearchCount, atomYoutubeSearchKeyword } from '../../../store/store';
 import Modal from '../Modal/Modal';
 
-
 export default function Header({ postContent, writeMutate }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -16,7 +15,6 @@ export default function Header({ postContent, writeMutate }) {
   const setYoutubeSearchCount = useSetRecoilState(atomYoutubeSearchCount);
   const [youtubeSearchKeyword, setYoutubeSearchKeyword] = useRecoilState(atomYoutubeSearchKeyword);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
 
   const handleSearchClick = () => {
     navigate('/home/search');
@@ -28,10 +26,10 @@ export default function Header({ postContent, writeMutate }) {
 
   const handleKebabClick = () => {
     setIsModalOpen(true);
-
+  };
   const onCreatePost = () => {
     writeMutate(postContent);
-
+  };
 
   const onSearchVideo = () => {
     setYoutubeSearchCount((prev) => prev + 1);
@@ -52,7 +50,6 @@ export default function Header({ postContent, writeMutate }) {
       {pathname === '/write' && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
-          <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
           <S.SaveBtn valid={postContent.post.content !== '' ? 'done' : 'none'} onClick={onCreatePost}>
             업로드
           </S.SaveBtn>
