@@ -13,6 +13,7 @@ export default function ChatFooter({ onSendMessage }) {
     if (inputValue.trim() !== '') {
       onSendMessage(inputValue);
       setInputValue('');
+      window.scrollTo(0, document.body.scrollHeight);
     }
   };
 
@@ -24,15 +25,17 @@ export default function ChatFooter({ onSendMessage }) {
 
   return (
     <S.ChatFooterLayout>
-      <S.ImgButton>
-        <img src={img} alt='img' />
-      </S.ImgButton>
-      <S.Input
-        value={inputValue}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        placeholder='메시지를 입력하세요'
-      />
+      <S.TempBox>
+        <S.ImgButton>
+          <img src={img} alt='img' />
+        </S.ImgButton>
+        <S.Input
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          placeholder='메시지를 입력하세요'
+        />
+      </S.TempBox>
       <S.SendButton active={inputValue.length > 0} onClick={handleSend}>
         전송
       </S.SendButton>

@@ -1,25 +1,31 @@
 import styled from 'styled-components';
 
 export const ChatFooterLayout = styled.div`
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
   display: flex;
-  padding: 13px 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 0 16px;
   width: 100vw;
   height: 61px;
-  border-bottom: 0.5px solid #dbdbdb;
+`;
+
+export const TempBox = styled.div`
   display: flex;
-  flex-direction: row;
-  padding: 13px 0;
-  border-bottom: 0.5px solid #dbdbdb;
   align-items: center;
-  justify-content: center;
+  gap: 18px;
 `;
 export const ImgButton = styled.button`
   width: auto;
   height: auto;
   border: none;
   background: none;
+  padding: 0;
 `;
 export const Input = styled.input`
+  width: 67vw;
   border: none;
   background: none;
   ::placeholder {
@@ -31,6 +37,7 @@ export const Input = styled.input`
 `;
 
 export const SendButton = styled.button`
+  padding: 0;
   border: none;
   background: none;
   color: ${(props) => (props.active ? '#F26E22' : '#767676')};

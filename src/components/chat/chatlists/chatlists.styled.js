@@ -8,7 +8,7 @@ const STYLE_CONSTANTS = {
 export const ChatListLayout = styled.ul`
   display: flex;
   flex-direction: column;
-  padding-top: 24px;
+  padding-top: 72px;
   gap: 20px;
   min-height: 712px;
   width: 100vw;
@@ -23,6 +23,7 @@ export const ChatListItem = styled.li`
   flex-direction: row;
   align-items: center;
   position: relative;
+  cursor: pointer;
 `;
 
 export const AlertIcon = styled.img`
