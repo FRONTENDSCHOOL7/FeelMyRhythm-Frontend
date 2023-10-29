@@ -4,6 +4,7 @@ import RandingPage from '../pages/randing/RandingPage';
 import Home from '../pages/home/Home';
 import SearchPage from '../pages/home/search/SearchPage';
 import Chat from '../pages/chat/Chat';
+import ChatRoom from '../pages/chat/ChatRoom';
 import Write from '../pages/write/WritePage';
 import Profile from '../pages/profile/Profile';
 import Followers from '../pages/followers/Followers';
@@ -23,6 +24,7 @@ export default function AppRouter() {
       <Route path='/home' element={<Home />} />
       <Route path='/home/search' element={<SearchPage />} />
       <Route path='/chat' element={<Chat />} />
+      <Route path='/chat/:accountname' element={<ChatRoom />} />
       <Route path='/write' element={<Write />} />
       <Route path='/profile/:accountname' element={<Profile />} />
       <Route path='/profile/:accountname/follower' element={<Followers />} />

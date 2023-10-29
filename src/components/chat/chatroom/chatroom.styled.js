@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const ChatRoomLayout = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 24px;
+  padding-top: 72px;
+  padding-bottom: 72px;
   gap: 9px;
   min-height: 712px;
   width: 100vw;
@@ -13,7 +14,7 @@ export const ChatRoomLayout = styled.div`
 export const OthersChatBox = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  /* width: 100vw; */
   padding-left: 16px;
 `;
 export const MessageWrapperBox = styled.div`
@@ -38,6 +39,7 @@ export const SpeechBubbleBox = styled.div`
   background-color: white;
   padding: 12px;
   max-width: 240px;
+  word-wrap: break-word;
   color: #000;
   border: 1px solid #c4c4c4;
   border-radius: 0px 12px 12px 12px;
@@ -63,20 +65,21 @@ export const MeChatBox = styled.div`
   flex-direction: row;
   width: 100vw;
   justify-content: flex-end;
-  margin-right: 16px;
+  padding-right: 16px;
 `;
 
 export const MeMessageWrapperBox = styled.div`
   display: flex;
   flex-direction: row;
-  margin-right: 16px;
+  padding-right: 16px;
 `;
 
 export const MeSpeechBubbleBox = styled.div`
   padding: 12px;
   max-width: 240px;
+  word-wrap: break-word;
   background-color: #f26e22;
-  border: 1px solid #c4c4c4;
+  /* border: 1px solid #c4c4c4; */
   border-radius: 12px 12px 0px 12px;
   color: #fff;
   font-family: 'Spoqa Han Sans Neo';

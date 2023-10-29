@@ -4,7 +4,7 @@ import { atomMyInfo } from '../../../store/store';
 import { useRecoilValue } from 'recoil';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function Footer() {
+export default function TabMenu() {
   const user = useRecoilValue(atomMyInfo);
   const [btnActiveState, setBtnActiveState] = useState('home');
   const navigate = useNavigate();
