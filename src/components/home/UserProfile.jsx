@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as S from './userprofile.styled';
+import * as S from './userProfile.styled';
 import { ReactComponent as KebabIcon } from '../../assets/images/home/icon-more-vertical.svg';
 import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart.svg';
 import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/heart.svg';
