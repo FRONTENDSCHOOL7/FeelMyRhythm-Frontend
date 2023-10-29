@@ -72,6 +72,9 @@ export const IntroContent = styled.p`
   color: #767676;
   font-size: 14px;
   margin-top: 16px;
+  word-wrap: break-word;
+  text-align: center;
+  width: 60vw;
 `;
 
 export const RowButtonBox = styled(RowBox)`
