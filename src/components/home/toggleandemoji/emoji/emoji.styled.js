@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const EmojiBox = styled.div`
   width: 120px;
   height: 34px;
+  z-index: 10;
 `;
 
 export const ButtonSelected = styled.button`
@@ -52,7 +53,6 @@ export const Ul = styled.ul`
   list-style: none;
   margin-top: 3px;
   padding: 0;
-
   width: 120px;
   border: 1px solid rgba(242, 110, 34, 0.5);
   border-radius: 12px;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const SecondBarLayout = styled.div`
   width: 100vw;
   height: 47px;
-
   margin-top: 47px;
   display: flex;
   flex-direction: row;
