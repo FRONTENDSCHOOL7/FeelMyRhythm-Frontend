@@ -39,6 +39,70 @@ export default function Header({ postContent, writeMutate }) {
     setYoutubeSearchKeyword(e.target.value);
   };
 
+      return (
+        <S.HeaderLayout>
+          {pathname === '/home' && (
+            <>
+              <S.HeaderTitle>Music 피드</S.HeaderTitle>
+              <S.SearchImg src={search} onClick={handleSearchClick} />
+            </>
+          )}
+          {pathname === '/write' && (
+            <>
+              <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+              <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
+              <S.SaveBtn valid={postContent.post.content !== '' ? 'done' : 'none'} onClick={onCreatePost}>
+                업로드
+              </S.SaveBtn>
+            </>
+          )}
+          {pathname === '/post' && (
+            <>
+              <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+            </>
+          )}
+          {pathname.includes('profile') && !pathname.includes('follow') && (
+            <>
+              <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+              <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
+            </>
+          )}
+          {pathname.includes('follower') && (
+            <>
+              <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+              <S.HeaderContent>Followers</S.HeaderContent>
+            </>
+          )}
+          {pathname.includes('following') && (
+            <>
+              <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+              <S.HeaderContent>Followings</S.HeaderContent>
+            </>
+          )}
+          {pathname === '/chat' && (
+            <>
+              <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+              <S.HeaderContent>user_name</S.HeaderContent>
+              <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
+            </>
+          )}
+          {pathname.includes('/youtubesearch') && (
+            <>
+              <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+            </>
+          )}
+          {pathname === '/youtubesearch' && (
+            <>
+              <S.YoutubeSearchInput value={youtubeSearchKeyword} onChange={(e) => handleOnchangeInput(e)} />
+              <S.SaveBtn onClick={onSearchVideo}>검색</S.SaveBtn>
+            </>
+          )}
+          <Modal isOpen={isModalOpen} onClose={toggleModal}></Modal>
+        </S.HeaderLayout>
+      );
+    };
+  };
+
   return (
     <S.HeaderLayout>
       {pathname === '/home' && (
@@ -99,4 +163,5 @@ export default function Header({ postContent, writeMutate }) {
       <Modal isOpen={isModalOpen} onClose={toggleModal}></Modal>
     </S.HeaderLayout>
   );
+
 }
