@@ -1,10 +1,9 @@
 import React from 'react';
 import * as S from './PostItem.styled';
-import UserProfile from '../../home/UserProfile';
 import { useNavigate } from 'react-router-dom';
+import UserProfile from '../../home/UserProfile';
 
 export default function PostItem({ flag, post }) {
-  console.log('postitem :', post);
   const navigate = useNavigate();
 
   return (
