@@ -24,7 +24,7 @@ const UserProfile = ({ author, content, image, createdAt, updatedAt, hearted, he
     <S.ContainerBox>
       <S.AboutUserBox>
         <S.StyledProfileImg
-          src={String(author.image).includes('Ellipse.png') ? basicProfile : author.image}
+          src={String(author.image).includes('Ellipse.png') || !author.image ? basicProfile : author.image}
           alt='프로필'
         />
         <S.UserInfoBox>
