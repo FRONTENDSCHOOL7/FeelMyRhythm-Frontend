@@ -8,7 +8,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { atomYoutubeSearchCount, atomYoutubeSearchKeyword } from '../../../store/store';
 import Modal from '../Modal/Modal';
 
-export default function NavBar({ postContent, writeMutate, chatUser }) {
+export default function NavBar({ postContent, writeMutate, chatUser, isToggled }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const setYoutubeSearchCount = useSetRecoilState(atomYoutubeSearchCount);
@@ -16,7 +16,11 @@ export default function NavBar({ postContent, writeMutate, chatUser }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSearchClick = () => {
-    navigate('/home/search');
+    if (isToggled) {
+      navigate('/home/searchuser');
+    } else {
+      navigate('/home/searchpost');
+    }
   };
 
   const toggleModal = () => {
@@ -25,7 +29,7 @@ export default function NavBar({ postContent, writeMutate, chatUser }) {
 
   const handleKebabClick = () => {
     setIsModalOpen(true);
-  }
+  };
 
   const onSearchVideo = () => {
     setYoutubeSearchCount((prev) => prev + 1);
@@ -33,8 +37,8 @@ export default function NavBar({ postContent, writeMutate, chatUser }) {
 
   const onCreatePost = () => {
     writeMutate(postContent);
-  }
-  
+  };
+
   const handleOnchangeInput = (e) => {
     setYoutubeSearchKeyword(e.target.value);
   };

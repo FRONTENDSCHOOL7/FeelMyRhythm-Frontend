@@ -58,7 +58,6 @@ export const Ul = styled.ul`
   border-radius: 12px;
   background: white;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-  //0.3초 효과주고싶음 트랜지션,오퍼시티 넣기
   opacity: ${(props) => (props.isEmotionActive ? 1 : 0)};
   visibility: ${(props) => (props.isEmotionActive ? 'visible' : 'hidden')};
   transition:

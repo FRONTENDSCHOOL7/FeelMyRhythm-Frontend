@@ -9,6 +9,7 @@ export default function Emoji() {
   const handleButtonClick = () => {
     setIsEmotionActive(!isEmotionActive);
   };
+
   const handleListItemClick = (emotion) => {
     setSelectedEmotion(emotion);
     setIsEmotionActive(false);
@@ -20,7 +21,7 @@ export default function Emoji() {
         {selectedEmotion}
       </S.ButtonSelected>
 
-      <S.Ul $isEmotionActive={isEmotionActive}>
+      <S.Ul isEmotionActive={isEmotionActive}>
         {arrayEmotions.map((emotion, index) => (
           <S.Li key={index} onClick={() => handleListItemClick(emotion)}>
             <S.ButtonSelect type='button'>{emotion}</S.ButtonSelect>
