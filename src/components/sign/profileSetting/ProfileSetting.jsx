@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import { createAccountNameValid, createImage, createUser } from '../../../apis/sign/signUpAPI';
 import { useMutation } from '@tanstack/react-query';
 import { AiOutlineCheck } from 'react-icons/ai';
+import { async } from 'q';
 
 export default function ProfileSetting() {
   const [userInfo, setUserInfo] = useState({
-    user: { email: '', password: '', username: '', accountname: '', intro: '' }
+    user: { email: '', password: '', username: '', accountname: '', intro: 'ms7-3/' }
   });
 
   const [base64Image, setBase64Image] = useState('');
@@ -22,7 +23,7 @@ export default function ProfileSetting() {
 
   const [isButtonState, setIsButtonState] = useState(false);
 
-  const { username, accountname } = userInfo.user;
+  const { username, accountname, intro } = userInfo.user;
   const userNameRef = useRef(null);
   const accountNameRef = useRef(null);
   const navigate = useNavigate();
@@ -42,7 +43,8 @@ export default function ProfileSetting() {
     inputName === 'username' && setUserInfo({ ...userInfo, user: { ...userInfo.user, username: e.target.value } });
     inputName === 'accountname' &&
       setUserInfo({ ...userInfo, user: { ...userInfo.user, accountname: e.target.value } });
-    inputName === 'intro' && setUserInfo({ ...userInfo, user: { ...userInfo.user, intro: e.target.value } });
+    inputName === 'intro' && setUserInfo({ ...userInfo, user: { ...userInfo.user, intro: 'ms7-3/' + e.target.value } });
+    console.log(userInfo);
   };
 
   // 미리보기 이미지 생성
@@ -160,10 +162,11 @@ export default function ProfileSetting() {
       return;
     }
     if (warningAccountName === '사용 가능한 계정ID 입니다.' && warningUserName === '' && username !== '') {
-      if (image !== '') mutateCreateImage(form);
-      else {
-        mutateCreateUser(userInfo);
+      if (image !== '') {
+        mutateCreateImage(form);
+        return;
       }
+      mutateCreateUser(userInfo);
     }
   };
 
