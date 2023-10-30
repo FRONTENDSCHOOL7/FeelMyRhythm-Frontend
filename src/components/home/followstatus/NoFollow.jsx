@@ -6,7 +6,7 @@ import { ReactComponent as GamgulLogo } from '../../../assets/images/home/symbol
 export default function Default() {
   const navigate = useNavigate();
   const handleSearchClick = () => {
-    navigate('/home/search');
+    navigate('/home/searchuser');
   };
 
   return (

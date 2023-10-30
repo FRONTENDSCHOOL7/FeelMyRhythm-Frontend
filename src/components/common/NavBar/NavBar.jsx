@@ -16,7 +16,7 @@ export default function NavBar({ postContent, writeMutate, chatUser }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSearchClick = () => {
-    navigate('/home/search');
+    navigate('/home/searchuser');
   };
 
   const toggleModal = () => {

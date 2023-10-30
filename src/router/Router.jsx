@@ -2,7 +2,8 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import RandingPage from '../pages/randing/RandingPage';
 import Home from '../pages/home/Home';
-import SearchPage from '../pages/home/search/SearchPage';
+import SearchUserPage from '../pages/home/search/SearchUserPage';
+import SearchPostPage from '../pages/home/search/SearchPostPage';
 import Chat from '../pages/chat/Chat';
 import ChatRoom from '../pages/chat/ChatRoom';
 import Write from '../pages/write/WritePage';
@@ -22,7 +23,8 @@ export default function AppRouter() {
     <Routes>
       <Route path='/' element={<RandingPage />} />
       <Route path='/home' element={<Home />} />
-      <Route path='/home/search' element={<SearchPage />} />
+      <Route path='/home/searchuser' element={<SearchUserPage />} />
+      <Route path='/home/searchpost' element={<SearchPostPage />} />
       <Route path='/chat' element={<Chat />} />
       <Route path='/chat/:accountname' element={<ChatRoom />} />
       <Route path='/write' element={<Write />} />
