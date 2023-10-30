@@ -25,7 +25,7 @@ export default function NavBar({ postContent, writeMutate, chatUser }) {
 
   const handleKebabClick = () => {
     setIsModalOpen(true);
-  }
+  };
 
   const onSearchVideo = () => {
     setYoutubeSearchCount((prev) => prev + 1);
@@ -33,8 +33,8 @@ export default function NavBar({ postContent, writeMutate, chatUser }) {
 
   const onCreatePost = () => {
     writeMutate(postContent);
-  }
-  
+  };
+
   const handleOnchangeInput = (e) => {
     setYoutubeSearchKeyword(e.target.value);
   };

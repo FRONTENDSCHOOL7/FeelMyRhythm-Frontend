@@ -7,12 +7,15 @@ export default function Emoji() {
 
   const arrayEmotions = ['전체', '😆', '😠', '😭'];
   const handleButtonClick = () => {
+    console.log('버튼 클릭, isEmotionActive 상태:', !isEmotionActive);
     setIsEmotionActive(!isEmotionActive);
   };
+
   const handleListItemClick = (emotion) => {
     setSelectedEmotion(emotion);
     setIsEmotionActive(false);
   };
+  console.log('렌더링...', { isEmotionActive });
 
   return (
     <S.EmojiBox>
@@ -20,7 +23,7 @@ export default function Emoji() {
         {selectedEmotion}
       </S.ButtonSelected>
 
-      <S.Ul $isEmotionActive={isEmotionActive}>
+      <S.Ul isEmotionActive={isEmotionActive}>
         {arrayEmotions.map((emotion, index) => (
           <S.Li key={index} onClick={() => handleListItemClick(emotion)}>
             <S.ButtonSelect type='button'>{emotion}</S.ButtonSelect>
