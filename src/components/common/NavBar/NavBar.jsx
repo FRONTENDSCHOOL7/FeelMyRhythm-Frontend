@@ -59,7 +59,7 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled }
           </S.SaveBtn>
         </>
       )}
-      {pathname === '/post' && (
+      {pathname.includes('/post') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
         </>
