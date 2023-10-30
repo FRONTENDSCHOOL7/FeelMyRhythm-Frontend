@@ -36,7 +36,7 @@ export default function AppRouter() {
       <Route path='/signup' element={<SignUpPage />} />
       <Route path='/profilesetting' element={<ProfileSettingPage />} />
       <Route path='/signin' element={<SignInPage />} />
-      <Route path='/post' element={<Post />} />
+      <Route path='/post/:id' element={<Post />} />
       <Route path='/*' element={<Default />} />
       <Route path='youtubesearch' element={<YoutubeSearch />} />
       <Route path='youtubesearch/:id' element={<YoutubeVideoDetail />} />
