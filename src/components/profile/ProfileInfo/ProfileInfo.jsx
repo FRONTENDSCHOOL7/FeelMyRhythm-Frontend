@@ -57,6 +57,10 @@ export default function ProfileInfo() {
     setFollow(profile.isfollow);
   }, [profile.isfollow]);
 
+  const onNavigateProfileUpdate = () => {
+    navigate('/profile/update');
+  };
+
   return (
     <S.ProfileInfoLayout>
       <S.RowBox>
@@ -82,7 +86,11 @@ export default function ProfileInfo() {
       <S.IDContent>{'@' + profile.accountname}</S.IDContent>
       <S.IntroContent>{profile.intro}</S.IntroContent>
       <S.RowButtonBox>
-        {userFlag && <S.LinkButton $width='120px'>프로필 수정</S.LinkButton>}
+        {userFlag && (
+          <S.LinkButton $width='120px' onClick={onNavigateProfileUpdate}>
+            프로필 수정
+          </S.LinkButton>
+        )}
         {!userFlag && follow && (
           <S.FollowButton
             $follow=''

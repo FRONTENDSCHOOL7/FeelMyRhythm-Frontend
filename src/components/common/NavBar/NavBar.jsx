@@ -8,9 +8,10 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { atomYoutubeSearchCount, atomYoutubeSearchKeyword } from '../../../store/store';
 import Modal from '../Modal/Modal';
 
-export default function NavBar({ postContent, writeMutate, chatUser, isToggled }) {
+export default function NavBar({ postContent, writeMutate, chatUser, isToggled, onProfileUpdate, profileBtnState }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { params } = useParams();
   const setYoutubeSearchCount = useSetRecoilState(atomYoutubeSearchCount);
   const [youtubeSearchKeyword, setYoutubeSearchKeyword] = useRecoilState(atomYoutubeSearchKeyword);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -64,7 +65,7 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled }
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
         </>
       )}
-      {pathname.includes('profile') && !pathname.includes('follow') && (
+      {pathname.includes('profile') && !pathname.includes('follow') && !pathname.includes('update') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
@@ -104,6 +105,14 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled }
         <>
           <S.YoutubeSearchInput value={youtubeSearchKeyword} onChange={(e) => handleOnchangeInput(e)} />
           <S.SaveBtn onClick={onSearchVideo}>검색</S.SaveBtn>
+        </>
+      )}
+      {pathname === '/profile/update' && (
+        <>
+          <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+          <S.SaveBtn valid={profileBtnState === true ? 'done' : 'none'} onClick={onProfileUpdate}>
+            저장
+          </S.SaveBtn>
         </>
       )}
       <Modal isOpen={isModalOpen} onClose={toggleModal}></Modal>
