@@ -1,17 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './ProfilePlayList.styled';
-import test_img from '../../../assets/images/profile/basic-profile-img.svg';
+import { useQuery } from '@tanstack/react-query';
+import { useParams } from 'react-router-dom';
 import PlayItem from './PlayItem';
+import { readProductList } from '../../../apis/profile/productListAPI';
 
 export default function ProfilePlaylist() {
+  const { accountname } = useParams();
+  const [playList, setPlayList] = useState([]);
+  const { data, err } = useQuery({
+    queryFn: () =>
+      readProductList(accountname).then((res) => {
+        setPlayList(res.product);
+        return res;
+      }),
+    queryKey: [accountname]
+  });
+
   return (
     <S.ProfilePlayListLayout>
       <S.TitleContent>좋아하는 글</S.TitleContent>
       <S.PLContainerBox>
-        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음집'} userid={'esoby'} />
-        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음'} userId={'esobyesobyesobyesoby'} />
-        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음'} userId={'esoby'} />
-        <PlayItem img={test_img} title={'잔나비 명곡 어쩌구 모음'} userId={'esoby'} />
+        {playList.map((v, i) => (
+          <PlayItem
+            key={i}
+            img={String(v.itemName).split('🈳')[3]}
+            title={String(v.itemName).split('🈳')[2]}
+            postId={v.id}
+            userId={v.itemImage}
+          />
+        ))}
       </S.PLContainerBox>
     </S.ProfilePlayListLayout>
   );
