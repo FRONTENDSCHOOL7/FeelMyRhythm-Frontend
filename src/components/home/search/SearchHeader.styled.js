@@ -5,6 +5,7 @@ export const SearchHeaderLayout = styled.div`
   flex-direction: row;
   padding: 13px 0;
   border-bottom: 0.5px solid #dbdbdb;
+  width: 100vh;
   gap: 20px;
   align-items: center;
   justify-content: center;
@@ -34,7 +35,6 @@ export const SearchBox = styled.input`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding-left: 16px;
   }
 
   &:focus {
