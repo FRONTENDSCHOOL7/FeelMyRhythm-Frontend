@@ -7,9 +7,11 @@ import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-mes
 import basicProfile from '../../assets/images/home/basic-profile.png';
 import { useMutation } from '@tanstack/react-query';
 import { createBookMark, createHeart, createUnHeart } from '../../apis/home/heartAPI';
+import { useNavigate } from 'react-router';
 
 const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, commentCount, _id }) => {
   createdAt = new Date(createdAt);
+  const navigate = useNavigate();
   const year = createdAt.getFullYear();
   const month = createdAt.getMonth() + 1;
   const date = createdAt.getDate();
@@ -23,7 +25,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
       mutateBookMark({
         product: {
           itemName: `ms7-3/${image}`,
-          itemImage: author.accountname,
+          itemImage: 'null',
           link: _id,
           price: 1
         }
@@ -44,6 +46,10 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
     setIsLiked(!isLiked);
   };
 
+  const onNavigateDetailPost = () => {
+    navigate(`/post/${_id}`);
+  };
+
   return (
     <S.ContainerBox>
       <S.AboutUserBox>
@@ -62,22 +68,23 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
           <KebabIcon />
         </S.Button>
       </S.AboutUserBox>
-      <S.ContentsBox>
-        <S.DescriptionContent>{content}</S.DescriptionContent>
-        <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
-      </S.ContentsBox>
+      <div onClick={onNavigateDetailPost}>
+        <S.ContentsBox>
+          <S.DescriptionContent>{content}</S.DescriptionContent>
+          <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
+        </S.ContentsBox>
 
-      <S.IconsBox>
-        <S.StyledHeartBox onClick={() => handleLike(isLiked)}>
-          {isLiked ? <ColoredHearIcon /> : <HeartIcon />}
-        </S.StyledHeartBox>
-        <S.NumBox className='heartnum'>{likes}</S.NumBox>
-        <S.StyledMessageBox>
-          <MessageIcon />
-        </S.StyledMessageBox>
-        <S.NumBox className='messnum'>{commentCount}</S.NumBox>
-      </S.IconsBox>
-
+        <S.IconsBox>
+          <S.StyledHeartBox onClick={() => handleLike(isLiked)}>
+            {isLiked ? <ColoredHearIcon /> : <HeartIcon />}
+          </S.StyledHeartBox>
+          <S.NumBox className='heartnum'>{likes}</S.NumBox>
+          <S.StyledMessageBox>
+            <MessageIcon />
+          </S.StyledMessageBox>
+          <S.NumBox className='messnum'>{commentCount}</S.NumBox>
+        </S.IconsBox>
+      </div>
       <S.Date>{formatDate}</S.Date>
     </S.ContainerBox>
   );
