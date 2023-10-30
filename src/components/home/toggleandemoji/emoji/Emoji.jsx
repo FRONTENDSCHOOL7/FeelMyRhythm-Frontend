@@ -7,7 +7,6 @@ export default function Emoji() {
 
   const arrayEmotions = ['전체', '😆', '😠', '😭'];
   const handleButtonClick = () => {
-    console.log('버튼 클릭, isEmotionActive 상태:', !isEmotionActive);
     setIsEmotionActive(!isEmotionActive);
   };
 
@@ -15,7 +14,6 @@ export default function Emoji() {
     setSelectedEmotion(emotion);
     setIsEmotionActive(false);
   };
-  console.log('렌더링...', { isEmotionActive });
 
   return (
     <S.EmojiBox>
