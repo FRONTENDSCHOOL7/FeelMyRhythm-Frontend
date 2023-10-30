@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import * as S from './SearchHeader.styled.js';
-import arrow from '../../../assets/images/home/icon-arrow-left.svg';
+import arrow from '../../../../assets/images/home/icon-arrow-left.svg';
 import { useNavigate } from 'react-router-dom';
-import { searchUser } from '../../../apis/searchUser/searchUser.js';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { searchUser } from '../../../../apis/searchUser/searchUser.js';
+import { useQuery } from '@tanstack/react-query';
 
 export default function SearchHeader({ setSearchResults }) {
   const navigate = useNavigate();
