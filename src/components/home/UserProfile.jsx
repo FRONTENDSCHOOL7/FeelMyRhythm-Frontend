@@ -23,7 +23,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
       mutateBookMark({
         product: {
           itemName: `ms7-3/${image}`,
-          itemImage: 'null',
+          itemImage: author.accountname,
           link: _id,
           price: 1
         }
