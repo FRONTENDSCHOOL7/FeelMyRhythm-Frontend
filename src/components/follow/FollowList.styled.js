@@ -33,6 +33,7 @@ export const FollowerImgBox = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50px;
+  overflow: hidden;
   border: 0.5px solid #dbdbdb;
   background-color: #dbdbdb;
   img {
