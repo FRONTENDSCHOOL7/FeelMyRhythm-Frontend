@@ -7,7 +7,7 @@ export const SearchHeaderLayout = styled.div`
   padding: 13px 0;
   border-bottom: 0.5px solid #dbdbdb;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding-left: 16px;
   padding-right: 12px;
   height: 48px;
