@@ -54,15 +54,6 @@ export default function ProfileUpdate({
     };
   };
 
-  // 새로고침 로그인 데이터 휘발 방지
-  useEffect(() => {
-    const loginInfo = JSON.parse(window.localStorage.getItem('loginInfo'));
-    setUserInfo({
-      ...userInfo,
-      user: { ...userInfo.user, email: loginInfo.user.email, password: loginInfo.user.password }
-    });
-  }, []);
-
   // 사용자 이름 유효성 검사
   useEffect(() => {
     if (username !== '' && (username.length < 2 || username.length > 10)) {
@@ -83,6 +74,7 @@ export default function ProfileUpdate({
       setWarningAccountName('');
     }
   }, [userInfo]);
+
   // 계정 ID 중복확인
   const onClickAccountNameValid = (e) => {
     e.preventDefault();

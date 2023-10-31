@@ -3,13 +3,15 @@ import ProfileUpdate from '../../components/profile/ProfileInfo/ProfileUpdate';
 import NavBar from '../../components/common/NavBar/NavBar';
 import { useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../store/store';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { updateProfile } from '../../apis/profile/myInfoAPI';
 import { useNavigate } from 'react-router';
 import { createImage } from '../../apis/sign/signUpAPI';
 
 export default function ProfileUpdatePage() {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
   const myInfo = useRecoilValue(atomMyInfo);
 
   const [userInfo, setUserInfo] = useState({
@@ -41,6 +43,7 @@ export default function ProfileUpdatePage() {
   const { mutate: mutateUpdateProfile } = useMutation({
     mutationFn: updateProfile,
     onSuccess: () => {
+      queryClient.invalidateQueries('userInfo');
       navigate(`/profile/${accountname}`);
     }
   });
