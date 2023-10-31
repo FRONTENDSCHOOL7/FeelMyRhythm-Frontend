@@ -6,7 +6,9 @@ export default function PlayItem({ postId, img, title, userId }) {
   const navigate = useNavigate();
   return (
     <S.ItemBox onClick={() => navigate('/post/' + postId)}>
-      <S.ItemImg src={img} />
+      <S.ItemImgBox>
+        <S.ItemImg src={img} />
+      </S.ItemImgBox>
       <S.ItemTitleContent>{title}</S.ItemTitleContent>
       <S.ItemIDContent>{'@' + userId}</S.ItemIDContent>
     </S.ItemBox>

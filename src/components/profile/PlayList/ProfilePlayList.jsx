@@ -12,6 +12,7 @@ export default function ProfilePlaylist() {
     queryFn: () =>
       readProductList(accountname).then((res) => {
         setPlayList(res.product);
+        console.log(playList);
         return res;
       }),
     queryKey: [accountname]

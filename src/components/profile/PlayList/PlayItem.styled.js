@@ -7,15 +7,21 @@ export const ItemBox = styled.div`
   cursor: pointer;
 `;
 
-export const ItemImg = styled.img`
-  width: 140px;
-  height: 110px;
+export const ItemImgBox = styled.div`
+  width: 150px;
+  height: 100px;
   border-radius: 8px;
+  overflow: hidden;
   border: 0.5px solid #dbdbdb;
 `;
 
+export const ItemImg = styled.img`
+  height: 140%;
+  transform: translate(-10%, -14%);
+`;
+
 export const ItemTitleContent = styled.p`
-  width: 140px;
+  width: 150px;
   font-size: 14px;
   font-weight: 400;
   margin-top: 6px;
@@ -28,7 +34,7 @@ export const ItemTitleContent = styled.p`
 
 export const ItemIDContent = styled.p`
   color: #767676;
-  width: 140px;
+  width: 150px;
   font-size: 12px;
   margin-top: 4px;
 
