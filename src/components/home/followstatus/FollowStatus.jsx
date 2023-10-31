@@ -4,6 +4,7 @@ import { showEntirePosts } from '../../../apis/home/entirePosts';
 import { readUserInfo } from '../../../apis/profile/myInfoAPI';
 import UserProfile from '../UserProfile';
 import * as S from './yesFollow.styled';
+import NoFollow from './NoFollow';
 
 export default function FollowStatus() {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
@@ -31,12 +32,15 @@ export default function FollowStatus() {
   const filteredPosts = data?.posts.filter(
     (post) => post.author.follower.includes(myId) && String(post.image).split('🈳')[0] === 'ms7-3'
   );
-
-  return (
-    <S.DefaultLayout>
-      {filteredPosts.map((post, i) => (
-        <UserProfile key={i} {...post} />
-      ))}
-    </S.DefaultLayout>
-  );
+  if (filteredPosts.length === 0) {
+    return <NoFollow />;
+  } else {
+    return (
+      <S.DefaultLayout>
+        {filteredPosts.map((post, i) => (
+          <UserProfile key={i} {...post} />
+        ))}
+      </S.DefaultLayout>
+    );
+  }
 }
