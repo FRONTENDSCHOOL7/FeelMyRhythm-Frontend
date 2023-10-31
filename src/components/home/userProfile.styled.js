@@ -26,6 +26,11 @@ export const Iframe = styled.iframe`
   height: 220px;
   margin-top: 16px;
 `;
+export const Img = styled.img`
+  margin-top: 16px;
+  width: 310px;
+  height: 220px;
+`;
 
 export const StyledProfileImg = styled.img`
   width: 42px;
@@ -105,14 +110,6 @@ export const DescriptionContent = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-`;
-
-
-export const Video = styled.div`
-`
-
-export const Img = styled.img`
-  margin-top: 16px;
 `;
 
 export const IconsBox = styled.div`
