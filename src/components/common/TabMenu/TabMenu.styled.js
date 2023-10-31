@@ -15,7 +15,7 @@ export const FooterLayout = styled.div`
   gap: 14px;
   position: fixed;
   bottom: 0;
-  z-index: 999;
+  z-index: 20;
 
   background-color: #fff;
   border-top: 0.5px solid #dbdbdb;

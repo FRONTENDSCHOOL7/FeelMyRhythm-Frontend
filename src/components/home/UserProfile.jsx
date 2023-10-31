@@ -7,8 +7,10 @@ import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-mes
 import basicProfile from '../../assets/images/home/basic-profile.png';
 import { useMutation } from '@tanstack/react-query';
 import { createBookMark, createHeart, createUnHeart } from '../../apis/home/heartAPI';
+import Modal from '../common/Modal/Modal';
+import { useNavigate } from 'react-router-dom';
 
-const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, commentCount, _id }) => {
+const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, commentCount, id }) => {
   createdAt = new Date(createdAt);
   const year = createdAt.getFullYear();
   const month = createdAt.getMonth() + 1;
@@ -16,6 +18,8 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
   const formatDate = `${year}년 ${month}월 ${date}일`;
   const [isLiked, setIsLiked] = useState(hearted);
   const [likes, setLikes] = useState(heartCount);
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { mutate: mutateHeart } = useMutation({
     mutationFn: createHeart,
@@ -24,7 +28,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
         product: {
           itemName: `ms7-3/${image}`,
           itemImage: author.accountname,
-          link: _id,
+          link: id,
           price: 1
         }
       });
@@ -39,47 +43,59 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
   });
 
   const handleLike = (isLiked) => {
-    mutateHeart(_id);
+    mutateHeart(id);
     setLikes(isLiked ? likes - 1 : likes + 1);
     setIsLiked(!isLiked);
   };
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleKebabClick = () => {
+    setIsModalOpen(true);
+  };
+
   return (
-    <S.ContainerBox>
-      <S.AboutUserBox>
-        <S.StyledProfileImg
-          src={String(author.image).includes('Ellipse.png') || !author.image ? basicProfile : author.image}
-          alt='프로필'
-        />
-        <S.UserInfoBox>
-          <S.H2>{author.username}</S.H2>
-          <S.H3>{author.accountname}</S.H3>
-        </S.UserInfoBox>
-        <S.Button
-          onClick={(e) => {
-            e.stopPropagation();
-          }}>
-          <KebabIcon />
-        </S.Button>
-      </S.AboutUserBox>
-      <S.ContentsBox>
-        <S.DescriptionContent>{content}</S.DescriptionContent>
-        <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
-      </S.ContentsBox>
+    <>
+      <S.ContainerBox>
+        <S.AboutUserBox>
+          <S.StyledProfileImg
+            src={String(author.image).includes('Ellipse.png') || !author.image ? basicProfile : author.image}
+            alt='프로필'
+          />
+          <S.UserInfoBox onClick={() => navigate('/profile/' + author.accountname)}>
+            <S.H2>{author.username}</S.H2>
+            <S.H3>{author.accountname}</S.H3>
+          </S.UserInfoBox>
+          <S.Button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleKebabClick();
+            }}>
+            <KebabIcon />
+          </S.Button>
+        </S.AboutUserBox>
+        <S.ContentsBox onClick={() => navigate('/post/' + id)}>
+          <S.DescriptionContent>{content}</S.DescriptionContent>
+          <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
+        </S.ContentsBox>
 
-      <S.IconsBox>
-        <S.StyledHeartBox onClick={() => handleLike(isLiked)}>
-          {isLiked ? <ColoredHearIcon /> : <HeartIcon />}
-        </S.StyledHeartBox>
-        <S.NumBox className='heartnum'>{likes}</S.NumBox>
-        <S.StyledMessageBox>
-          <MessageIcon />
-        </S.StyledMessageBox>
-        <S.NumBox className='messnum'>{commentCount}</S.NumBox>
-      </S.IconsBox>
+        <S.IconsBox>
+          <S.StyledHeartBox onClick={() => handleLike(isLiked)}>
+            {isLiked ? <ColoredHearIcon /> : <HeartIcon />}
+          </S.StyledHeartBox>
+          <S.NumBox className='heartnum'>{likes}</S.NumBox>
+          <S.StyledMessageBox>
+            <MessageIcon />
+          </S.StyledMessageBox>
+          <S.NumBox className='messnum'>{commentCount}</S.NumBox>
+        </S.IconsBox>
 
-      <S.Date>{formatDate}</S.Date>
-    </S.ContainerBox>
+        <S.Date>{formatDate}</S.Date>
+      </S.ContainerBox>
+      <Modal postModal={true} postUser={author.accountname} isOpen={isModalOpen} onClose={toggleModal}></Modal>
+    </>
   );
 };
 export default UserProfile;

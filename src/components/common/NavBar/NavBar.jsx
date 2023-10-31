@@ -6,10 +6,15 @@ import arrowLeft from '../../../assets/images/navbar/icon-arrow-left.svg';
 import KebabBtn from '../../../assets/images/navbar/icon_kebab.svg';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { atomYoutubeSearchCount, atomYoutubeSearchKeyword } from '../../../store/store';
+import { useRecoilValue } from 'recoil';
+import { atomMyInfo } from '../../../store/store';
+
 import Modal from '../Modal/Modal';
 
 export default function NavBar({ postContent, writeMutate, chatUser, isToggled }) {
   const navigate = useNavigate();
+  const user = useRecoilValue(atomMyInfo);
+  const { accountname } = useParams();
   const { pathname } = useLocation();
   const setYoutubeSearchCount = useSetRecoilState(atomYoutubeSearchCount);
   const [youtubeSearchKeyword, setYoutubeSearchKeyword] = useRecoilState(atomYoutubeSearchKeyword);
@@ -64,10 +69,15 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled }
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
         </>
       )}
-      {pathname.includes('profile') && !pathname.includes('follow') && (
+      {pathname.includes('profile') && !pathname.includes('follow') && user.accountname === accountname && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           <S.KebabBtnImg src={KebabBtn} onClick={handleKebabClick} />
+        </>
+      )}
+      {pathname.includes('profile') && !pathname.includes('follow') && user.accountname !== accountname && (
+        <>
+          <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
         </>
       )}
       {pathname.includes('follower') && (
