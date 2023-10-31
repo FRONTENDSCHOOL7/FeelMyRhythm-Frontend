@@ -21,7 +21,11 @@ export const AboutUserBox = styled.div`
   cursor: pointer;
 `;
 
-export const Iframe = styled.iframe``;
+export const Iframe = styled.iframe`
+  width: 310px;
+  height: 220px;
+  margin-top: 16px;
+`;
 
 export const StyledProfileImg = styled.img`
   width: 42px;
@@ -91,6 +95,7 @@ export const DescriptionContent = styled.p`
 `;
 
 export const Img = styled.img`
+  width:;
   margin-top: 16px;
   height: 220px;
 `;

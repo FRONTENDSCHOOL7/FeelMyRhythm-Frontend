@@ -5,39 +5,56 @@ import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart
 import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
 import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/heart.svg';
 import basicProfile from '../../assets/images/home/basic-profile.png';
-import PostImage from '../../assets/images/home/mandarin.png';
 import { useQuery } from '@tanstack/react-query';
 import { readDetailPost } from '../../apis/post/detailPostAPI';
-import { useParams } from 'react-router';
-import UserProfile from '../home/UserProfile';
+import { useLocation, useNavigate, useParams } from 'react-router';
+
 const handleLike = () => {};
 
 export default function Default() {
-  const { id } = useParams();
+  const navigate = useNavigate();
 
-  const {
-    data: { post }
-  } = useQuery({
-    queryFn: () => readDetailPost(id),
+  const [createdAt, setCreateAt] = useState();
+  const [year, setYear] = useState('');
+  const [month, setMonth] = useState('');
+  const [date, setDate] = useState('');
+
+  const { id } = useParams();
+  const { state } = useLocation();
+
+  const { data } = useQuery({
+    queryFn: () =>
+      readDetailPost(id).then((res) => {
+        setCreateAt(new Date(res.post.createdAt));
+        return res;
+      }),
     queryKey: ['']
   });
 
+  useEffect(() => {
+    if (data && createdAt) {
+      setYear(createdAt.getFullYear());
+      setMonth(createdAt.getMonth() + 1);
+      setDate(createdAt.getDate());
+    }
+  }, [createdAt]);
+
   return (
     <S.ContainerBox>
-      {post && (
+      {data && (
         <>
-          <S.AboutUserBox>
+          <S.AboutUserBox onClick={() => navigate('/profile/' + data?.post?.author?.accountname)}>
             <S.StyledProfileImg
               src={
-                String(post.author.image).includes('Ellipse.png') || !post.author.image
+                String(data?.post?.author?.image).includes('Ellipse.png') || !data?.post?.author?.image
                   ? basicProfile
-                  : post.author.image
+                  : data?.post?.author?.image
               }
               alt='프로필'
             />
             <S.UserInfoBox>
-              <S.H2>{post.author.username}</S.H2>
-              <S.H3>{post.author.accountname}</S.H3>
+              <S.H2>{data?.post?.author?.username}</S.H2>
+              <S.H3>{data?.post?.author?.accountname}</S.H3>
             </S.UserInfoBox>
             <S.Button
               onClick={(e) => {
@@ -47,22 +64,24 @@ export default function Default() {
             </S.Button>
           </S.AboutUserBox>
           <S.ContentsBox>
-            <S.DescriptionContent>{post.content}</S.DescriptionContent>
-            <S.Img src={String(post.image).split('🈳')[3] ?? 'abc'} alt='' />
+            <S.DescriptionContent>{data?.post?.content}</S.DescriptionContent>
+            <S.Iframe src={`http://www.youtube.com/embed/${state.videoId}`} />
           </S.ContentsBox>
 
           <S.IconsBox>
             <S.StyledHeartBox onClick={() => handleLike()}>
-              {post.hearted ? <ColoredHearIcon /> : <HeartIcon />}
+              {data?.post?.hearted ? <ColoredHearIcon /> : <HeartIcon />}
             </S.StyledHeartBox>
-            <S.NumBox className='heartnum'>{post.heartCount}</S.NumBox>
+            <S.NumBox className='heartnum'>{data?.post?.heartCount}</S.NumBox>
             <S.StyledMessageBox>
               <MessageIcon />
             </S.StyledMessageBox>
-            <S.NumBox className='messnum'>{post.commentCount}</S.NumBox>
+            <S.NumBox className='messnum'>{data?.post?.commentCount}</S.NumBox>
           </S.IconsBox>
 
-          {/* <S.Date>{formatDate}</S.Date> */}
+          <S.Date>
+            {year}년 {month}월 {date}일
+          </S.Date>
         </>
       )}
     </S.ContainerBox>
