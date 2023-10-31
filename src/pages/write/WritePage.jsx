@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './WritePage.styled';
 import NavBar from '../../components/common/NavBar/NavBar';
 import Write from '../../components/write/Write';
@@ -9,7 +9,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 export default function WritePage() {
   const navigate = useNavigate();
   const { state } = useLocation();
-  console.log(state);
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    token ?? navigate('/');
+  }, []);
+
   const [postContent, setPostContent] = useState({
     post: {
       content: '',
