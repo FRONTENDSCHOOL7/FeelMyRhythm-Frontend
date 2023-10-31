@@ -1,13 +1,14 @@
 import Router from './router/Router';
 import { useQuery } from '@tanstack/react-query';
 import { readUserInfo } from './apis/profile/myInfoAPI';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { atomMyInfo } from './store/store';
 import { GlobalStyle } from './assets/style/GlobalStyle.styled';
 
 function App() {
   const setMyInfo = useSetRecoilState(atomMyInfo);
-
+  const myInfo = useRecoilValue(atomMyInfo);
+  console.log(myInfo);
   const { data } = useQuery({
     queryFn: () =>
       readUserInfo()
