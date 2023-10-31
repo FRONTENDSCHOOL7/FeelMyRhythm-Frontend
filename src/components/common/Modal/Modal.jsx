@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './Modal.styled';
 import deco from '../../../assets/images/chat/modal-design.png';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import { atomMyInfo } from '../../../store/store';
+import Alert from '../Alert/Alert';
 
 const Modal = ({ isOpen, onClose, postModal, postUser }) => {
-  const user = useRecoilValue(atomMyInfo);
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [user, SetUserInfo] = useRecoilState(atomMyInfo);
+  const [alertMsg, SetAlertMsg] = useState('');
 
   if (!isOpen) {
     return null;
@@ -18,16 +20,6 @@ const Modal = ({ isOpen, onClose, postModal, postUser }) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
-  };
-
-  // 로그아웃, 게시글 삭제/수정 기능 연결
-  const handleModalBtnClick = (e) => {
-    if (e.target.value === '채팅방 나가기') navigate('/chat');
-    if (e.target.value === '로그아웃') console.log('로그아웃');
-    if (e.target.value === '삭제') console.log('삭제');
-    if (e.target.value === '수정') console.log('수정');
-    if (e.target.value === '신고') console.log('신고');
-    onClose();
   };
 
   const buttonContent =
@@ -41,23 +33,41 @@ const Modal = ({ isOpen, onClose, postModal, postUser }) => {
       ? '채팅방 나가기'
       : [''];
 
+  // 로그아웃, 게시글 삭제/수정 기능 연결
+  const modalFunc = () => {
+    if (alertMsg === '채팅방 나가기') navigate('/chat');
+    if (alertMsg === '로그아웃') {
+      window.localStorage.removeItem('accessToken');
+      navigate('/');
+    }
+    if (alertMsg === '삭제') console.log('삭제');
+    if (alertMsg === '수정') console.log('수정');
+    if (alertMsg === '신고') console.log('신고');
+    onClose();
+  };
+
   return (
-    <S.Backdrop onClick={handleBackdropClick}>
-      <S.Modal onClick={(e) => e.stopPropagation()}>
-        <S.Img src={deco} alt='Decoration' />
-        {Array.isArray(buttonContent)
-          ? buttonContent.map((content, index) => (
-              <S.Button key={index} value={content} onClick={handleModalBtnClick}>
-                <S.P>{content}</S.P>
-              </S.Button>
-            ))
-          : buttonContent && (
-              <S.Button value={buttonContent} onClick={handleModalBtnClick}>
-                <S.P>{buttonContent}</S.P>
-              </S.Button>
-            )}
-      </S.Modal>
-    </S.Backdrop>
+    <>
+      <S.Backdrop onClick={handleBackdropClick}>
+        <S.Modal onClick={(e) => e.stopPropagation()}>
+          <S.Img src={deco} alt='Decoration' />
+          {Array.isArray(buttonContent)
+            ? buttonContent.map((content, index) => (
+                <S.Button key={index} value={content} onClick={() => SetAlertMsg(content)}>
+                  <S.P>{content}</S.P>
+                </S.Button>
+              ))
+            : buttonContent && (
+                <>
+                  <S.Button value={buttonContent} onClick={() => SetAlertMsg(buttonContent)}>
+                    <S.P>{buttonContent}</S.P>
+                  </S.Button>
+                </>
+              )}
+        </S.Modal>
+        <Alert alertMsg={alertMsg} modalFunc={modalFunc} SetAlertMsg={SetAlertMsg} onClose={onClose} />
+      </S.Backdrop>
+    </>
   );
 };
 
