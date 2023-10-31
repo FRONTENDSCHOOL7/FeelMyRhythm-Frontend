@@ -8,6 +8,7 @@ const set_ben = `
   display: flex;
   width: 114px;
   height: 114px;
+  overflow: hidden;
   margin-right: 8px;
   margin-bottom: 8px;
   &:nth-child(3n) {
@@ -22,6 +23,6 @@ export const PostBox = styled.div`
 `;
 
 export const albumImg = styled.img`
-  width: 100%;
-  height: 100%;
+  height: 135%;
+  transform: translate(-20%, -13%);
 `;
