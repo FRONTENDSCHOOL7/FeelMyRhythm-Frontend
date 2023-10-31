@@ -59,9 +59,9 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
                   <S.Iframe src={`http://www.youtube.com/embed/${image.split('🈳')[1]}?autoplay=1&mute=1`} />
                 </>
               ) : (
-                <>
+                <S.ImgBox>
                   <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
-                </>
+                </S.ImgBox>
               )}
               <S.H4>{String(image).split('🈳')[2] ?? 'abc'}</S.H4>
             </div>

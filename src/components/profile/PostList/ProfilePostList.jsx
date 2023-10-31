@@ -32,6 +32,7 @@ export default function ProfilePlaylist() {
     queryKey: [accountname, profile]
   });
 
+  if (!postList[0]) return <></>;
   return (
     <S.ProfilePostListLayout>
       <S.PostListHeader>

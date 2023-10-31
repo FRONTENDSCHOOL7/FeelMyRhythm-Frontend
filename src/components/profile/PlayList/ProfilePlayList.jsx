@@ -18,6 +18,7 @@ export default function ProfilePlaylist() {
     queryKey: [accountname]
   });
 
+  if (!playList[0]) return <></>;
   return (
     <S.ProfilePlayListLayout>
       <S.TitleContent>좋아하는 글</S.TitleContent>
