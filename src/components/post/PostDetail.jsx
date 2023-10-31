@@ -12,6 +12,7 @@ import { createBookMark, createHeart, createUnHeart, deleteBookMark } from '../.
 import { readProductList } from '../../apis/profile/productListAPI';
 import { useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../store/store';
+import Modal from '../../components/common/Modal/Modal';
 
 export default function PostDetail() {
   const user = useRecoilValue(atomMyInfo);
@@ -22,6 +23,7 @@ export default function PostDetail() {
   const [year, setYear] = useState('');
   const [month, setMonth] = useState('');
   const [date, setDate] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const queryClient = useQueryClient();
 
@@ -95,13 +97,24 @@ export default function PostDetail() {
     const id = data.post.id;
     data.post.hearted ? mutateUnHeart(id) : mutateHeart(id);
   };
+
+  // 모달
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleKebabClick = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <S.DefaultLayout>
       <S.ContainerBox>
         {data && (
           <>
-            <S.AboutUserBox onClick={() => navigate('/profile/' + data?.post?.author?.accountname)}>
+            <S.AboutUserBox>
               <S.StyledProfileImg
+                onClick={() => navigate('/profile/' + data?.post?.author?.accountname)}
                 src={
                   String(data?.post?.author?.image).includes('Ellipse.png') || !data?.post?.author?.image
                     ? basicProfile
@@ -109,13 +122,13 @@ export default function PostDetail() {
                 }
                 alt='프로필'
               />
-              <S.UserInfoBox>
+              <S.UserInfoBox onClick={() => navigate('/profile/' + data?.post?.author?.accountname)}>
                 <S.H2>{data?.post?.author?.username}</S.H2>
                 <S.H3>{data?.post?.author?.accountname}</S.H3>
               </S.UserInfoBox>
               <S.Button
                 onClick={(e) => {
-                  e.stopPropagation();
+                  handleKebabClick();
                 }}>
                 <KebabIcon />
               </S.Button>
@@ -140,6 +153,11 @@ export default function PostDetail() {
           </>
         )}
       </S.ContainerBox>
+      <Modal
+        postModal={true}
+        postUser={data?.post?.author?.accountname}
+        isOpen={isModalOpen}
+        onClose={toggleModal}></Modal>
     </S.DefaultLayout>
   );
 }
