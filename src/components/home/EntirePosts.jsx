@@ -12,7 +12,19 @@ export default function EntirePosts() {
   return (
     <S.DefaultLayout>
       {data?.posts?.map(
-        (post, i) => String(post.image).split('🈳')[0] === 'ms7-3' && <UserProfile key={i} {...post} />
+        (post, i) =>
+          String(post.image).split('🈳')[0] === 'ms7-3' && (
+            <UserProfile
+              key={i}
+              author={post.author}
+              content={post.content}
+              image={post.image}
+              createdAt={post.createdAt}
+              comments={post.comments}
+              heartCount={post.heartCount}
+              id={post._id}
+            />
+          )
       )}
     </S.DefaultLayout>
   );
