@@ -5,10 +5,11 @@ export const SearchHeaderLayout = styled.div`
   flex-direction: row;
   padding: 13px 0;
   border-bottom: 0.5px solid #dbdbdb;
-  width: 100vh;
+  width: 100vw;
   gap: 20px;
   align-items: center;
   justify-content: center;
+  height: 48px;
 `;
 
 export const BackArrowButton = styled.button`

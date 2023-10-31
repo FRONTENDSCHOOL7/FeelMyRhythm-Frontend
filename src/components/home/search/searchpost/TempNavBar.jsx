@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import * as S from './tempNavBar.styled';
-import arrow from '../../assets/images/home/icon-arrow-left.svg';
+import arrow from '../../../../assets/images/home/icon-arrow-left.svg';
 import { useNavigate } from 'react-router-dom';
-import Emoji from './toggleandemoji/emoji/Emoji';
+import Emoji from '././../../toggleandemoji/emoji/Emoji';
 
 export default function TempNavBar({ setParentContent }) {
   const navigate = useNavigate();
