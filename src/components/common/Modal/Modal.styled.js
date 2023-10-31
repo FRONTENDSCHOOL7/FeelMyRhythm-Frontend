@@ -9,6 +9,14 @@ const slideUpAnimation = keyframes`
     opacity: 1;
   }
 `;
+const fadeInAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 export const Modal = styled.div`
   position: fixed;
   bottom: 0;
@@ -16,13 +24,13 @@ export const Modal = styled.div`
   background-color: white;
   padding: 24px;
   border-radius: 10px 10px 0 0;
-  z-index: 20;
+  z-index: 40;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  animation: ${slideUpAnimation} 0.3s ease-out forwards;
+  animation: ${slideUpAnimation} 0.5s ease-out forwards;
 `;
 
 export const Backdrop = styled.div`
@@ -35,7 +43,8 @@ export const Backdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 30;
+  animation: ${fadeInAnimation} 0.5s ease-out forwards;
 `;
 export const Img = styled.img`
   width: auto;
