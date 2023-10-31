@@ -3,9 +3,12 @@ import * as S from './signIn.styled';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { createLogin } from '../../../apis/sign/signInAPI';
+import { useQueryClient } from '@tanstack/react-query';
 
 export default function SignIn() {
   const navigate = useNavigate();
+
+  const queryClient = useQueryClient();
 
   const [userInfo, setUserInfo] = useState({ user: { email: '', password: '' } });
 
@@ -67,6 +70,7 @@ export default function SignIn() {
         return;
       }
       window.localStorage.setItem('accessToken', response.user.token);
+      queryClient.invalidateQueries('userInfo');
       navigate('/home');
     },
     onError: ({ response }) => {

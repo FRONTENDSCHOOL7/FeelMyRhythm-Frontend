@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-export const atomMyInfo = atom({ key: 'atomMyInfo', default: '' });
+export const atomMyInfo = atom({ key: 'atomMyInfo', default: null });
 
 export const atomYoutubeWrite = atom({ key: 'atomyoutubewrite', default: '' });
 

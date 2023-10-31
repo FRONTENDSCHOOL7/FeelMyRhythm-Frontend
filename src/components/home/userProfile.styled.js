@@ -21,6 +21,12 @@ export const AboutUserBox = styled.div`
   cursor: pointer;
 `;
 
+export const Iframe = styled.iframe`
+  width: 310px;
+  height: 220px;
+  margin-top: 16px;
+`;
+
 export const StyledProfileImg = styled.img`
   width: 42px;
   height: 42px;
@@ -101,7 +107,11 @@ export const DescriptionContent = styled.p`
   text-overflow: ellipsis;
 `;
 
+
 export const Video = styled.div`
+`
+
+export const Img = styled.img`
   margin-top: 16px;
 `;
 

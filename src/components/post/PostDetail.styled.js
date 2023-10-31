@@ -102,7 +102,7 @@ export const DescriptionContent = styled.p`
   text-overflow: ellipsis;
 `;
 
-export const Img = styled.img`
+export const Iframe = styled.iframe`
   margin-top: 16px;
   height: 220px;
 `;
