@@ -112,6 +112,11 @@ export const DescriptionContent = styled.p`
   text-overflow: ellipsis;
 `;
 
+
+export const Img = styled.img`
+  margin-top: 16px;
+`;
+
 export const IconsBox = styled.div`
   display: flex;
   flex-direction: row;

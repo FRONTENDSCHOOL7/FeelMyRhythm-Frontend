@@ -28,7 +28,7 @@ export default function ProfileInfo() {
         setFollowingCnt(res.profile.followingCount);
         return res;
       }),
-    queryKey: [user.accountname, accountname]
+    queryKey: [accountname, user?.accountname]
   });
 
   const handleFollowClick = (url) => {
