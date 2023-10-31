@@ -12,12 +12,12 @@ export default function ProfilePlaylist() {
     queryFn: () =>
       readProductList(accountname).then((res) => {
         setPlayList(res.product);
-        console.log(playList);
         return res;
       }),
     queryKey: [accountname]
   });
 
+  if (!playList[0]) return <></>;
   return (
     <S.ProfilePlayListLayout>
       <S.TitleContent>좋아하는 글</S.TitleContent>
