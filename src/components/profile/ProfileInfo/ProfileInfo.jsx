@@ -84,7 +84,7 @@ export default function ProfileInfo() {
       </S.RowBox>
       <S.TitleContent>{profile.username}</S.TitleContent>
       <S.IDContent>{'@' + profile.accountname}</S.IDContent>
-      {String(profile.intro).split('ms7-3/')[1] && (
+      {String(profile.intro).split('ms7-3🈳')[0] && (
         <S.IntroContent>{String(profile.intro).split('ms7-3/')[1]}</S.IntroContent>
       )}
       <S.RowButtonBox>
