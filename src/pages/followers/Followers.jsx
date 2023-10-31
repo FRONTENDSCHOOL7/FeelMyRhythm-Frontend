@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../../components/common/NavBar/NavBar';
 import FollowList from '../../components/follow/FollowList';
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { readFollowers } from '../../apis/profile/followersAPI';
 
 const ContBox = styled.div`
@@ -14,6 +14,13 @@ const ContBox = styled.div`
 `;
 
 export default function Followers() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    token ?? navigate('/');
+  }, []);
+
   const [followers, setFollowers] = useState([]);
   const { accountname } = useParams();
   const { data, err } = useQuery({
@@ -24,6 +31,7 @@ export default function Followers() {
       }),
     queryKey: ['followers']
   });
+
   return (
     <>
       <NavBar />
