@@ -34,8 +34,8 @@ export const ImgBox = styled.div`
   background-color: gray;
 `;
 export const Img = styled.img`
-  height: 149%;
-  transform: translate(-10%, -14%);
+  height: 140%;
+  transform: translate(-1%, -14%);
 `;
 
 export const StyledProfileImg = styled.img`

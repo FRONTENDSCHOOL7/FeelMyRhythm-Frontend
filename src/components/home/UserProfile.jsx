@@ -7,7 +7,7 @@ import basicProfile from '../../assets/images/home/basic-profile.png';
 import Modal from '../common/Modal/Modal';
 import { useNavigate } from 'react-router-dom';
 
-const UserProfile = ({ author, content, image, createdAt, comments, heartCount, commentCount, _id }) => {
+const UserProfile = ({ author, content, image, createdAt, comments, heartCount, id }) => {
   createdAt = new Date(createdAt);
   const year = createdAt.getFullYear();
   const month = createdAt.getMonth() + 1;
@@ -26,7 +26,7 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
   };
 
   const onNavigateDetailPost = () => {
-    navigate(`/post/${_id}`);
+    navigate(`/post/${id}`);
   };
 
   return (
@@ -51,7 +51,7 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
         </S.AboutUserBox>
 
         <div onClick={() => onNavigateDetailPost} style={{ cursor: 'pointer' }}>
-          <S.ContentsBox onClick={() => navigate('/post/' + _id)}>
+          <S.ContentsBox onClick={() => navigate('/post/' + id)}>
             <S.DescriptionContent>{content}</S.DescriptionContent>
             <div onMouseOver={() => setVideoState(true)} onMouseLeave={() => setVideoState(false)}>
               {videoState ? (

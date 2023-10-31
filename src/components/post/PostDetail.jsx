@@ -12,6 +12,7 @@ import { createBookMark, createHeart, createUnHeart, deleteBookMark } from '../.
 import { readProductList } from '../../apis/profile/productListAPI';
 import { useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../store/store';
+import Modal from '../../components/common/Modal/Modal';
 
 export default function PostDetail() {
   const user = useRecoilValue(atomMyInfo);
@@ -22,6 +23,7 @@ export default function PostDetail() {
   const [year, setYear] = useState('');
   const [month, setMonth] = useState('');
   const [date, setDate] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const queryClient = useQueryClient();
 
@@ -95,51 +97,67 @@ export default function PostDetail() {
     const id = data.post.id;
     data.post.hearted ? mutateUnHeart(id) : mutateHeart(id);
   };
+
+  // 모달
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleKebabClick = () => {
+    setIsModalOpen(true);
+  };
+
   return (
-    <S.ContainerBox>
-      {data && (
-        <>
-          <S.AboutUserBox onClick={() => navigate('/profile/' + data?.post?.author?.accountname)}>
-            <S.StyledProfileImg
-              src={
-                String(data?.post?.author?.image).includes('Ellipse.png') || !data?.post?.author?.image
-                  ? basicProfile
-                  : data?.post?.author?.image
-              }
-              alt='프로필'
-            />
-            <S.UserInfoBox>
-              <S.H2>{data?.post?.author?.username}</S.H2>
-              <S.H3>{data?.post?.author?.accountname}</S.H3>
-            </S.UserInfoBox>
-            <S.Button
-              onClick={(e) => {
-                e.stopPropagation();
-              }}>
-              <KebabIcon />
-            </S.Button>
-          </S.AboutUserBox>
-          <S.ContentsBox>
-            <S.DescriptionContent>{data?.post?.content}</S.DescriptionContent>
-            <S.Iframe src={`http://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
-          </S.ContentsBox>
-
-          <S.IconsBox>
-            <S.StyledHeartBox onClick={() => handleLike()}>
-              {data?.post?.hearted ? <ColoredHearIcon /> : <HeartIcon />}
+    <S.DefaultLayout>
+      <S.ContainerBox>
+        {data && (
+          <>
+            <S.AboutUserBox>
+              <S.StyledProfileImg
+                onClick={() => navigate('/profile/' + data?.post?.author?.accountname)}
+                src={
+                  String(data?.post?.author?.image).includes('Ellipse.png') || !data?.post?.author?.image
+                    ? basicProfile
+                    : data?.post?.author?.image
+                }
+                alt='프로필'
+              />
+              <S.UserInfoBox onClick={() => navigate('/profile/' + data?.post?.author?.accountname)}>
+                <S.H2>{data?.post?.author?.username}</S.H2>
+                <S.H3>{data?.post?.author?.accountname}</S.H3>
+              </S.UserInfoBox>
+              <S.Button
+                onClick={(e) => {
+                  handleKebabClick();
+                }}>
+                <KebabIcon />
+              </S.Button>
+            </S.AboutUserBox>
+            <S.ContentsBox>
+              <S.DescriptionContent>{data?.post?.content}</S.DescriptionContent>
+              <S.Iframe src={`http://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
+            </S.ContentsBox>
+            <S.IconsBox>
+              <S.StyledHeartBox onClick={() => handleLike()}>
+                {data?.post?.hearted ? <ColoredHearIcon /> : <HeartIcon />}
+              </S.StyledHeartBox>
               <S.NumBox className='heartnum'>{data?.post?.heartCount}</S.NumBox>
-            </S.StyledHeartBox>
-            <S.StyledMessageBox>
-              <MessageIcon />
-            </S.StyledMessageBox>
-            <S.NumBox className='messnum'>{data?.post?.commentCount}</S.NumBox>
-          </S.IconsBox>
-
-          <S.Date>
-            {year}년 {month}월 {date}일
-          </S.Date>
-        </>
-      )}
-    </S.ContainerBox>
+              <S.StyledMessageBox>
+                <MessageIcon />
+              </S.StyledMessageBox>
+              <S.NumBox className='messnum'>{data?.post?.commentCount}</S.NumBox>
+            </S.IconsBox>
+            <S.Date>
+              {year}년 {month}월 {date}일
+            </S.Date>
+          </>
+        )}
+      </S.ContainerBox>
+      <Modal
+        postModal={true}
+        postUser={data?.post?.author?.accountname}
+        isOpen={isModalOpen}
+        onClose={toggleModal}></Modal>
+    </S.DefaultLayout>
   );
 }
