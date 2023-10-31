@@ -26,6 +26,11 @@ export const Iframe = styled.iframe`
   height: 220px;
   margin-top: 16px;
 `;
+export const Img = styled.img`
+  margin-top: 16px;
+  width: 310px;
+  height: 220px;
+`;
 
 export const StyledProfileImg = styled.img`
   width: 42px;
@@ -106,6 +111,7 @@ export const DescriptionContent = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
 `;
+
 
 export const Img = styled.img`
   margin-top: 16px;
