@@ -84,7 +84,7 @@ export default function ProfileInfo() {
       </S.RowBox>
       <S.TitleContent>{profile.username}</S.TitleContent>
       <S.IDContent>{'@' + profile.accountname}</S.IDContent>
-      <S.IntroContent>{profile.intro}</S.IntroContent>
+      <S.IntroContent>{String(profile.intro).split('ms7-3/')[1]}</S.IntroContent>
       <S.RowButtonBox>
         {userFlag && (
           <S.LinkButton $width='120px' onClick={onNavigateProfileUpdate}>
