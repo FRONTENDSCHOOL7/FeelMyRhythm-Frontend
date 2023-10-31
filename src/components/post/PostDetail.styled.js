@@ -6,33 +6,43 @@ const styleConstants = {
 };
 
 export const DefaultLayout = styled.div`
-  padding-top: 48px;
+  padding-top: 50px;
   display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-  width: 390px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  margin-top: 24px;
-  gap: 24px;
 `;
 
 export const ContainerBox = styled.div`
   display: flex;
   flex-direction: column;
-  /* height: 434px; */
-  /* width: 358px; */
   width: 100vw;
-  padding: 70px 0 16px 16px;
+  padding: 16px 20px;
 `;
 export const AboutUserBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* width: 358px; */
   position: relative;
   cursor: pointer;
+`;
+
+export const Iframe = styled.iframe`
+  width: 290px;
+  height: 163px;
+  border-radius: 15px;
+  margin-top: 16px;
+`;
+
+export const ImgBox = styled.div`
+  width: 295px;
+  height: 168px;
+  border-radius: 17px;
+  overflow: hidden;
+  margin-top: 16px;
+  background-color: gray;
+`;
+
+export const Img = styled.img`
+  height: 140%;
+  transform: translate(-1%, -14%);
 `;
 
 export const StyledProfileImg = styled.img`
@@ -71,6 +81,19 @@ export const H3 = styled.h3`
   font-weight: 400;
   line-height: 14px;
 `;
+export const H4 = styled.h4`
+  margin-top: 5px;
+  color: ${styleConstants.textColor};
+  font-family: ${styleConstants.fontFamily};
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 export const Button = styled.button`
   width: 18px;
   height: 18px;
@@ -102,13 +125,8 @@ export const DescriptionContent = styled.p`
   text-overflow: ellipsis;
 `;
 
-export const Iframe = styled.iframe`
-  margin-top: 16px;
-  height: 220px;
-`;
 export const IconsBox = styled.div`
   display: flex;
-  flex-direction: row;
   padding-top: 12px;
   padding-left: 54px;
   align-items: center;
@@ -118,6 +136,7 @@ export const IconsBox = styled.div`
 export const StyledHeartBox = styled.div`
   display: flex;
   gap: 5px;
+
   cursor: pointer;
 `;
 
