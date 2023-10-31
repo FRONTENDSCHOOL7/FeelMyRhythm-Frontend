@@ -43,7 +43,8 @@ export default function ProfileSetting() {
     inputName === 'username' && setUserInfo({ ...userInfo, user: { ...userInfo.user, username: e.target.value } });
     inputName === 'accountname' &&
       setUserInfo({ ...userInfo, user: { ...userInfo.user, accountname: e.target.value } });
-    inputName === 'intro' && setUserInfo({ ...userInfo, user: { ...userInfo.user, intro: 'ms7-3/' + e.target.value } });
+    inputName === 'intro' &&
+      setUserInfo({ ...userInfo, user: { ...userInfo.user, intro: 'ms7-3🈳' + e.target.value } });
     console.log(userInfo);
   };
 
