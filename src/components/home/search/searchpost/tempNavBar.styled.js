@@ -10,6 +10,7 @@ export const SearchHeaderLayout = styled.div`
   justify-content: space-evenly;
   padding-left: 16px;
   padding-right: 12px;
+  height: 48px;
 `;
 
 export const BackArrowButton = styled.button`
@@ -27,6 +28,7 @@ export const SearchBox = styled.input`
   background-color: #f2f2f2;
   border: none;
   padding-left: 16px;
+  width: 50%;
 
   ::placeholder {
     color: #c4c4c4;
