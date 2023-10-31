@@ -27,6 +27,7 @@ export default function FollowList({ data }) {
 
   useEffect(() => {
     setFollow(data.isfollow);
+    console.log(String(data.intro).split('ms7-3🈳'));
   }, [data.isfollow]);
 
   return (
@@ -38,7 +39,7 @@ export default function FollowList({ data }) {
           </S.FollowerImgBox>
           <S.FollowerTextBox onClick={() => navigate('/profile/' + data.accountname)}>
             <S.FollowerTitleContent>{data.username}</S.FollowerTitleContent>
-            <S.FollowerIntroContent>{data.intro}</S.FollowerIntroContent>
+            <S.FollowerIntroContent>{String(data.intro).split('ms7-3🈳')[1]}</S.FollowerIntroContent>
           </S.FollowerTextBox>
           {!follow ? (
             <S.FollowerButton onClick={() => followMutation.mutate(data.accountname)}>팔로우</S.FollowerButton>
