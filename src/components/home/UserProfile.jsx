@@ -50,7 +50,7 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
           </S.Button>
         </S.AboutUserBox>
 
-        <div onClick={onNavigateDetailPost} style={{ cursor: 'pointer' }}>
+        <div onClick={() => onNavigateDetailPost} style={{ cursor: 'pointer' }}>
           <S.ContentsBox onClick={() => navigate('/post/' + _id)}>
             <S.DescriptionContent>{content}</S.DescriptionContent>
             <div onMouseOver={() => setVideoState(true)} onMouseLeave={() => setVideoState(false)}>
