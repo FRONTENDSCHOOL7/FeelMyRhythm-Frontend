@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './userProfile.styled';
-import UserProfile from './UserProfile';
+import UserProfile from './SearchUserProfile';
 
 export default function Search({ searchResults }) {
   const usernames = searchResults.map((profile) => profile.username);

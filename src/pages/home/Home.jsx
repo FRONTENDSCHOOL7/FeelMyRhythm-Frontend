@@ -3,7 +3,7 @@ import NavBar from '../../components/common/NavBar/NavBar';
 import ToggleAndEmoji from '../../components/home/toggleandemoji/ToggleAndEmoji';
 import EntirePosts from '../../components/home/EntirePosts';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
-import NoFollow from '../../components/home/followstatus/NoFollow';
+import FollowStatus from '../../components/home/followstatus/FollowStatus';
 
 import * as S from './home.styled';
 
@@ -14,7 +14,7 @@ export default function Home() {
     <S.HomeLayout>
       <NavBar isToggled={isToggled} />
       <ToggleAndEmoji setIsToggled={setIsToggled} />
-      {isToggled ? <NoFollow /> : <EntirePosts />}
+      {isToggled ? <FollowStatus /> : <EntirePosts />}
       <TabMenu />
     </S.HomeLayout>
   );

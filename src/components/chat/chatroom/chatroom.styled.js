@@ -10,6 +10,7 @@ export const ChatRoomLayout = styled.div`
   width: 100vw;
   overflow-x: scroll;
   background-color: #f2f2f2;
+  height: 100vh;
 `;
 export const OthersChatBox = styled.div`
   display: flex;

@@ -17,6 +17,7 @@ import Default from '../pages/default/Default';
 import Post from '../pages/post/PostPage';
 import YoutubeSearch from '../pages/write/YoutubeSearchPage';
 import YoutubeVideoDetail from '../pages/write/YoutubeVideoDetail';
+import ProfileUpdatePage from '../pages/profile/ProfileUpdatePage';
 
 export default function AppRouter() {
   return (
@@ -28,13 +29,14 @@ export default function AppRouter() {
       <Route path='/chat' element={<Chat />} />
       <Route path='/chat/:accountname' element={<ChatRoom />} />
       <Route path='/write' element={<Write />} />
+      <Route path='/profile/update' element={<ProfileUpdatePage />} />
       <Route path='/profile/:accountname' element={<Profile />} />
       <Route path='/profile/:accountname/follower' element={<Followers />} />
       <Route path='/profile/:accountname/following' element={<Followings />} />
       <Route path='/signup' element={<SignUpPage />} />
       <Route path='/profilesetting' element={<ProfileSettingPage />} />
       <Route path='/signin' element={<SignInPage />} />
-      <Route path='/post' element={<Post />} />
+      <Route path='/post/:id' element={<Post />} />
       <Route path='/*' element={<Default />} />
       <Route path='youtubesearch' element={<YoutubeSearch />} />
       <Route path='youtubesearch/:id' element={<YoutubeVideoDetail />} />
