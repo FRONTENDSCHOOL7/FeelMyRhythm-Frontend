@@ -57,6 +57,14 @@ export const H3 = styled.h3`
   font-weight: 400;
   line-height: 14px;
 `;
+export const H4 = styled.h3`
+  color: ${styleConstants.textColor};
+  font-family: ${styleConstants.fontFamily};
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+`;
 export const Button = styled.button`
   width: 18px;
   height: 18px;
@@ -91,8 +99,6 @@ export const DescriptionContent = styled.p`
 
 export const Video = styled.div`
   margin-top: 16px;
-  height: 220px;
-  background-color: beige;
 `;
 
 export const IconsBox = styled.div`
