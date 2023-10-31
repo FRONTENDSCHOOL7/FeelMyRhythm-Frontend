@@ -7,8 +7,6 @@ const styleConstants = {
 export const ContainerBox = styled.div`
   display: flex;
   flex-direction: column;
-  /* height: 434px; */
-  /* width: 358px; */
   width: 100vw;
   padding: 16px 20px;
 `;
@@ -16,21 +14,28 @@ export const AboutUserBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* width: 358px; */
   position: relative;
   cursor: pointer;
 `;
 
 export const Iframe = styled.iframe`
   width: 290px;
-  height: 220px;
+  height: 163px;
+  border-radius: 15px;
   margin-top: 16px;
 `;
 
-export const Img = styled.img`
+export const ImgBox = styled.div`
+  width: 295px;
+  height: 168px;
+  border-radius: 17px;
+  overflow: hidden;
   margin-top: 16px;
-  width: 290px;
-  height: 220px;
+  background-color: gray;
+`;
+export const Img = styled.img`
+  height: 149%;
+  transform: translate(-10%, -14%);
 `;
 
 export const StyledProfileImg = styled.img`
@@ -70,12 +75,12 @@ export const H3 = styled.h3`
   line-height: 14px;
 `;
 export const H4 = styled.h4`
+  margin-top: 5px;
   color: ${styleConstants.textColor};
   font-family: ${styleConstants.fontFamily};
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 14px;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
