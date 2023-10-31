@@ -72,6 +72,7 @@ export const Button = styled.button`
 export const ContentsBox = styled.div`
   margin-left: 54px;
   cursor: pointer;
+  background-color: azure;
 `;
 export const DescriptionContent = styled.p`
   color: #000;
@@ -88,10 +89,12 @@ export const DescriptionContent = styled.p`
   text-overflow: ellipsis;
 `;
 
-export const Img = styled.img`
+export const Video = styled.div`
   margin-top: 16px;
   height: 220px;
+  background-color: beige;
 `;
+
 export const IconsBox = styled.div`
   display: flex;
   flex-direction: row;

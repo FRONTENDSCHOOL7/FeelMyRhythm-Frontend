@@ -10,7 +10,7 @@ import { createBookMark, createHeart, createUnHeart } from '../../apis/home/hear
 import Modal from '../common/Modal/Modal';
 import { useNavigate } from 'react-router-dom';
 
-const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, commentCount, id }) => {
+const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, commentCount, _id }) => {
   createdAt = new Date(createdAt);
   const navigate = useNavigate();
   const year = createdAt.getFullYear();
@@ -27,7 +27,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
       mutateBookMark({
         product: {
           itemName: `ms7-3/${image}`,
-          link: id,
+          link: _id,
           itemImage: 'null',
           price: 1
         }
@@ -43,7 +43,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
   });
 
   const handleLike = (isLiked) => {
-    mutateHeart(id);
+    mutateHeart(_id);
     setLikes(isLiked ? likes - 1 : likes + 1);
     setIsLiked(!isLiked);
   };
@@ -55,7 +55,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
     setIsModalOpen(true);
   };
   const onNavigateDetailPost = () => {
-    navigate(`/post/${id}`);
+    navigate(`/post/${_id}`);
   };
 
   return (
@@ -80,9 +80,11 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
         </S.AboutUserBox>
 
         <div onClick={onNavigateDetailPost}>
-          <S.ContentsBox onClick={() => navigate('/post/' + id)}>
+          <S.ContentsBox onClick={() => navigate('/post/' + _id)}>
             <S.DescriptionContent>{content}</S.DescriptionContent>
-            <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
+            <S.Video>
+              <iframe src={`http://www.youtube.com/embed/${_id}`} frameBorder='0' allowFullScreen />
+            </S.Video>
           </S.ContentsBox>
 
           <S.IconsBox>
