@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const HeaderLayout = styled.div`
   width: 100vw;
   height: 48px;
-
   display: flex;
+  flex-direction: row;
   flex-shrink: 0;
   align-items: center;
   position: fixed;
@@ -41,6 +41,9 @@ export const ArrowLeftImg = styled.img`
 export const KebabBtnImg = styled.img`
   margin-left: auto;
   cursor: pointer;
+`;
+export const EmojiBox = styled.div`
+  padding-left: 235px;
 `;
 
 export const SaveBtn = styled.button`
