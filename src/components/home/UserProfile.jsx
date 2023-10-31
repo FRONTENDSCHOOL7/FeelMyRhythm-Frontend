@@ -85,7 +85,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
             <S.Video>
               <iframe src={`http://www.youtube.com/embed/${_id}`} frameBorder='0' allowFullScreen />
             </S.Video>
-            <S.H4>임시비디오타이틀</S.H4>
+            <S.H4>{String(image).split('🈳')[2] ?? 'abc'}</S.H4>
           </S.ContentsBox>
 
           <S.IconsBox>

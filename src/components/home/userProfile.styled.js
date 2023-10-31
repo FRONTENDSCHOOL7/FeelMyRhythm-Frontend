@@ -57,13 +57,18 @@ export const H3 = styled.h3`
   font-weight: 400;
   line-height: 14px;
 `;
-export const H4 = styled.h3`
+export const H4 = styled.h4`
   color: ${styleConstants.textColor};
   font-family: ${styleConstants.fontFamily};
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 export const Button = styled.button`
   width: 18px;
@@ -80,7 +85,6 @@ export const Button = styled.button`
 export const ContentsBox = styled.div`
   margin-left: 54px;
   cursor: pointer;
-  background-color: azure;
 `;
 export const DescriptionContent = styled.p`
   color: #000;
