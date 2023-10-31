@@ -16,7 +16,7 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
   const user = useRecoilValue(atomMyInfo);
   const { accountname } = useParams();
   const { pathname } = useLocation();
-  const { params } = useParams();
+
   const setYoutubeSearchCount = useSetRecoilState(atomYoutubeSearchCount);
   const [youtubeSearchKeyword, setYoutubeSearchKeyword] = useRecoilState(atomYoutubeSearchKeyword);
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -6,20 +6,22 @@ import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/hear
 import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
 import basicProfile from '../../assets/images/home/basic-profile.png';
 import { useMutation } from '@tanstack/react-query';
-import { createBookMark, createHeart, createUnHeart } from '../../apis/home/heartAPI';
+import { createBookMark, createHeart } from '../../apis/home/heartAPI';
 import Modal from '../common/Modal/Modal';
 import { useNavigate } from 'react-router-dom';
 
-const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, commentCount, id }) => {
+const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, commentCount, _id }) => {
   createdAt = new Date(createdAt);
-  const navigate = useNavigate();
   const year = createdAt.getFullYear();
   const month = createdAt.getMonth() + 1;
   const date = createdAt.getDate();
   const formatDate = `${year}년 ${month}월 ${date}일`;
+  const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(hearted);
   const [likes, setLikes] = useState(heartCount);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [videoState, setVideoState] = useState(false);
 
   const { mutate: mutateHeart } = useMutation({
     mutationFn: createHeart,
@@ -27,7 +29,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
       mutateBookMark({
         product: {
           itemName: `ms7-3/${image}`,
-          link: id,
+          link: _id,
           itemImage: 'null',
           price: 1
         }
@@ -43,7 +45,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
   });
 
   const handleLike = (isLiked) => {
-    mutateHeart(id);
+    mutateHeart(_id);
     setLikes(isLiked ? likes - 1 : likes + 1);
     setIsLiked(!isLiked);
   };
@@ -55,18 +57,18 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
     setIsModalOpen(true);
   };
   const onNavigateDetailPost = () => {
-    navigate(`/post/${id}`);
+    navigate(`/post/${_id}`, { state: { videoId: image.split('🈳')[1] } });
   };
 
   return (
     <>
       <S.ContainerBox>
-        <S.AboutUserBox>
+        <S.AboutUserBox onClick={() => navigate('/profile/' + author.accountname)}>
           <S.StyledProfileImg
             src={String(author.image).includes('Ellipse.png') || !author.image ? basicProfile : author.image}
             alt='프로필'
           />
-          <S.UserInfoBox onClick={() => navigate('/profile/' + author.accountname)}>
+          <S.UserInfoBox>
             <S.H2>{author.username}</S.H2>
             <S.H3>{author.accountname}</S.H3>
           </S.UserInfoBox>
@@ -79,10 +81,20 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
           </S.Button>
         </S.AboutUserBox>
 
-        <div onClick={onNavigateDetailPost}>
-          <S.ContentsBox onClick={() => navigate('/post/' + id)}>
+        <div onClick={onNavigateDetailPost} style={{ cursor: 'pointer' }}>
+          <S.ContentsBox onClick={() => navigate('/post/' + _id)}>
             <S.DescriptionContent>{content}</S.DescriptionContent>
-            <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
+            <div onMouseOver={() => setVideoState(true)} onMouseLeave={() => setVideoState(false)}>
+              {videoState ? (
+                <>
+                  <S.Iframe src={`http://www.youtube.com/embed/${image.split('🈳')[1]}?autoplay=1&mute=1`} />
+                </>
+              ) : (
+                <>
+                  <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
+                </>
+              )}
+            </div>
           </S.ContentsBox>
 
           <S.IconsBox>
