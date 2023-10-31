@@ -13,7 +13,9 @@ export default function EntirePosts({ searchResults }) {
   return (
     <S.DefaultLayout>
       {data?.posts
-        .filter((post) => post.content?.includes(searchResults))
+        .filter(
+          (post) => post.content?.includes(searchResults) || String(post.image).split('🈳')[2]?.includes(searchResults)
+        )
         .map((post, i) => String(post.image).split('🈳')[0] === 'ms7-3' && <UserProfile key={i} {...post} />)}
     </S.DefaultLayout>
   );
