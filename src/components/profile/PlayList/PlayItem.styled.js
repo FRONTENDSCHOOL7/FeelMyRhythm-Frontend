@@ -9,7 +9,7 @@ export const ItemBox = styled.div`
 
 export const ItemImg = styled.img`
   width: 140px;
-  height: 90px;
+  height: 110px;
   border-radius: 8px;
   border: 0.5px solid #dbdbdb;
 `;

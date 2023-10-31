@@ -22,13 +22,14 @@ export const AboutUserBox = styled.div`
 `;
 
 export const Iframe = styled.iframe`
-  width: 310px;
+  width: 290px;
   height: 220px;
   margin-top: 16px;
 `;
+
 export const Img = styled.img`
   margin-top: 16px;
-  width: 310px;
+  width: 290px;
   height: 220px;
 `;
 
@@ -110,11 +111,6 @@ export const DescriptionContent = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-`;
-
-
-export const Img = styled.img`
-  margin-top: 16px;
 `;
 
 export const IconsBox = styled.div`
