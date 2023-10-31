@@ -15,3 +15,8 @@ export const createBookMark = async (product) => {
   const { data } = await api.post(`/product`, product);
   return data;
 };
+
+export const deleteBookMark = async (id) => {
+  const { data } = await api.delete(`/product/${id}`);
+  return data;
+};

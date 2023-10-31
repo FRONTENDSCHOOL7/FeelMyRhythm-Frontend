@@ -116,9 +116,8 @@ export const IconsBox = styled.div`
 `;
 
 export const StyledHeartBox = styled.div`
-  width: 20px;
-  height: 20px;
-
+  display: flex;
+  gap: 5px;
   cursor: pointer;
 `;
 

@@ -8,7 +8,7 @@ import { GlobalStyle } from './assets/style/GlobalStyle.styled';
 function App() {
   const setMyInfo = useSetRecoilState(atomMyInfo);
   const myInfo = useRecoilValue(atomMyInfo);
-  console.log(myInfo);
+
   const { data } = useQuery({
     queryFn: () =>
       readUserInfo()
