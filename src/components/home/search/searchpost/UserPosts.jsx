@@ -18,9 +18,10 @@ export default function EntirePosts({ searchResults }) {
       {data?.posts
         .filter(
           (post) =>
-            (typeof post.content === 'string' && post.content.toLowerCase().includes(lowerCaseSearchResults)) ||
-            (typeof post.image === 'string' &&
-              String(post.image).split('🈳')[2]?.toLowerCase().includes(lowerCaseSearchResults))
+            lowerCaseSearchResults.length > 0 &&
+            ((typeof post.content === 'string' && post.content.toLowerCase().includes(lowerCaseSearchResults)) ||
+              (typeof post.image === 'string' &&
+                String(post.image).split('🈳')[2]?.toLowerCase().includes(lowerCaseSearchResults)))
         )
         .map((post, i) => String(post.image).split('🈳')[0] === 'ms7-3' && <UserProfile key={i} {...post} />)}
     </S.DefaultLayout>

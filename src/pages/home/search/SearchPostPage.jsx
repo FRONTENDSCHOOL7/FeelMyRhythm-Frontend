@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import TempNavBar from '../../../components/home/TempNavBar';
+import TempNavBar from '../../../components/home/search/searchpost/TempNavBar';
 import UserPosts from '../../../components/home/search/searchpost/UserPosts';
-import SearchPost from '../../../components/home/search/searchpost/SearchPost';
 import TabMenu from '../../../components/common/TabMenu/TabMenu';
 import * as S from './searchPostPage.styled';
 
