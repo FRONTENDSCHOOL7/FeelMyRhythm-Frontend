@@ -107,10 +107,6 @@ export const DescriptionContent = styled.p`
   text-overflow: ellipsis;
 `;
 
-
-export const Video = styled.div`
-`
-
 export const Img = styled.img`
   margin-top: 16px;
 `;
