@@ -7,14 +7,20 @@ import * as S from './userPosts.styled';
 export default function EntirePosts({ searchResults }) {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
 
+  const lowerCaseSearchResults = typeof searchResults === 'string' ? searchResults.toLowerCase() : searchResults;
+
   useEffect(() => {
     console.log(data);
   }, [data]);
+
   return (
     <S.DefaultLayout>
       {data?.posts
         .filter(
-          (post) => post.content?.includes(searchResults) || String(post.image).split('🈳')[2]?.includes(searchResults)
+          (post) =>
+            (typeof post.content === 'string' && post.content.toLowerCase().includes(lowerCaseSearchResults)) ||
+            (typeof post.image === 'string' &&
+              String(post.image).split('🈳')[2]?.toLowerCase().includes(lowerCaseSearchResults))
         )
         .map((post, i) => String(post.image).split('🈳')[0] === 'ms7-3' && <UserProfile key={i} {...post} />)}
     </S.DefaultLayout>
