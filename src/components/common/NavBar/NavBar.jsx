@@ -14,7 +14,7 @@ import Modal from '../Modal/Modal';
 export default function NavBar({ postContent, writeMutate, chatUser, isToggled, onProfileUpdate, profileBtnState }) {
   const navigate = useNavigate();
   const user = useRecoilValue(atomMyInfo);
-  const { accountname } = useParams();
+  // const { accountname } = useParams();
   const { pathname } = useLocation();
 
   const setYoutubeSearchCount = useSetRecoilState(atomYoutubeSearchCount);
@@ -70,7 +70,7 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
         </>
       )}
-      {pathname.includes('profile') &&
+      {/* {pathname.includes('profile') &&
         !pathname.includes('follow') &&
         user.accountname === accountname &&
         !pathname.includes('update') && (
@@ -86,7 +86,7 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
           <>
             <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
           </>
-        )}
+        )} */}
       {pathname.includes('follower') && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
