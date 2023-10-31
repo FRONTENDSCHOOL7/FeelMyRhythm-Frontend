@@ -8,7 +8,8 @@ import { readProductList } from '../../../apis/profile/productListAPI';
 export default function ProfilePlaylist() {
   const { accountname } = useParams();
   const [playList, setPlayList] = useState([]);
-  const { data, err } = useQuery({
+
+  const { data } = useQuery({
     queryFn: () =>
       readProductList(accountname).then((res) => {
         setPlayList(res.product);
@@ -27,7 +28,7 @@ export default function ProfilePlaylist() {
             key={i}
             img={String(v.itemName).split('🈳')[3]}
             title={String(v.itemName).split('🈳')[2]}
-            postId={v.id}
+            postId={v.link}
             userId={v.itemImage}
           />
         ))}

@@ -7,6 +7,8 @@ import * as S from './entirePosts.styled';
 export default function EntirePosts() {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
 
+  console.log(data);
+
   return (
     <S.DefaultLayout>
       {data?.posts?.map(

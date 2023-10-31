@@ -5,13 +5,17 @@ import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart
 import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
 import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/heart.svg';
 import basicProfile from '../../assets/images/home/basic-profile.png';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { readDetailPost } from '../../apis/post/detailPostAPI';
-import { useLocation, useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+import { createBookMark, createHeart, createUnHeart, deleteBookMark } from '../../apis/home/heartAPI';
+import { readProductList } from '../../apis/profile/productListAPI';
+import { useRecoilValue } from 'recoil';
+import { atomMyInfo } from '../../store/store';
 
-const handleLike = () => {};
+export default function PostDetail() {
+  const user = useRecoilValue(atomMyInfo);
 
-export default function Default() {
   const navigate = useNavigate();
 
   const [createdAt, setCreateAt] = useState();
@@ -19,18 +23,21 @@ export default function Default() {
   const [month, setMonth] = useState('');
   const [date, setDate] = useState('');
 
-  const { id } = useParams();
-  const { state } = useLocation();
+  const queryClient = useQueryClient();
 
+  const { id } = useParams();
+
+  // 상세 게시글 데이터 읽기 API
   const { data } = useQuery({
     queryFn: () =>
       readDetailPost(id).then((res) => {
         setCreateAt(new Date(res.post.createdAt));
         return res;
       }),
-    queryKey: ['']
+    queryKey: ['detailpost']
   });
 
+  // 날짜 변환
   useEffect(() => {
     if (data && createdAt) {
       setYear(createdAt.getFullYear());
@@ -39,6 +46,55 @@ export default function Default() {
     }
   }, [createdAt]);
 
+  // 좋아요 API
+  const { mutate: mutateHeart } = useMutation({
+    mutationFn: createHeart,
+    onSuccess: () => {
+      mutateBookMark({
+        product: {
+          itemName: `ms7-3/${data.post.image}`,
+          link: data.post.id,
+          itemImage: data.post.author.accountname,
+          price: 1
+        }
+      });
+      queryClient.invalidateQueries('detailpost');
+    }
+  });
+
+  console.log(data);
+
+  // 좋아요 취소 API
+  const { mutate: mutateUnHeart } = useMutation({
+    mutationFn: createUnHeart,
+    onSuccess: () => {
+      queryClient.invalidateQueries('detailpost');
+      productList.product.filter((product) => {
+        return data.post.id === product.link && deleteProduct(product.id);
+      });
+    }
+  });
+
+  // 북마크 추가 API
+  const { mutate: mutateBookMark } = useMutation({
+    mutationFn: createBookMark
+  });
+
+  // 상품 리스트
+  const { data: productList } = useQuery({
+    queryFn: () => readProductList(user.accountname),
+    queryKey: [data]
+  });
+
+  const { mutate: deleteProduct } = useMutation({
+    mutationFn: deleteBookMark
+  });
+
+  // 좋아요 버튼
+  const handleLike = () => {
+    const id = data.post.id;
+    data.post.hearted ? mutateUnHeart(id) : mutateHeart(id);
+  };
   return (
     <S.ContainerBox>
       {data && (
@@ -65,14 +121,14 @@ export default function Default() {
           </S.AboutUserBox>
           <S.ContentsBox>
             <S.DescriptionContent>{data?.post?.content}</S.DescriptionContent>
-            <S.Iframe src={`http://www.youtube.com/embed/${state.videoId}`} />
+            <S.Iframe src={`http://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
           </S.ContentsBox>
 
           <S.IconsBox>
             <S.StyledHeartBox onClick={() => handleLike()}>
               {data?.post?.hearted ? <ColoredHearIcon /> : <HeartIcon />}
+              <S.NumBox className='heartnum'>{data?.post?.heartCount}</S.NumBox>
             </S.StyledHeartBox>
-            <S.NumBox className='heartnum'>{data?.post?.heartCount}</S.NumBox>
             <S.StyledMessageBox>
               <MessageIcon />
             </S.StyledMessageBox>
