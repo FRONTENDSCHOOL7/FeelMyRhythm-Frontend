@@ -63,6 +63,19 @@ export const H3 = styled.h3`
   font-weight: 400;
   line-height: 14px;
 `;
+export const H4 = styled.h4`
+  color: ${styleConstants.textColor};
+  font-family: ${styleConstants.fontFamily};
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 export const Button = styled.button`
   width: 18px;
   height: 18px;
@@ -94,11 +107,14 @@ export const DescriptionContent = styled.p`
   text-overflow: ellipsis;
 `;
 
+
+export const Video = styled.div`
+`
+
 export const Img = styled.img`
-  width:;
   margin-top: 16px;
-  height: 220px;
 `;
+
 export const IconsBox = styled.div`
   display: flex;
   flex-direction: row;

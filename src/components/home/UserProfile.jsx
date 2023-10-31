@@ -94,11 +94,16 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
                   <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
                 </>
               )}
+              <S.H4>{String(image).split('🈳')[2] ?? 'abc'}</S.H4>
             </div>
           </S.ContentsBox>
 
           <S.IconsBox>
-            <S.StyledHeartBox onClick={() => handleLike(isLiked)}>
+            <S.StyledHeartBox
+              onClick={(e) => {
+                e.stopPropagation();
+                handleLike(isLiked);
+              }}>
               {isLiked ? <ColoredHearIcon /> : <HeartIcon />}
             </S.StyledHeartBox>
             <S.NumBox className='heartnum'>{likes}</S.NumBox>
