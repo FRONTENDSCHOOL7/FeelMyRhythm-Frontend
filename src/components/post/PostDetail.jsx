@@ -20,7 +20,6 @@ export default function Default() {
   const [date, setDate] = useState('');
 
   const { id } = useParams();
-  const { state } = useLocation();
 
   const { data } = useQuery({
     queryFn: () =>
@@ -65,7 +64,7 @@ export default function Default() {
           </S.AboutUserBox>
           <S.ContentsBox>
             <S.DescriptionContent>{data?.post?.content}</S.DescriptionContent>
-            <S.Iframe src={`http://www.youtube.com/embed/${state.videoId}`} />
+            <S.Iframe src={`http://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
           </S.ContentsBox>
 
           <S.IconsBox>

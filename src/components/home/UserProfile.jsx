@@ -30,7 +30,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
         product: {
           itemName: `ms7-3/${image}`,
           link: _id,
-          itemImage: 'null',
+          itemImage: author.accountname,
           price: 1
         }
       });
@@ -57,7 +57,7 @@ const UserProfile = ({ author, content, image, createdAt, hearted, heartCount, c
     setIsModalOpen(true);
   };
   const onNavigateDetailPost = () => {
-    navigate(`/post/${_id}`, { state: { videoId: image.split('🈳')[1] } });
+    navigate(`/post/${_id}`);
   };
 
   return (
