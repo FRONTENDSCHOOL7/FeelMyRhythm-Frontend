@@ -15,7 +15,7 @@ export default function ChatLists() {
         setFollowings(res);
         return res;
       }),
-    queryKey: [mydata.accountname]
+    queryKey: [mydata?.accountname]
   });
 
   return (

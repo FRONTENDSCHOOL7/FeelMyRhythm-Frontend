@@ -7,9 +7,6 @@ import { GlobalStyle } from './assets/style/GlobalStyle.styled';
 
 function App() {
   const setMyInfo = useSetRecoilState(atomMyInfo);
-  const myInfo = useRecoilValue(atomMyInfo);
-
-  const token = localStorage.getItem('accesstoken');
 
   const { data } = useQuery({
     queryFn: () =>
