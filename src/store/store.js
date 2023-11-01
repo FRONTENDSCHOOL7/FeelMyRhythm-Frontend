@@ -18,3 +18,11 @@ export const atomPostContent = atom({
 });
 
 export const atomEmotionState = atom({ key: 'atomemotionstate', default: '선택' });
+
+export const atomPostUpdateContent = atom({
+  key: 'atompostupdatecontent',
+  default: {
+    content: '',
+    image: ''
+  }
+});

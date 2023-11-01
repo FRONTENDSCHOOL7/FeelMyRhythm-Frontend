@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import * as S from './NavBar.styled';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { atomYoutubeSearchCount, atomYoutubeSearchKeyword } from '../../../store/store';
+import { atomPostUpdateContent, atomYoutubeSearchCount, atomYoutubeSearchKeyword } from '../../../store/store';
 import { useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../../store/store';
 import SelectBox from '../SelectBox/SelectBox';
 import Modal from '../Modal/Modal';
 
-export default function NavBar({ postContent, writeMutate, chatUser, isToggled, onProfileUpdate, profileBtnState }) {
+export default function NavBar({
+  postContent,
+  writeMutate,
+  chatUser,
+  isToggled,
+  onProfileUpdate,
+  profileBtnState,
+  updatePostMutate
+}) {
   const navigate = useNavigate();
   const user = useRecoilValue(atomMyInfo);
   const { accountname } = useParams();
@@ -17,6 +25,8 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
   const setYoutubeSearchCount = useSetRecoilState(atomYoutubeSearchCount);
   const [youtubeSearchKeyword, setYoutubeSearchKeyword] = useRecoilState(atomYoutubeSearchKeyword);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const postUpdateContent = useRecoilValue(atomPostUpdateContent);
+  console.log('navpostcontent', postContent);
 
   const handleSearchClick = () => {
     if (isToggled) {
@@ -38,7 +48,12 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
     setYoutubeSearchCount((prev) => prev + 1);
   };
 
-  const onCreatePost = () => {
+  const onCreatePost = (id, postContent) => {
+    console.log('버튼클릭', postContent);
+    if (postUpdateContent.content !== '') {
+      updatePostMutate({ id, postContent });
+      return;
+    }
     writeMutate(postContent);
   };
 
@@ -63,7 +78,7 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
           </S.SelectBox>
           <S.SaveBtn
             valid={postContent.post.content !== '' && postContent.post.content !== '' ? 'done' : 'none'}
-            onClick={onCreatePost}>
+            onClick={() => onCreatePost(postUpdateContent.id, postContent)}>
             업로드
           </S.SaveBtn>
         </>
