@@ -49,10 +49,8 @@ export const SelectBox = styled.div`
 export const SaveBtn = styled.button`
   background-color: ${({ valid }) => (valid === 'done' ? '#F26E22' : '#FFC7A7')};
   border-radius: 32px;
-
   margin-left: 8px;
   padding: 7px 32px;
-
   color: #fff;
 
   font-size: 14px;

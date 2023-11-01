@@ -32,7 +32,7 @@ export const UserImg = styled.img`
 
 export const TextInput = styled.textarea`
   border: 0;
-  width: 80%;
+  width: 80vw;
   resize: none;
   padding-left: 12px;
   padding-top: 12px;

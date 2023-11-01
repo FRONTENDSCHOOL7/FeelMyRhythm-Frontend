@@ -3,10 +3,12 @@ import * as S from './SelectBox.styled';
 import { FaRegSmile } from 'react-icons/fa';
 import { FaRegFaceAngry } from 'react-icons/fa6';
 import { FaRegSadTear } from 'react-icons/fa';
+import { useRecoilState } from 'recoil';
+import { atomEmotionState } from '../../../../store/store';
 
 export default function SelectBox() {
   const [isEmotionActive, setIsEmotionActive] = useState(false);
-  const [selectedEmotion, setSelectedEmotion] = useState('선택');
+  const [selectedEmotion, setSelectedEmotion] = useRecoilState(atomEmotionState);
 
   const arrayEmotions = ['전체', 'smile', 'angry', 'sad'];
   const handleButtonClick = () => {

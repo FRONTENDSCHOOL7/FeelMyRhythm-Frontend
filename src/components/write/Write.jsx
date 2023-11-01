@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './Write.styled';
 import userlogo from '../../assets/images/write/profile-img.png';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default function Write({ state, postContent, handleChangeInput }) {
+export default function Write({ state, postContent, handleChangeInput, textInputRef }) {
   const navigate = useNavigate();
 
   return (
@@ -12,6 +12,7 @@ export default function Write({ state, postContent, handleChangeInput }) {
         <S.UserImg src={userlogo} />
         <S.TextInput
           type='text'
+          ref={textInputRef}
           value={postContent.post.content}
           placeholder='게시글 입력하기...'
           onChange={(e) => handleChangeInput(e)}

@@ -63,7 +63,9 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
           <S.SelectBox>
             <SelectBox />
           </S.SelectBox>
-          <S.SaveBtn valid={postContent.post.content !== '' ? 'done' : 'none'} onClick={onCreatePost}>
+          <S.SaveBtn
+            valid={postContent.post.content !== '' && postContent.post.content !== '' ? 'done' : 'none'}
+            onClick={onCreatePost}>
             업로드
           </S.SaveBtn>
         </>
