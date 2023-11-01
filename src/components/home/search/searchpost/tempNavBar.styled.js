@@ -32,7 +32,7 @@ export const SearchBox = styled.input`
 
   ::placeholder {
     color: #c4c4c4;
-    font-family: 'Spoqa Han Sans Neo';
+    font-family: 'Orbit-Regular';
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

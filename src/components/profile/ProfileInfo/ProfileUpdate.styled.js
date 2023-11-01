@@ -10,7 +10,7 @@ export const ProfileSettingLayout = styled.form`
 
 export const Title = styled.h2`
   text-align: center;
-  font-family: Spoqa Han Sans Neo;
+
   font-size: 24px;
   font-weight: 500;
 
@@ -20,7 +20,7 @@ export const Title = styled.h2`
 export const SubTitle = styled.h3`
   text-align: center;
   color: #767676;
-  font-family: Spoqa Han Sans Neo;
+
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
@@ -61,7 +61,7 @@ export const NonPaddingInputBox = styled(InputBox)`
 
 export const SubContent = styled.p`
   color: #767676;
-  font-family: Spoqa Han Sans Neo;
+
   font-size: 12px;
   font-weight: 500;
 
@@ -74,7 +74,7 @@ export const Input = styled.input`
   padding: 0;
   border: none;
   outline: none;
-  font-family: Spoqa Han Sans Neo;
+
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
@@ -88,7 +88,7 @@ export const Input = styled.input`
 
 export const WarningContent = styled.p`
   color: ${({ valid }) => (valid === '사용 가능한 계정ID 입니다.' ? 'green' : '#eb5757')};
-  font-family: Spoqa Han Sans Neo;
+
   font-size: 12px;
   font-weight: 500;
   line-height: 14px;
@@ -107,7 +107,6 @@ export const Button = styled.button`
 
   color: #fff;
 
-  font-family: Spoqa Han Sans Neo;
   font-size: 14px;
   font-weight: 500;
 `;

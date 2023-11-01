@@ -13,7 +13,7 @@ export const HeaderLayout = styled.div`
 
   background-color: #fff;
 
-  font-family: Spoqa Han Sans Neo;
+  font-family: 'Orbit-Regular';
   border-bottom: 0.5px solid #dbdbdb;
 
   padding-left: 16px;

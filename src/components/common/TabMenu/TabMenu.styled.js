@@ -33,7 +33,6 @@ export const ContentBox = styled.div`
   padding-top: 12px;
   padding-bottom: 6px;
 
-  font-family: Spoqa Han Sans Neo;
   color: ${({ $isActive }) => ($isActive !== 'none' ? '#f26e22' : '#767676')};
   font-size: 10px;
   font-weight: 700;
@@ -44,21 +43,25 @@ export const ContentBox = styled.div`
 export const HomeBox = styled(ContentBox)`
   padding-left: 30px;
   padding-right: 30px;
+  font-family: 'Orbit-Regular';
 `;
 
 export const ChatBox = styled(ContentBox)`
   padding-left: 30px;
   padding-right: 30px;
+  font-family: 'Orbit-Regular';
 `;
 
 export const WriteBox = styled(ContentBox)`
   padding-left: 17.5px;
   padding-right: 17.5px;
+  font-family: 'Orbit-Regular';
 `;
 
 export const ProfileBox = styled(ContentBox)`
   padding-left: 28px;
   padding-right: 28px;
+  font-family: 'Orbit-Regular';
 `;
 
 export const IconImg = styled.img`

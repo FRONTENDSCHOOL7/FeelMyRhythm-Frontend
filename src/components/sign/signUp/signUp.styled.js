@@ -11,7 +11,6 @@ export const SignUpLayout = styled.form`
 `;
 
 export const Title = styled.h2`
-  font-family: Spoqa Han Sans Neo;
   font-size: 24px;
   font-weight: 500;
   text-align: center;
@@ -25,7 +24,7 @@ export const InputBox = styled.div`
 
 export const SubContent = styled.p`
   color: #767676;
-  font-family: Spoqa Han Sans Neo;
+
   font-size: 12px;
   font-weight: 500;
 
@@ -39,7 +38,7 @@ export const Input = styled.input`
   padding: 0;
   border: none;
   outline: none;
-  font-family: Spoqa Han Sans Neo;
+
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
@@ -52,7 +51,6 @@ export const Input = styled.input`
 `;
 
 export const WarningContent = styled.p`
-  font-family: Spoqa Han Sans Neo;
   font-size: 12px;
   font-weight: 500;
   line-height: 14px;
@@ -79,7 +77,6 @@ export const NextButton = styled.button`
 
   color: #fff;
 
-  font-family: Spoqa Han Sans Neo;
   font-size: 14px;
   font-weight: 500;
 `;

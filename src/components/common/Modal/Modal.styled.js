@@ -67,7 +67,7 @@ export const Button = styled.button`
 `;
 export const P = styled.p`
   color: #000;
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: 'Orbit-Regular';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
