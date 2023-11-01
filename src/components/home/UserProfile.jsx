@@ -50,10 +50,10 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
           </S.Button>
         </S.AboutUserBox>
 
-        <div onClick={() => onNavigateDetailPost} style={{ cursor: 'pointer' }}>
+        <S.DetailNavigateBtn onClick={() => onNavigateDetailPost}>
           <S.ContentsBox onClick={() => navigate('/post/' + id)}>
             <S.DescriptionContent>{content}</S.DescriptionContent>
-            <div onMouseOver={() => setVideoState(true)} onMouseLeave={() => setVideoState(false)}>
+            <S.VideoImgToggleBox onMouseOver={() => setVideoState(true)} onMouseLeave={() => setVideoState(false)}>
               {videoState ? (
                 <>
                   <S.Iframe src={`http://www.youtube.com/embed/${image.split('🈳')[1]}?autoplay=1&mute=1`} />
@@ -64,10 +64,10 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
                 </S.ImgBox>
               )}
               <S.H4>{String(image).split('🈳')[2] ?? 'abc'}</S.H4>
-            </div>
+            </S.VideoImgToggleBox>
           </S.ContentsBox>
-        </div>
-        <div onClick={onNavigateDetailPost} style={{ cursor: 'pointer' }}>
+        </S.DetailNavigateBtn>
+        <S.DetailNavigateBtn onClick={onNavigateDetailPost}>
           <S.IconsBox>
             <S.StyledHeartBox>
               <HeartIcon />
@@ -78,7 +78,7 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
             </S.StyledMessageBox>
             <S.NumBox className='messnum'>{comments.length}</S.NumBox>
           </S.IconsBox>
-        </div>
+        </S.DetailNavigateBtn>
 
         <S.Date>{formatDate}</S.Date>
       </S.ContainerBox>

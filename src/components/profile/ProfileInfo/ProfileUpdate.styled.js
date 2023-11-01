@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
 export const ProfileSettingLayout = styled.form`
+  width: 100%;
+  max-width: 767px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   padding-top: 70px;
   padding-left: 34px;
   padding-right: 34px;
+  background-color: white;
 `;
 
 export const Title = styled.h2`

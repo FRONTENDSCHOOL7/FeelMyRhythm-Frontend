@@ -6,8 +6,13 @@ export const Smile = styled(AiFillSmile)``;
 export const SignUpLayout = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding-top: 30px;
+  max-width: 767px;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  padding-left: 34px;
+  padding-right: 34px;
 `;
 
 export const Title = styled.h2`

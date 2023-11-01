@@ -8,6 +8,7 @@ export const ToggleBox = styled.div`
   width: 56px;
   height: 30px;
   position: relative;
+  background-color: white;
 `;
 
 export const Slider = styled.span`
