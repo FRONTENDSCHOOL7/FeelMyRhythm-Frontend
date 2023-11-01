@@ -5,10 +5,13 @@ import Write from '../../components/write/Write';
 import { useMutation } from '@tanstack/react-query';
 import { createPost } from '../../apis/write/writeAPI';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { atomEmotionState } from '../../store/store';
 
 export default function WritePage() {
   const navigate = useNavigate();
   const { state } = useLocation();
+  const [emojiState, setEmojiState] = useRecoilState(atomEmotionState);
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -18,7 +21,10 @@ export default function WritePage() {
   const [postContent, setPostContent] = useState({
     post: {
       content: '',
-      image: state === null ? 'ms7-3' : `ms7-3🈳${state.id}🈳${state.title}🈳${state.thumbnail}`
+      image:
+        state === null
+          ? 'ms7-3'
+          : `ms7-3🈳${state.id}🈳${state.title}🈳${state.thumbnail}🈳${emojiState === '선택' ? '전체' : emojiState}`
     }
   });
 
@@ -30,6 +36,7 @@ export default function WritePage() {
   const { mutate: writeMutate } = useMutation({
     mutationFn: createPost,
     onSuccess: () => {
+      setEmojiState('선택');
       navigate('/home');
     },
     onError: ({ response }) => {

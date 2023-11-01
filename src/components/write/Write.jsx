@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './Write.styled';
 import userlogo from '../../assets/images/write/profile-img.png';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Write({ state, postContent, handleChangeInput }) {
   const navigate = useNavigate();
