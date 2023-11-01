@@ -1,7 +1,29 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+import { atomPostUpdateContent } from '../../../store/store';
 
 export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
+  const navigate = useNavigate();
+
+  const postUpdateContent = useRecoilValue(atomPostUpdateContent);
+
+  const onNavigatePostUpdate = () => {
+    if (alertMsg === '수정')
+      navigate('/write', {
+        state: {
+          update: true,
+          postId: postUpdateContent.id,
+          content: postUpdateContent.content,
+          id: postUpdateContent.image.split('🈳')[1],
+          title: postUpdateContent.image.split('🈳')[2],
+          thumbnail: postUpdateContent.image.split('🈳')[3],
+          emojiState: postUpdateContent.image.split('🈳')[4]
+        }
+      });
+  };
+
   return (
     <AlertLayout $alertMsg={alertMsg}>
       <QuesContent>
@@ -23,6 +45,7 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
             modalFunc();
             SetAlertMsg('');
             onClose();
+            onNavigatePostUpdate();
           }}
           $textColor='#F26E22'>
           {alertMsg}

@@ -10,12 +10,13 @@ import { readDetailPost } from '../../apis/post/detailPostAPI';
 import { useNavigate, useParams } from 'react-router';
 import { createBookMark, createHeart, createUnHeart, deleteBookMark } from '../../apis/home/heartAPI';
 import { readProductList } from '../../apis/profile/productListAPI';
-import { useRecoilValue } from 'recoil';
-import { atomMyInfo } from '../../store/store';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { atomMyInfo, atomPostUpdateContent } from '../../store/store';
 import Modal from '../../components/common/Modal/Modal';
 
 export default function PostDetail() {
   const user = useRecoilValue(atomMyInfo);
+  const setPostUpdateContent = useSetRecoilState(atomPostUpdateContent);
 
   const navigate = useNavigate();
 
@@ -38,6 +39,15 @@ export default function PostDetail() {
       }),
     queryKey: ['detailpost']
   });
+
+  useEffect(() => {
+    if (data)
+      setPostUpdateContent({
+        id: data.post.id,
+        content: data.post.content,
+        image: data.post.image
+      });
+  }, [data]);
 
   // 날짜 변환
   useEffect(() => {

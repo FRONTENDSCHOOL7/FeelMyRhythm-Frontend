@@ -3,8 +3,8 @@ import * as S from './SelectBox.styled';
 import { FaRegSmile } from 'react-icons/fa';
 import { FaRegFaceAngry } from 'react-icons/fa6';
 import { FaRegSadTear } from 'react-icons/fa';
-import { useRecoilState } from 'recoil';
-import { atomEmotionState } from '../../../store/store';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { atomEmotionState, atomPostUpdateContent } from '../../../store/store';
 
 export default function SelectBox() {
   const [isEmotionActive, setIsEmotionActive] = useState(false);
@@ -19,6 +19,14 @@ export default function SelectBox() {
     setSelectedEmotion(emotion);
     setIsEmotionActive(false);
   };
+
+  const updatePostContent = useRecoilValue(atomPostUpdateContent);
+
+  useEffect(() => {
+    console.log('이모징', updatePostContent.image.split('🈳')[4]);
+    if (updatePostContent.content !== '' && window.location.pathname === '/write')
+      setSelectedEmotion(updatePostContent.image.split('🈳')[4]);
+  }, [updatePostContent]);
 
   return (
     <S.SelectBox>
