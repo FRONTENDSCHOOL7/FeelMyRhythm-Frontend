@@ -12,6 +12,8 @@ ${reset}
 }
 
 * {
+  background-color:${({ theme }) => theme.bgColor};
+  color:${({ theme }) => theme.textColor};
   box-sizing: border-box;
   font-family: 'Orbit-Regular';
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
+export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, toggleTheme }) {
   return (
     <AlertLayout $alertMsg={alertMsg}>
       <QuesContent>
@@ -23,6 +23,9 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
             modalFunc();
             SetAlertMsg('');
             onClose();
+            if (alertMsg === '테마 전환') {
+              toggleTheme();
+            }
           }}
           $textColor='#F26E22'>
           {alertMsg}

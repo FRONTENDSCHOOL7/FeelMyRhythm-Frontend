@@ -4,15 +4,19 @@ import App from './App';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { ThemeProvider } from './assets/theme/ThemeProvider';
+
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      <RecoilRoot>
-        <App />
-      </RecoilRoot>
+      <ThemeProvider>
+        <RecoilRoot>
+          <App />
+        </RecoilRoot>
+      </ThemeProvider>
     </BrowserRouter>
   </QueryClientProvider>
 );

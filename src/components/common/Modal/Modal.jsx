@@ -5,12 +5,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { atomMyInfo } from '../../../store/store';
 import Alert from '../Alert/Alert';
+import { useTheme } from '../../../assets/theme/ThemeProvider';
 
 const Modal = ({ isOpen, onClose, postModal, postUser }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [user, SetUserInfo] = useRecoilState(atomMyInfo);
   const [alertMsg, SetAlertMsg] = useState('');
+  const [ThemeMode, toggleTheme] = useTheme();
 
   if (!isOpen) {
     return null;
@@ -66,7 +68,13 @@ const Modal = ({ isOpen, onClose, postModal, postUser }) => {
                 </>
               )}
         </S.Modal>
-        <Alert alertMsg={alertMsg} modalFunc={modalFunc} SetAlertMsg={SetAlertMsg} onClose={onClose} />
+        <Alert
+          alertMsg={alertMsg}
+          modalFunc={modalFunc}
+          SetAlertMsg={SetAlertMsg}
+          onClose={onClose}
+          toggleTheme={toggleTheme}
+        />
       </S.Backdrop>
     </>
   );
