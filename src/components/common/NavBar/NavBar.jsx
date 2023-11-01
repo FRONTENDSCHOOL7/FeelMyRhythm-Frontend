@@ -50,7 +50,7 @@ export default function NavBar({
 
   const onCreatePost = (id, postContent) => {
     console.log('버튼클릭', postContent);
-    if (postUpdateContent.content !== '') {
+    if (postUpdateContent.content) {
       updatePostMutate({ id, postContent });
       return;
     }
