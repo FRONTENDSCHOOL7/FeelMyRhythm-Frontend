@@ -34,12 +34,12 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
       <S.ContainerBox>
         <S.AboutUserBox onClick={() => navigate('/profile/' + author.accountname)}>
           <S.StyledProfileImg
-            src={String(author.image).includes('Ellipse.png') || !author.image ? basicProfile : author.image}
+            src={String(author?.image).includes('Ellipse.png') || !author?.image ? basicProfile : author?.image}
             alt='프로필'
           />
           <S.UserInfoBox>
-            <S.H2>{author.username}</S.H2>
-            <S.H3>{author.accountname}</S.H3>
+            <S.H2>{author?.username}</S.H2>
+            <S.H3>{author?.accountname}</S.H3>
           </S.UserInfoBox>
           <S.Button
             onClick={(e) => {
@@ -56,14 +56,14 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
             <div onMouseOver={() => setVideoState(true)} onMouseLeave={() => setVideoState(false)}>
               {videoState ? (
                 <>
-                  <S.Iframe src={`http://www.youtube.com/embed/${image.split('🈳')[1]}?autoplay=1&mute=1`} />
+                  <S.Iframe src={`http://www.youtube.com/embed/${image && image.split('🈳')[1]}?autoplay=1&mute=1`} />
                 </>
               ) : (
                 <S.ImgBox>
-                  <S.Img src={String(image).split('🈳')[3] ?? 'abc'} alt='' />
+                  <S.Img src={String(image) && (String(image).split('🈳')[3] ?? 'abc')} alt='' />
                 </S.ImgBox>
               )}
-              <S.H4>{String(image).split('🈳')[2] ?? 'abc'}</S.H4>
+              <S.H4>{String(image) && (String(image).split('🈳')[2] ?? 'abc')}</S.H4>
             </div>
           </S.ContentsBox>
         </div>
@@ -76,13 +76,13 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
             <S.StyledMessageBox>
               <MessageIcon />
             </S.StyledMessageBox>
-            <S.NumBox className='messnum'>{comments.length}</S.NumBox>
+            <S.NumBox className='messnum'>{comments?.length}</S.NumBox>
           </S.IconsBox>
         </div>
 
         <S.Date>{formatDate}</S.Date>
       </S.ContainerBox>
-      <Modal postModal={true} postUser={author.accountname} isOpen={isModalOpen} onClose={toggleModal}></Modal>
+      <Modal postModal={true} postUser={author?.accountname} isOpen={isModalOpen} onClose={toggleModal}></Modal>
     </>
   );
 };

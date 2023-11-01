@@ -75,6 +75,11 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
         </>
       )}
+      {pathname.includes('/emotion') && (
+        <>
+          <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+        </>
+      )}
       {pathname.includes('profile') &&
         !pathname.includes('follow') &&
         user?.accountname === accountname &&

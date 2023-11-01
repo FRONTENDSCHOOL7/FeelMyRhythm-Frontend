@@ -18,6 +18,7 @@ import Post from '../pages/post/PostPage';
 import YoutubeSearch from '../pages/write/YoutubeSearchPage';
 import YoutubeVideoDetail from '../pages/write/YoutubeVideoDetail';
 import ProfileUpdatePage from '../pages/profile/ProfileUpdatePage';
+import Emotion from '../pages/emotion/Emotion';
 
 export default function AppRouter() {
   return (
@@ -26,6 +27,7 @@ export default function AppRouter() {
       <Route path='/home' element={<Home />} />
       <Route path='/home/searchuser' element={<SearchUserPage />} />
       <Route path='/home/searchpost' element={<SearchPostPage />} />
+      <Route path='/emotion' element={<Emotion />} />
       <Route path='/chat' element={<Chat />} />
       <Route path='/chat/:accountname' element={<ChatRoom />} />
       <Route path='/write' element={<Write />} />
