@@ -19,7 +19,7 @@ ${reset}
 body {
   line-height: normal;
   font-family: 'Orbit-Regular';
-  background-color: #7B86AA;
+  background-color: white;
 }
 
 button {
