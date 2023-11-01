@@ -42,7 +42,7 @@ export const KebabBtnImg = styled.img`
   margin-left: auto;
   cursor: pointer;
 `;
-export const EmojiBox = styled.div`
+export const SelectBox = styled.div`
   padding-left: 235px;
 `;
 

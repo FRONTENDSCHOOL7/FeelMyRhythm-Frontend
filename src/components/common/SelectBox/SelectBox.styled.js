@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const EmojiBox = styled.div`
+export const SelectBox = styled.div`
   padding-top: 148px;
   width: 110px;
   z-index: 10;

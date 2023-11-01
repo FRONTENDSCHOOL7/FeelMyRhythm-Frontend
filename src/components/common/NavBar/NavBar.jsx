@@ -8,7 +8,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { atomYoutubeSearchCount, atomYoutubeSearchKeyword } from '../../../store/store';
 import { useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../../store/store';
-import Emoji from '../../home/toggleandemoji/emoji/Emoji';
+import SelectBox from '../SelectBox/SelectBox';
 import Modal from '../Modal/Modal';
 
 export default function NavBar({ postContent, writeMutate, chatUser, isToggled, onProfileUpdate, profileBtnState }) {
@@ -60,9 +60,9 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
       {pathname === '/write' && (
         <>
           <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
-          <S.EmojiBox>
-            <Emoji />
-          </S.EmojiBox>
+          <S.SelectBox>
+            <SelectBox />
+          </S.SelectBox>
           <S.SaveBtn valid={postContent.post.content !== '' ? 'done' : 'none'} onClick={onCreatePost}>
             업로드
           </S.SaveBtn>
