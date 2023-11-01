@@ -56,7 +56,7 @@ export default function WritePage() {
       navigate('/home');
     },
     onError: ({ response }) => {
-      alert(response.data.message);
+      alert('게시글 내용 또는 영상을 첨부해주세요');
     }
   });
 

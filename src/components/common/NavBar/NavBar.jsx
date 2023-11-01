@@ -63,7 +63,9 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
           <S.EmojiBox>
             <Emoji />
           </S.EmojiBox>
-          <S.SaveBtn valid={postContent.post.content !== '' ? 'done' : 'none'} onClick={onCreatePost}>
+          <S.SaveBtn
+            valid={postContent.post.content !== '' && postContent.post.image !== '' ? 'done' : 'none'}
+            onClick={onCreatePost}>
             업로드
           </S.SaveBtn>
         </>
