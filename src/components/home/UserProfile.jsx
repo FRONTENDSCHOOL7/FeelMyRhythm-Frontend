@@ -64,7 +64,7 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
                 </S.ImgBox>
               )}
               <S.H4>{String(image) && (String(image).split('🈳')[2] ?? 'abc')}</S.H4>
-            </div>
+            </S.VideoImgToggleBox>
           </S.ContentsBox>
         </S.DetailNavigateBtn>
         <S.DetailNavigateBtn onClick={onNavigateDetailPost}>

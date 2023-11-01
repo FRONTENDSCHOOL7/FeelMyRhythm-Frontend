@@ -49,7 +49,6 @@ export default function AppRouter() {
         </Routes>
       </App>
     </Container>
-
   );
 }
 
