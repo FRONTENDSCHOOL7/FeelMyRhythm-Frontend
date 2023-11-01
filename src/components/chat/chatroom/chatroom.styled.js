@@ -10,7 +10,7 @@ export const ChatRoomLayout = styled.div`
   width: 100vw;
   max-width: 767px;
   overflow-x: scroll;
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.backgroundColor};
   height: 100vh;
 `;
 export const OthersChatBox = styled.div`

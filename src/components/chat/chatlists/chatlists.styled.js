@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-const STYLE_CONSTANTS = {
-  textColor: '#767676',
-  fontFamily: "'Orbit-Regular', sans-serif"
-};
-
 export const ChatListLayout = styled.ul`
   display: flex;
   flex-direction: column;
@@ -15,7 +10,7 @@ export const ChatListLayout = styled.ul`
   max-width: 767px;
   align-items: center;
   overflow-x: scroll;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const ChatListItem = styled.li`
@@ -49,8 +44,7 @@ export const ChatBox = styled.div`
 `;
 
 export const ChatUserName = styled.p`
-  color: #000;
-  font-family: ${STYLE_CONSTANTS.fontFamily};
+  color: ${({ theme }) => theme.textColor};
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -58,8 +52,7 @@ export const ChatUserName = styled.p`
 `;
 
 export const ChatMessage = styled.p`
-  color: ${STYLE_CONSTANTS.textColor};
-  font-family: ${STYLE_CONSTANTS.fontFamily};
+  color: ${({ theme }) => theme.textColor};
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -72,8 +65,7 @@ export const ChatMessage = styled.p`
 `;
 
 export const ChatDate = styled.span`
-  color: #dbdbdb;
-  font-family: ${STYLE_CONSTANTS.fontFamily};
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 10px;
   font-style: normal;
   font-weight: 400;

@@ -4,6 +4,7 @@ import kebobIcon from '../../../assets/images/post/more-vertical.png';
 export const CommentLayout = styled.div`
   padding: 10px;
   flex: 1;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const CommentList = styled.ul`
@@ -31,13 +32,13 @@ export const ProfileImg = styled.img`
 
 export const TitleContent = styled.p`
   font-size: 14px;
-  color: #000;
+  color: ${({ theme }) => theme.textColor};
   font-weight: 500;
 `;
 
 export const TimeBox = styled.div`
   font-size: 10px;
-  color: #767676;
+  color: ${({ theme }) => theme.subTextColor};
   padding-left: 5px;
 `;
 
@@ -53,6 +54,6 @@ export const MoreBtn = styled.button`
 
 export const CommentContent = styled.p`
   font-size: 14px;
-  color: #333;
+  color: ${({ theme }) => theme.textColor};
   padding-left: 50px;
 `;

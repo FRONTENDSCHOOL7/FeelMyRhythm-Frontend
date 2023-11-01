@@ -7,7 +7,7 @@ export const SignInLayout = styled.form`
   max-width: 767px;
   width: 100vw;
   height: 100vh;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
   padding-left: 34px;
   padding-right: 34px;
 `;
@@ -16,7 +16,7 @@ export const Title = styled.h2`
   font-size: 24px;
   font-weight: 500;
   text-align: center;
-
+  color: ${({ theme }) => theme.textColor};
   padding-bottom: 40px;
 `;
 
@@ -26,7 +26,7 @@ export const InputBox = styled.div`
 
 export const SubContent = styled.p`
   color: #767676;
-
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 12px;
   font-weight: 500;
 
@@ -34,8 +34,9 @@ export const SubContent = styled.p`
 `;
 
 export const Input = styled.input`
-  width: 100%;
+  width: 70%;
   height: 32px;
+
   padding: 0;
   border: none;
   outline: none;
@@ -46,8 +47,13 @@ export const Input = styled.input`
 
   margin-bottom: 8px;
 
+  padding-left: 8px;
+
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.textColor};
+
   &::placeholder {
-    color: #dbdbdb;
+    color: ${({ theme }) => theme.subTextColor};
   }
 `;
 
@@ -63,14 +69,14 @@ export const WarningContent = styled.p`
 `;
 
 export const Button = styled.button`
-  background-color: ${({ valid }) => (valid === 'done' ? '#F26E22' : '#FFC7A7')};
+  background-color: ${({ valid, theme }) => (valid === 'done' ? theme.btnEnabledBgColor : theme.btnDisabledBgColor)};
   border-radius: 44px;
   border: none;
 
   margin-top: 14px;
-  padding: 13px 142px;
+  padding: 13px 148px;
 
-  color: #fff;
+  color: ${({ theme }) => theme.btnTextColor};
 
   font-size: 14px;
   font-weight: 500;
@@ -79,7 +85,7 @@ export const Button = styled.button`
 export const EmailSignUp = styled.p`
   margin: 20px auto 0 auto;
 
-  color: #767676;
+  color: ${({ theme }) => theme.subTextColor};
 
   font-size: 12px;
   font-weight: 400;

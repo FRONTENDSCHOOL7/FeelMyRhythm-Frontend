@@ -11,6 +11,7 @@ export const ChatFooterLayout = styled.div`
   width: 100vw;
   max-width: 767px;
   height: 61px;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const TempBox = styled.div`
@@ -29,8 +30,9 @@ export const Input = styled.input`
   width: 67vw;
   border: none;
   background: none;
+  color: ${({ theme }) => theme.textColor};
   ::placeholder {
-    color: #767676;
+    color: ${({ theme }) => theme.subTextColor};
   }
   &:focus {
     outline: none;

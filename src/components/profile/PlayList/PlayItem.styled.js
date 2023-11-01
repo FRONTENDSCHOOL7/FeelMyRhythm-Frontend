@@ -5,6 +5,7 @@ export const ItemBox = styled.div`
   flex-direction: column;
   margin-right: 12px;
   cursor: pointer;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const ItemImgBox = styled.div`
@@ -33,7 +34,7 @@ export const ItemTitleContent = styled.p`
 `;
 
 export const ItemIDContent = styled.p`
-  color: #767676;
+  color: ${({ theme }) => theme.subTextColor};
   width: 150px;
   font-size: 12px;
   margin-top: 4px;

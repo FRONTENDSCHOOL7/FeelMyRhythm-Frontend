@@ -7,6 +7,7 @@ export const CommentWriteLayout = styled.div`
   padding-top: 13px;
   padding-bottom: 16px;
   padding-left: 12px;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const UserImg = styled.img`
@@ -18,6 +19,11 @@ export const UserImg = styled.img`
 export const BottomInput = styled.input`
   display: flex;
   border: 0;
+  color: ${({ theme }) => theme.textColor};
+  background-color: ${({ theme }) => theme.backgroundColor};
+  &::placeholder {
+    color: ${({ theme }) => theme.textColor};
+  }
 `;
 
 export const CommentEdit = styled.div`
@@ -28,7 +34,7 @@ export const PostBtn = styled.button`
   border: 0;
 
   margin-left: auto;
-  color: #c4c4c4;
+  color: ${({ theme }) => theme.subTextColor};
   text-align: right;
   font-family: 'Orbit-Regular';
   font-size: 14px;
@@ -36,6 +42,6 @@ export const PostBtn = styled.button`
   padding-right: 16px;
 
   &:hover {
-    color: #f26e22;
+    color: ${({ theme }) => theme.textColor};
   }
 `;

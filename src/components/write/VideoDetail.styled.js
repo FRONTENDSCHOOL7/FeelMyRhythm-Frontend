@@ -6,9 +6,9 @@ export const VideoDetailLayout = styled.div`
   width: 100vw;
   height: 100vh;
   padding-top: 48px;
-
   justify-content: center;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const VideoBox = styled.div`
@@ -28,6 +28,7 @@ export const VideoContent = styled.p`
   max-width: 707px;
   width: 90%;
   padding-bottom: 20px;
+  padding-top: 20px;
 `;
 
 export const ShareBtn = styled.button`
@@ -35,7 +36,7 @@ export const ShareBtn = styled.button`
   width: 90%;
   height: 40px;
 
-  background-color: #f26e22;
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
 
   border-radius: 32px;
 

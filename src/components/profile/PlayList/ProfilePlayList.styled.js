@@ -10,11 +10,13 @@ export const ProfilePlayListLayout = styled.div`
   border: 0.5px solid #dbdbdb;
   border-left: none;
   border-right: none;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const TitleContent = styled.p`
   font-size: 16px;
   font-weight: 700;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const PLContainerBox = styled.div`

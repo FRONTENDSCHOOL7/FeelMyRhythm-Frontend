@@ -8,7 +8,7 @@ export const ToggleBox = styled.div`
   width: 56px;
   height: 30px;
   position: relative;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const Slider = styled.span`
@@ -39,7 +39,7 @@ export const Slider = styled.span`
   }
 
   ${Input}:checked + & {
-    background-color: #fc7307;
+    background-color: ${({ theme }) => theme.btnEnabledBgColor};
   }
 
   ${Input}:focus + & {

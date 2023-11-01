@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { readFollowers } from '../../apis/profile/followersAPI';
 
 const ContBox = styled.div`
+  max-width: 767px;
   width: 100vw;
   height: 100vh;
   background-color: #fff;

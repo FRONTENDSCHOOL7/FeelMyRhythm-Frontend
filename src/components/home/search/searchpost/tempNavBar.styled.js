@@ -10,6 +10,8 @@ export const SearchHeaderLayout = styled.div`
   padding-left: 16px;
   padding-right: 12px;
   height: 48px;
+
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const BackArrowButton = styled.button`

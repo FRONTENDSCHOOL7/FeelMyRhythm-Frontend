@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './Write.styled';
 import userlogo from '../../assets/images/write/profile-img.png';
 import { useNavigate } from 'react-router-dom';
+import addImg from '../../assets/images/write/upload.svg';
 
 export default function Write({ state, postContent, handleChangeInput, textInputRef }) {
   const navigate = useNavigate();
@@ -24,7 +25,9 @@ export default function Write({ state, postContent, handleChangeInput, textInput
           <S.VideoContent>{state.title}</S.VideoContent>
         </S.VideoBox>
       )}
-      <S.UploadBtn type='button' onClick={() => navigate('/youtubesearch')} />
+      <S.UploadBtn type='button' onClick={() => navigate('/youtubesearch')}>
+        <S.AddImg src={addImg} />
+      </S.UploadBtn>
     </S.WriteLayout>
   );
 }

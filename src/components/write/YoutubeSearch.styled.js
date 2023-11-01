@@ -6,10 +6,11 @@ export const YoutubeSearchLayout = styled.div`
   justify-content: center;
   max-width: 767px;
   width: 100vw;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
   padding-top: 48px;
   padding-bottom: 48px;
   flex-direction: column;
+  color: ${({ theme }) => theme.textColor};
 `;
 export const VideoBox = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ export const VideoBox = styled.div`
   height: 100%;
   padding-top: 10px;
   gap: 20px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const VideoContent = styled.p`
@@ -28,8 +29,7 @@ export const VideoContent = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: white;
-  /* padding-right: 34px; */
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const VideoSection = styled.div`
@@ -37,10 +37,9 @@ export const VideoSection = styled.div`
   &:hover {
     transform: scale(1.02);
   }
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const VideoThumbnail = styled.img`
   width: 100%;
-  background-color: white;
 `;

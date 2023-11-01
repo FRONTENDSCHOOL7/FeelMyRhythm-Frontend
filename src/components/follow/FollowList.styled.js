@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-const mainColor = `#f26e22`;
-
 export const ProfileFollowersLayout = styled.div`
+  max-width: 767px;
   width: 100vw;
   background: #fff;
 
@@ -61,7 +60,7 @@ export const FollowerButton = styled.button`
   height: 28px;
   font-size: 12px;
   color: #fff;
-  background-color: ${mainColor};
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
   border-radius: 26px;
   border: none;
 `;

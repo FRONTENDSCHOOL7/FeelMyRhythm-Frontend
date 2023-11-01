@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
-const styleConstants = {
-  textColor: '#767676',
-  fontFamily: "'Orbit-Regular', sans-serif"
-};
 export const ContainerBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
   padding: 16px 20px;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 export const AboutUserBox = styled.div`
   display: flex;
@@ -31,8 +28,8 @@ export const ImgBox = styled.div`
   border-radius: 17px;
   overflow: hidden;
   margin-top: 16px;
-  background-color: gray;
 `;
+
 export const Img = styled.img`
   height: 140%;
   transform: translate(-1%, -14%);
@@ -42,12 +39,6 @@ export const StyledProfileImg = styled.img`
   width: 42px;
   height: 42px;
   border-radius: 42px;
-  border: 0.5px solid #dbdbdb;
-  background: lightgray;
-  background-position: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-
   margin-right: 12px;
 `;
 
@@ -59,16 +50,15 @@ export const UserInfoBox = styled.div`
 export const H2 = styled.p`
   height: 18px;
   color: #000;
-  font-family: ${styleConstants.fontFamily};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   margin-bottom: 2px;
+  color: ${({ theme }) => theme.textColor};
 `;
 export const H3 = styled.h3`
-  color: ${styleConstants.textColor};
-  font-family: ${styleConstants.fontFamily};
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -76,8 +66,7 @@ export const H3 = styled.h3`
 `;
 export const H4 = styled.h4`
   margin-top: 5px;
-  color: ${styleConstants.textColor};
-  font-family: ${styleConstants.fontFamily};
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -104,8 +93,7 @@ export const ContentsBox = styled.div`
   cursor: pointer;
 `;
 export const DescriptionContent = styled.p`
-  color: #000;
-  font-family: ${styleConstants.fontFamily};
+  color: ${({ theme }) => theme.textColor};
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -141,13 +129,12 @@ export const StyledMessageBox = styled.div`
   cursor: pointer;
 `;
 export const NumBox = styled.div`
-  color: ${styleConstants.textColor};
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 12px;
   padding-right: 10px;
 `;
 export const Date = styled.p`
-  color: ${styleConstants.textColor};
-  font-family: ${styleConstants.fontFamily};
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 10px;
   font-style: normal;
   font-weight: 400;

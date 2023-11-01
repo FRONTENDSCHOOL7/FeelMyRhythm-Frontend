@@ -18,7 +18,7 @@ export const FooterLayout = styled.div`
   bottom: 0;
   z-index: 10;
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.backgroundColor};
   border-top: 0.5px solid #dbdbdb;
 
   padding-left: 6px;
@@ -34,7 +34,7 @@ export const ContentBox = styled.div`
   padding-top: 12px;
   padding-bottom: 6px;
 
-  color: ${({ $isActive }) => ($isActive !== 'none' ? '#f26e22' : '#767676')};
+  color: ${({ $isActive, theme }) => ($isActive !== 'none' ? theme.textColor : theme.subTextColor)};
   font-size: 10px;
   font-weight: 700;
   line-height: 14px;
