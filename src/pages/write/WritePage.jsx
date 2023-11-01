@@ -76,6 +76,10 @@ export default function WritePage() {
           image: ''
         }
       });
+      setUpdatePostContent({
+        content: '',
+        image: ''
+      });
       setYoutubeSearchKeyword('');
       navigate('/home');
     },
