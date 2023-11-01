@@ -41,7 +41,7 @@ export const StyledProfileImg = styled.img`
   width: 42px;
   height: 42px;
   border-radius: 42px;
-  border: 0.5px solid #dbdbdb;
+  border: none;
   background: lightgray;
   background-position: 50%;
   background-size: cover;
