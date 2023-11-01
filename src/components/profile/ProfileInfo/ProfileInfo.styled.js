@@ -7,8 +7,6 @@ export const ProfileInfoLayout = styled.div`
   align-items: center;
   flex-direction: column;
   max-width: 767px;
-  width: 100vw;
-  padding-top: 30px;
   background-color: ${({ theme }) => theme.backgroundColor};
   color: ${({ theme }) => theme.textColor};
   border: 0.5px solid #dbdbdb;

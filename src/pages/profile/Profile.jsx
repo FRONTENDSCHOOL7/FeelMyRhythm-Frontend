@@ -8,6 +8,8 @@ import ProfilePostList from '../../components/profile/PostList/ProfilePostList';
 import { useNavigate } from 'react-router-dom';
 
 const ContBox = styled.div`
+  max-width: 767px;
+  width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.backgroundColor};
 `;

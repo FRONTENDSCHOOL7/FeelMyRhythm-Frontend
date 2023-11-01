@@ -75,7 +75,7 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
       )}
       {pathname.includes('/emotion') && (
         <>
-          <S.ArrowLeftImg src={arrowLeft} onClick={() => navigate(-1)} />
+          <S.ArrowLeftImg onClick={() => navigate(-1)} />
         </>
       )}
       {pathname.includes('profile') &&
