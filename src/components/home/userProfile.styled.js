@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const styleConstants = {
-  textColor: '#767676',
   fontFamily: "'Orbit-Regular', sans-serif"
 };
 export const ContainerBox = styled.div`
@@ -58,7 +57,7 @@ export const UserInfoBox = styled.div`
 
 export const H2 = styled.p`
   height: 18px;
-  color: #000;
+  color: ${({ $textColor }) => $textColor};
   font-family: ${styleConstants.fontFamily};
   font-size: 14px;
   font-style: normal;
@@ -67,7 +66,7 @@ export const H2 = styled.p`
   margin-bottom: 2px;
 `;
 export const H3 = styled.h3`
-  color: ${styleConstants.textColor};
+  color: ${({ $textColor }) => $textColor};
   font-family: ${styleConstants.fontFamily};
   font-size: 12px;
   font-style: normal;
@@ -76,7 +75,7 @@ export const H3 = styled.h3`
 `;
 export const H4 = styled.h4`
   margin-top: 5px;
-  color: ${styleConstants.textColor};
+  color: ${({ $textColor }) => $textColor};
   font-family: ${styleConstants.fontFamily};
   font-size: 12px;
   font-style: normal;
@@ -104,7 +103,7 @@ export const ContentsBox = styled.div`
   cursor: pointer;
 `;
 export const DescriptionContent = styled.p`
-  color: #000;
+  color: ${({ $textColor }) => $textColor};
   font-family: ${styleConstants.fontFamily};
   font-size: 14px;
   font-style: normal;
@@ -141,12 +140,12 @@ export const StyledMessageBox = styled.div`
   cursor: pointer;
 `;
 export const NumBox = styled.div`
-  color: ${styleConstants.textColor};
+  color: ${({ $textColor }) => $textColor};
   font-size: 12px;
   padding-right: 10px;
 `;
 export const Date = styled.p`
-  color: ${styleConstants.textColor};
+  color: ${({ $textColor }) => $textColor};
   font-family: ${styleConstants.fontFamily};
   font-size: 10px;
   font-style: normal;

@@ -16,7 +16,7 @@ export const PostListHeader = styled.header`
   align-items: center;
   justify-content: flex-end;
   border: 0.5px solid #dbdbdb;
-  background: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
   border-left: none;
   border-right: none;
 `;

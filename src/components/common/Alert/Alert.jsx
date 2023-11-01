@@ -50,7 +50,7 @@ const AlertLayout = styled.div`
   height: 110px;
   border-radius: 10px;
   overflow: hidden;
-  background: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
   z-index: 999;
 `;
 
@@ -58,6 +58,7 @@ const QuesContent = styled.p`
   font-size: 16px;
   font-weight: 500;
   padding: 22px 0;
+  background-color: ${({ theme }) => theme.bgColor};
 `;
 
 const FlexBox = styled.div`
@@ -72,5 +73,5 @@ const AlertButton = styled.button`
   font-weight: 400;
   border: 0.5px solid #dbdbdb;
   border-right: none;
-  background: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
 `;

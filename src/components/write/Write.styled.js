@@ -37,7 +37,7 @@ export const TextInput = styled.textarea`
   padding-left: 12px;
   padding-top: 12px;
   outline: none;
-  color: #000;
+  color: ${({ $textColor }) => $textColor};
   font-weight: 400;
 
   &::placeholder {
@@ -55,7 +55,7 @@ export const Video = styled.iframe`
 `;
 
 export const VideoContent = styled.p`
-  color: black;
+  color: ${({ $textColor }) => $textColor};
   padding-right: 34px;
   padding-bottom: 50px;
 `;

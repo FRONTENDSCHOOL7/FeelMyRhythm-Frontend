@@ -31,7 +31,7 @@ export const ProfileImg = styled.img`
 
 export const TitleContent = styled.p`
   font-size: 14px;
-  color: #000;
+  color: ${({ $textColor }) => $textColor};
   font-weight: 500;
 `;
 
@@ -53,6 +53,6 @@ export const MoreBtn = styled.button`
 
 export const CommentContent = styled.p`
   font-size: 14px;
-  color: #333;
+  color: ${({ $textColor }) => $textColor};
   padding-left: 50px;
 `;

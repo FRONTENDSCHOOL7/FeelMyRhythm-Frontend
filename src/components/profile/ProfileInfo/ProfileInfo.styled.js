@@ -44,13 +44,13 @@ export const ImgBox = styled.div`
 `;
 
 export const FollowText = styled.p`
-  color: #767676;
+  color: ${({ $textColor }) => $textColor};
   font-size: 10px;
   margin-bottom: 6px;
 `;
 
 export const FollowNum = styled.p`
-  color: ${({ $fontColor }) => $fontColor};
+  color: ${({ $textColor }) => $textColor};
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
@@ -63,7 +63,7 @@ export const TitleContent = styled.p`
 `;
 
 export const IDContent = styled.p`
-  color: #767676;
+  color: ${({ $textColor }) => $textColor};
   font-size: 12px;
   margin-top: 6px;
 `;

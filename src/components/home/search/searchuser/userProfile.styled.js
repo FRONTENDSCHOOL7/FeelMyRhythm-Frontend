@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const styleConstants = {
-  textColor: '#767676',
   fontFamily: "'Orbit-Regular', sans-serif"
 };
 
@@ -42,7 +41,7 @@ export const UserInfoBox = styled.div`
 `;
 
 export const H2 = styled.h2`
-  color: ${(props) => (props.color ? '#F26E22' : '#000')};
+  color: ${({ $textColor }) => $textColor};
   font-family: ${styleConstants.fontFamily};
   font-size: 14px;
   font-style: normal;
@@ -50,7 +49,7 @@ export const H2 = styled.h2`
   line-height: normal;
 `;
 export const H3 = styled.h3`
-  color: ${styleConstants.textColor};
+  color: ${({ $textColor }) => $textColor};
   font-family: ${styleConstants.fontFamily};
   font-size: 12px;
   font-style: normal;

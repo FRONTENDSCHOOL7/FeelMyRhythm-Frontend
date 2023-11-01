@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 const STYLE_CONSTANTS = {
-  textColor: '#767676',
   fontFamily: "'Orbit-Regular', sans-serif"
 };
+
 export const DefaultLayout = styled.div`
   background-color: ${({ theme }) => theme.bgColor};
   display: flex;
@@ -16,7 +16,7 @@ export const DefaultLayout = styled.div`
 export const Styled = styled.div``;
 export const P = styled.p`
   font-family: ${STYLE_CONSTANTS.fontFamily};
-  color: ${STYLE_CONSTANTS.textColor};
+  color: ${({ theme }) => theme.textColor};
   text-align: center;
   font-size: 14px;
   font-style: normal;

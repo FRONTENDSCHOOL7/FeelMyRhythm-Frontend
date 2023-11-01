@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const STYLE_CONSTANTS = {
-  textColor: '#767676',
   fontFamily: "'Orbit-Regular', sans-serif"
 };
 
@@ -47,7 +46,7 @@ export const ChatBox = styled.div`
 `;
 
 export const ChatUserName = styled.p`
-  color: #000;
+  color: ${({ theme }) => theme.textColor};
   font-family: ${STYLE_CONSTANTS.fontFamily};
   font-size: 14px;
   font-style: normal;
@@ -56,7 +55,7 @@ export const ChatUserName = styled.p`
 `;
 
 export const ChatMessage = styled.p`
-  color: ${STYLE_CONSTANTS.textColor};
+  color: ${({ theme }) => theme.textColor};
   font-family: ${STYLE_CONSTANTS.fontFamily};
   font-size: 12px;
   font-style: normal;

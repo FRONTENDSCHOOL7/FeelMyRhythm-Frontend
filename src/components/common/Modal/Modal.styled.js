@@ -53,7 +53,7 @@ export const Img = styled.img`
 
 export const Button = styled.button`
   background-color: ${({ theme }) => theme.bgColor};
-  color: inherit;
+  color: ${({ $textColor }) => $textColor};
   border: none;
   padding: 0;
   width: 100vw;
@@ -66,7 +66,8 @@ export const Button = styled.button`
   align-self: flex-start;
 `;
 export const P = styled.p`
-  color: #000;
+  color: ${({ $textColor }) => $textColor};
+  background-color: ${({ theme }) => theme.bgColor};
   font-family: 'Orbit-Regular';
   font-size: 14px;
   font-style: normal;

@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 // 공통 스타일 값
 const styleConstants = {
-  primaryColor: '#f26e22',
-  textColor: '#767676',
-  fontFamily: "'Orbit-Regular', sans-serif"
+  primaryColor: '#f26e22'
 };
 
 const FlexCenterContainer = styled.div`
@@ -25,9 +23,9 @@ export const StyledGamgulLogo = styled.div`
 `;
 
 export const SuggestContent = styled.p`
-  color: ${styleConstants.textColor};
+  color: ${({ $textColor }) => $textColor};
   text-align: center;
-  font-family: ${styleConstants.fontFamily};
+
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
@@ -41,7 +39,7 @@ export const Button = styled.button`
   background: ${styleConstants.primaryColor};
   border: none;
   color: #ffffff;
-  font-family: ${styleConstants.fontFamily};
+
   font-size: 14px;
   font-weight: 500;
   line-height: normal;

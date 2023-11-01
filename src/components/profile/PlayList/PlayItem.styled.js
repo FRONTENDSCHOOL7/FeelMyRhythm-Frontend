@@ -33,7 +33,7 @@ export const ItemTitleContent = styled.p`
 `;
 
 export const ItemIDContent = styled.p`
-  color: #767676;
+  color: ${({ $textColor }) => $textColor};
   width: 150px;
   font-size: 12px;
   margin-top: 4px;
