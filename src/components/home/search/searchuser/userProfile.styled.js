@@ -21,7 +21,6 @@ export const AboutUserBox = styled.div`
   width: 358px;
   position: relative;
   cursor: pointer;
-  background-color: green;
 `;
 
 export const StyledProfileImg = styled.img`
