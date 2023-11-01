@@ -9,5 +9,5 @@ export const SecondBarLayout = styled.div`
   align-items: center;
   padding-left: 16px;
   padding-right: 12px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;

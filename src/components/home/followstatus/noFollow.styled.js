@@ -1,19 +1,13 @@
 import styled from 'styled-components';
 
-// 공통 스타일 값
-const styleConstants = {
-  primaryColor: '#f26e22',
-  textColor: '#767676',
-  fontFamily: "'Orbit-Regular', sans-serif"
-};
-
 const FlexCenterContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 767px;
   width: 100vw;
-  background-color: white;
+
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const DefaultLayout = styled(FlexCenterContainer)`
@@ -28,9 +22,8 @@ export const StyledGamgulLogo = styled.div`
 `;
 
 export const SuggestContent = styled.p`
-  color: ${styleConstants.textColor};
+  color: ${({ theme }) => theme.textColor};
   text-align: center;
-  font-family: ${styleConstants.fontFamily};
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
@@ -41,10 +34,9 @@ export const Button = styled.button`
   width: 120px;
   height: 44px;
   border-radius: 44px;
-  background: ${styleConstants.primaryColor};
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
   border: none;
   color: #ffffff;
-  font-family: ${styleConstants.fontFamily};
   font-size: 14px;
   font-weight: 500;
   line-height: normal;

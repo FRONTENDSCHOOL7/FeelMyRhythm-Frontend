@@ -9,27 +9,7 @@ export const ProfileSettingLayout = styled.form`
   padding-top: 70px;
   padding-left: 34px;
   padding-right: 34px;
-  background-color: white;
-`;
-
-export const Title = styled.h2`
-  text-align: center;
-
-  font-size: 24px;
-  font-weight: 500;
-
-  padding-bottom: 12px;
-`;
-
-export const SubTitle = styled.h3`
-  text-align: center;
-  color: #767676;
-
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 14px;
-
-  padding-bottom: 30px;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const ImgBox = styled.div`
@@ -64,7 +44,7 @@ export const NonPaddingInputBox = styled(InputBox)`
 `;
 
 export const SubContent = styled.p`
-  color: #767676;
+  color: ${({ theme }) => theme.subTextColor};
 
   font-size: 12px;
   font-weight: 500;
@@ -85,8 +65,13 @@ export const Input = styled.input`
 
   margin-bottom: 8px;
 
+  padding-left: 8px;
+
+  background-color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }) => theme.backgroundColor};
+
   &::placeholder {
-    color: #dbdbdb;
+    color: ${({ theme }) => theme.subTextColor};
   }
 `;
 
@@ -101,20 +86,6 @@ export const WarningContent = styled.p`
   padding-bottom: 16px;
 `;
 
-export const Button = styled.button`
-  background-color: ${({ valid }) => (valid === 'done' ? '#F26E22' : '#FFC7A7')};
-  border-radius: 44px;
-  border: none;
-
-  margin-top: 30px;
-  padding: 13px 107.5px;
-
-  color: #fff;
-
-  font-size: 14px;
-  font-weight: 500;
-`;
-
 export const CheckBox = styled.div`
   display: flex;
   align-items: center;
@@ -123,17 +94,19 @@ export const CheckBox = styled.div`
 export const CheckaccountButton = styled.button`
   width: 70px;
   height: 32px;
-  background: #fff;
+  border: none;
+  color: ${({ theme }) => theme.btnTextColor};
+  background-color: ${({ valid, theme }) => (valid === 'success' ? 'transparent' : theme.btnEnabledBgColor)};
 
   font-size: ${({ valid }) => (valid === 'success' ? '16px' : '12px')};
-  color: ${({ valid }) => (valid === 'success' ? 'green' : '#767676')};
+  /* color: ${({ valid }) => (valid === 'success' ? 'green' : '#767676')}; */
   font-weight: 500;
 
   margin-bottom: ${({ valid }) => (valid === 'success' ? '5px' : '8px')};
   margin-left: auto;
 
   text-align: ${({ valid }) => (valid === 'success' ? 'right' : 'center')};
-  border: ${({ valid }) => (valid === 'success' ? 'none' : '1px solid #dbdbdb')};
+  /* border: ${({ valid }) => (valid === 'success' ? 'none' : '1px solid #dbdbdb')}; */
 
   cursor: ${({ valid }) => (valid === 'success' ? 'default' : 'pointer')};
   border-radius: 30px;

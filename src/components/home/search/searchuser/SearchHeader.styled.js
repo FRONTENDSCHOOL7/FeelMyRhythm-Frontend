@@ -11,7 +11,7 @@ export const SearchHeaderLayout = styled.div`
   align-items: center;
   justify-content: center;
   height: 48px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const BackArrowButton = styled.button`

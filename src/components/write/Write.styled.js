@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import addImg from '../../assets/images/write/upload-file.png';
 
 export const WriteLayout = styled.div`
   position: relative;
@@ -9,6 +8,7 @@ export const WriteLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const UploadBtn = styled.button`
@@ -19,7 +19,17 @@ export const UploadBtn = styled.button`
   right: 0;
   border: 0;
   margin: 0 16px 16px 0;
-  background: url(${addImg});
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const AddImg = styled.img`
+  width: 28px;
+  height: 28px;
 `;
 
 export const Upload = styled.div`
@@ -40,12 +50,13 @@ export const TextInput = styled.textarea`
   padding-left: 12px;
   padding-top: 12px;
   outline: none;
-  color: #000;
+  color: ${({ theme }) => theme.textColor};
   font-weight: 400;
+  background-color: ${({ theme }) => theme.backgroundColor};
 
   &::placeholder {
     font-size: 14px;
-    color: #c4c4c4;
+    color: ${({ theme }) => theme.subTextColor};
   }
 `;
 

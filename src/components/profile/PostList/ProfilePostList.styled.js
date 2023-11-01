@@ -4,7 +4,7 @@ export const ProfilePostListLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.backgroundColor};
   margin-top: 6px;
 `;
 
@@ -19,6 +19,7 @@ export const PostListHeader = styled.header`
   background: #fff;
   border-left: none;
   border-right: none;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 const set_button_dark = `
@@ -35,7 +36,7 @@ export const HamButton = styled.button`
   display: flex;
   justify-content: center;
   border: none;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.backgroundColor};
   margin-right: 16px;
   ${({ $flag }) => ($flag ? set_button_dark : '')}
 `;
@@ -47,12 +48,14 @@ export const BentoButton = styled.button`
   display: flex;
   justify-content: center;
   border: none;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.backgroundColor};
   margin-right: 16px;
   ${({ $flag }) => ($flag ? '' : set_button_dark)}
 `;
 
 export const PostListBox = styled.div`
+  max-width: 767px;
+  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   ${({ $flag }) => {

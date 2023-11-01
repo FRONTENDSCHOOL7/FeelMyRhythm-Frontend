@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
-const styleConstants = {
-  textColor: '#767676',
-  fontFamily: "'Orbit-Regular', sans-serif"
-};
-
 export const SearchLayout = styled.div`
   min-height: 712px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   padding-top: 20px;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const AboutUserBox = styled.div`
@@ -42,16 +39,14 @@ export const UserInfoBox = styled.div`
 `;
 
 export const H2 = styled.h2`
-  color: ${(props) => (props.color ? '#F26E22' : '#000')};
-  font-family: ${styleConstants.fontFamily};
+  color: ${({ theme }) => theme.textColor};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 `;
 export const H3 = styled.h3`
-  color: ${styleConstants.textColor};
-  font-family: ${styleConstants.fontFamily};
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 12px;
   font-style: normal;
   font-weight: 400;

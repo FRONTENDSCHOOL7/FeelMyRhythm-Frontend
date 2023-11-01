@@ -16,6 +16,8 @@ const set_ben = `
   }
 `;
 export const PostBox = styled.div`
+  overflow-y: auto;
+  overflow-x: hidden;
   max-width: 767px;
   width: 100vw;
   cursor: pointer;

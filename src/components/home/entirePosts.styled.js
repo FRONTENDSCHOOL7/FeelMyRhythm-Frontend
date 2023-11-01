@@ -13,5 +13,5 @@ export const DefaultLayout = styled.div`
   height: 100vh;
   padding-bottom: 65px;
   gap: 24px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;

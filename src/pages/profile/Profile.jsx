@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ContBox = styled.div`
   height: 100vh;
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export default function Profile() {

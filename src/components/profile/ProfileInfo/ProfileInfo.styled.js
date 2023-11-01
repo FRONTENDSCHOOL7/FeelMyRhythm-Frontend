@@ -9,7 +9,8 @@ export const ProfileInfoLayout = styled.div`
   max-width: 767px;
   width: 100vw;
   padding-top: 30px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.textColor};
   border: 0.5px solid #dbdbdb;
   border-left: none;
   border-right: none;
@@ -45,7 +46,7 @@ export const ImgBox = styled.div`
 `;
 
 export const FollowText = styled.p`
-  color: #767676;
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 10px;
   margin-bottom: 6px;
 `;
@@ -67,10 +68,11 @@ export const IDContent = styled.p`
   color: #767676;
   font-size: 12px;
   margin-top: 6px;
+  color: ${({ theme }) => theme.subTextColor};
 `;
 
 export const IntroContent = styled.p`
-  color: #767676;
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 14px;
   margin-top: 16px;
   word-wrap: break-word;
@@ -83,6 +85,7 @@ export const RowButtonBox = styled(RowBox)`
   align-items: center;
   gap: 10px;
   margin-top: 24px;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 // export const IconButton = styled.button`
@@ -95,9 +98,9 @@ export const RowButtonBox = styled(RowBox)`
 // `;
 
 export const FollowButton = styled.button`
-  color: ${({ $follow }) => (!$follow ? '#dbdbdb' : '#fff')};
+  color: ${({ $follow, theme }) => (!$follow ? theme.textColor : theme.btnTextColor)};
   border: ${({ $follow }) => (!$follow ? '1px solid #dbdbdb' : 'none')};
-  background-color: ${({ $follow }) => (!$follow ? '#fff' : mainColor)};
+  background-color: ${({ $follow, theme }) => (!$follow ? theme.backgroundColor : theme.btnEnabledBgColor)};
   width: 120px;
   height: 34px;
   border-radius: 30px;
@@ -108,9 +111,10 @@ export const FollowButton = styled.button`
 export const LinkButton = styled.button`
   width: ${(props) => props.$width};
   height: 34px;
-  color: #767676;
+  color: ${({ theme }) => theme.btnTextColor};
   border-radius: 30px;
-  border: 1px solid #dbdbdb;
-  background: #fff;
+  border: none;
+  /* border: 1px solid #dbdbdb; */
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
   font-size: 14px;
 `;

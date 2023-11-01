@@ -7,14 +7,14 @@ export const ProfileSettingLayout = styled.form`
   width: 100vw;
   height: 100vh;
   padding-top: 30px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
   padding-left: 34px;
   padding-right: 34px;
 `;
 
 export const Title = styled.h2`
   text-align: center;
-
+  color: ${({ theme }) => theme.textColor};
   font-size: 24px;
   font-weight: 500;
 
@@ -24,7 +24,7 @@ export const Title = styled.h2`
 export const SubTitle = styled.h3`
   text-align: center;
   color: #767676;
-
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
@@ -65,14 +65,15 @@ export const NonPaddingInputBox = styled(InputBox)`
 
 export const SubContent = styled.p`
   color: #767676;
-
+  color: ${({ theme }) => theme.subTextColor};
   font-size: 12px;
   font-weight: 500;
 
   padding-bottom: 10px;
 `;
+
 export const Input = styled.input`
-  width: 80%;
+  width: 70%;
   height: 32px;
 
   padding: 0;
@@ -85,11 +86,15 @@ export const Input = styled.input`
 
   margin-bottom: 8px;
 
+  padding-left: 8px;
+
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.textColor};
+
   &::placeholder {
-    color: #dbdbdb;
+    color: ${({ theme }) => theme.subTextColor};
   }
 `;
-
 export const WarningContent = styled.p`
   color: ${({ valid }) => (valid === '사용 가능한 계정ID 입니다.' ? 'green' : '#eb5757')};
 
@@ -102,14 +107,14 @@ export const WarningContent = styled.p`
 `;
 
 export const Button = styled.button`
-  background-color: ${({ valid }) => (valid === 'done' ? '#F26E22' : '#FFC7A7')};
+  background-color: ${({ valid, theme }) => (valid === 'done' ? theme.btnEnabledBgColor : theme.btnDisabledBgColor)};
   border-radius: 44px;
   border: none;
 
-  margin-top: 30px;
-  padding: 13px 105.5px;
+  margin-top: 14px;
+  padding: 13px 148px;
 
-  color: #fff;
+  color: ${({ theme }) => theme.btnTextColor};
 
   font-size: 14px;
   font-weight: 500;
@@ -123,17 +128,19 @@ export const CheckBox = styled.div`
 export const CheckaccountButton = styled.button`
   width: 70px;
   height: 32px;
-  background: #fff;
+  border: none;
+  color: ${({ theme }) => theme.btnTextColor};
+  background-color: ${({ valid, theme }) => (valid === 'success' ? 'transparent' : theme.btnEnabledBgColor)};
 
   font-size: ${({ valid }) => (valid === 'success' ? '16px' : '12px')};
-  color: ${({ valid }) => (valid === 'success' ? 'green' : '#767676')};
+  /* color: ${({ valid }) => (valid === 'success' ? 'green' : '#767676')}; */
   font-weight: 500;
 
   margin-bottom: ${({ valid }) => (valid === 'success' ? '5px' : '8px')};
   margin-left: auto;
 
   text-align: ${({ valid }) => (valid === 'success' ? 'right' : 'center')};
-  border: ${({ valid }) => (valid === 'success' ? 'none' : '1px solid #dbdbdb')};
+  /* border: ${({ valid }) => (valid === 'success' ? 'none' : '1px solid #dbdbdb')}; */
 
   cursor: ${({ valid }) => (valid === 'success' ? 'default' : 'pointer')};
   border-radius: 30px;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import YoutubeSearch from '../../components/write/YoutubeSearch';
 import Header from '../../components/common/NavBar/NavBar';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 export default function YoutubeSearchPage() {
   const navigate = useNavigate();
@@ -12,9 +13,14 @@ export default function YoutubeSearchPage() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: 'white', height: '100vh' }}>
+    <YoutubeSearchLayout>
       <Header />
       <YoutubeSearch />
-    </div>
+    </YoutubeSearchLayout>
   );
 }
+
+export const YoutubeSearchLayout = styled.div`
+  background-color: ${({ theme }) => theme.backgroundColor};
+  height: 100vh;
+`;
