@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './randing.styled';
-import logo from '../../assets/images/randingPage/logo_main.svg';
+import logo from '../../assets/images/randingPage/logo.png';
 import { useNavigate } from 'react-router-dom';
 
 export default function RandingPage() {
@@ -15,6 +15,8 @@ export default function RandingPage() {
     <S.RandingPageLayout>
       <S.ImgBox>
         <S.LogoImg src={logo} />
+
+        <S.Title>Feel My Rhythm</S.Title>
       </S.ImgBox>
       <S.BottomBoxBox>
         <S.BottomBox></S.BottomBox>
