@@ -47,8 +47,7 @@ export default function TabMenu() {
           handleClickState('write');
         }}
         $isActive={btnActiveState === 'write' ? 'write' : 'none'}>
-        <S.WriteImg $isActive={btnActiveState === 'write' ? 'write' : 'none'} />
-        게시물 작성
+        <S.WriteImg $isActive={btnActiveState === 'write' ? 'write' : 'none'} />글 작성
       </S.WriteBox>
       <S.ProfileBox
         onClick={() => {
