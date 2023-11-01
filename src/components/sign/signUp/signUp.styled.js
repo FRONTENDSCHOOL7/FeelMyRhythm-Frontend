@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { AiFillSmile } from 'react-icons/ai';
+
+export const Smile = styled(AiFillSmile)``;
 
 export const SignUpLayout = styled.form`
   display: flex;

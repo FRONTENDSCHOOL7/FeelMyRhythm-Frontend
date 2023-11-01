@@ -66,7 +66,8 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
               <S.H4>{String(image).split('🈳')[2] ?? 'abc'}</S.H4>
             </div>
           </S.ContentsBox>
-
+        </div>
+        <div onClick={onNavigateDetailPost} style={{ cursor: 'pointer' }}>
           <S.IconsBox>
             <S.StyledHeartBox>
               <HeartIcon />
@@ -78,6 +79,7 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
             <S.NumBox className='messnum'>{comments.length}</S.NumBox>
           </S.IconsBox>
         </div>
+
         <S.Date>{formatDate}</S.Date>
       </S.ContainerBox>
       <Modal postModal={true} postUser={author.accountname} isOpen={isModalOpen} onClose={toggleModal}></Modal>
