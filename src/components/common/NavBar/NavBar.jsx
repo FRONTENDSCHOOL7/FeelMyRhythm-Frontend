@@ -53,7 +53,7 @@ export default function NavBar({ postContent, writeMutate, chatUser, isToggled, 
     <S.HeaderLayout>
       {pathname === '/home' && (
         <>
-          <S.HeaderTitle>Music 피드</S.HeaderTitle>
+          <S.HeaderTitle>Feel My Rhythm</S.HeaderTitle>
           <S.SearchImg src={search} onClick={handleSearchClick} />
         </>
       )}

@@ -5,14 +5,23 @@ export const RandingPageLayout = styled.main`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-color: #ea7f42;
+  /* background-color: #7b86aa; */
+  background: rgb(76, 89, 134);
+  background: linear-gradient(180deg, rgba(76, 89, 134, 1) 21%, rgba(241, 222, 255, 1) 100%);
 `;
 
+export const Title = styled.h1`
+  padding-top: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+`;
 export const ImgBox = styled.div`
   flex: 1 auto;
 `;
 
 export const LogoImg = styled.img`
+  width: 90px;
   padding-top: 180px;
   display: flex;
   margin: 0 auto;
