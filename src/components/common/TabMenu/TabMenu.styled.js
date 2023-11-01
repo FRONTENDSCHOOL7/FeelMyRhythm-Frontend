@@ -17,7 +17,7 @@ export const FooterLayout = styled.div`
   bottom: 0;
   z-index: 10;
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
   border-top: 0.5px solid #dbdbdb;
 
   padding-left: 6px;

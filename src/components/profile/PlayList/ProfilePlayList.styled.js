@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ProfilePlayListLayout = styled.div`
   width: 100vw;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
   display: flex;
   flex-direction: column;
   padding-top: 20px;

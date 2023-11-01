@@ -29,7 +29,7 @@ export const LogoImg = styled.img`
 `;
 
 export const BottomBoxBox = styled.div`
-  background-color: white;
+  background-color: ${({ theme }) => theme.bgColor};
   padding: 50px 34px 88px 34px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;

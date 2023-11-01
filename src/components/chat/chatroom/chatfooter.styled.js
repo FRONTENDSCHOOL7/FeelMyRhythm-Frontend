@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ChatFooterLayout = styled.div`
   position: fixed;
   bottom: 0;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
   display: flex;
   align-items: center;
   justify-content: space-between;

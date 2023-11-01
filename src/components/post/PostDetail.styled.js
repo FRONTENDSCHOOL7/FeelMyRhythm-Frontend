@@ -37,7 +37,7 @@ export const ImgBox = styled.div`
   border-radius: 17px;
   overflow: hidden;
   margin-top: 16px;
-  background-color: gray;
+  background-color: ${({ theme }) => theme.bgColor};
 `;
 
 export const Img = styled.img`

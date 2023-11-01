@@ -5,7 +5,7 @@ export const ProfilePostListLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
   margin-top: 6px;
 `;
 

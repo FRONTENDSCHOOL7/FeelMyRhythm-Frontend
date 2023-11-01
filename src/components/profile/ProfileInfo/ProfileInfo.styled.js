@@ -8,7 +8,7 @@ export const ProfileInfoLayout = styled.div`
   align-items: center;
   flex-direction: column;
   padding-top: 30px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
   border: 0.5px solid #dbdbdb;
   border-left: none;
   border-right: none;
@@ -36,7 +36,7 @@ export const ImgBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #dbdbdb;
+  background-color: ${({ theme }) => theme.bgColor};
   & img {
     min-width: 110px;
     min-height: 110px;

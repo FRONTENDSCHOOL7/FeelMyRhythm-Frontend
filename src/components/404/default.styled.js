@@ -4,7 +4,7 @@ const STYLE_CONSTANTS = {
   fontFamily: "'Orbit-Regular', sans-serif"
 };
 export const DefaultLayout = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
   display: flex;
   flex-direction: column;
   justify-content: center;

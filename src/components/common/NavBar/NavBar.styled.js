@@ -11,7 +11,7 @@ export const HeaderLayout = styled.div`
   top: 0;
   z-index: 20;
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
 
   font-family: 'Orbit-Regular';
   border-bottom: 0.5px solid #dbdbdb;

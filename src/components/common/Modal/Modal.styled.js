@@ -21,7 +21,7 @@ export const Modal = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.bgColor};
   padding: 24px;
   border-radius: 10px 10px 0 0;
   z-index: 40;
@@ -52,7 +52,7 @@ export const Img = styled.img`
 `;
 
 export const Button = styled.button`
-  background-color: white;
+  background-color: ${({ theme }) => theme.bgColor};
   color: inherit;
   border: none;
   padding: 0;

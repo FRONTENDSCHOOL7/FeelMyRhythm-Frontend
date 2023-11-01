@@ -9,7 +9,7 @@ import { readFollowings } from '../../apis/profile/followingsAPI';
 const ContBox = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.bgColor};
   padding-top: 72px;
 `;
 
