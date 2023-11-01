@@ -1,16 +1,23 @@
 import React from 'react';
 import * as S from './userProfile.styled';
+import { useNavigate } from 'react-router-dom';
 
-function UserProfile({ src, alt, userName, handle, color }) {
+function SearchUserProfile({ src, alt, username, accountname }) {
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    navigate(`/profile/${accountname}`);
+  };
+
   return (
-    <S.AboutUserBox>
+    <S.AboutUserBox onClick={handleProfileClick}>
       <S.StyledProfileImg src={src} alt={alt} />
       <S.UserInfoBox>
-        <S.H2 color={color}>{userName}</S.H2>
-        <S.H3>{handle}</S.H3>
+        <S.H2>{username}</S.H2>
+        <S.H3>{accountname}</S.H3>
       </S.UserInfoBox>
     </S.AboutUserBox>
   );
 }
 
-export default UserProfile;
+export default SearchUserProfile;

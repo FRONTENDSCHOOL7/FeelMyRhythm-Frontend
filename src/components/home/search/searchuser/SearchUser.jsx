@@ -1,21 +1,20 @@
 import React from 'react';
 import * as S from './userProfile.styled';
-import UserProfile from './SearchUserProfile';
-
+import SearchUserProfile from './SearchUserProfile';
 export default function Search({ searchResults }) {
-  const usernames = searchResults.map((profile) => profile.username);
   return (
     <S.SearchLayout>
-      {searchResults.map((profile, index) => (
-        <UserProfile
-          key={index}
-          src={profile.image}
-          alt='profile'
-          userName={profile.username}
-          handle={profile.accountname}
-          color={usernames.includes(profile.username) ? 'orange' : '#000'}
-        />
-      ))}
+      {searchResults
+        .filter((profile) => String(profile.intro).split('🈳')[0] === 'ms7-3')
+        .map((profile, index) => (
+          <SearchUserProfile
+            key={index}
+            src={profile.image}
+            alt='profile'
+            username={profile.username}
+            accountname={profile.accountname}
+          />
+        ))}
     </S.SearchLayout>
   );
 }
