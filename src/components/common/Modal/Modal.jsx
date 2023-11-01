@@ -28,7 +28,7 @@ const Modal = ({ isOpen, onClose, postModal, postUser }) => {
       : postModal && user.accountname !== postUser
       ? ['신고']
       : pathname.includes('/profile')
-      ? ['로그아웃']
+      ? ['테마 전환', '로그아웃']
       : pathname.includes('/chat')
       ? '채팅방 나가기'
       : [''];
@@ -43,6 +43,7 @@ const Modal = ({ isOpen, onClose, postModal, postUser }) => {
     if (alertMsg === '삭제') console.log('삭제');
     if (alertMsg === '수정') console.log('수정');
     if (alertMsg === '신고') console.log('신고');
+    if (alertMsg === '테마 전환') console.log('라이트모드/다크모드 변신');
     onClose();
   };
 
