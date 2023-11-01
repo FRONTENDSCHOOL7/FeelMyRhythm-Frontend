@@ -43,7 +43,7 @@ export const KebabBtnImg = styled.img`
   cursor: pointer;
 `;
 export const EmojiBox = styled.div`
-  padding-left: 235px;
+  margin-left: auto;
 `;
 
 export const SaveBtn = styled.button`
@@ -51,7 +51,7 @@ export const SaveBtn = styled.button`
   border-radius: 32px;
 
   margin-left: auto;
-  padding: 7px 32px;
+  padding: 7px 32px 7px 32px;
 
   color: #fff;
 
