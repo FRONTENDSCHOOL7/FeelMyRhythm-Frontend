@@ -20,6 +20,7 @@ const fadeInAnimation = keyframes`
 export const Modal = styled.div`
   position: fixed;
   bottom: 0;
+  max-width: 767px;
   width: 100%;
   background-color: ${({ theme }) => theme.bgColor};
   padding: 24px;
@@ -56,6 +57,7 @@ export const Button = styled.button`
   color: ${({ $textColor }) => $textColor};
   border: none;
   padding: 0;
+  max-width: 767px;
   width: 100vw;
   height: 46px;
   font: inherit;

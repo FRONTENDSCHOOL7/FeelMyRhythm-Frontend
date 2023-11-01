@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const SearchHeaderLayout = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100vw;
   padding: 13px 0;
   border-bottom: 0.5px solid #dbdbdb;
   align-items: center;
@@ -28,7 +27,7 @@ export const SearchBox = styled.input`
   background-color: ${({ theme }) => theme.bgColor};
   border: none;
   padding-left: 16px;
-  width: 50%;
+  width: 55%;
 
   ::placeholder {
     color: #c4c4c4;

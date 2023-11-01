@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ProfilePostListLayout = styled.div`
-  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +10,7 @@ export const ProfilePostListLayout = styled.div`
 
 export const PostListHeader = styled.header`
   width: 100vw;
+  max-width: 767px;
   height: 44px;
   display: flex;
   align-items: center;

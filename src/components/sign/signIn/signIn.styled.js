@@ -3,8 +3,13 @@ import styled from 'styled-components';
 export const SignInLayout = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding-top: 30px;
+  max-width: 767px;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  padding-left: 34px;
+  padding-right: 34px;
 `;
 
 export const Title = styled.h2`
@@ -63,7 +68,7 @@ export const Button = styled.button`
   border: none;
 
   margin-top: 14px;
-  padding: 13px 143px;
+  padding: 13px 142px;
 
   color: #fff;
 

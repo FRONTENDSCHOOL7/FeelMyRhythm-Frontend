@@ -8,6 +8,7 @@ export const ChatRoomLayout = styled.div`
   gap: 9px;
   min-height: 712px;
   width: 100vw;
+  max-width: 767px;
   overflow-x: scroll;
   background-color: ${({ theme }) => theme.bgColor};
   height: 100vh;

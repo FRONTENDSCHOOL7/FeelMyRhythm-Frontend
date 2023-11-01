@@ -5,13 +5,11 @@ const styleConstants = {
 };
 
 export const DefaultLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 712px;
-  width: 100vw;
   overflow-y: auto;
   overflow-x: hidden;
+  max-width: 767px;
+  width: 100vw;
+  height: 100vh;
   padding-bottom: 65px;
   gap: 24px;
   color: ${({ $textColor }) => $textColor};

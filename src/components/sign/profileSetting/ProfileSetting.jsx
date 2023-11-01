@@ -200,7 +200,7 @@ export default function ProfileSetting() {
         <S.CheckBox>
           <S.Input
             type='text'
-            placeholder='영문, 숫자, 특수문자(.),(_)만 사용 가능'
+            placeholder='영문, 숫자만 사용 가능'
             ref={accountNameRef}
             onChange={(e) => handleChangeUserInfo(e, 'accountname')}
           />

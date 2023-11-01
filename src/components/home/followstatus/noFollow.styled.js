@@ -9,6 +9,9 @@ const FlexCenterContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 767px;
+  width: 100vw;
+  background-color: white;
 `;
 
 export const DefaultLayout = styled(FlexCenterContainer)`

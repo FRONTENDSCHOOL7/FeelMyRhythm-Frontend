@@ -1,13 +1,8 @@
 import styled from 'styled-components';
 
-export const EmojiBox = styled.div`
-  padding-top: 148px;
-  width: 110px;
+export const SelectBox = styled.div`
   z-index: 10;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
 `;
 
 export const ButtonSelected = styled.button`
@@ -27,8 +22,7 @@ export const ButtonSelected = styled.button`
 
   &:focus {
     outline: none;
-    /* border-color: #bdbdbd; */
-    /* box-shadow: 0 0 0 0px #ffffff; */
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   }
 
   &::after {
@@ -53,6 +47,9 @@ export const ButtonSelected = styled.button`
 `;
 
 export const Ul = styled.ul`
+  position: absolute;
+  top: 36px;
+  right: 1px;
   width: 108px;
   list-style: none;
   margin-top: 5px;
@@ -60,7 +57,7 @@ export const Ul = styled.ul`
   border: 1px solid #bdbdbd;
   border-radius: 12px;
   background: white;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
   opacity: ${(props) => (props.isEmotionActive ? 1 : 0)};
   visibility: ${(props) => (props.isEmotionActive ? 'visible' : 'hidden')};
   transition:

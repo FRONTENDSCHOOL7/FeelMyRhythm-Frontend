@@ -7,8 +7,8 @@ const styleConstants = {
 export const DefaultLayout = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 712px;
+  max-width: 767px;
   width: 100vw;
   overflow-y: auto;
   overflow-x: hidden;

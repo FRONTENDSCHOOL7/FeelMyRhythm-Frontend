@@ -9,9 +9,11 @@ import profile from '../../../assets/images/tabmenu/icon_profile.svg';
 import profileFill from '../../../assets/images/tabmenu/icon_profile_fill.svg';
 
 export const FooterLayout = styled.div`
-  width: 100vw;
+  max-width: 767px;
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-content: center;
   gap: 14px;
   position: fixed;
   bottom: 0;

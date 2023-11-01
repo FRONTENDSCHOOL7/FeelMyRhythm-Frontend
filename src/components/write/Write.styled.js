@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import addImg from '../../assets/images/write/upload-file.png';
 
 export const WriteLayout = styled.div`
+  position: relative;
+  height: 100vh;
   padding-top: 68px;
   padding-left: 16px;
   display: flex;
@@ -32,7 +34,8 @@ export const UserImg = styled.img`
 
 export const TextInput = styled.textarea`
   border: 0;
-  width: 80%;
+  max-width: 687px;
+  width: 80vw;
   resize: none;
   padding-left: 12px;
   padding-top: 12px;
@@ -46,11 +49,16 @@ export const TextInput = styled.textarea`
   }
 `;
 
-export const VideoBox = styled.div``;
+export const VideoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const Video = styled.iframe`
-  width: 80vw;
-  height: 27%;
+  max-width: 707px;
+  width: 90%;
+  height: 27vh;
   padding-top: 40px;
 `;
 
