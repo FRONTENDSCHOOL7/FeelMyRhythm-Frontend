@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as S from './WritePage.styled';
 import NavBar from '../../components/common/NavBar/NavBar';
 import Write from '../../components/write/Write';
@@ -13,6 +13,7 @@ export default function WritePage() {
   const { state } = useLocation();
   const [emojiState, setEmojiState] = useRecoilState(atomEmotionState);
   const setYoutubeSearchKeyword = useSetRecoilState(atomYoutubeSearchKeyword);
+  const textInputRef = useRef(null);
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -37,6 +38,7 @@ export default function WritePage() {
 
   const handleChangeInput = (e) => {
     setPostContent({ ...postContent, post: { ...postContent.post, content: e.target.value } });
+    textInputRef.current.style.height = textInputRef.current.scrollHeight + 'px';
     console.log(postContent);
   };
 
@@ -64,6 +66,7 @@ export default function WritePage() {
       <Write
         state={state}
         postContent={postContent}
+        textInputRef={textInputRef}
         setPostContent={setPostContent}
         handleChangeInput={handleChangeInput}
       />
