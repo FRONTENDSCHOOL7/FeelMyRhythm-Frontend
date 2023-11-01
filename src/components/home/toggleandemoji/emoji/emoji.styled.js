@@ -1,48 +1,51 @@
 import styled from 'styled-components';
 
 export const EmojiBox = styled.div`
-  width: 120px;
-  height: 34px;
+  padding-top: 148px;
+  width: 110px;
   z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const ButtonSelected = styled.button`
   cursor: pointer;
-  border: none;
-  width: 120px;
+  width: 110px;
   height: 34px;
   border-radius: 12px;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #bdbdbd;
   background: #fff;
   text-align: left;
-  padding: 0 24px;
+  padding-left: 14px;
   position: relative;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
 
   &:focus {
     outline: none;
-    border-color: rgba(242, 110, 34, 0.4);
-    box-shadow: 0 0 0 1px #fff9e7;
+    /* border-color: #bdbdbd; */
+    /* box-shadow: 0 0 0 0px #ffffff; */
   }
 
   &::after {
     content: '';
     position: absolute;
-    top: 50%;
-    right: 10px;
-    margin-top: -9px;
+    top: 33%;
+    right: 13px;
     box-sizing: border-box;
-    border-top: 0.8rem solid #c4c4c4;
-    border-left: 0.5rem solid transparent;
-    border-right: 0.5rem solid transparent;
+    border-top: 0.7rem solid #bdbdbd;
+    border-left: 0.42rem solid transparent;
+    border-right: 0.42rem solid transparent;
     transition: transform 0.3s;
   }
 
   ${(props) =>
     props.isActive &&
     `
-    border-color: rgba(242, 110, 34, 0.5);
-    box-shadow: 0 0 0 3px #fff9e7; 
-
     &::after {
       transform: rotate(-180deg); 
     }
@@ -50,14 +53,14 @@ export const ButtonSelected = styled.button`
 `;
 
 export const Ul = styled.ul`
+  width: 108px;
   list-style: none;
-  margin-top: 3px;
+  margin-top: 5px;
   padding: 0;
-  width: 120px;
-  border: 1px solid rgba(242, 110, 34, 0.5);
+  border: 1px solid #bdbdbd;
   border-radius: 12px;
   background: white;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   opacity: ${(props) => (props.isEmotionActive ? 1 : 0)};
   visibility: ${(props) => (props.isEmotionActive ? 'visible' : 'hidden')};
   transition:
@@ -88,6 +91,6 @@ export const ButtonSelect = styled.button`
   }
 
   &:focus {
-    outline: 1px solid rgba(242, 110, 34, 0.5);
+    /* outline: 1px dotted #cccccc; */
   }
 `;
