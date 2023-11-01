@@ -3,7 +3,13 @@ import styled from 'styled-components';
 export const ProfileSettingLayout = styled.form`
   display: flex;
   flex-direction: column;
+  max-width: 767px;
+  width: 100vw;
+  height: 100vh;
   padding-top: 30px;
+  background-color: white;
+  padding-left: 34px;
+  padding-right: 34px;
 `;
 
 export const Title = styled.h2`
@@ -101,7 +107,7 @@ export const Button = styled.button`
   border: none;
 
   margin-top: 30px;
-  padding: 13px 107.5px;
+  padding: 13px 105.5px;
 
   color: #fff;
 

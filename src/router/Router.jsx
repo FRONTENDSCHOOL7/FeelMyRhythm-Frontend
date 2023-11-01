@@ -18,28 +18,43 @@ import Post from '../pages/post/PostPage';
 import YoutubeSearch from '../pages/write/YoutubeSearchPage';
 import YoutubeVideoDetail from '../pages/write/YoutubeVideoDetail';
 import ProfileUpdatePage from '../pages/profile/ProfileUpdatePage';
+import styled from 'styled-components';
 
 export default function AppRouter() {
   return (
-    <Routes>
-      <Route path='/' element={<RandingPage />} />
-      <Route path='/home' element={<Home />} />
-      <Route path='/home/searchuser' element={<SearchUserPage />} />
-      <Route path='/home/searchpost' element={<SearchPostPage />} />
-      <Route path='/chat' element={<Chat />} />
-      <Route path='/chat/:accountname' element={<ChatRoom />} />
-      <Route path='/write' element={<Write />} />
-      <Route path='/profile/update' element={<ProfileUpdatePage />} />
-      <Route path='/profile/:accountname' element={<Profile />} />
-      <Route path='/profile/:accountname/follower' element={<Followers />} />
-      <Route path='/profile/:accountname/following' element={<Followings />} />
-      <Route path='/signup' element={<SignUpPage />} />
-      <Route path='/profilesetting' element={<ProfileSettingPage />} />
-      <Route path='/signin' element={<SignInPage />} />
-      <Route path='/post/:id' element={<Post />} />
-      <Route path='/*' element={<Default />} />
-      <Route path='youtubesearch' element={<YoutubeSearch />} />
-      <Route path='youtubesearch/:id' element={<YoutubeVideoDetail />} />
-    </Routes>
+    <Container>
+      <App>
+        <Routes>
+          <Route path='/' element={<RandingPage />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/home/searchuser' element={<SearchUserPage />} />
+          <Route path='/home/searchpost' element={<SearchPostPage />} />
+          <Route path='/chat' element={<Chat />} />
+          <Route path='/chat/:accountname' element={<ChatRoom />} />
+          <Route path='/write' element={<Write />} />
+          <Route path='/profile/update' element={<ProfileUpdatePage />} />
+          <Route path='/profile/:accountname' element={<Profile />} />
+          <Route path='/profile/:accountname/follower' element={<Followers />} />
+          <Route path='/profile/:accountname/following' element={<Followings />} />
+          <Route path='/signup' element={<SignUpPage />} />
+          <Route path='/profilesetting' element={<ProfileSettingPage />} />
+          <Route path='/signin' element={<SignInPage />} />
+          <Route path='/post/:id' element={<Post />} />
+          <Route path='/*' element={<Default />} />
+          <Route path='youtubesearch' element={<YoutubeSearch />} />
+          <Route path='youtubesearch/:id' element={<YoutubeVideoDetail />} />
+        </Routes>
+      </App>
+    </Container>
   );
 }
+
+export const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const App = styled.div`
+  max-width: 767px;
+`;

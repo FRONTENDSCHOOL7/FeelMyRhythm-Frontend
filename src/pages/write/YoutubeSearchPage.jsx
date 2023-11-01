@@ -12,9 +12,9 @@ export default function YoutubeSearchPage() {
   }, []);
 
   return (
-    <>
+    <div style={{ backgroundColor: 'white', height: '100vh' }}>
       <Header />
       <YoutubeSearch />
-    </>
+    </div>
   );
 }

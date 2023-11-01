@@ -10,10 +10,12 @@ export const ChatListLayout = styled.ul`
   flex-direction: column;
   padding-top: 72px;
   gap: 20px;
-  min-height: 712px;
   width: 100vw;
+  height: 100vh;
+  max-width: 767px;
   align-items: center;
   overflow-x: scroll;
+  background-color: white;
 `;
 
 export const ChatListItem = styled.li`

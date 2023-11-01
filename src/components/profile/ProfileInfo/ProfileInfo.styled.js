@@ -3,10 +3,11 @@ import styled from 'styled-components';
 const mainColor = `#f26e22`;
 
 export const ProfileInfoLayout = styled.div`
-  width: 100vw;
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-width: 767px;
+  width: 100vw;
   padding-top: 30px;
   background-color: #fff;
   border: 0.5px solid #dbdbdb;

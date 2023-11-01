@@ -16,6 +16,8 @@ const set_ben = `
   }
 `;
 export const PostBox = styled.div`
+  max-width: 767px;
+  width: 100vw;
   cursor: pointer;
   ${({ $flag }) => {
     return $flag ? set_ham : set_ben;

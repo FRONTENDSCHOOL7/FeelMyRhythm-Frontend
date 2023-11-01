@@ -17,10 +17,9 @@ ${reset}
 }
 
 body {
-  display: flex;
-  justify-content: center;
   line-height: normal;
   font-family: 'Orbit-Regular';
+  background-color: #7B86AA;
 }
 
 button {

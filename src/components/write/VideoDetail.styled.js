@@ -2,28 +2,37 @@ import styled from 'styled-components';
 
 export const VideoDetailLayout = styled.div`
   display: flex;
+  max-width: 767px;
   width: 100vw;
   height: 100vh;
   padding-top: 48px;
-  padding-left: 34px;
+
   justify-content: center;
+  background-color: white;
 `;
 
-export const VideoBox = styled.div``;
+export const VideoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const Video = styled.iframe`
-  width: 80vw;
+  max-width: 707px;
+  width: 90%;
   height: 27%;
   padding-top: 40px;
 `;
 
 export const VideoContent = styled.p`
-  padding-right: 34px;
+  max-width: 707px;
+  width: 90%;
   padding-bottom: 20px;
 `;
 
 export const ShareBtn = styled.button`
-  width: 80vw;
+  max-width: 707px;
+  width: 90%;
   height: 40px;
 
   background-color: #f26e22;
