@@ -30,7 +30,7 @@ export const PostBtn = styled.button`
   margin-left: auto;
   color: #c4c4c4;
   text-align: right;
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: 'Orbit-Regular';
   font-size: 14px;
   background-color: transparent;
   padding-right: 16px;

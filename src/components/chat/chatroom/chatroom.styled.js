@@ -44,7 +44,7 @@ export const SpeechBubbleBox = styled.div`
   color: #000;
   border: 1px solid #c4c4c4;
   border-radius: 0px 12px 12px 12px;
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: 'Orbit-Regular';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -53,7 +53,7 @@ export const SpeechBubbleBox = styled.div`
 `;
 export const Time = styled.p`
   color: #767676;
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: 'Orbit-Regular';
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -83,7 +83,7 @@ export const MeSpeechBubbleBox = styled.div`
   /* border: 1px solid #c4c4c4; */
   border-radius: 12px 12px 0px 12px;
   color: #fff;
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: 'Orbit-Regular';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -98,7 +98,7 @@ export const MeTimeWrapperBox = styled.div`
 `;
 export const MeTime = styled.p`
   color: #767676;
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: 'Orbit-Regular';
   font-size: 10px;
   font-style: normal;
   font-weight: 400;

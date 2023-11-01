@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const styleConstants = {
   textColor: '#767676',
-  fontFamily: "'Spoqa Han Sans Neo', sans-serif"
+  fontFamily: "'Orbit-Regular', sans-serif"
 };
 
 export const SearchLayout = styled.div`

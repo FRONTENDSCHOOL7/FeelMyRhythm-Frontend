@@ -15,6 +15,7 @@ export const Title = styled.h1`
   font-size: 20px;
   text-align: center;
   color: white;
+  font-family: 'Orbit-Regular';
 `;
 export const ImgBox = styled.div`
   flex: 1 auto;
@@ -68,7 +69,7 @@ export const SignBox = styled.div`
 
 export const SignContent = styled.p`
   color: var(--767676, #767676);
-  font-family: Spoqa Han Sans Neo;
+  font-family: 'Orbit-Regular';
   font-size: 12px;
   font-weight: 400;
 

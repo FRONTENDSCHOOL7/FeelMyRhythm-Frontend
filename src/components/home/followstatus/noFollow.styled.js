@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const styleConstants = {
   primaryColor: '#f26e22',
   textColor: '#767676',
-  fontFamily: "'Spoqa Han Sans Neo', sans-serif"
+  fontFamily: "'Orbit-Regular', sans-serif"
 };
 
 const FlexCenterContainer = styled.div`
