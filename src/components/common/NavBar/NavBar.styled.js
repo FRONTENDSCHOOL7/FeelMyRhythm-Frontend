@@ -43,17 +43,15 @@ export const KebabBtnImg = styled.img`
   margin-left: auto;
   cursor: pointer;
 `;
-export const EmojiBox = styled.div`
+export const SelectBox = styled.div`
   margin-left: auto;
 `;
 
 export const SaveBtn = styled.button`
   background-color: ${({ valid }) => (valid === 'done' ? '#F26E22' : '#FFC7A7')};
   border-radius: 32px;
-
-  margin-left: auto;
-  padding: 7px 32px 7px 32px;
-
+  margin-left: 8px;
+  padding: 7px 32px;
   color: #fff;
 
   font-size: 14px;
