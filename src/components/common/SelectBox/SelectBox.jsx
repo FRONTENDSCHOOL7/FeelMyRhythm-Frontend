@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import * as S from './emoji.styled';
+import * as S from './SelectBox.styled';
 import { FaRegSmile } from 'react-icons/fa';
 import { FaRegFaceAngry } from 'react-icons/fa6';
 import { FaRegSadTear } from 'react-icons/fa';
 import { useRecoilState } from 'recoil';
 import { atomEmotionState } from '../../../../store/store';
 
-export default function Emoji() {
+export default function SelectBox() {
   const [isEmotionActive, setIsEmotionActive] = useState(false);
   const [selectedEmotion, setSelectedEmotion] = useRecoilState(atomEmotionState);
 
@@ -21,7 +21,7 @@ export default function Emoji() {
   };
 
   return (
-    <S.EmojiBox>
+    <S.SelectBox>
       <S.ButtonSelected onClick={handleButtonClick} isActive={isEmotionActive}>
         {String(selectedEmotion) === '선택' && '선택'}
         {String(selectedEmotion) === '전체' && '전체'}
@@ -42,6 +42,6 @@ export default function Emoji() {
           </S.Li>
         ))}
       </S.Ul>
-    </S.EmojiBox>
+    </S.SelectBox>
   );
 }
