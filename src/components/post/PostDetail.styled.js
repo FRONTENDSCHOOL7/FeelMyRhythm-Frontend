@@ -16,6 +16,7 @@ export const ContainerBox = styled.div`
   width: 100vw;
   padding: 16px 20px;
 `;
+
 export const AboutUserBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -25,19 +26,18 @@ export const AboutUserBox = styled.div`
 `;
 
 export const Iframe = styled.iframe`
-  width: 290px;
-  height: 163px;
+  display: block;
+  max-width: 767px;
+
+  width: 77%;
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 15.5vh;
+  }
+
+  height: 21.8vh;
   border-radius: 15px;
   margin-top: 16px;
-`;
-
-export const ImgBox = styled.div`
-  width: 295px;
-  height: 168px;
-  border-radius: 17px;
-  overflow: hidden;
-  margin-top: 16px;
-  background-color: gray;
 `;
 
 export const Img = styled.img`

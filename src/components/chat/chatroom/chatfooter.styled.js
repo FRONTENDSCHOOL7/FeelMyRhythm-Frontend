@@ -9,6 +9,7 @@ export const ChatFooterLayout = styled.div`
   justify-content: space-between;
   padding: 0 20px 0 16px;
   width: 100vw;
+  max-width: 767px;
   height: 61px;
 `;
 

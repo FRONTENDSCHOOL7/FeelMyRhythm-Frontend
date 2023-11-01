@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const RandingPageLayout = styled.main`
   display: flex;
   flex-direction: column;
+  max-width: 767px;
   width: 100vw;
   height: 100vh;
-  /* background-color: #7b86aa; */
   background: rgb(76, 89, 134);
   background: linear-gradient(180deg, rgba(76, 89, 134, 1) 21%, rgba(241, 222, 255, 1) 100%);
 `;

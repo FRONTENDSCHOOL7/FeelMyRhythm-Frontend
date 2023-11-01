@@ -135,7 +135,9 @@ export default function PostDetail() {
             </S.AboutUserBox>
             <S.ContentsBox>
               <S.DescriptionContent>{data?.post?.content}</S.DescriptionContent>
-              <S.Iframe src={`http://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
+              <div>
+                <S.Iframe src={`http://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
+              </div>
             </S.ContentsBox>
             <S.IconsBox>
               <S.StyledHeartBox onClick={() => handleLike()}>

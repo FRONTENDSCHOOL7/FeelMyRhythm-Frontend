@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const SecondBarLayout = styled.div`
-  width: 100vw;
   height: 47px;
   margin-top: 50px;
   display: flex;
@@ -10,4 +9,5 @@ export const SecondBarLayout = styled.div`
   align-items: center;
   padding-left: 16px;
   padding-right: 12px;
+  background-color: white;
 `;

@@ -154,3 +154,9 @@ export const Date = styled.p`
   padding-left: 54px;
   padding-top: 16px;
 `;
+
+export const DetailNavigateBtn = styled.div`
+  cursor: pointer;
+`;
+
+export const VideoImgToggleBox = styled.div``;
