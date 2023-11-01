@@ -19,7 +19,7 @@ export default function RandingPage() {
         <S.Title>Feel My Rhythm</S.Title>
       </S.ImgBox>
       <S.BottomBoxBox>
-        <S.BottomBox></S.BottomBox>
+        {/* <S.BottomBox></S.BottomBox> */}
         <S.SignBox>
           <S.SignContent onClick={() => onMoveLocation('signin')}>이메일로 로그인</S.SignContent>
           <S.PipeContent>|</S.PipeContent>
