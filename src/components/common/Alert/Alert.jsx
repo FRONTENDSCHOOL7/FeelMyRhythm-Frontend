@@ -4,7 +4,13 @@ import styled from 'styled-components';
 export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
   return (
     <AlertLayout $alertMsg={alertMsg}>
-      <QuesContent>{alertMsg === '채팅방 나가기' ? '채팅방을 나가시겠어요?' : alertMsg + '하시겠어요?'}</QuesContent>
+      <QuesContent>
+        {alertMsg === '채팅방 나가기'
+          ? '채팅방을 나가시겠어요?'
+          : alertMsg === '테마 전환'
+          ? '테마를 전환하시겠어요?'
+          : alertMsg + '하시겠어요?'}
+      </QuesContent>
       <FlexBox>
         <AlertButton
           onClick={() => {
