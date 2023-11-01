@@ -3,11 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { atomPostUpdateContent } from '../../../store/store';
+import { useMutation } from '@tanstack/react-query';
+import { deletePost } from '../../../apis/write/writeAPI';
 
 export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
   const navigate = useNavigate();
 
   const postUpdateContent = useRecoilValue(atomPostUpdateContent);
+
+  const { mutate } = useMutation({
+    mutationFn: deletePost,
+    onSuccess: () => navigate('/home')
+  });
 
   const onNavigatePostUpdate = () => {
     if (alertMsg === '수정')
@@ -22,6 +29,7 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
           emojiState: postUpdateContent.image.split('🈳')[4]
         }
       });
+    if (alertMsg === '삭제') mutate(postUpdateContent.id);
   };
 
   return (
