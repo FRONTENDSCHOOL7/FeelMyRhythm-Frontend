@@ -4,7 +4,7 @@ import { FaRegSmile } from 'react-icons/fa';
 import { FaRegFaceAngry } from 'react-icons/fa6';
 import { FaRegSadTear } from 'react-icons/fa';
 import { useRecoilState } from 'recoil';
-import { atomEmotionState } from '../../../../store/store';
+import { atomEmotionState } from '../../../store/store';
 
 export default function SelectBox() {
   const [isEmotionActive, setIsEmotionActive] = useState(false);

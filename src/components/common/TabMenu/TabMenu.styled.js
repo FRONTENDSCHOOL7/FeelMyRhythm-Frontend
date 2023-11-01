@@ -12,8 +12,7 @@ export const FooterLayout = styled.div`
   max-width: 767px;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-between;
   gap: 14px;
   position: fixed;
   bottom: 0;
@@ -31,7 +30,7 @@ export const ContentBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  width: 84px;
   padding-top: 12px;
   padding-bottom: 6px;
 
@@ -43,26 +42,20 @@ export const ContentBox = styled.div`
 `;
 
 export const HomeBox = styled(ContentBox)`
-  padding-left: 30px;
-  padding-right: 30px;
   font-family: 'Orbit-Regular';
 `;
 
 export const ChatBox = styled(ContentBox)`
-  padding-left: 30px;
-  padding-right: 30px;
   font-family: 'Orbit-Regular';
 `;
 
 export const WriteBox = styled(ContentBox)`
-  padding-left: 17.5px;
-  padding-right: 17.5px;
+  flex-basis: 1;
+  flex-shrink: 0;
   font-family: 'Orbit-Regular';
 `;
 
 export const ProfileBox = styled(ContentBox)`
-  padding-left: 28px;
-  padding-right: 28px;
   font-family: 'Orbit-Regular';
 `;
 
