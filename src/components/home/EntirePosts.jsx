@@ -4,16 +4,15 @@ import { showEntirePosts } from '../../apis/home/entirePosts';
 import UserProfile from './UserProfile';
 import * as S from './entirePosts.styled';
 
-export default function EntirePosts() {
+export default function EntirePosts({ emojiState }) {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
-
-  console.log(data);
 
   return (
     <S.DefaultLayout>
       {data?.posts?.map(
         (post, i) =>
-          String(post.image).split('🈳')[0] === 'ms7-3' && (
+          String(post.image).split('🈳')[0] === 'ms7-3' &&
+          (emojiState === '전체' || emojiState === '선택' || String(post.image).split('🈳')[4] === emojiState) && (
             <UserProfile
               key={i}
               author={post.author}

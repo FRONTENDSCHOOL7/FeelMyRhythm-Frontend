@@ -6,8 +6,9 @@ import UserProfile from '../UserProfile';
 import * as S from './yesFollow.styled';
 import NoFollow from './NoFollow';
 
-export default function FollowStatus() {
+export default function FollowStatus({ emojiState }) {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
+
   const [myId, setMyId] = useState('');
 
   useEffect(() => {
@@ -37,9 +38,13 @@ export default function FollowStatus() {
   } else {
     return (
       <S.DefaultLayout>
-        {filteredPosts.map((post, i) => (
-          <UserProfile key={i} {...post} />
-        ))}
+        {filteredPosts.map(
+          (post, i) =>
+            String(post.image).split('🈳')[0] === 'ms7-3' &&
+            (emojiState === '전체' || emojiState === '선택' || String(post.image).split('🈳')[4] === emojiState) && (
+              <UserProfile key={i} {...post} />
+            )
+        )}
       </S.DefaultLayout>
     );
   }

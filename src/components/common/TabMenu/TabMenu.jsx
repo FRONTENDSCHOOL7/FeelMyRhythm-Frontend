@@ -15,6 +15,7 @@ export default function TabMenu() {
     uselocation.pathname === '/home' && setBtnActiveState('home');
     uselocation.pathname === '/chat' && setBtnActiveState('chat');
     uselocation.pathname === '/write' && setBtnActiveState('write');
+    uselocation.pathname === '/emotion' && setBtnActiveState('emotion');
     uselocation.pathname.includes('/profile/') && setBtnActiveState('profile');
   }, [uselocation]);
 
@@ -27,6 +28,9 @@ export default function TabMenu() {
 
   return (
     <S.FooterLayout>
+      <S.WriteBox onClick={() => handleClickState('write')}>
+        <S.WriteImg />
+      </S.WriteBox>
       <S.HomeBox
         onClick={() => {
           handleClickState('home');
@@ -42,13 +46,14 @@ export default function TabMenu() {
         <S.ChatImg $isActive={btnActiveState === 'chat' ? 'chat' : 'none'} />
         채팅
       </S.ChatBox>
-      <S.WriteBox
+      <S.EmotionBox
         onClick={() => {
-          handleClickState('write');
+          handleClickState('emotion');
         }}
-        $isActive={btnActiveState === 'write' ? 'write' : 'none'}>
-        <S.WriteImg $isActive={btnActiveState === 'write' ? 'write' : 'none'} />글 작성
-      </S.WriteBox>
+        $isActive={btnActiveState === 'emotion' ? 'emotion' : 'none'}>
+        <S.EmotionImg $isActive={btnActiveState === 'emotion' ? 'emotion' : 'none'} />
+        AI 글 추천
+      </S.EmotionBox>
       <S.ProfileBox
         onClick={() => {
           handleClickState('profile');
