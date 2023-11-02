@@ -7,10 +7,8 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { atomEmotionState, atomPostUpdateContent } from '../../../store/store';
 
 export default function SelectBox({ setEmojiState }) {
-  // prop 추가
   const [isEmotionActive, setIsEmotionActive] = useState(false);
   const [selectedEmotion, setSelectedEmotion] = useRecoilState(atomEmotionState);
-
   const arrayEmotions = ['전체', 'smile', 'angry', 'sad'];
 
   const handleButtonClick = () => {
@@ -19,7 +17,7 @@ export default function SelectBox({ setEmojiState }) {
 
   const handleListItemClick = (emotion) => {
     setSelectedEmotion(emotion);
-    setEmojiState(emotion); // 추가된 부분
+
     setIsEmotionActive(false);
   };
 
