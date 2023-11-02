@@ -14,7 +14,8 @@ export const ChatListLayout = styled.ul`
 `;
 
 export const ChatListItem = styled.li`
-  width: 358px;
+  width: 100%;
+  padding: 0 20px;
   height: 42px;
   display: flex;
   flex-direction: row;
@@ -70,7 +71,8 @@ export const ChatDate = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  position: absolute;
-  bottom: 3px;
-  right: 0;
+  margin-left: auto;
+  /* position: absolute; */
+  /* bottom: 3px; */
+  /* right: 0; */
 `;
