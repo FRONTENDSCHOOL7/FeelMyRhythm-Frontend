@@ -10,6 +10,7 @@ export const DefaultLayout = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  max-width: 767px;
   width: 100vw;
   gap: 25px;
 `;
