@@ -21,6 +21,7 @@ import ProfileUpdatePage from '../pages/profile/ProfileUpdatePage';
 import Emotion from '../pages/emotion/Emotion';
 
 import styled from 'styled-components';
+import EmotionResult from '../components/emotion/EmotionResult';
 
 export default function AppRouter() {
   return (
@@ -32,6 +33,7 @@ export default function AppRouter() {
           <Route path='/home/searchuser' element={<SearchUserPage />} />
           <Route path='/home/searchpost' element={<SearchPostPage />} />
           <Route path='/emotion' element={<Emotion />} />
+          <Route path='/emotion/result' element={<EmotionResult />} />
           <Route path='/chat' element={<Chat />} />
           <Route path='/chat/:accountname' element={<ChatRoom />} />
           <Route path='/write' element={<Write />} />
