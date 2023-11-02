@@ -1,24 +1,30 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { atomPostUpdateContent } from '../../../store/store';
 import { useMutation } from '@tanstack/react-query';
 import { deletePost } from '../../../apis/write/writeAPI';
+import { deleteProduct } from '../../../apis/profile/productListAPI';
 
 export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
   const navigate = useNavigate();
 
   const postUpdateContent = useRecoilValue(atomPostUpdateContent);
 
-  const { mutate } = useMutation({
+  const { state } = useLocation();
+
+  const { mutate: mutateDeletePost } = useMutation({
     mutationFn: deletePost,
     onSuccess: () => navigate('/home')
   });
 
-  useEffect(() => {
-    // alertMsg === '삭제된 상품 접근' && onClose();
-  }, [alertMsg]);
+  const { mutate: mutateDeleteProduct } = useMutation({
+    mutationFn: deleteProduct,
+    onSuccess: () => navigate(-1)
+  });
+
+  useEffect(() => {}, [alertMsg]);
 
   const onNavigatePostUpdate = () => {
     if (alertMsg === '수정')
@@ -33,7 +39,20 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
           emojiState: postUpdateContent.image.split('🈳')[4]
         }
       });
-    if (alertMsg === '삭제') mutate(postUpdateContent.id);
+    if (alertMsg === '삭제') mutateDeletePost(postUpdateContent.id);
+  };
+
+  const onYoutubeOpen = () => {
+    alertMsg === '삭제된 상품 접근' && window.open(`https://www.youtube.com/watch?v=${state.youtubeId}`);
+    navigate(-1);
+  };
+
+  const onDeleteProduct = () => {
+    mutateDeleteProduct(state.productId);
+  };
+
+  const onNavigateBack = () => {
+    alertMsg === '삭제된 상품 접근' && navigate(-1);
   };
 
   return (
@@ -50,18 +69,13 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
       <FlexBox>
         <AlertButton
           onClick={() => {
-            SetAlertMsg('');
-          }}>
-          취소
-        </AlertButton>
-        <AlertButton
-          onClick={() => {
             modalFunc();
             SetAlertMsg('');
             onClose();
             onNavigatePostUpdate();
+            onYoutubeOpen();
           }}
-          $textColor='#F26E22'>
+          $textColor='#7B86AA'>
           {alertMsg === '삭제된 상품 접근' ? '원본 유투브 이동' : alertMsg}
         </AlertButton>
         {alertMsg === '삭제된 상품 접근' && (
@@ -71,11 +85,19 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
               SetAlertMsg('');
               onClose();
               onNavigatePostUpdate();
+              onDeleteProduct();
             }}
-            $textColor='#F26E22'>
+            $textColor='#7B86AA'>
             좋아하는 글 취소
           </AlertButton>
         )}
+        <AlertButton
+          onClick={() => {
+            SetAlertMsg('');
+            onNavigateBack();
+          }}>
+          취소
+        </AlertButton>
       </FlexBox>
     </AlertLayout>
   );

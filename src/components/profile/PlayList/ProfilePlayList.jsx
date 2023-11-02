@@ -13,6 +13,7 @@ export default function ProfilePlaylist() {
     queryFn: () =>
       readProductList(accountname).then((res) => {
         setPlayList(res.product);
+        console.log(res);
         return res;
       }),
     queryKey: [accountname]
@@ -30,6 +31,8 @@ export default function ProfilePlaylist() {
             title={String(v.itemName).split('🈳')[2]}
             postId={v.link}
             userId={v.itemImage}
+            productId={v.id}
+            youtubeId={String(v.itemName).split('🈳')[1]}
           />
         ))}
       </S.PLContainerBox>

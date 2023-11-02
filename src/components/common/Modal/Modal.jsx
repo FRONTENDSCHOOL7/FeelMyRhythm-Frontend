@@ -8,12 +8,12 @@ import Alert from '../Alert/Alert';
 
 const Modal = ({ isOpen, onClose, postModal, postUser, deleteState }) => {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   const [user, SetUserInfo] = useRecoilState(atomMyInfo);
   const [alertMsg, SetAlertMsg] = useState('');
   const [buttonContent, setButtonContent] = useState(['']);
 
-  console.log(deleteState);
+  console.log(state);
 
   // 로그아웃, 게시글 삭제/수정 기능 연결
   const modalFunc = () => {
@@ -59,22 +59,27 @@ const Modal = ({ isOpen, onClose, postModal, postUser, deleteState }) => {
   return (
     <>
       <S.Backdrop onClick={handleBackdropClick}>
-        <S.Modal onClick={(e) => e.stopPropagation()}>
-          <S.Img src={deco} alt='Decoration' />
-          {Array.isArray(buttonContent)
-            ? buttonContent.map((content, index) => (
-                <S.Button key={index} value={content} onClick={() => SetAlertMsg(content)}>
-                  <S.P>{content}</S.P>
-                </S.Button>
-              ))
-            : buttonContent && (
-                <>
-                  <S.Button value={buttonContent} onClick={() => SetAlertMsg(buttonContent)}>
-                    <S.P>{buttonContent}</S.P>
+        {alertMsg === '삭제된 상품 접근' ? (
+          ''
+        ) : (
+          <S.Modal onClick={(e) => e.stopPropagation()}>
+            <S.Img src={deco} alt='Decoration' />
+            {Array.isArray(buttonContent)
+              ? buttonContent.map((content, index) => (
+                  <S.Button key={index} value={content} onClick={() => SetAlertMsg(content)}>
+                    <S.P>{content}</S.P>
                   </S.Button>
-                </>
-              )}
-        </S.Modal>
+                ))
+              : buttonContent && (
+                  <>
+                    <S.Button value={buttonContent} onClick={() => SetAlertMsg(buttonContent)}>
+                      <S.P>{buttonContent}</S.P>
+                    </S.Button>
+                  </>
+                )}
+          </S.Modal>
+        )}
+
         <Alert alertMsg={alertMsg} modalFunc={modalFunc} SetAlertMsg={SetAlertMsg} onClose={onClose} />
       </S.Backdrop>
     </>

@@ -2,11 +2,11 @@ import React from 'react';
 import * as S from './PlayItem.styled';
 import { useParams, useNavigate } from 'react-router-dom';
 
-export default function PlayItem({ postId, img, title, userId }) {
+export default function PlayItem({ postId, img, title, userId, productId, youtubeId }) {
   const navigate = useNavigate();
 
   const onNavigateDetailPost = () => {
-    navigate(`/post/${postId}`, { state: 'profile' });
+    navigate(`/post/${postId}`, { state: { productId, youtubeId } });
   };
 
   return (
