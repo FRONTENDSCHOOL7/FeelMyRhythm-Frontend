@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const set_ham = `
   margin-bottom: 20px;
+  width: 100vw;
 `;
 
 const set_ben = `
@@ -19,7 +20,6 @@ export const PostBox = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 767px;
-  width: 100vw;
   cursor: pointer;
   ${({ $flag }) => {
     return $flag ? set_ham : set_ben;
