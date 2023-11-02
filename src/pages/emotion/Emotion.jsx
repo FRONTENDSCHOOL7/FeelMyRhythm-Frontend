@@ -7,9 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import EmotionResult from '../../components/emotion/EmotionResult';
 
 const ContBox = styled.div`
+  max-width: 767px;
   width: 100vw;
   height: 100vh;
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export default function Emotion() {

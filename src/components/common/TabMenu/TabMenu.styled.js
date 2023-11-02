@@ -83,9 +83,12 @@ export const ProfileImg = styled(IconImg).attrs(({ $isActive }) => ({
 export const WriteImg = styled(IconImg).attrs(({ $isActive }) => ({
   src: write
 }))``;
+
 export const WriteBox = styled.div`
-  position: fixed;
-  right: 10px;
-  bottom: 65px;
+  position: absolute;
+  right: 20px;
+  bottom: 75px;
+  height: 47px;
   cursor: pointer;
+  border-radius: 50%;
 `;

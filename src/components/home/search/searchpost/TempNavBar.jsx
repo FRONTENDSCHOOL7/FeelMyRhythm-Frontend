@@ -3,7 +3,7 @@ import * as S from './tempNavBar.styled';
 import arrow from '../../../../assets/images/home/icon-arrow-left.svg';
 import { useNavigate } from 'react-router-dom';
 import SelectBox from '../../../common/SelectBox/SelectBox';
-export default function TempNavBar({ setParentContent }) {
+export default function TempNavBar({ setParentContent, setEmojiState }) {
   const navigate = useNavigate();
   const [content, setContent] = useState('');
 
@@ -22,7 +22,7 @@ export default function TempNavBar({ setParentContent }) {
         <img src={arrow} alt='Navigate home' />
       </S.BackArrowButton>
       <S.SearchBox value={content} onChange={handleInputChange} placeholder='게시글 검색' />
-      <SelectBox />
+      <SelectBox setEmojiState={setEmojiState} />
     </S.SearchHeaderLayout>
   );
 }

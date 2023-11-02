@@ -7,7 +7,7 @@ import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/hear
 import basicProfile from '../../assets/images/home/basic-profile.png';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { readDetailPost } from '../../apis/post/detailPostAPI';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { createBookMark, createHeart, createUnHeart, deleteBookMark } from '../../apis/home/heartAPI';
 import { readProductList } from '../../apis/profile/productListAPI';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
@@ -30,22 +30,32 @@ export default function PostDetail() {
 
   const { id } = useParams();
 
+  const { state } = useLocation();
+
+  const [deleteState, setDeleteState] = useState(false);
+
   // 상세 게시글 데이터 읽기 API
-  const { data } = useQuery({
+  const { data, error } = useQuery({
     queryFn: () =>
-      readDetailPost(id).then((res) => {
-        setCreateAt(new Date(res.post.createdAt));
-        return res;
-      }),
+      readDetailPost(id)
+        .then((res) => {
+          setCreateAt(new Date(res.post.createdAt));
+          return res;
+        })
+        .catch((err) => {
+          setDeleteState(true);
+          setIsModalOpen(!isModalOpen);
+          return err;
+        }),
     queryKey: ['detailpost']
   });
 
   useEffect(() => {
-    if (data)
+    if (data && id)
       setPostUpdateContent({
-        id: data.post.id,
-        content: data.post.content,
-        image: data.post.image
+        id: data?.post?.id,
+        content: data?.post?.content,
+        image: data?.post?.image
       });
   }, [data]);
 
@@ -146,7 +156,7 @@ export default function PostDetail() {
             <S.ContentsBox>
               <S.DescriptionContent>{data?.post?.content}</S.DescriptionContent>
               <div>
-                <S.Iframe src={`http://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
+                <S.Iframe src={`https://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
               </div>
             </S.ContentsBox>
             <S.IconsBox>
@@ -166,6 +176,7 @@ export default function PostDetail() {
         )}
       </S.ContainerBox>
       <Modal
+        deleteState={deleteState}
         postModal={true}
         postUser={data?.post?.author?.accountname}
         isOpen={isModalOpen}
