@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { showEntirePosts } from '../../../../apis/home/entirePosts';
 import UserProfile from '../../UserProfile';
 import * as S from './userPosts.styled';
 
-export default function EntirePosts({ searchResults }) {
+export default function EntirePosts({ searchResults, emojiState }) {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
 
   const lowerCaseSearchResults = typeof searchResults === 'string' ? searchResults.toLowerCase() : searchResults;
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <S.DefaultLayout>
@@ -23,7 +19,13 @@ export default function EntirePosts({ searchResults }) {
               (typeof post.image === 'string' &&
                 String(post.image).split('🈳')[2]?.toLowerCase().includes(lowerCaseSearchResults)))
         )
-        .map((post, i) => String(post.image).split('🈳')[0] === 'ms7-3' && <UserProfile key={i} {...post} />)}
+        .map(
+          (post, i) =>
+            String(post.image).split('🈳')[0] === 'ms7-3' &&
+            (emojiState === '전체' || emojiState === '선택' || String(post.image).split('🈳')[4] === emojiState) && (
+              <UserProfile key={i} {...post} />
+            )
+        )}
     </S.DefaultLayout>
   );
 }
