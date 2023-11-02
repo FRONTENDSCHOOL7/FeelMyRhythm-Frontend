@@ -4,8 +4,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 export default function PlayItem({ postId, img, title, userId }) {
   const navigate = useNavigate();
+
+  const onNavigateDetailPost = () => {
+    navigate(`/post/${postId}`, { state: 'profile' });
+  };
+
   return (
-    <S.ItemBox onClick={() => navigate('/post/' + postId)}>
+    <S.ItemBox onClick={onNavigateDetailPost}>
       <S.ItemImgBox>
         <S.ItemImg src={img} />
       </S.ItemImgBox>

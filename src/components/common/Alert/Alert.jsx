@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
@@ -15,6 +15,10 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
     mutationFn: deletePost,
     onSuccess: () => navigate('/home')
   });
+
+  useEffect(() => {
+    // alertMsg === '삭제된 상품 접근' && onClose();
+  }, [alertMsg]);
 
   const onNavigatePostUpdate = () => {
     if (alertMsg === '수정')
@@ -39,6 +43,8 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
           ? '채팅방을 나가시겠어요?'
           : alertMsg === '테마 전환'
           ? '테마를 전환하시겠어요?'
+          : alertMsg === '삭제된 상품 접근'
+          ? '삭제된 게시글 입니다.'
           : alertMsg + '하시겠어요?'}
       </QuesContent>
       <FlexBox>
@@ -56,8 +62,20 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
             onNavigatePostUpdate();
           }}
           $textColor='#F26E22'>
-          {alertMsg}
+          {alertMsg === '삭제된 상품 접근' ? '원본 유투브 이동' : alertMsg}
         </AlertButton>
+        {alertMsg === '삭제된 상품 접근' && (
+          <AlertButton
+            onClick={() => {
+              modalFunc();
+              SetAlertMsg('');
+              onClose();
+              onNavigatePostUpdate();
+            }}
+            $textColor='#F26E22'>
+            좋아하는 글 취소
+          </AlertButton>
+        )}
       </FlexBox>
     </AlertLayout>
   );
@@ -74,7 +92,7 @@ const AlertLayout = styled.div`
   left: 50vw;
   transform: translate(-50%, -50%);
 
-  width: 252px;
+  width: auto;
   height: 110px;
   border-radius: 10px;
   overflow: hidden;
