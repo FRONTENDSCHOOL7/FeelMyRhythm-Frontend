@@ -146,3 +146,13 @@ export const Date = styled.p`
   padding-left: 54px;
   padding-top: 16px;
 `;
+
+export const FaceBox = styled.div`
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: ${({ theme }) => theme.subTextColor};
+`;
