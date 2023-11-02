@@ -6,6 +6,9 @@ export const ContainerBox = styled.div`
   width: 100%;
   padding: 16px 20px;
   background-color: ${({ theme }) => theme.backgroundColor};
+  &:hover {
+    background-color: #f1f2f5;
+  }
 `;
 export const AboutUserBox = styled.div`
   display: flex;
