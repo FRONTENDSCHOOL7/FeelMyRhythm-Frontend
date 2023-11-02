@@ -3,12 +3,14 @@ import home from '../../../assets/images/tabmenu/icon_home.svg';
 import homeFill from '../../../assets/images/tabmenu/icon_home_fill.svg';
 import chat from '../../../assets/images/tabmenu/icon_chat.svg';
 import chatFill from '../../../assets/images/tabmenu/icon_chat_fill.svg';
-import write from '../../../assets/images/tabmenu/icon_write.svg';
-import writeFill from '../../../assets/images/tabmenu/icon_write_fill.svg';
+import emotion from '../../../assets/images/tabmenu/icon_emotion.svg';
+import emotionFill from '../../../assets/images/tabmenu/icon_emotion_fill.svg';
 import profile from '../../../assets/images/tabmenu/icon_profile.svg';
 import profileFill from '../../../assets/images/tabmenu/icon_profile_fill.svg';
+import write from '../../../assets/images/home/icon_write.svg';
 
 export const FooterLayout = styled.div`
+  position: relative;
   max-width: 767px;
   width: 100%;
   display: flex;
@@ -49,9 +51,8 @@ export const ChatBox = styled(ContentBox)`
   font-family: 'Orbit-Regular';
 `;
 
-export const WriteBox = styled(ContentBox)`
+export const EmotionBox = styled(ContentBox)`
   flex-basis: 1;
-  flex-shrink: 0;
   font-family: 'Orbit-Regular';
 `;
 
@@ -71,10 +72,20 @@ export const ChatImg = styled(IconImg).attrs(({ $isActive }) => ({
   src: $isActive !== 'none' ? chatFill : chat
 }))``;
 
-export const WriteImg = styled(IconImg).attrs(({ $isActive }) => ({
-  src: $isActive !== 'none' ? writeFill : write
+export const EmotionImg = styled(IconImg).attrs(({ $isActive }) => ({
+  src: $isActive !== 'none' ? emotionFill : emotion
 }))``;
 
 export const ProfileImg = styled(IconImg).attrs(({ $isActive }) => ({
   src: $isActive !== 'none' ? profileFill : profile
 }))``;
+
+export const WriteImg = styled(IconImg).attrs(({ $isActive }) => ({
+  src: write
+}))``;
+export const WriteBox = styled.div`
+  position: fixed;
+  right: 10px;
+  bottom: 65px;
+  cursor: pointer;
+`;
