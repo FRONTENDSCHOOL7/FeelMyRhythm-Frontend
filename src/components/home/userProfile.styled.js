@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ContainerBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   padding: 16px 20px;
   background-color: ${({ theme }) => theme.backgroundColor};
 `;
@@ -43,6 +43,7 @@ export const StyledProfileImg = styled.img`
 `;
 
 export const UserInfoBox = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -79,13 +80,14 @@ export const H4 = styled.h4`
 export const Button = styled.button`
   width: 18px;
   height: 18px;
-  position: absolute;
-  top: 0px;
-  right: 0px;
+  /* position: absolute; */
+  /* top: 0px; */
+  /* right: 0px; */
   border: none;
   background: none;
   padding: 0;
   margin: 0;
+  margin-left: auto;
   cursor: pointer;
 `;
 export const ContentsBox = styled.div`

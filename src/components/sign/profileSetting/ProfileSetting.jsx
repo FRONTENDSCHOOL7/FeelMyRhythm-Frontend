@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as S from './profileSetting.styled';
 import defaultProfile from '../../../assets/images/sign/default_profile.png';
-import imgChange from '../../../assets/images/sign/imgChange.svg';
+// import imgChange from '../../../assets/images/sign/imgChange.svg';
+import imgChange from '../../../assets/images/write/upload.svg';
 import { useNavigate } from 'react-router-dom';
 import { createAccountNameValid, createImage, createUser } from '../../../apis/sign/signUpAPI';
 import { useMutation } from '@tanstack/react-query';
@@ -215,14 +216,10 @@ export default function ProfileSetting() {
 
       <S.NonPaddingInputBox>
         <S.SubContent>소개</S.SubContent>
-        <S.Input
-          type='text'
-          placeholder='자신과 판매할 상품에 대해 소개해 주세요!'
-          onChange={(e) => handleChangeUserInfo(e, 'intro')}
-        />
+        <S.Input type='text' placeholder='소개글을 작성해 주세요.' onChange={(e) => handleChangeUserInfo(e, 'intro')} />
       </S.NonPaddingInputBox>
 
-      <S.Button valid={isButtonState === true ? 'done' : 'none'}>감귤마켓 시작하기</S.Button>
+      <S.Button valid={isButtonState === true ? 'done' : 'none'}>시작하기</S.Button>
     </S.ProfileSettingLayout>
   );
 }

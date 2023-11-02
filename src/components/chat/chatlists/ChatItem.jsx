@@ -14,12 +14,12 @@ const ChatItem = ({ user }) => {
   return (
     <S.ChatListItem onClick={() => handleItemClick(user.accountname)}>
       <S.ProfileImage src={String(user.image).split('🈳')[3] ?? profileImg} alt='profile' />
-      {isUnread && <S.AlertIcon src={alertImg} alt='alert' />}
+      {/* {isUnread && <S.AlertIcon src={alertImg} alt='alert' />} */}
       <S.ChatBox>
         <S.ChatUserName>{user.username}</S.ChatUserName>
         <S.ChatMessage>메세지 미리보기</S.ChatMessage>
       </S.ChatBox>
-      <S.ChatDate>2023-10-29</S.ChatDate>
+      <S.ChatDate>2023-11-01</S.ChatDate>
     </S.ChatListItem>
   );
 };

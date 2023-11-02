@@ -59,7 +59,7 @@ export const PostListBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   ${({ $flag }) => {
-    return $flag ? `flex-direction : column;` : `padding: 16px;`;
+    return $flag ? `flex-direction : column;` : `padding: 16px; width: 390px;`;
   }}
   padding-bottom: 65px;
 `;

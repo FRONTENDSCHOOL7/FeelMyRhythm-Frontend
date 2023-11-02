@@ -44,10 +44,16 @@ export const ProfileImg = styled.img`
   border-radius: 50%;
 `;
 
-export const ChangeImg = styled.img`
-  position: absolute;
+export const ChangeImgBox = styled.div`
   width: 36px;
   height: 36px;
+  border-radius: 50%;
+  background-color: red;
+`;
+export const ChangeImg = styled.img`
+  position: absolute;
+  width: 20px;
+  height: 20px;
   right: 0;
   bottom: 0;
   z-index: 1;
@@ -112,7 +118,7 @@ export const Button = styled.button`
   border: none;
 
   margin-top: 14px;
-  padding: 13px 148px;
+  padding: 13px 0;
 
   color: ${({ theme }) => theme.btnTextColor};
 

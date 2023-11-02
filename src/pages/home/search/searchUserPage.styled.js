@@ -6,5 +6,5 @@ export const HomeLayout = styled.div`
   max-width: 767px;
   width: 100vw;
   height: 100vh;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
