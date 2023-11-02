@@ -105,11 +105,6 @@ export const DescriptionContent = styled.p`
   font-weight: 400;
   line-height: normal;
   margin-top: 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 export const IconsBox = styled.div`
