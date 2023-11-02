@@ -6,10 +6,13 @@ import TabMenu from '../../components/common/TabMenu/TabMenu';
 import FollowStatus from '../../components/home/followstatus/FollowStatus';
 import * as S from './home.styled';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+
+import { atomEmotionState } from '../../store/store';
 
 export default function Home() {
   const navigate = useNavigate();
-
+  const [emojiState, setEmojiState] = useRecoilState(atomEmotionState);
   const [isToggled, setIsToggled] = useState(false);
 
   useEffect(() => {
@@ -20,8 +23,8 @@ export default function Home() {
   return (
     <S.HomeLayout>
       <NavBar isToggled={isToggled} />
-      <SecondBar setIsToggled={setIsToggled} />
-      {isToggled ? <FollowStatus /> : <EntirePosts />}
+      <SecondBar setIsToggled={setIsToggled} setEmojiState={setEmojiState} />
+      {isToggled ? <FollowStatus emojiState={emojiState} /> : <EntirePosts emojiState={emojiState} />}
       <TabMenu />
     </S.HomeLayout>
   );
