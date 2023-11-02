@@ -19,7 +19,7 @@ ${reset}
 body {
   line-height: normal;
   font-family: 'Orbit-Regular';
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.BodyBgColor};
 }
 
 button {

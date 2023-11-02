@@ -4,7 +4,8 @@ export const lightTheme = {
   backgroundColor: '#F8F9FC',
   btnDisabledBgColor: '#BFC8EA',
   btnEnabledBgColor: '#7B86AA',
-  btnTextColor: '#F8F9FC'
+  btnTextColor: '#F8F9FC',
+  BodyBgColor: '#F2F2F2'
 };
 
 export const darkTheme = {
@@ -13,5 +14,5 @@ export const darkTheme = {
   backgroundColor: '#313338',
   btnDisabledBgColor: '#BFC8EA',
   btnEnabledBgColor: '#7B86AA',
-  btnTextColor: '#F8F9FC'
+  BodyBgColor: '#666666'
 };
