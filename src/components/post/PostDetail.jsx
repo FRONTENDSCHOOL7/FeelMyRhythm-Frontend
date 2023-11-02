@@ -156,7 +156,7 @@ export default function PostDetail() {
             <S.ContentsBox>
               <S.DescriptionContent>{data?.post?.content}</S.DescriptionContent>
               <div>
-                <S.Iframe src={`http://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
+                <S.Iframe src={`https://www.youtube.com/embed/${data?.post?.image.split('🈳')[1]}`} />
               </div>
             </S.ContentsBox>
             <S.IconsBox>

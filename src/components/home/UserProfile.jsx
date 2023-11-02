@@ -55,10 +55,10 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
             <S.DescriptionContent>{content}</S.DescriptionContent>
             <S.VideoImgToggleBox onMouseOver={() => setVideoState(true)} onMouseLeave={() => setVideoState(false)}>
               {emotionAi ? (
-                <S.BigIframe src={`http://www.youtube.com/embed/${image && image.split('🈳')[1]}?autoplay=1&mute=1`} />
+                <S.BigIframe src={`https://www.youtube.com/embed/${image && image.split('🈳')[1]}?autoplay=1&mute=1`} />
               ) : videoState ? (
                 <>
-                  <S.Iframe src={`http://www.youtube.com/embed/${image && image.split('🈳')[1]}?autoplay=1&mute=1`} />
+                  <S.Iframe src={`https://www.youtube.com/embed/${image && image.split('🈳')[1]}?autoplay=1&mute=1`} />
                 </>
               ) : (
                 <S.ImgBox>
