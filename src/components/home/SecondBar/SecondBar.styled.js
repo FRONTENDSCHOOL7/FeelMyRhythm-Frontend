@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const SecondBarLayout = styled.div`
+  width: 100%;
   height: 47px;
-  margin-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
