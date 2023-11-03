@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+
 import { useParams } from 'react-router-dom';
 import NavBar from '../../common/NavBar/NavBar';
 import * as S from './chatroom.styled';
@@ -9,10 +10,15 @@ import ChatFooter from './ChatFooter';
 export default function Chatroom() {
   const { accountname } = useParams();
   const [messages, setMessages] = useState([]);
+  const messagesEndRef = useRef(null);
   const handleSendNewMessage = (newMessage) => {
     setMessages([...messages, newMessage]);
   };
-
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
   const today = new Date();
   let hours = today.getHours(); // 시
   let minutes = today.getMinutes(); // 분
@@ -48,6 +54,7 @@ export default function Chatroom() {
             </S.MeMessageWrapperBox>
           </S.MeChatBox>
         ))}
+        <div ref={messagesEndRef}></div>
       </S.ChatRoomLayout>
       <ChatFooter onSendMessage={handleSendNewMessage} />
     </>

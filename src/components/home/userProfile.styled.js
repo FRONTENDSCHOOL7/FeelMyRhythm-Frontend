@@ -167,7 +167,7 @@ export const FaceBox = styled.div`
   align-items: center;
   font-size: 16px;
   color: ${({ theme }) => theme.subTextColor};
-`
+`;
 
 export const BigIframe = styled.iframe`
   display: block;

@@ -17,24 +17,13 @@ export default function ChatFooter({ onSendMessage }) {
     }
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      handleSend();
-    }
-  };
-
   return (
     <S.ChatFooterLayout>
       <S.TempBox>
         <S.ImgButton>
           <img src={img} alt='img' />
         </S.ImgButton>
-        <S.Input
-          value={inputValue}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          placeholder='메시지를 입력하세요'
-        />
+        <S.Input value={inputValue} onChange={handleInputChange} placeholder='메시지를 입력하세요' />
       </S.TempBox>
       <S.SendButton active={inputValue.length > 0} onClick={handleSend}>
         전송
