@@ -55,7 +55,7 @@ export const KebabBtnImg = styled(CiMenuKebab)`
 `;
 
 export const SelectBox = styled.div`
-  margin-left: auto;
+  margin-left: 12px;
 `;
 
 export const SaveBtn = styled.button`

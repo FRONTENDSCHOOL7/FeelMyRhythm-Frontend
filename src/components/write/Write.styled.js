@@ -75,6 +75,7 @@ export const Video = styled.iframe`
 
 export const VideoContent = styled.p`
   color: black;
+  width: 90%;
   padding-right: 34px;
   padding-bottom: 50px;
 `;
