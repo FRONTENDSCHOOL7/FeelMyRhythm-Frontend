@@ -156,7 +156,7 @@ export default function PostDetail() {
               />
               <S.UserInfoBox onClick={() => navigate('/profile/' + data?.post?.author?.accountname)}>
                 <S.H2>{data?.post?.author?.username}</S.H2>
-                <S.H3>{data?.post?.author?.accountname}</S.H3>
+                <S.H3>{'@' + data?.post?.author?.accountname}</S.H3>
               </S.UserInfoBox>
               <S.Button
                 onClick={(e) => {
