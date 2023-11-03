@@ -9,14 +9,14 @@ export const ChatRoomLayout = styled.div`
   min-height: 712px;
   width: 100vw;
   max-width: 767px;
-  overflow-x: scroll;
+  overflow-x: none;
+
   background-color: ${({ theme }) => theme.backgroundColor};
   height: 100vh;
 `;
 export const OthersChatBox = styled.div`
   display: flex;
   flex-direction: row;
-  /* width: 100vw; */
   padding-left: 16px;
 `;
 export const MessageWrapperBox = styled.div`
@@ -65,7 +65,7 @@ export const Time = styled.p`
 export const MeChatBox = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   justify-content: flex-end;
   padding-right: 16px;
 `;

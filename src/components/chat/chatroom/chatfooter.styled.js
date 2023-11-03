@@ -8,7 +8,7 @@ export const ChatFooterLayout = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 20px 0 16px;
-  width: 100vw;
+  width: 100%;
   max-width: 767px;
   height: 61px;
   background-color: ${({ theme }) => theme.backgroundColor};
@@ -27,7 +27,7 @@ export const ImgButton = styled.button`
   padding: 0;
 `;
 export const Input = styled.input`
-  width: 67vw;
+  width: 67%;
   border: none;
   background: none;
   color: ${({ theme }) => theme.textColor};
