@@ -40,6 +40,7 @@ export const Upload = styled.div`
 export const UserImg = styled.img`
   width: 42px;
   height: 42px;
+  border-radius: 50%;
 `;
 
 export const TextInput = styled.textarea`
