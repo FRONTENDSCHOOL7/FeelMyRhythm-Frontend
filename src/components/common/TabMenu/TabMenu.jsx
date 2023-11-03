@@ -14,7 +14,6 @@ export default function TabMenu() {
   useEffect(() => {
     uselocation.pathname === '/home' && setBtnActiveState('home');
     uselocation.pathname === '/chat' && setBtnActiveState('chat');
-    uselocation.pathname === '/write' && setBtnActiveState('write');
     uselocation.pathname === '/emotion' && setBtnActiveState('emotion');
     uselocation.pathname.includes('/profile/') && setBtnActiveState('profile');
   }, [uselocation]);
@@ -28,9 +27,11 @@ export default function TabMenu() {
 
   return (
     <S.FooterLayout>
-      <S.WriteBox onClick={() => handleClickState('write')}>
-        <S.WriteImg />
-      </S.WriteBox>
+      {uselocation.pathname === '/home' && (
+        <S.WriteBox onClick={() => handleClickState('write')}>
+          <S.WriteImg />
+        </S.WriteBox>
+      )}
       <S.HomeBox
         onClick={() => {
           handleClickState('home');
