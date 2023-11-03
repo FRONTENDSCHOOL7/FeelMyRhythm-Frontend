@@ -12,13 +12,21 @@ export default function Chatroom() {
   const messagesEndRef = useRef(null);
   const renderMessageContent = (messageContent) => {
     if (messageContent.startsWith('data:image')) {
-      return <img src={messageContent} alt='User Uploaded' style={{ maxWidth: '200px' }} />;
+      return <img src={messageContent} alt='User Uploaded img' style={{ maxWidth: '200px' }} />;
     } else {
       return messageContent;
     }
   };
-  const handleSendNewMessage = (newMessage) => {
-    setMessages([...messages, newMessage]);
+  const handleSendNewMessage = (newMessageContent) => {
+    const currentTime = new Date();
+    const message = {
+      content: newMessageContent,
+      time: {
+        hours: formatTime(currentTime.getHours()),
+        minutes: formatTime(currentTime.getMinutes())
+      }
+    };
+    setMessages([...messages, message]);
   };
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -56,16 +64,21 @@ export default function Chatroom() {
             </S.TimeWrapperBox>
           </S.MessageWrapperBox>
         </S.OthersChatBox>
-        {messages.map((message, index) => (
-          <S.MeChatBox key={index}>
-            <S.MeMessageWrapperBox>
-              <S.MeTimeWrapperBox>
-                <S.MeTime>{formattedHours + ':' + formattedMinutes}</S.MeTime>
-              </S.MeTimeWrapperBox>
-              <S.MeSpeechBubbleBox>{renderMessageContent(message)}</S.MeSpeechBubbleBox>
-            </S.MeMessageWrapperBox>
-          </S.MeChatBox>
-        ))}
+        {messages.map((message, index) => {
+          const messageContent = typeof message === 'object' ? message.content : message;
+          const messageTime = typeof message === 'object' ? message.time : { hours: hours, minutes: minutes };
+          return (
+            <S.MeChatBox key={index}>
+              <S.MeMessageWrapperBox>
+                <S.MeTimeWrapperBox>
+                  <S.MeTime>{messageTime.hours + ':' + messageTime.minutes}</S.MeTime>
+                </S.MeTimeWrapperBox>
+                <S.MeSpeechBubbleBox>{renderMessageContent(messageContent)}</S.MeSpeechBubbleBox>
+              </S.MeMessageWrapperBox>
+            </S.MeChatBox>
+          );
+        })}
+
         <div ref={messagesEndRef}></div>
       </S.ChatRoomLayout>
       <ChatFooter onSendMessage={handleSendNewMessage} />
