@@ -28,7 +28,7 @@ export default function FollowList({ data }) {
   useEffect(() => {
     setFollow(data.isfollow);
     console.log(String(data.intro).split('ms7-3🈳'));
-  }, [data.isfollow]);
+  }, [data.isfollow, data.intro]);
 
   return (
     <S.ProfileFollowersLayout>
