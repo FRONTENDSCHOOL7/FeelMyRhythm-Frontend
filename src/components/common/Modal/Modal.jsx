@@ -13,8 +13,6 @@ const Modal = ({ isOpen, onClose, postModal, postUser, deleteState }) => {
   const [alertMsg, SetAlertMsg] = useState('');
   const [buttonContent, setButtonContent] = useState(['']);
 
-  console.log(state);
-
   // 로그아웃, 게시글 삭제/수정 기능 연결
   const modalFunc = () => {
     if (alertMsg === '채팅방 나가기') navigate('/chat');
@@ -31,9 +29,9 @@ const Modal = ({ isOpen, onClose, postModal, postUser, deleteState }) => {
 
   useEffect(() => {
     setButtonContent(
-      postModal && user.accountname === postUser
+      postModal && user?.accountname === postUser
         ? ['수정', '삭제']
-        : postModal && user.accountname !== postUser && deleteState !== true
+        : postModal && user?.accountname !== postUser && deleteState !== true
         ? ['신고']
         : pathname.includes('/profile')
         ? ['테마 전환', '로그아웃']
@@ -44,7 +42,7 @@ const Modal = ({ isOpen, onClose, postModal, postUser, deleteState }) => {
         : ['']
     );
     deleteState && SetAlertMsg('삭제된 상품 접근');
-  }, [deleteState]);
+  }, [deleteState, pathname, postModal, postUser, user?.accountname]);
 
   if (!isOpen) {
     return null;
