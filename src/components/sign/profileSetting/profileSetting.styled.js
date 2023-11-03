@@ -48,15 +48,18 @@ export const ChangeImgBox = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: red;
-`;
-export const ChangeImg = styled.img`
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
   position: absolute;
-  width: 20px;
-  height: 20px;
   right: 0;
   bottom: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const ChangeImg = styled.img`
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 `;
 

@@ -24,13 +24,22 @@ export const ProfileImg = styled.img`
   border-radius: 50%;
 `;
 
-export const ChangeImg = styled.img`
-  position: absolute;
+export const ChangeImgBox = styled.div`
   width: 36px;
   height: 36px;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
+  position: absolute;
   right: 0;
   bottom: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const ChangeImg = styled.img`
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 `;
 
@@ -67,8 +76,8 @@ export const Input = styled.input`
 
   padding-left: 8px;
 
-  background-color: ${({ theme }) => theme.textColor};
-  color: ${({ theme }) => theme.backgroundColor};
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.textColor};
 
   &::placeholder {
     color: ${({ theme }) => theme.subTextColor};

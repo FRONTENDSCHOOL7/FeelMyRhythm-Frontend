@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './ProfileUpdate.styled';
 import defaultProfile from '../../../assets/images/sign/default_profile.png';
-import imgChange from '../../../assets/images/sign/imgChange.svg';
+import imgChange from '../../../assets/images/write/upload.svg';
 import { useNavigate } from 'react-router-dom';
 import { createAccountNameValid } from '../../../apis/sign/signUpAPI';
 import { useMutation } from '@tanstack/react-query';
@@ -113,7 +113,9 @@ export default function ProfileUpdate({
       <S.ImgBox>
         <S.ProfileImg src={base64Image || defaultProfile} />
         <label htmlFor='imgChange'>
-          <S.ChangeImg src={imgChange} />
+          <S.ChangeImgBox>
+            <S.ChangeImg src={imgChange} />
+          </S.ChangeImgBox>
         </label>
         <input style={{ display: 'none' }} type='file' id='imgChange' onChange={(e) => handleChangeImage(e)} />
       </S.ImgBox>
