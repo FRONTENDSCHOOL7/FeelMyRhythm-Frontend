@@ -28,6 +28,12 @@ export default function Chatroom() {
   const today = new Date();
   let hours = today.getHours(); // 시
   let minutes = today.getMinutes(); // 분
+  const formatTime = (num) => {
+    return num < 10 ? '0' + num : num;
+  };
+
+  const formattedHours = formatTime(hours);
+  const formattedMinutes = formatTime(minutes);
   return (
     <>
       <NavBar chatUser={accountname} />
@@ -54,7 +60,7 @@ export default function Chatroom() {
           <S.MeChatBox key={index}>
             <S.MeMessageWrapperBox>
               <S.MeTimeWrapperBox>
-                <S.MeTime>{hours + ':' + minutes}</S.MeTime>
+                <S.MeTime>{formattedHours + ':' + formattedMinutes}</S.MeTime>
               </S.MeTimeWrapperBox>
               <S.MeSpeechBubbleBox>{renderMessageContent(message)}</S.MeSpeechBubbleBox>
             </S.MeMessageWrapperBox>
