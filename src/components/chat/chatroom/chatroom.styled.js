@@ -80,10 +80,9 @@ export const MeSpeechBubbleBox = styled.div`
   padding: 12px;
   max-width: 240px;
   word-wrap: break-word;
-  background-color: #f26e22;
-  /* border: 1px solid #c4c4c4; */
+  background-color: ${({ theme }) => theme.BodyBgColor};
   border-radius: 12px 12px 0px 12px;
-  color: #fff;
+  color: ${({ theme }) => theme.textColor};
   font-family: 'Orbit-Regular';
   font-size: 14px;
   font-style: normal;

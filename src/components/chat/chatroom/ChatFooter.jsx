@@ -13,7 +13,6 @@ export default function ChatFooter({ onSendMessage }) {
     if (inputValue.trim() !== '') {
       onSendMessage(inputValue);
       setInputValue('');
-      window.scrollTo(0, document.body.scrollHeight);
     }
   };
 

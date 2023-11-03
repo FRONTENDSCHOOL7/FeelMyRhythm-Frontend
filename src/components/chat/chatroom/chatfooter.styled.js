@@ -43,5 +43,5 @@ export const SendButton = styled.button`
   padding: 0;
   border: none;
   background: none;
-  color: ${(props) => (props.active ? '#F26E22' : '#767676')};
+  color: ${(props) => (props.active ? props.theme.btnEnabledBgColor : props.theme.btnDisabledBgColor)};
 `;
