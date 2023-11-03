@@ -6,17 +6,16 @@ export const ChatRoomLayout = styled.div`
   padding-top: 72px;
   padding-bottom: 72px;
   gap: 9px;
-  min-height: 712px;
   width: 100vw;
   max-width: 767px;
-  overflow-x: scroll;
+  overflow-x: none;
+
   background-color: ${({ theme }) => theme.backgroundColor};
-  height: 100vh;
+  min-height: 100vh;
 `;
 export const OthersChatBox = styled.div`
   display: flex;
   flex-direction: row;
-  /* width: 100vw; */
   padding-left: 16px;
 `;
 export const MessageWrapperBox = styled.div`
@@ -65,7 +64,7 @@ export const Time = styled.p`
 export const MeChatBox = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   justify-content: flex-end;
   padding-right: 16px;
 `;
@@ -80,10 +79,9 @@ export const MeSpeechBubbleBox = styled.div`
   padding: 12px;
   max-width: 240px;
   word-wrap: break-word;
-  background-color: #f26e22;
-  /* border: 1px solid #c4c4c4; */
+  background-color: ${({ theme }) => theme.BodyBgColor};
   border-radius: 12px 12px 0px 12px;
-  color: #fff;
+  color: ${({ theme }) => theme.textColor};
   font-family: 'Orbit-Regular';
   font-size: 14px;
   font-style: normal;

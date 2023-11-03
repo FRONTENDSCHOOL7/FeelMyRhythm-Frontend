@@ -24,18 +24,11 @@ export const ChatListItem = styled.li`
   cursor: pointer;
 `;
 
-export const AlertIcon = styled.img`
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
-
 export const ProfileImage = styled.img`
   width: 42px;
   height: 42px;
   margin-right: 12px;
+  border-radius: 50%;
 `;
 
 export const ChatBox = styled.div`
@@ -72,7 +65,4 @@ export const ChatDate = styled.span`
   font-weight: 400;
   line-height: normal;
   margin-left: auto;
-  /* position: absolute; */
-  /* bottom: 3px; */
-  /* right: 0; */
 `;
