@@ -62,4 +62,5 @@ export const Container = styled.div`
 
 export const App = styled.div`
   max-width: 767px;
+  width: 100%;
 `;

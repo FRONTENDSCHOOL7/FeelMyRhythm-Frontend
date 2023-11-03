@@ -180,7 +180,9 @@ export default function ProfileSetting() {
       <S.ImgBox>
         <S.ProfileImg src={base64Image || defaultProfile} />
         <label htmlFor='imgChange'>
-          <S.ChangeImg src={imgChange} />
+          <S.ChangeImgBox>
+            <S.ChangeImg src={imgChange} />
+          </S.ChangeImgBox>
         </label>
         <input style={{ display: 'none' }} type='file' id='imgChange' onChange={(e) => handleChangeImage(e)} />
       </S.ImgBox>

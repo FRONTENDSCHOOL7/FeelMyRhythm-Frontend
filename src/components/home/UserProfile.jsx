@@ -51,7 +51,7 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
           />
           <S.UserInfoBox>
             <S.H2>{author?.username}</S.H2>
-            <S.H3>{author?.accountname}</S.H3>
+            <S.H3>{'@' + author?.accountname}</S.H3>
           </S.UserInfoBox>
           <S.Button
             onClick={(e) => {

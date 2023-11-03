@@ -55,7 +55,7 @@ export const KebabBtnImg = styled(CiMenuKebab)`
 `;
 
 export const SelectBox = styled.div`
-  margin-left: auto;
+  margin-left: 3px;
 `;
 
 export const SaveBtn = styled.button`
@@ -75,11 +75,11 @@ export const SaveBtn = styled.button`
 
 export const YoutubeSearchInput = styled.input`
   width: 60%;
+  height: 32px;
   margin-left: 4px;
-  padding-left: 7px;
+  padding-left: 8px;
   border-radius: 32px;
-  background-color: ${({ theme }) => theme.textColor};
-  color: ${({ theme }) => theme.backgroundColor};
+  background-color: #f2f2f2;
   border: none;
   outline: none;
 `;

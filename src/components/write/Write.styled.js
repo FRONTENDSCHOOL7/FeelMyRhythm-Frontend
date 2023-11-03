@@ -40,11 +40,13 @@ export const Upload = styled.div`
 export const UserImg = styled.img`
   width: 42px;
   height: 42px;
+  border-radius: 50%;
 `;
 
 export const TextInput = styled.textarea`
   border: 0;
   max-width: 687px;
+  max-height: 280px;
   width: 80vw;
   resize: none;
   padding-left: 12px;
@@ -75,8 +77,9 @@ export const Video = styled.iframe`
 
 export const VideoContent = styled.p`
   color: black;
+  width: 90%;
   padding-right: 34px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 `;
 
 export const ShareBtn = styled.button`

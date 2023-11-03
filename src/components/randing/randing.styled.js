@@ -6,9 +6,12 @@ export const RandingPageLayout = styled.main`
   max-width: 767px;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   background: rgb(76, 89, 134);
   background: linear-gradient(180deg, rgba(76, 89, 134, 1) 21%, rgba(241, 222, 255, 1) 100%);
 `;
+
+export const ContBox = styled.div``;
 
 export const Title = styled.h1`
   padding-top: 12px;
@@ -66,20 +69,21 @@ export const BottomBoxBox = styled.div`
 
   @keyframes slideup {
     0% {
-      bottom: -200px;
+      transform: translateY(100%);
+      opacity: 0;
     }
     80% {
-      bottom: -200px;
+      transform: translateY(100%);
+      opacity: 0;
     }
     100% {
-      bottom: 0px;
+      transform: translateY(0);
+      opacity: 1;
     }
   }
-  animation: slideup 4s ease-in-out;
   width: 100%;
   max-width: 767px;
-  position: absolute;
-  bottom: 0px;
+  animation: slideup 4s ease-in-out;
 `;
 
 export const BottomBox = styled.div`

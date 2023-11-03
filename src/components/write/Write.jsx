@@ -1,16 +1,19 @@
 import React from 'react';
 import * as S from './Write.styled';
-import userlogo from '../../assets/images/write/profile-img.png';
+import userlogo from '../../assets/images/home/basic-profile.png';
 import { useNavigate } from 'react-router-dom';
 import addImg from '../../assets/images/write/upload.svg';
+import { useRecoilValue } from 'recoil';
+import { atomMyInfo } from '../../store/store';
 
 export default function Write({ state, postContent, handleChangeInput, textInputRef }) {
   const navigate = useNavigate();
-
+  const user = useRecoilValue(atomMyInfo);
+  console.log(user);
   return (
     <S.WriteLayout>
       <S.Upload>
-        <S.UserImg src={userlogo} />
+        <S.UserImg src={String(user?.image).includes('Ellipse.png') ? userlogo : user?.image} />
         <S.TextInput
           type='text'
           ref={textInputRef}

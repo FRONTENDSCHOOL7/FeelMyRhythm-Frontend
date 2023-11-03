@@ -68,33 +68,34 @@ export default function EmotionResult({ SetResult }) {
   return (
     <>
       {randomPost && (
-        <S.EmotionResultLayout>
-          <S.H1>
-            AI의 분석 결과로 <S.Highlight>{state}</S.Highlight> 보입니다.
-          </S.H1>
-          <S.H2>추천 음악</S.H2>
-          <S.ContentBox>
-            <UserProfile
-              author={randomPost?.author}
-              content={randomPost?.content}
-              image={randomPost?.image}
-              createdAt={randomPost?.createdAt}
-              comments={randomPost?.comments}
-              heartCount={randomPost?.heartCount}
-              id={randomPost?._id}
-              emotionAi={true}
-            />
-          </S.ContentBox>
-
-          <S.Button
-            onClick={() => anotherPost()}
-            postLength={filteredPostList.length}
-            disabled={filteredPostList.length !== 1 ? false : true}>
-            {filteredPostList.length !== 1 ? '다른 게시글 추천 받기' : '추천받을 게시글이 더 이상 없습니다.'}
-          </S.Button>
-          <S.Button onClick={() => onNavigate('emotion')}>다시 분석하기</S.Button>
-          <S.Button onClick={() => onNavigate('home')}>홈으로 돌아가기</S.Button>
-        </S.EmotionResultLayout>
+        <>
+          <S.EmotionResultLayout>
+            <S.H1>
+              AI의 분석 결과 : <S.Highlight>{state}</S.Highlight> 보입니다.
+            </S.H1>
+            <S.H2>당신과 공감하는 사용자의 글</S.H2>
+            <S.ContentBox>
+              <UserProfile
+                author={randomPost?.author}
+                content={randomPost?.content}
+                image={randomPost?.image}
+                createdAt={randomPost?.createdAt}
+                comments={randomPost?.comments}
+                heartCount={randomPost?.heartCount}
+                id={randomPost?._id}
+                emotionAi={true}
+              />
+            </S.ContentBox>
+            <S.Button
+              onClick={() => anotherPost()}
+              postLength={filteredPostList.length}
+              disabled={filteredPostList.length !== 1 ? false : true}>
+              {filteredPostList.length !== 1 ? '다른 게시글 추천 받기' : '더 추천 받을 게시글이 없습니다.'}
+            </S.Button>
+            {/* <S.Button onClick={() => onNavigate('emotion')}>다시 분석하기</S.Button>
+            <S.Button onClick={() => onNavigate('home')}>홈으로 돌아가기</S.Button> */}
+          </S.EmotionResultLayout>
+        </>
       )}
     </>
   );
