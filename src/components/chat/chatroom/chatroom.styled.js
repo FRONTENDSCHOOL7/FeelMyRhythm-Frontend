@@ -6,13 +6,12 @@ export const ChatRoomLayout = styled.div`
   padding-top: 72px;
   padding-bottom: 72px;
   gap: 9px;
-  min-height: 712px;
   width: 100vw;
   max-width: 767px;
   overflow-x: none;
 
   background-color: ${({ theme }) => theme.backgroundColor};
-  height: 100vh;
+  min-height: 100vh;
 `;
 export const OthersChatBox = styled.div`
   display: flex;
