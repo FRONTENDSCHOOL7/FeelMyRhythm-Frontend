@@ -83,7 +83,7 @@ export const NextButton = styled.button`
   border: none;
 
   margin-top: 14px;
-  padding: 13px 148px;
+  padding: 13px 0;
 
   color: ${({ theme }) => theme.btnTextColor};
 
@@ -100,7 +100,7 @@ export const CheckEmailButton = styled.button`
   width: 70px;
   height: 32px;
   border: none;
-  color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }) => theme.btnTextColor};
   background-color: ${({ valid, theme }) => (valid === 'success' ? 'transparent' : theme.btnEnabledBgColor)};
 
   font-size: ${({ valid }) => (valid === 'success' ? '16px' : '12px')};

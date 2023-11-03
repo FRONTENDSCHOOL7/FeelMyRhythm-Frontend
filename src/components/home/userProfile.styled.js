@@ -3,9 +3,12 @@ import styled from 'styled-components';
 export const ContainerBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   padding: 16px 20px;
   background-color: ${({ theme }) => theme.backgroundColor};
+  &:hover {
+    background-color: #f1f2f5;
+  }
 `;
 export const AboutUserBox = styled.div`
   display: flex;
@@ -43,6 +46,7 @@ export const StyledProfileImg = styled.img`
 `;
 
 export const UserInfoBox = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -79,13 +83,14 @@ export const H4 = styled.h4`
 export const Button = styled.button`
   width: 18px;
   height: 18px;
-  position: absolute;
-  top: 0px;
-  right: 0px;
+  /* position: absolute; */
+  /* top: 0px; */
+  /* right: 0px; */
   border: none;
   background: none;
   padding: 0;
   margin: 0;
+  margin-left: auto;
   cursor: pointer;
 `;
 export const ContentsBox = styled.div`
@@ -162,4 +167,19 @@ export const FaceBox = styled.div`
   align-items: center;
   font-size: 16px;
   color: ${({ theme }) => theme.subTextColor};
+`
+
+export const BigIframe = styled.iframe`
+  display: block;
+  max-width: 767px;
+
+  width: 77%;
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 15.5vh;
+  }
+
+  height: 21.8vh;
+  border-radius: 15px;
+  margin-top: 16px;
 `;

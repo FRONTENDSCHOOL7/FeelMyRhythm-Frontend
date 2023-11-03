@@ -10,7 +10,7 @@ import basicProfile from '../../assets/images/home/basic-profile.png';
 import Modal from '../common/Modal/Modal';
 import { useNavigate } from 'react-router-dom';
 
-const UserProfile = ({ author, content, image, createdAt, comments, heartCount, id }) => {
+const UserProfile = ({ author, content, image, createdAt, comments, heartCount, id, emotionAi }) => {
   createdAt = new Date(createdAt);
   const year = createdAt.getFullYear();
   const month = createdAt.getMonth() + 1;
@@ -66,15 +66,18 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
           <S.ContentsBox onClick={() => navigate('/post/' + id)}>
             <S.DescriptionContent>{content}</S.DescriptionContent>
             <S.VideoImgToggleBox onMouseOver={() => setVideoState(true)} onMouseLeave={() => setVideoState(false)}>
-              {videoState ? (
+              {emotionAi ? (
+                <S.BigIframe src={`https://www.youtube.com/embed/${image && image.split('🈳')[1]}?autoplay=1&mute=1`} />
+              ) : videoState ? (
                 <>
-                  <S.Iframe src={`http://www.youtube.com/embed/${image && image.split('🈳')[1]}?autoplay=1&mute=1`} />
+                  <S.Iframe src={`https://www.youtube.com/embed/${image && image.split('🈳')[1]}?autoplay=1&mute=1`} />
                 </>
               ) : (
                 <S.ImgBox>
                   <S.Img src={String(image) && (String(image).split('🈳')[3] ?? 'abc')} alt='' />
                 </S.ImgBox>
               )}
+
               <S.H4>{String(image) && (String(image).split('🈳')[2] ?? 'abc')}</S.H4>
             </S.VideoImgToggleBox>
           </S.ContentsBox>
