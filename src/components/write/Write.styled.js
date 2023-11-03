@@ -46,6 +46,7 @@ export const UserImg = styled.img`
 export const TextInput = styled.textarea`
   border: 0;
   max-width: 687px;
+  max-height: 280px;
   width: 80vw;
   resize: none;
   padding-left: 12px;
@@ -78,7 +79,7 @@ export const VideoContent = styled.p`
   color: black;
   width: 90%;
   padding-right: 34px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 `;
 
 export const ShareBtn = styled.button`
