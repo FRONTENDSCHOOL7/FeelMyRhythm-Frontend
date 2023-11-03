@@ -11,8 +11,9 @@ export const CommentWriteLayout = styled.div`
 `;
 
 export const UserImg = styled.img`
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
+  border-radius: 42px;
   margin-right: 18px;
 `;
 
