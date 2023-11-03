@@ -9,7 +9,6 @@ const ChatItem = ({ user }) => {
     navigate('/chat/' + accountname);
   };
 
-  // 이미지 URL을 확인하고 필요한 경우 수정하는 로직
   const getImageUrl = (imageUrl) => {
     if (imageUrl === 'http://146.56.183.55:5050/Ellipse.png') {
       return 'https://api.mandarin.weniv.co.kr/Ellipse.png';
