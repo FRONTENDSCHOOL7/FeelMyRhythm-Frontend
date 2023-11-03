@@ -10,6 +10,13 @@ export default function Chatroom() {
   const { accountname } = useParams();
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
+  const renderMessageContent = (messageContent) => {
+    if (messageContent.startsWith('data:image')) {
+      return <img src={messageContent} alt='User Uploaded' style={{ maxWidth: '200px' }} />;
+    } else {
+      return messageContent;
+    }
+  };
   const handleSendNewMessage = (newMessage) => {
     setMessages([...messages, newMessage]);
   };
@@ -49,7 +56,7 @@ export default function Chatroom() {
               <S.MeTimeWrapperBox>
                 <S.MeTime>{hours + ':' + minutes}</S.MeTime>
               </S.MeTimeWrapperBox>
-              <S.MeSpeechBubbleBox>{message}</S.MeSpeechBubbleBox>
+              <S.MeSpeechBubbleBox>{renderMessageContent(message)}</S.MeSpeechBubbleBox>
             </S.MeMessageWrapperBox>
           </S.MeChatBox>
         ))}
