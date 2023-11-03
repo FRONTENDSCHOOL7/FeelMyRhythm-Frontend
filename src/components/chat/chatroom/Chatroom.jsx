@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
-
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import NavBar from '../../common/NavBar/NavBar';
 import * as S from './chatroom.styled';
