@@ -22,9 +22,6 @@ export const FooterLayout = styled.div`
 
   background-color: ${({ theme }) => theme.backgroundColor};
   border-top: 0.5px solid #dbdbdb;
-
-  padding-left: 6px;
-  padding-right: 6px;
 `;
 
 export const ContentBox = styled.div`
@@ -32,10 +29,9 @@ export const ContentBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 84px;
   padding-top: 12px;
   padding-bottom: 6px;
-
+  flex: 1 0 0;
   color: ${({ $isActive, theme }) => ($isActive !== 'none' ? theme.textColor : theme.subTextColor)};
   font-size: 10px;
   font-weight: 700;
@@ -52,7 +48,6 @@ export const ChatBox = styled(ContentBox)`
 `;
 
 export const EmotionBox = styled(ContentBox)`
-  flex-basis: 1;
   font-family: 'Orbit-Regular';
 `;
 
