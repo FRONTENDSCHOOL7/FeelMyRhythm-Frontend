@@ -13,10 +13,22 @@ import { readProductList } from '../../apis/profile/productListAPI';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { atomMyInfo, atomPostUpdateContent } from '../../store/store';
 import Modal from '../../components/common/Modal/Modal';
+import { FaRegSmile } from 'react-icons/fa';
+import { FaRegFaceAngry } from 'react-icons/fa6';
+import { FaRegSadTear } from 'react-icons/fa';
 
 export default function PostDetail() {
   const user = useRecoilValue(atomMyInfo);
   const setPostUpdateContent = useSetRecoilState(atomPostUpdateContent);
+
+  const getFaceIcon = () => {
+    const faceType = String(data?.post?.image).split('🈳')[4];
+
+    if (faceType === 'smile') return <FaRegSmile />;
+    if (faceType === 'angry') return <FaRegFaceAngry />;
+    if (faceType === 'sad') return <FaRegSadTear />;
+    else return null;
+  };
 
   const navigate = useNavigate();
 
@@ -168,6 +180,7 @@ export default function PostDetail() {
                 <MessageIcon />
               </S.StyledMessageBox>
               <S.NumBox className='messnum'>{data?.post?.commentCount}</S.NumBox>
+              <S.FaceBox>{getFaceIcon()}</S.FaceBox>
             </S.IconsBox>
             <S.Date>
               {year}년 {month}월 {date}일

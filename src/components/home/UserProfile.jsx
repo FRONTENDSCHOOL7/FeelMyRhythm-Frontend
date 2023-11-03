@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import * as S from './userProfile.styled';
+import { FaRegSmile } from 'react-icons/fa';
+import { FaRegFaceAngry } from 'react-icons/fa6';
+import { FaRegSadTear } from 'react-icons/fa';
 import { ReactComponent as KebabIcon } from '../../assets/images/home/icon-more-vertical.svg';
 import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart.svg';
 import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
@@ -27,6 +30,15 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
 
   const onNavigateDetailPost = () => {
     navigate(`/post/${id}`);
+  };
+  const getFaceIcon = () => {
+    const faceType = String(image).split('🈳')[4];
+
+    if (faceType === 'smile') return <FaRegSmile />;
+    if (faceType === 'angry') return <FaRegFaceAngry />;
+    if (faceType === 'sad') return <FaRegSadTear />;
+
+    return '';
   };
 
   return (
@@ -80,6 +92,7 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
               <MessageIcon />
             </S.StyledMessageBox>
             <S.NumBox className='messnum'>{comments?.length}</S.NumBox>
+            <S.FaceBox>{getFaceIcon()}</S.FaceBox>
           </S.IconsBox>
         </S.DetailNavigateBtn>
 

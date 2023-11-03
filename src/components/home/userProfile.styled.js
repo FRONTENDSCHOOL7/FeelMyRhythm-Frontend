@@ -123,6 +123,9 @@ export const IconsBox = styled.div`
 export const StyledHeartBox = styled.div`
   width: 20px;
   height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   cursor: pointer;
 `;
@@ -130,6 +133,9 @@ export const StyledHeartBox = styled.div`
 export const StyledMessageBox = styled.div`
   width: 20px;
   height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   cursor: pointer;
 `;
@@ -152,6 +158,16 @@ export const DetailNavigateBtn = styled.div`
 `;
 
 export const VideoImgToggleBox = styled.div``;
+
+export const FaceBox = styled.div`
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: ${({ theme }) => theme.subTextColor};
+`
 
 export const BigIframe = styled.iframe`
   display: block;

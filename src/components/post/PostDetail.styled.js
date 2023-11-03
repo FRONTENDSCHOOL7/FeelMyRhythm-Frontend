@@ -106,11 +106,6 @@ export const DescriptionContent = styled.p`
   font-weight: 400;
   line-height: normal;
   margin-top: 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 export const IconsBox = styled.div`
@@ -146,4 +141,14 @@ export const Date = styled.p`
   font-weight: 400;
   padding-left: 54px;
   padding-top: 16px;
+`;
+
+export const FaceBox = styled.div`
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: ${({ theme }) => theme.subTextColor};
 `;
