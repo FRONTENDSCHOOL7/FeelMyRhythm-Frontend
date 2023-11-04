@@ -42,7 +42,16 @@ export default function FollowStatus({ emojiState }) {
           (post, i) =>
             String(post.image).split('🈳')[0] === 'ms7-3' &&
             (emojiState === '전체' || emojiState === '선택' || String(post.image).split('🈳')[4] === emojiState) && (
-              <UserProfile key={i} {...post} />
+              <UserProfile
+                key={i}
+                author={post.author}
+                content={post.content}
+                image={post.image}
+                createdAt={post.createdAt}
+                comments={post.comments}
+                heartCount={post.heartCount}
+                id={post._id}
+              />
             )
         )}
       </S.DefaultLayout>
