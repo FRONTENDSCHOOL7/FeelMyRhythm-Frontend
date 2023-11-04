@@ -1,18 +1,25 @@
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { atomPostUpdateContent } from '../../../store/store';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deletePost } from '../../../apis/write/writeAPI';
 import { deleteProduct } from '../../../apis/profile/productListAPI';
+import { commentDeleteAPI } from '../../../apis/comment/commentAPI';
 
-export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
+export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, commentId }) {
   const navigate = useNavigate();
 
   const postUpdateContent = useRecoilValue(atomPostUpdateContent);
 
   const { state } = useLocation();
+
+  const queryClient = useQueryClient();
+
+  const { id } = useParams();
+  console.log(id);
+  console.log(commentId);
 
   const { mutate: mutateDeletePost } = useMutation({
     mutationFn: deletePost,
@@ -22,6 +29,11 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
   const { mutate: mutateDeleteProduct } = useMutation({
     mutationFn: deleteProduct,
     onSuccess: () => navigate(-1)
+  });
+
+  const { mutate: mutateDeleteComment } = useMutation({
+    mutationFn: commentDeleteAPI,
+    onSuccess: () => queryClient.invalidateQueries('commentlist')
   });
 
   useEffect(() => {}, [alertMsg]);
@@ -43,8 +55,10 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
   };
 
   const onYoutubeOpen = () => {
-    alertMsg === '삭제된 상품 접근' && window.open(`https://www.youtube.com/watch?v=${state.youtubeId}`);
-    navigate(-1);
+    if (alertMsg === '삭제된 상품 접근') {
+      window.open(`https://www.youtube.com/watch?v=${state.youtubeId}`);
+      navigate(-1);
+    }
   };
 
   const onDeleteProduct = () => {
@@ -53,6 +67,10 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
 
   const onNavigateBack = () => {
     alertMsg === '삭제된 상품 접근' && navigate(-1);
+  };
+
+  const onDeleteComment = (id, commetId) => {
+    if (commentId && id) mutateDeleteComment({ id, commentId });
   };
 
   return (
@@ -74,6 +92,7 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
             onClose();
             onNavigatePostUpdate();
             onYoutubeOpen();
+            onDeleteComment(id, commentId);
           }}
           $textColor='#7B86AA'>
           {alertMsg === '삭제된 상품 접근' ? '원본 유투브 이동' : alertMsg}

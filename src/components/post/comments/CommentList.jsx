@@ -18,7 +18,7 @@ export default function CommentList() {
         return res.comments;
       }),
 
-    queryKey: [comments, id]
+    queryKey: ['commentlist', comments, id]
   });
 
   return (

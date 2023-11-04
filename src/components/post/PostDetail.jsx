@@ -96,8 +96,6 @@ export default function PostDetail() {
     }
   });
 
-  console.log(data);
-
   // 좋아요 취소 API
   const { mutate: mutateUnHeart } = useMutation({
     mutationFn: createUnHeart,

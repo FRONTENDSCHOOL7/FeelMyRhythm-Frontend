@@ -21,7 +21,7 @@ export const BottomInput = styled.input`
   display: flex;
   border: 0;
   max-width: 767px;
-  width: 65%;
+  width: 70%;
   outline: none;
   color: ${({ theme }) => theme.textColor};
   background-color: ${({ theme }) => theme.backgroundColor};

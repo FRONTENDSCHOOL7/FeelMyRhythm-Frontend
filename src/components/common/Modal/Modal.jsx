@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import * as S from './Modal.styled';
 import deco from '../../../assets/images/chat/modal-design.png';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../../store/store';
 import Alert from '../Alert/Alert';
 
-const Modal = ({ isOpen, onClose, postModal, postUser, deleteState }) => {
+const Modal = ({ isOpen, onClose, postModal, postUser, deleteState, modalState, commentId }) => {
   const navigate = useNavigate();
-  const { pathname, state } = useLocation();
-  const [user, SetUserInfo] = useRecoilState(atomMyInfo);
+  const { pathname } = useLocation();
+  const user = useRecoilValue(atomMyInfo);
   const [alertMsg, SetAlertMsg] = useState('');
   const [buttonContent, setButtonContent] = useState(['']);
 
@@ -20,16 +20,13 @@ const Modal = ({ isOpen, onClose, postModal, postUser, deleteState }) => {
       window.localStorage.removeItem('accessToken');
       navigate('/');
     }
-    if (alertMsg === '삭제') console.log('삭제');
-    if (alertMsg === '수정') console.log('수정');
-    if (alertMsg === '신고') console.log('신고');
-    if (alertMsg === '테마 전환') console.log('라이트모드/다크모드 변신');
+
     onClose();
   };
 
   useEffect(() => {
     setButtonContent(
-      postModal && user?.accountname === postUser
+      postModal && user?.accountname === postUser && modalState !== 'comment'
         ? ['수정', '삭제']
         : postModal && user?.accountname !== postUser && deleteState !== true
         ? ['신고']
@@ -37,8 +34,8 @@ const Modal = ({ isOpen, onClose, postModal, postUser, deleteState }) => {
         ? ['테마 전환', '로그아웃']
         : pathname.includes('/chat')
         ? '채팅방 나가기'
-        : deleteState === true
-        ? ['']
+        : modalState === 'comment' && user?.accountname === postUser
+        ? ['삭제']
         : ['']
     );
     deleteState && SetAlertMsg('삭제된 상품 접근');
@@ -78,7 +75,13 @@ const Modal = ({ isOpen, onClose, postModal, postUser, deleteState }) => {
           </S.Modal>
         )}
 
-        <Alert alertMsg={alertMsg} modalFunc={modalFunc} SetAlertMsg={SetAlertMsg} onClose={onClose} />
+        <Alert
+          alertMsg={alertMsg}
+          modalFunc={modalFunc}
+          SetAlertMsg={SetAlertMsg}
+          onClose={onClose}
+          commentId={commentId}
+        />
       </S.Backdrop>
     </>
   );
