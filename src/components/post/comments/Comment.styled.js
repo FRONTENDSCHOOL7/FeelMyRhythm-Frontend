@@ -25,8 +25,9 @@ export const CommentInfo = styled.div`
 `;
 
 export const ProfileImg = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
+  border-radius: 42px;
   margin-right: 10px;
 `;
 
