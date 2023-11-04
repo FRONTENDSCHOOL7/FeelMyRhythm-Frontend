@@ -5,10 +5,11 @@ export const ContainerBox = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 16px 20px;
-  background-color: ${({ theme }) => theme.backgroundColor};
+  /* background-color: ${({ theme }) => theme.backgroundColor};
   &:hover {
     background-color: #f1f2f5;
-  }
+  } */
+  background-color: yellow;
 `;
 export const AboutUserBox = styled.div`
   display: flex;
