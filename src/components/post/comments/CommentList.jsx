@@ -14,7 +14,7 @@ export default function CommentList() {
     queryFn: () =>
       commentListAPI(id).then((res) => {
         setComments(res.comments);
-        console.log(res);
+        console.log('cl', res);
         return res.comments;
       }),
 

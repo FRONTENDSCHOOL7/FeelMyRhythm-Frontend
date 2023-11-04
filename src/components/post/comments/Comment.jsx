@@ -8,8 +8,6 @@ import moment from 'moment';
 import 'moment/locale/ko';
 import Modal from '../../common/Modal/Modal';
 
-moment.locale('ko');
-
 export default function Comment({ data }) {
   const user = useRecoilValue(atomMyInfo);
   const navigate = useNavigate();

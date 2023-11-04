@@ -5,6 +5,7 @@ import Comment from '../../components/post/comments/Comment';
 import CommentWrite from '../../components/post/comments/CommentWrite';
 import * as S from './PostPage.styled';
 import { useNavigate } from 'react-router-dom';
+import CommentList from '../../components/post/comments/CommentList';
 
 export default function PostPage() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function PostPage() {
     <S.PostLayout>
       <NavBar />
       <PostDetail />
-      <Comment />
+      <CommentList />
       <CommentWrite />
     </S.PostLayout>
   );
