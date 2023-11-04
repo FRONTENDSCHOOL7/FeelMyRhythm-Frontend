@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { showEntirePosts } from '../../apis/home/entirePosts';
 import UserProfile from './UserProfile';
