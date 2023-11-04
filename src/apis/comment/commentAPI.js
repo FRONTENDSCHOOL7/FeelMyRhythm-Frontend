@@ -16,8 +16,8 @@ export const commentListAPI = async (postid) => {
 };
 
 //댓글 삭제
-export const commentDeleteAPI = async (postid, commentid) => {
-  const result = await api.delete(`post/${postid}/comments/${commentid}`);
+export const commentDeleteAPI = async ({ id, commentId }) => {
+  const result = await api.delete(`post/${id}/comments/${commentId}`);
   return result.data;
 };
 

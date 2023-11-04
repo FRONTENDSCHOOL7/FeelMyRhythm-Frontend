@@ -21,12 +21,11 @@ export const CommentBox = styled.li`
 
 export const CommentInfo = styled.div`
   display: flex;
-  align-items: center;
 `;
 
 export const ProfileImg = styled.img`
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   border-radius: 42px;
   margin-right: 10px;
 `;
@@ -34,6 +33,7 @@ export const ProfileImg = styled.img`
 export const TitleContent = styled.p`
   font-size: 14px;
   color: ${({ theme }) => theme.textColor};
+  padding-top: 6px;
   font-weight: 500;
 `;
 
@@ -41,6 +41,7 @@ export const TimeBox = styled.div`
   font-size: 10px;
   color: ${({ theme }) => theme.subTextColor};
   padding-left: 5px;
+  padding-top: 8.5px;
 `;
 
 export const MoreBtn = styled.button`
