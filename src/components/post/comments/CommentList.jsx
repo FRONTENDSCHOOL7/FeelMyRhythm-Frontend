@@ -13,8 +13,8 @@ export default function CommentList() {
   const { data, error } = useQuery({
     queryFn: () =>
       commentListAPI(id).then((res) => {
-        setComments(res.comments);
-        console.log('cl', res);
+        const reverseComments = res.comments.reverse();
+        setComments(reverseComments);
         return res.comments;
       }),
 
