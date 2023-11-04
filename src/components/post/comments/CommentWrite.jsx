@@ -16,25 +16,24 @@ export default function CommentWrite() {
     mutationFn: () => commentWriteAPI({ postid: id, comment }),
     onSuccess: () => {
       queryclient.invalidateQueries(['comments', id]);
-    },
-    onError: (err) => {
-      console.error('Error creating comment:', err);
     }
   });
 
   const onCreateComment = (id, comment) => {
-    if (comment.trim()) {
-      mutate({
-        id,
-        comment
-      });
+    if (!comment.trim()) {
+      alert('댓글을 입력해주세요');
+      return;
     }
+    mutate({
+      id,
+      comment
+    });
   };
 
   return (
     <S.CommentWriteLayout>
       <S.UserImg src={user?.image} />
-      <S.BottomInput placeholder='댓글을 남겨보세요' onChange={(e) => setComment(e.target.value)} value={comment} />
+      <S.BottomInput placeholder='댓글을 남겨보세요' value={comment} onChange={(e) => setComment(e.target.value)} />
       <S.PostBtn onClick={() => onCreateComment(id, comment)}>게시</S.PostBtn>
     </S.CommentWriteLayout>
   );
