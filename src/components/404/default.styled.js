@@ -28,9 +28,9 @@ export const Button = styled.button`
   width: 120px;
   height: 44px;
   border-radius: 44px;
-  background-color: #f26e22;
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
   border: none;
-  color: #ffffff;
+  color: ${({ theme }) => theme.textColor};
   font-family: ${STYLE_CONSTANTS.fontFamily};
   font-size: 14px;
   font-weight: 500;
