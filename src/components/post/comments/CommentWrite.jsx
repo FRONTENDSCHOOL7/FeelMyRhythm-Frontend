@@ -16,6 +16,7 @@ export default function CommentWrite() {
     mutationFn: () => commentWriteAPI({ postid: id, comment }),
     onSuccess: () => {
       queryclient.invalidateQueries(['comments', id]);
+      setComment('');
     }
   });
 
