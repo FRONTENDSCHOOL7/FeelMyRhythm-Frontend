@@ -14,7 +14,11 @@ export const DefaultLayout = styled.div`
   width: 100vw;
   gap: 25px;
 `;
-export const Styled = styled.div``;
+export const StyledLogo = styled.div`
+  width: auto;
+  height: auto;
+  margin-bottom: 20px;
+`;
 export const P = styled.p`
   font-family: ${STYLE_CONSTANTS.fontFamily};
   color: ${STYLE_CONSTANTS.textColor};
