@@ -127,6 +127,7 @@ export const Button = styled.button`
 
   font-size: 14px;
   font-weight: 500;
+  outline: none;
 `;
 
 export const CheckBox = styled.div`
@@ -153,4 +154,5 @@ export const CheckaccountButton = styled.button`
 
   cursor: ${({ valid }) => (valid === 'success' ? 'default' : 'pointer')};
   border-radius: 30px;
+  outline: none;
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import kebobIcon from '../../../assets/images/post/more-vertical.png';
+import kebobIcon from '../../../assets/images/common/icon-more-vertical.svg';
 
 export const CommentLayout = styled.div`
   padding: 10px;
@@ -14,13 +14,13 @@ export const CommentList = styled.ul`
 `;
 
 export const CommentBox = styled.li`
-  padding: 20px 20px 0 20px;
   display: flex;
   flex-direction: column;
 `;
 
 export const CommentInfo = styled.div`
   display: flex;
+  padding-bottom: 3px;
 `;
 
 export const ProfileImg = styled.img`
@@ -33,15 +33,16 @@ export const ProfileImg = styled.img`
 export const TitleContent = styled.p`
   font-size: 14px;
   color: ${({ theme }) => theme.textColor};
-  padding-top: 6px;
+  padding-top: 3px;
   font-weight: 500;
+  margin-left: 3px;
 `;
 
 export const TimeBox = styled.div`
   font-size: 10px;
   color: ${({ theme }) => theme.subTextColor};
   padding-left: 5px;
-  padding-top: 8.5px;
+  padding-top: 7px;
 `;
 
 export const MoreBtn = styled.button`

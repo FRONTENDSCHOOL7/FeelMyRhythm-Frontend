@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { followUser } from '../../apis/profile/followAPI';
 import { unfollowUser } from '../../apis/profile/unfollowAPI';
-import basicProfile from '../../assets/images/profile/basic-profile-img.svg';
+import basicProfile from '../../assets/images/common/basic-profile.svg';
 
 export default function FollowList({ data }) {
   const [follow, setFollow] = useState(data.isfollow);

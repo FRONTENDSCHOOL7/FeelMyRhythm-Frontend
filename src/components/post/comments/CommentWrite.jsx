@@ -5,6 +5,7 @@ import { useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../../store/store';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
 
 export default function CommentWrite() {
   const [comment, setComment] = useState('');
@@ -33,7 +34,7 @@ export default function CommentWrite() {
 
   return (
     <S.CommentWriteLayout>
-      <S.UserImg src={user?.image} />
+      <S.UserImg src={!user?.image || String(user?.image).includes('Ellipse.png') ? basicProfile : user?.image} />
       <S.BottomInput placeholder='댓글을 남겨보세요' value={comment} onChange={(e) => setComment(e.target.value)} />
       <S.PostBtn onClick={() => onCreateComment(id, comment)}>게시</S.PostBtn>
     </S.CommentWriteLayout>

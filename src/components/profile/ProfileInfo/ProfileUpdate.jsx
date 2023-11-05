@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './ProfileUpdate.styled';
-import defaultProfile from '../../../assets/images/sign/default_profile.png';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
 import imgChange from '../../../assets/images/write/upload.svg';
 import { useNavigate } from 'react-router-dom';
 import { createAccountNameValid } from '../../../apis/sign/signUpAPI';
@@ -110,7 +110,7 @@ export default function ProfileUpdate({
   return (
     <S.ProfileSettingLayout>
       <S.ImgBox>
-        <S.ProfileImg src={base64Image === '' ? image : base64Image || defaultProfile} />
+        <S.ProfileImg src={base64Image === '' ? basicProfile : base64Image || basicProfile} />
         <label htmlFor='imgChange'>
           <S.ChangeImgBox>
             <S.ChangeImg src={imgChange} />
@@ -152,11 +152,7 @@ export default function ProfileUpdate({
 
       <S.NonPaddingInputBox>
         <S.SubContent>소개</S.SubContent>
-        <S.Input
-          type='text'
-          placeholder='자신과 판매할 상품에 대해 소개해 주세요!'
-          onChange={(e) => handleChangeUserInfo(e, 'intro')}
-        />
+        <S.Input type='text' placeholder='소개글을 작성해 주세요.' onChange={(e) => handleChangeUserInfo(e, 'intro')} />
       </S.NonPaddingInputBox>
     </S.ProfileSettingLayout>
   );

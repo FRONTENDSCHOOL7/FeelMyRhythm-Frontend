@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import * as S from './SearchHeader.styled.js';
-import arrow from '../../../../assets/images/home/icon-arrow-left.svg';
 import { useNavigate } from 'react-router-dom';
 import { searchUser } from '../../../../apis/searchUser/searchUser.js';
 import { useQuery } from '@tanstack/react-query';
@@ -30,9 +29,7 @@ export default function SearchHeader({ setSearchResults }) {
 
   return (
     <S.SearchHeaderLayout>
-      <S.BackArrowButton onClick={handleBackClick}>
-        <img src={arrow} alt='back' />
-      </S.BackArrowButton>
+      <S.ArrowLeftImg onClick={handleBackClick}></S.ArrowLeftImg>
       <S.SearchBox placeholder='계정 검색' value={keyword} onChange={handleInputChange} />
     </S.SearchHeaderLayout>
   );

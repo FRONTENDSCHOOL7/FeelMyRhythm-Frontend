@@ -49,7 +49,7 @@ export default function FollowStatus({ emojiState }) {
   } else {
     return (
       <S.DefaultLayout>
-        {filteredPosts.map(
+        {filteredPosts?.map(
           (post, i) =>
             String(post.image).split('🈳')[0] === 'ms7-3' &&
             (emojiState === '전체' || emojiState === '선택' || String(post.image).split('🈳')[4] === emojiState) && (

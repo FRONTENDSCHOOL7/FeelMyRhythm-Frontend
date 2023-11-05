@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as S from './profileSetting.styled';
-import defaultProfile from '../../../assets/images/sign/default_profile.png';
-// import imgChange from '../../../assets/images/sign/imgChange.svg';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
 import imgChange from '../../../assets/images/write/upload.svg';
 import { useNavigate } from 'react-router-dom';
 import { createAccountNameValid, createImage, createUser } from '../../../apis/sign/signUpAPI';
@@ -178,7 +177,7 @@ export default function ProfileSetting() {
       <S.SubTitle mydata='mydata'>나중에 언제든지 변경할 수 있습니다.</S.SubTitle>
 
       <S.ImgBox>
-        <S.ProfileImg src={base64Image || defaultProfile} />
+        <S.ProfileImg src={base64Image || basicProfile} />
         <label htmlFor='imgChange'>
           <S.ChangeImgBox>
             <S.ChangeImg src={imgChange} />

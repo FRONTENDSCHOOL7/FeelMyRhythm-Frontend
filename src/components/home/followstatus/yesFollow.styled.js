@@ -15,5 +15,5 @@ export const DefaultLayout = styled.div`
   overflow-x: hidden;
   padding-bottom: 65px;
 
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import NavBar from '../../common/NavBar/NavBar';
 import * as S from './chatroom.styled';
-import ProfileImg from '../../../assets/images/chat/Ellipse 1.png';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
 import SendImg from '../../../assets/images/chat/Rectangle 65.png';
 import ChatFooter from './ChatFooter';
 
@@ -47,7 +47,7 @@ export default function Chatroom() {
       <NavBar chatUser={accountname} />
       <S.ChatRoomLayout>
         <S.OthersChatBox>
-          <S.StyledProfileImg src={ProfileImg} alt='profile' />
+          <S.StyledProfileImg src={basicProfile} alt='profile' />
           <S.MessageWrapperBox>
             <S.SpeechBubbleBox>음악 취향이 비슷하시네요!</S.SpeechBubbleBox>
             <S.TimeWrapperBox>
@@ -56,7 +56,7 @@ export default function Chatroom() {
           </S.MessageWrapperBox>
         </S.OthersChatBox>
         <S.OthersChatBox>
-          <S.StyledProfileImg src={ProfileImg} alt='profile' />
+          <S.StyledProfileImg src={basicProfile} alt='profile' />
           <S.MessageWrapperBox>
             <S.StyledSendImg src={SendImg} alt='' />
             <S.TimeWrapperBox>

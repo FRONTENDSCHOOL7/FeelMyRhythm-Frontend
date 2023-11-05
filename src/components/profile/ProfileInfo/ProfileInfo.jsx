@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './ProfileInfo.styled';
-import basicProfile from '../../../assets/images/profile/basic-profile-img.svg';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
 import { useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../../store/store';
 import { readAccountInfo } from '../../../apis/profile/accountInfoAPI';
