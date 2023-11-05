@@ -28,6 +28,8 @@ export default function NavBar({
   const postUpdateContent = useRecoilValue(atomPostUpdateContent);
   console.log('navpostcontent', postContent);
 
+  console.log(postContent);
+
   const handleSearchClick = () => {
     if (isToggled) {
       navigate('/home/searchuser');
