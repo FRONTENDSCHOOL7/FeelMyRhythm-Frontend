@@ -31,6 +31,8 @@ export default function Comment({ data }) {
     setIsModalOpen(true);
   };
 
+  console.log(author);
+
   return (
     <S.CommentLayout>
       {data && (
@@ -38,8 +40,10 @@ export default function Comment({ data }) {
           <S.CommentBox>
             <S.CommentInfo>
               {data?.img}
-              <S.ProfileImg src={author?.image} onClick={goProfile} />
-              <S.TitleContent>{author?.username}</S.TitleContent>
+              <S.CommentProfile onClick={() => goProfile(author?.accountname)}>
+                <S.ProfileImg src={author?.image} />
+                <S.TitleContent>{author?.username}</S.TitleContent>
+              </S.CommentProfile>
               <S.TimeBox>·{commentTime(createdAt)}</S.TimeBox>
               <S.MoreBtn onClick={handleOnModal} />
             </S.CommentInfo>
