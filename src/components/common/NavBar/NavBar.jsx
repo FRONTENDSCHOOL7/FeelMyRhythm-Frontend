@@ -26,10 +26,6 @@ export default function NavBar({
   const [youtubeSearchKeyword, setYoutubeSearchKeyword] = useRecoilState(atomYoutubeSearchKeyword);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const postUpdateContent = useRecoilValue(atomPostUpdateContent);
-  console.log('navpostcontent', postContent);
-
-  console.log('aa', postUpdateContent);
-  console.log(postContent);
 
   const handleSearchClick = () => {
     if (isToggled) {
@@ -38,8 +34,6 @@ export default function NavBar({
       navigate('/home/searchpost');
     }
   };
-
-  console.log(postContent);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -54,7 +48,6 @@ export default function NavBar({
   };
 
   const onCreatePost = (id, postContent) => {
-    console.log('버튼클릭', postContent);
     if (postUpdateContent.content) {
       updatePostMutate({ id, postContent });
       return;

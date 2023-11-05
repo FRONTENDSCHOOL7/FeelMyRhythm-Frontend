@@ -19,8 +19,6 @@ export default function WritePage() {
 
   const setUpdatePostContent = useSetRecoilState(atomPostUpdateContent);
 
-  console.log('state', state);
-  console.log('postcontent', postContent);
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
     token ?? navigate('/');
@@ -63,7 +61,6 @@ export default function WritePage() {
   const handleChangeInput = (e) => {
     setPostContent((prev) => ({ ...postContent, post: { ...prev.post, content: e.target.value } }));
     textInputRef.current.style.height = textInputRef.current.scrollHeight + 'px';
-    console.log('postContent', postContent);
   };
 
   const { mutate: writeMutate } = useMutation({
@@ -102,7 +99,7 @@ export default function WritePage() {
         content: '',
         image: ''
       });
-      console.log('결과', res);
+
       setYoutubeSearchKeyword('');
       navigate('/home');
     },

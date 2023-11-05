@@ -40,5 +40,5 @@ export const Button = styled.button`
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  background-color: ${({ buttonState, theme }) => (buttonState ? theme.btnDisabledBgColor : theme.btnEnabledBgColor)};
+  background-color: ${({ $buttonState, theme }) => ($buttonState ? theme.btnDisabledBgColor : theme.btnEnabledBgColor)};
 `;

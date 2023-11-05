@@ -14,8 +14,6 @@ export default function ProfileUpdatePage() {
 
   const myInfo = useRecoilValue(atomMyInfo);
 
-  console.log('myInfo', myInfo);
-
   const [userInfo, setUserInfo] = useState({
     user: { username: '', accountname: '', intro: '', image: '' }
   });
@@ -47,7 +45,6 @@ export default function ProfileUpdatePage() {
           image: myInfo.image
         }
       });
-    console.log(userInfo);
   }, [myInfo]);
 
   const { username, accountname } = userInfo.user;
@@ -81,7 +78,6 @@ export default function ProfileUpdatePage() {
 
   // onSubmit 회원가입
   const handleSubmit = async () => {
-    console.log('zzzz');
     let form = new FormData();
     form.append('image', image);
 

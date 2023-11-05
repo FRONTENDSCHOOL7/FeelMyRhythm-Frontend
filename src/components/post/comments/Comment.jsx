@@ -32,8 +32,6 @@ export default function Comment({ data }) {
     setIsModalOpen(true);
   };
 
-  console.log(author);
-
   return (
     <S.CommentLayout>
       {data && (

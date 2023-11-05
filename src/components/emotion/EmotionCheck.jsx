@@ -19,14 +19,9 @@ export default function EmotionCheck({ SetResult }) {
 
   // 카메라 켜기
   const startVideo = () => {
-    navigator.mediaDevices
-      .getUserMedia({ video: true })
-      .then((currentStream) => {
-        videoRef.current.srcObject = currentStream;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    navigator.mediaDevices.getUserMedia({ video: true }).then((currentStream) => {
+      videoRef.current.srcObject = currentStream;
+    });
   };
 
   // api 호출
@@ -104,7 +99,7 @@ export default function EmotionCheck({ SetResult }) {
         <S.ContentBox crossOrigin='anonymous' ref={videoRef} autoPlay playsInline />
       </div>
 
-      <S.Button buttonState={buttonState} onClick={onNavigateResult} disabled={buttonState}>
+      <S.Button $buttonState={buttonState} onClick={onNavigateResult} disabled={buttonState}>
         {buttonState ? '인식 중' : '분석 결과 보기'}
       </S.Button>
     </S.EmotionCheckLayout>

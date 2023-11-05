@@ -13,7 +13,6 @@ export default function SearchHeader({ setSearchResults }) {
       searchUser(keyword).then((result) => {
         if (keyword.trim() === '') return;
         setSearchResults(result);
-        console.log(result);
         return result;
       }),
     queryKey: [keyword, 'searchUser']

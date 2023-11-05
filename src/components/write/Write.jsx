@@ -9,7 +9,7 @@ import { atomMyInfo } from '../../store/store';
 export default function Write({ state, postContent, handleChangeInput, textInputRef }) {
   const navigate = useNavigate();
   const user = useRecoilValue(atomMyInfo);
-  console.log(user);
+
   return (
     <S.WriteLayout>
       <S.Upload>

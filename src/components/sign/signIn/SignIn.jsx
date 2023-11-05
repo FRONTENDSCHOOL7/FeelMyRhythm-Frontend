@@ -30,7 +30,6 @@ export default function SignIn() {
   const handleChangeUserInfo = (e) => {
     e.target.type === 'email' && setUserInfo({ ...userInfo, user: { ...userInfo.user, email: e.target.value } });
     e.target.type === 'password' && setUserInfo({ ...userInfo, user: { ...userInfo.user, password: e.target.value } });
-    console.log(userInfo);
   };
 
   // 로그인 버튼
@@ -73,9 +72,7 @@ export default function SignIn() {
       queryClient.invalidateQueries('userInfo');
       navigate('/home');
     },
-    onError: ({ response }) => {
-      console.log(response);
-    }
+    onError: ({ response }) => {}
   });
 
   return (

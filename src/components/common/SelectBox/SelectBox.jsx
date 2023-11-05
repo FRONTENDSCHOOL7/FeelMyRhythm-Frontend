@@ -24,14 +24,13 @@ export default function SelectBox({ setEmojiState }) {
   const updatePostContent = useRecoilValue(atomPostUpdateContent);
 
   useEffect(() => {
-    console.log('이모징', updatePostContent.image.split('🈳')[4]);
     if (updatePostContent.content !== '' && window.location.pathname === '/write')
       setSelectedEmotion(updatePostContent.image.split('🈳')[4]);
   }, [updatePostContent]);
 
   return (
     <S.SelectBox>
-      <S.ButtonSelected onClick={handleButtonClick} isActive={isEmotionActive}>
+      <S.ButtonSelected onClick={handleButtonClick} $isActive={isEmotionActive}>
         {String(selectedEmotion) === '선택' && '선택'}
         {String(selectedEmotion) === '전체' && '전체'}
         {String(selectedEmotion) === 'smile' && <FaRegSmile />}
@@ -39,7 +38,7 @@ export default function SelectBox({ setEmojiState }) {
         {String(selectedEmotion) === 'sad' && <FaRegSadTear />}
       </S.ButtonSelected>
 
-      <S.Ul isEmotionActive={isEmotionActive}>
+      <S.Ul $isEmotionActive={isEmotionActive}>
         {arrayEmotions.map((emotion, index) => (
           <S.Li key={index} onClick={() => handleListItemClick(emotion)}>
             <S.ButtonSelect type='button'>

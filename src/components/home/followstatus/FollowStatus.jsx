@@ -20,12 +20,9 @@ export default function FollowStatus({ emojiState }) {
         if (userInfo.user._id) {
           setMyId(userInfo.user._id);
           setFollowings(userInfo.user.following); // 팔로잉 목록을 state에 저장
-        } else {
-          console.log(userInfo);
-          console.log('사용자 객체 내에 _id 속성이 없습니다.');
         }
       } catch (error) {
-        console.error('사용자 정보를 가져오는 동안 오류가 발생했습니다.', error);
+        return error;
       }
     }
 
