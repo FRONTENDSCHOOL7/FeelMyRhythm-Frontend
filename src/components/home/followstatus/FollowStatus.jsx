@@ -33,12 +33,12 @@ export default function FollowStatus({ emojiState }) {
   const filteredPosts = data?.posts.filter(
     (post) => post.author.follower.includes(myId) && String(post.image).split('🈳')[0] === 'ms7-3'
   );
-  if (filteredPosts.length === 0) {
+  if (filteredPosts?.length === 0) {
     return <NoFollow />;
   } else {
     return (
       <S.DefaultLayout>
-        {filteredPosts.map(
+        {filteredPosts?.map(
           (post, i) =>
             String(post.image).split('🈳')[0] === 'ms7-3' &&
             (emojiState === '전체' || emojiState === '선택' || String(post.image).split('🈳')[4] === emojiState) && (
