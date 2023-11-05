@@ -21,8 +21,7 @@ export default function ProfileUpdate({
 }) {
   const [base64Image, setBase64Image] = useState('');
   const [accountNameValid, setAccountNameValid] = useState('');
-  const { username, accountname, intro } = userInfo.user;
-
+  const { username, accountname, image } = userInfo.user;
   const navigate = useNavigate();
 
   // 이미지 생성 onChange
@@ -111,7 +110,7 @@ export default function ProfileUpdate({
   return (
     <S.ProfileSettingLayout>
       <S.ImgBox>
-        <S.ProfileImg src={base64Image || defaultProfile} />
+        <S.ProfileImg src={base64Image === '' ? image : base64Image || defaultProfile} />
         <label htmlFor='imgChange'>
           <S.ChangeImgBox>
             <S.ChangeImg src={imgChange} />

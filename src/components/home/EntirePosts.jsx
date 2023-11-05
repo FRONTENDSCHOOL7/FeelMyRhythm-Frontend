@@ -6,6 +6,7 @@ import * as S from './entirePosts.styled';
 import Loading from '../common/Loading/Loading';
 
 export default function EntirePosts({ emojiState }) {
+
   let [loading, setLoading] = useState(false);
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: ['allPost'] });
 
@@ -14,6 +15,7 @@ export default function EntirePosts({ emojiState }) {
       setLoading(true);
     }, 1000);
   });
+
 
   if (data && loading)
     return (

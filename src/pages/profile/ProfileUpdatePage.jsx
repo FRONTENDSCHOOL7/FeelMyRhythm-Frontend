@@ -14,8 +14,10 @@ export default function ProfileUpdatePage() {
 
   const myInfo = useRecoilValue(atomMyInfo);
 
+  console.log('myInfo', myInfo);
+
   const [userInfo, setUserInfo] = useState({
-    user: { username: '', accountname: '', intro: '' }
+    user: { username: '', accountname: '', intro: '', image: '' }
   });
 
   const [image, setImage] = useState('');
@@ -37,7 +39,13 @@ export default function ProfileUpdatePage() {
     if (myInfo)
       setUserInfo({
         ...userInfo,
-        user: { ...userInfo.user, username: myInfo.username, accountname: myInfo.accountname, intro: myInfo.intro }
+        user: {
+          ...userInfo.user,
+          username: myInfo.username,
+          accountname: myInfo.accountname,
+          intro: myInfo.intro,
+          image: myInfo.image
+        }
       });
     console.log(userInfo);
   }, [myInfo]);

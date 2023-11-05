@@ -59,3 +59,8 @@ export const CommentContent = styled.p`
   color: ${({ theme }) => theme.textColor};
   padding-left: 50px;
 `;
+
+export const CommentProfile = styled.div`
+  display: flex;
+  cursor: pointer;
+`;

@@ -20,7 +20,6 @@ export default function WritePage() {
   const setUpdatePostContent = useSetRecoilState(atomPostUpdateContent);
 
   console.log(state);
-
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
     token ?? navigate('/');
@@ -61,7 +60,7 @@ export default function WritePage() {
   }, [emojiState]);
 
   const handleChangeInput = (e) => {
-    setPostContent({ ...postContent, post: { ...postContent.post, content: e.target.value } });
+    setPostContent((prev) => ({ ...postContent, post: { ...prev.post, content: e.target.value } }));
     textInputRef.current.style.height = textInputRef.current.scrollHeight + 'px';
     console.log('postContent', postContent);
   };
