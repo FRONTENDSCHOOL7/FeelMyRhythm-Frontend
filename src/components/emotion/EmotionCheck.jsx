@@ -103,7 +103,6 @@ export default function EmotionCheck({ SetResult }) {
       <div className='appvide'>
         <S.ContentBox crossOrigin='anonymous' ref={videoRef} autoPlay playsInline />
       </div>
-      <S.ContentCanvas ref={canvasRef} />
 
       <S.Button buttonState={buttonState} onClick={onNavigateResult} disabled={buttonState}>
         {buttonState ? '인식 중' : '분석 결과 보기'}
