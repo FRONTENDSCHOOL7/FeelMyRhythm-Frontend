@@ -3,6 +3,7 @@ import { api } from '../baseURL';
 
 export const readProductList = async (accountname) => {
   const { data } = await api.get('/product/' + accountname);
+  console.log(data);
   return data;
 };
 
