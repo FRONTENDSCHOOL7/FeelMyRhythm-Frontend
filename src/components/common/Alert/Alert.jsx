@@ -8,22 +8,27 @@ import { deletePost } from '../../../apis/write/writeAPI';
 import { deleteProduct } from '../../../apis/profile/productListAPI';
 import { commentDeleteAPI } from '../../../apis/comment/commentAPI';
 
-export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, commentId }) {
+export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, commentId, postId }) {
   const navigate = useNavigate();
 
   const postUpdateContent = useRecoilValue(atomPostUpdateContent);
 
   const { state } = useLocation();
 
+  const { pathname } = useLocation();
+
   const queryClient = useQueryClient();
 
   const { id } = useParams();
-  console.log(id);
-  console.log(commentId);
+
+  console.log(postUpdateContent);
 
   const { mutate: mutateDeletePost } = useMutation({
     mutationFn: deletePost,
-    onSuccess: () => navigate('/home')
+    onSuccess: () => {
+      if (postUpdateContent.content) navigate('/home');
+      queryClient.invalidateQueries('myPostList');
+    }
   });
 
   const { mutate: mutateDeleteProduct } = useMutation({
@@ -51,7 +56,9 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, comme
           emojiState: postUpdateContent.image.split('🈳')[4]
         }
       });
-    if (alertMsg === '삭제') mutateDeletePost(postUpdateContent.id);
+    if (alertMsg === '삭제' && pathname.includes('post') && postUpdateContent) mutateDeletePost(postUpdateContent.id);
+    if (alertMsg === '삭제' && (pathname.includes('home') || pathname.includes('profile')) && postId)
+      mutateDeletePost(postId);
   };
 
   const onYoutubeOpen = () => {
@@ -69,7 +76,7 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, comme
     alertMsg === '삭제된 상품 접근' && navigate(-1);
   };
 
-  const onDeleteComment = (id, commetId) => {
+  const onDeleteComment = (id, commentId) => {
     if (commentId && id) mutateDeleteComment({ id, commentId });
   };
 

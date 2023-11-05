@@ -5,7 +5,9 @@ import UserProfile from './UserProfile';
 import * as S from './entirePosts.styled';
 
 export default function EntirePosts({ emojiState }) {
-  const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
+  const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: ['allPost'] });
+
+  console.log(data);
 
   return (
     <S.DefaultLayout>

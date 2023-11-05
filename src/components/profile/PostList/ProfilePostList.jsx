@@ -29,7 +29,7 @@ export default function ProfilePlaylist() {
         setPostList(res.post);
         return res.post;
       }),
-    queryKey: [accountname, profile]
+    queryKey: ['myPostList', accountname, profile]
   });
 
   if (!postList[0]) return <></>;

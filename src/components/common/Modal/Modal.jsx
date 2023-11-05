@@ -6,7 +6,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../../store/store';
 import Alert from '../Alert/Alert';
 
-const Modal = ({ isOpen, onClose, postModal, postUser, deleteState, modalState, commentId }) => {
+const Modal = ({ isOpen, onClose, postModal, postId, postUser, deleteState, modalState, commentId }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const user = useRecoilValue(atomMyInfo);
@@ -81,6 +81,7 @@ const Modal = ({ isOpen, onClose, postModal, postUser, deleteState, modalState, 
           SetAlertMsg={SetAlertMsg}
           onClose={onClose}
           commentId={commentId}
+          postId={postId}
         />
       </S.Backdrop>
     </>
