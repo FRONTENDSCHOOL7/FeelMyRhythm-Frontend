@@ -19,7 +19,8 @@ export default function WritePage() {
 
   const setUpdatePostContent = useSetRecoilState(atomPostUpdateContent);
 
-  console.log(state);
+  console.log('state', state);
+  console.log('postcontent', postContent);
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
     token ?? navigate('/');
