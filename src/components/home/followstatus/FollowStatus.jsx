@@ -5,6 +5,7 @@ import { readUserInfo } from '../../../apis/profile/myInfoAPI';
 import UserProfile from '../UserProfile';
 import * as S from './yesFollow.styled';
 import NoFollow from './NoFollow';
+import IFollowButNoPosts from './IFollowButNoPosts';
 
 export default function FollowStatus({ emojiState }) {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
@@ -18,6 +19,7 @@ export default function FollowStatus({ emojiState }) {
 
         if (userInfo.user._id) {
           setMyId(userInfo.user._id);
+          setFollowings(userInfo.user.following); // 팔로잉 목록을 state에 저장
         } else {
           console.log(userInfo);
           console.log('사용자 객체 내에 _id 속성이 없습니다.');
@@ -30,11 +32,20 @@ export default function FollowStatus({ emojiState }) {
     fetchUserInfo();
   }, []);
 
+  const [followings, setFollowings] = useState([]);
+
   const filteredPosts = data?.posts.filter(
     (post) => post.author.follower.includes(myId) && String(post.image).split('🈳')[0] === 'ms7-3'
   );
-  if (filteredPosts?.length === 0) {
+
+  const followingsWithPosts = followings.filter((following) => {
+    return data?.posts.some((post) => post.author._id === following._id);
+  });
+
+  if (followings.length === 0) {
     return <NoFollow />;
+  } else if (followingsWithPosts.length === 0) {
+    return <IFollowButNoPosts />;
   } else {
     return (
       <S.DefaultLayout>

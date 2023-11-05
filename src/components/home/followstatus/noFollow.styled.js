@@ -9,7 +9,11 @@ const FlexCenterContainer = styled.div`
 
   background-color: ${({ theme }) => theme.backgroundColor};
 `;
-
+export const StyledLogo = styled.div`
+  width: auto;
+  height: auto;
+  margin-bottom: 20px;
+`;
 export const DefaultLayout = styled(FlexCenterContainer)`
   flex-direction: column;
   min-height: 712px;
@@ -36,7 +40,7 @@ export const Button = styled.button`
   border-radius: 44px;
   background-color: ${({ theme }) => theme.btnEnabledBgColor};
   border: none;
-  color: #ffffff;
+  color: ${({ theme }) => theme.textColor};
   font-size: 14px;
   font-weight: 500;
   line-height: normal;

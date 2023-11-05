@@ -5,7 +5,7 @@ export default function Search({ searchResults }) {
   return (
     <S.SearchLayout>
       {searchResults
-        .filter((profile) => String(profile.intro).split('🈳')[0] === 'ms7-3')
+        .filter((profile) => String(profile.intro).includes('ms7-3'))
         .map((profile, index) => (
           <SearchUserProfile
             key={index}
