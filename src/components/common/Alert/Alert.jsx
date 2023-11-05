@@ -26,7 +26,7 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, comme
   const { mutate: mutateDeletePost } = useMutation({
     mutationFn: deletePost,
     onSuccess: () => {
-      if (postUpdateContent.content) navigate('/home');
+      if (postUpdateContent.content) navigate(-1);
       queryClient.invalidateQueries('myPostList');
     }
   });
