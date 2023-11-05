@@ -13,7 +13,6 @@ export default function EmotionResult({ SetResult }) {
   const { state } = useLocation();
   const [count, setCount] = useState(0);
 
-  // console.log(postList);
   const { data, error } = useQuery({
     queryFn: () =>
       showEntirePosts().then((res) => {
@@ -58,9 +57,6 @@ export default function EmotionResult({ SetResult }) {
 
   const anotherPost = () => {
     const removeFilteredPost = filteredPostList.filter((data) => data._id !== randomPost._id);
-    console.log(filteredPostList);
-    console.log(randomPost);
-    console.log(removeFilteredPost);
     setfilteredPostList(removeFilteredPost);
     setRandomPost(removeFilteredPost[Math.trunc(Math.random() * removeFilteredPost.length)]);
   };

@@ -41,7 +41,6 @@ export default function ProfileUpdate({
       setUserInfo({ ...userInfo, user: { ...userInfo.user, accountname: e.target.value } });
     inputName === 'intro' &&
       setUserInfo({ ...userInfo, user: { ...userInfo.user, intro: 'ms7-3🈳' + e.target.value } });
-    console.log(userInfo);
   };
 
   // 미리보기 이미지 생성
@@ -142,13 +141,13 @@ export default function ProfileUpdate({
             onChange={(e) => handleChangeUserInfo(e, 'accountname')}
           />
           <S.CheckaccountButton
-            valid={warningAccountName === '사용 가능한 계정ID 입니다.' ? 'success' : 'none'}
+            $valid={warningAccountName === '사용 가능한 계정ID 입니다.' ? 'success' : 'none'}
             onClick={(e) => onClickAccountNameValid(e)}>
             {warningAccountName === '사용 가능한 계정ID 입니다.' ? <AiOutlineCheck /> : '중복 확인'}
           </S.CheckaccountButton>
         </S.CheckBox>
       </S.NonPaddingInputBox>
-      <S.WarningContent valid={warningAccountName}>{warningAccountName}</S.WarningContent>
+      <S.WarningContent $valid={warningAccountName}>{warningAccountName}</S.WarningContent>
 
       <S.NonPaddingInputBox>
         <S.SubContent>소개</S.SubContent>

@@ -80,8 +80,6 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, comme
     if (commentId && id) mutateDeleteComment({ id, commentId });
   };
 
-  console.log('alertmsg', alertMsg);
-
   const onThemeChange = () => {
     if (alertMsg !== '테마 전환') {
       return;

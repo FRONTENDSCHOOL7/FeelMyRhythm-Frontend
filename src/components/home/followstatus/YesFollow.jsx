@@ -7,9 +7,6 @@ import * as S from './yesFollow.styled';
 export default function FollowingPosts({ emojiState }) {
   const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
   return (
     <S.Defaultlayout>
       {data?.posts?.map(

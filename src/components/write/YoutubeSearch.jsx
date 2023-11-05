@@ -15,7 +15,6 @@ export default function YoutubeSearch() {
   const { data: youtubeData } = useQuery({
     queryFn: () =>
       youtubeSearch(youtubeSearchKeyword).then((response) => {
-        console.log(response);
         return response;
       }),
     queryKey: [youtubeSearchCount],
@@ -23,7 +22,6 @@ export default function YoutubeSearch() {
   });
 
   const onNavigateVideoDetail = (videoId, title, thumbnail) => {
-    console.log(videoId, title, thumbnail);
     navigate(`${videoId}`, { state: { title, thumbnail, videoId } });
   };
 

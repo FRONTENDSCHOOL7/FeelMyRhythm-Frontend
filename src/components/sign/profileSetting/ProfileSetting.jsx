@@ -48,7 +48,6 @@ export default function ProfileSetting() {
       setUserInfo({ ...userInfo, user: { ...userInfo.user, accountname: e.target.value } });
     inputName === 'intro' &&
       setUserInfo({ ...userInfo, user: { ...userInfo.user, intro: 'ms7-3🈳' + e.target.value } });
-    console.log(userInfo);
   };
 
   // 미리보기 이미지 생성

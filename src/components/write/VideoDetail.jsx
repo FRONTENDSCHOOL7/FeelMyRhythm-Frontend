@@ -9,7 +9,6 @@ export default function VideoDetail() {
 
   const { id } = useParams();
   const { state } = useLocation();
-  console.log(state);
 
   const onShareYoutubeData = () => {
     const { title, thumbnail } = state;

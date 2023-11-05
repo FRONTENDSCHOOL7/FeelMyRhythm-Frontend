@@ -43,8 +43,6 @@ export default function EntirePosts({ emojiState }) {
     }
   };
 
-  console.log('hasnextpage', hasNextPage);
-
   useEffect(() => {
     let timer = setTimeout(() => {
       setLoading(true);
