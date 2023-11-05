@@ -102,7 +102,7 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, comme
             onDeleteComment(id, commentId);
           }}
           $textColor='#7B86AA'>
-          {alertMsg === '삭제된 상품 접근' ? '원본 유투브 이동' : alertMsg}
+          {alertMsg === '삭제된 상품 접근' ? '유투브로 보기' : alertMsg}
         </AlertButton>
         {alertMsg === '삭제된 상품 접근' && (
           <AlertButton
