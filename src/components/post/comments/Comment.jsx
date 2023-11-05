@@ -7,6 +7,7 @@ import { commentDeleteAPI, commentReportAPI } from '../../../apis/comment/commen
 import moment from 'moment';
 import 'moment/locale/ko';
 import Modal from '../../common/Modal/Modal';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
 
 export default function Comment({ data }) {
   const navigate = useNavigate();
@@ -41,7 +42,9 @@ export default function Comment({ data }) {
             <S.CommentInfo>
               {data?.img}
               <S.CommentProfile onClick={() => goProfile(author?.accountname)}>
-                <S.ProfileImg src={author?.image} />
+                <S.ProfileImg
+                  src={!author?.image || String(author?.image).includes('Ellipse.png') ? basicProfile : author?.image}
+                />
                 <S.TitleContent>{author?.username}</S.TitleContent>
               </S.CommentProfile>
               <S.TimeBox>·{commentTime(createdAt)}</S.TimeBox>
