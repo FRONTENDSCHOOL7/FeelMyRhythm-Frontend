@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './PostDetail.styled';
-import { ReactComponent as KebabIcon } from '../../assets/images/home/icon-more-vertical.svg';
+import { ReactComponent as KebabIcon } from '../../assets/images/common/icon-more-vertical.svg';
 import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart.svg';
 import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
 import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/heart.svg';
-import basicProfile from '../../assets/images/home/basic-profile.png';
+import basicProfile from '../../assets/images/common/basic-profile.svg';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { readDetailPost } from '../../apis/post/detailPostAPI';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';

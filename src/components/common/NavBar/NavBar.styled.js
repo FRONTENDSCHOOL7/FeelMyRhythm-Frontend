@@ -77,7 +77,7 @@ export const YoutubeSearchInput = styled.input`
   width: 60%;
   height: 32px;
   margin-left: 4px;
-  padding-left: 8px;
+  padding-left: 16px;
   border-radius: 32px;
   background-color: #f2f2f2;
   border: none;

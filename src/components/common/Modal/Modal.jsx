@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './Modal.styled';
-import deco from '../../../assets/images/chat/modal-design.png';
+import deco from '../../../assets/images/common/modal-design.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { atomMyInfo } from '../../../store/store';
