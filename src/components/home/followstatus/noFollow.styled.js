@@ -40,7 +40,7 @@ export const Button = styled.button`
   border-radius: 44px;
   background-color: ${({ theme }) => theme.btnEnabledBgColor};
   border: none;
-  color: #ffffff;
+  color: ${({ theme }) => theme.textColor};
   font-size: 14px;
   font-weight: 500;
   line-height: normal;

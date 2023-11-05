@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './default.styled';
-import { ReactComponent as Gamgul404Logo } from '../../assets/images/home/icon-404.svg';
+import FMR404Logo from '../../assets/images/home/icon-404.png';
 import { useNavigate } from 'react-router-dom';
 
 export default function Default() {
@@ -11,9 +11,9 @@ export default function Default() {
 
   return (
     <S.DefaultLayout>
-      <S.Styled>
-        <Gamgul404Logo />
-      </S.Styled>
+      <S.StyledLogo>
+        <img src={FMR404Logo} alt='404 Logo' />
+      </S.StyledLogo>
       <S.P> 페이지를 찾을 수 없습니다. :( </S.P>
       <S.Button onClick={handleBackClick}>이전 페이지</S.Button>
     </S.DefaultLayout>
