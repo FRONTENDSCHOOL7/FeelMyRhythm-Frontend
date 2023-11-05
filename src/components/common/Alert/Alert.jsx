@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { atomPostUpdateContent } from '../../../store/store';
+import { atomPostUpdateContent, atomThemeChange } from '../../../store/store';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deletePost } from '../../../apis/write/writeAPI';
 import { deleteProduct } from '../../../apis/profile/productListAPI';
@@ -21,7 +21,7 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, comme
 
   const { id } = useParams();
 
-  console.log(postUpdateContent);
+  const setThemeChange = useSetRecoilState(atomThemeChange);
 
   const { mutate: mutateDeletePost } = useMutation({
     mutationFn: deletePost,
@@ -80,6 +80,14 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, comme
     if (commentId && id) mutateDeleteComment({ id, commentId });
   };
 
+  const onThemeChange = () => {
+    const theme = localStorage.getItem('theme');
+    setThemeChange((prev) => !prev);
+    if (theme === 'light') {
+      localStorage.setItem('theme', 'dark');
+    } else if (theme === 'dark') localStorage.setItem('theme', 'light');
+  };
+
   return (
     <AlertLayout $alertMsg={alertMsg}>
       <QuesContent>
@@ -100,6 +108,7 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, comme
             onNavigatePostUpdate();
             onYoutubeOpen();
             onDeleteComment(id, commentId);
+            onThemeChange();
           }}
           $textColor='#7B86AA'>
           {alertMsg === '삭제된 상품 접근' ? '유투브로 보기' : alertMsg}

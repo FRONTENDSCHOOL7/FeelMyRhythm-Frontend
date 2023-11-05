@@ -7,7 +7,7 @@ export const ContainerBox = styled.div`
   padding: 16px 20px;
   background-color: ${({ theme }) => theme.backgroundColor};
   &:hover {
-    background-color: #f1f2f5;
+    background-color: ${({ theme }) => theme.highlightColor};
   }
 `;
 export const AboutUserBox = styled.div`
