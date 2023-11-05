@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './Write.styled';
-import userlogo from '../../assets/images/home/basic-profile.png';
+import basicProfile from '../../assets/images/common/basic-profile.svg';
 import { useNavigate } from 'react-router-dom';
 import addImg from '../../assets/images/write/upload.svg';
 import { useRecoilValue } from 'recoil';
@@ -13,7 +13,7 @@ export default function Write({ state, postContent, handleChangeInput, textInput
   return (
     <S.WriteLayout>
       <S.Upload>
-        <S.UserImg src={String(user?.image).includes('Ellipse.png') ? userlogo : user?.image} />
+        <S.UserImg src={String(user?.image).includes('Ellipse.png') ? basicProfile : user?.image} />
         <S.TextInput
           type='text'
           ref={textInputRef}

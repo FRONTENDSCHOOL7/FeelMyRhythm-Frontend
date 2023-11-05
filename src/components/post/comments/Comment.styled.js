@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import kebobIcon from '../../../assets/images/post/more-vertical.png';
+import kebobIcon from '../../../assets/images/common/icon-more-vertical.svg';
 
 export const CommentLayout = styled.div`
   padding: 10px;
