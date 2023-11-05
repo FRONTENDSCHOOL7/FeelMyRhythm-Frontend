@@ -6,22 +6,27 @@ export const DefaultLayout = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 767px;
-  width: 100vw;
+  width: 100%;
 
   background-color: ${({ theme }) => theme.backgroundColor};
 `;
-
-export const StyledGamgulLogo = styled.div`
-  width: 100px;
-  height: 100px;
+export const StyledLogo = styled.div`
+  width: auto;
+  height: auto;
   margin-bottom: 20px;
 `;
 
 export const WordBox = styled.div`
   color: ${({ theme }) => theme.textColor};
-  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+export const P = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
-  margin-bottom: 20px;
+  text-align: center;
 `;

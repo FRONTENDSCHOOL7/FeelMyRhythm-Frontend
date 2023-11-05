@@ -9,7 +9,11 @@ const FlexCenterContainer = styled.div`
 
   background-color: ${({ theme }) => theme.backgroundColor};
 `;
-
+export const StyledLogo = styled.div`
+  width: auto;
+  height: auto;
+  margin-bottom: 20px;
+`;
 export const DefaultLayout = styled(FlexCenterContainer)`
   flex-direction: column;
   min-height: 712px;
