@@ -5,7 +5,8 @@ export const lightTheme = {
   btnDisabledBgColor: '#BFC8EA',
   btnEnabledBgColor: '#7B86AA',
   btnTextColor: '#F8F9FC',
-  BodyBgColor: '#F2F2F2'
+  BodyBgColor: '#F2F2F2',
+  highlightColor: '#f1f2f5'
 };
 
 export const darkTheme = {
@@ -14,5 +15,6 @@ export const darkTheme = {
   backgroundColor: '#313338',
   btnDisabledBgColor: '#BFC8EA',
   btnEnabledBgColor: '#7B86AA',
-  BodyBgColor: '#666666'
+  BodyBgColor: '#666666',
+  highlightColor: '#2c2e32'
 };
