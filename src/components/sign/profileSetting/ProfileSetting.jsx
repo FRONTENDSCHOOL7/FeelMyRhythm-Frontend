@@ -4,9 +4,10 @@ import basicProfile from '../../../assets/images/common/basic-profile.svg';
 import imgChange from '../../../assets/images/write/upload.svg';
 import { useNavigate } from 'react-router-dom';
 import { createAccountNameValid, createImage, createUser } from '../../../apis/sign/signUpAPI';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { async } from 'q';
+import { createLogin } from '../../../apis/sign/signInAPI';
 
 export default function ProfileSetting() {
   const [userInfo, setUserInfo] = useState({
@@ -23,10 +24,12 @@ export default function ProfileSetting() {
 
   const [isButtonState, setIsButtonState] = useState(false);
 
-  const { username, accountname, intro } = userInfo.user;
+  const { username, accountname, intro, email, password } = userInfo.user;
   const userNameRef = useRef(null);
   const accountNameRef = useRef(null);
   const navigate = useNavigate();
+
+  const queryClient = useQueryClient();
 
   // 이미지 생성 onChange
   const handleChangeImage = (e) => {
@@ -138,12 +141,22 @@ export default function ProfileSetting() {
     }
   }, [userInfo, warningUserName, warningAccountName]);
 
+  // 로그인 API
+  const { mutate: mutateSignIn } = useMutation({
+    mutationFn: createLogin,
+    onSuccess: (response) => {
+      window.localStorage.setItem('accessToken', response.user.token);
+      queryClient.invalidateQueries('userInfo');
+      navigate('/home');
+    }
+  });
+
   // 회원가입 API
   const { mutate: mutateCreateUser } = useMutation({
     mutationFn: createUser,
     onSuccess: () => {
       window.localStorage.removeItem('loginInfo');
-      navigate('/signin');
+      mutateSignIn({ user: { email, password } });
     }
   });
 
