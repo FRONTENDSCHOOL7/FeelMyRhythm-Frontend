@@ -32,10 +32,21 @@ export default function CommentWrite() {
     });
   };
 
+  const handleKeyDown = (e, id, comment) => {
+    if (e.key === 'Enter') {
+      onCreateComment(id, comment);
+    }
+  };
+
   return (
     <S.CommentWriteLayout>
       <S.UserImg src={!user?.image || String(user?.image).includes('Ellipse.png') ? basicProfile : user?.image} />
-      <S.BottomInput placeholder='댓글을 남겨보세요' value={comment} onChange={(e) => setComment(e.target.value)} />
+      <S.BottomInput
+        placeholder='댓글을 남겨보세요'
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+        onKeyDown={(e) => handleKeyDown(e, id, comment)}
+      />
       <S.PostBtn onClick={() => onCreateComment(id, comment)}>게시</S.PostBtn>
     </S.CommentWriteLayout>
   );

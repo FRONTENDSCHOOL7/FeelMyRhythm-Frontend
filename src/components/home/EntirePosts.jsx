@@ -10,26 +10,23 @@ export default function EntirePosts({ emojiState }) {
   let [loading, setLoading] = useState(false);
   const [filteredData, setFilteredData] = useState({});
   const [totalPages, setTotalPages] = useState(0);
-
+  const [count, setCount] = useState(0);
   const ref = useRef();
 
   const { data, error } = useQuery({
     queryFn: () =>
       showEntirePosts().then(({ posts }) => {
-        // console.log('asd', res.posts.image.split('🈳')[0] === 'ms7-3');
-        // setFilteredData(res.posts.image.split('🈳')[0] === 'ms7-3');
         setFilteredData(posts.filter((data) => String(data.image).split('🈳')[0] === 'ms7-3'));
         return posts;
       }),
     queryKey: ['allPost']
   });
 
-  console.log(filteredData);
-
   const { listPageArr, currentPage, hasNextPage, getMorePage } = useMorePage(filteredData);
-  console.log('listpagearr', listPageArr);
-  console.log('currentPage', currentPage);
-  console.log('hasNextPage', hasNextPage);
+
+  useEffect(() => {
+    setCount((prev) => prev + 1);
+  }, [filteredData, hasNextPage]);
 
   const scrollHandler = (targetId) => {
     const targetRef = ref.current[targetId - 1];
@@ -46,13 +43,16 @@ export default function EntirePosts({ emojiState }) {
     }
   };
 
+  console.log('hasnextpage', hasNextPage);
+
   useEffect(() => {
     let timer = setTimeout(() => {
       setLoading(true);
-    }, 1000);
+    }, 1500);
   });
 
   useEffect(() => {
+    if (!hasNextPage) return;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -101,11 +101,7 @@ export default function EntirePosts({ emojiState }) {
               );
             });
           })}
-        {hasNextPage && (
-          <p ref={ref} onClick={getMorePage}>
-            ...
-          </p>
-        )}
+        {<p ref={ref}>...</p>}
       </S.DefaultLayout>
     );
   return <Loading />;

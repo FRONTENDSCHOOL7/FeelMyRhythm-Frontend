@@ -16,7 +16,7 @@ export const useMorePage = (data) => {
 
   //다음페이지 불러오기
   const getMorePage = () => {
-    if (listPageArr[currentPage].length >= 5) setCurrentPage((prev) => prev + 1);
+    if (listPageArr[currentPage]?.length >= 5) setCurrentPage((prev) => prev + 1);
     else setHasNextPage(false);
   };
 

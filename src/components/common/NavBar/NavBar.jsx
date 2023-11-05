@@ -63,6 +63,12 @@ export default function NavBar({
     setYoutubeSearchKeyword(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      onSearchVideo();
+    }
+  };
+
   return (
     <S.HeaderLayout>
       {pathname === '/home' && (
@@ -148,6 +154,7 @@ export default function NavBar({
             placeholder='검색어를 입력하세요'
             value={youtubeSearchKeyword}
             onChange={(e) => handleOnchangeInput(e)}
+            onKeyDown={(e) => handleKeyDown(e)}
           />
           <S.SaveBtn onClick={onSearchVideo}>검색</S.SaveBtn>
         </>
