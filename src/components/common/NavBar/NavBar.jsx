@@ -28,6 +28,7 @@ export default function NavBar({
   const postUpdateContent = useRecoilValue(atomPostUpdateContent);
   console.log('navpostcontent', postContent);
 
+  console.log('aa', postUpdateContent);
   console.log(postContent);
 
   const handleSearchClick = () => {
@@ -37,6 +38,8 @@ export default function NavBar({
       navigate('/home/searchpost');
     }
   };
+
+  console.log(postContent);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -79,7 +82,7 @@ export default function NavBar({
       )}
       {pathname === '/write' && (
         <>
-          <S.ArrowLeftImg onClick={() => navigate(-1)} />
+          <S.ArrowLeftImg onClick={() => navigate('/home')} />
 
           <S.SelectBox>
             <SelectBox />

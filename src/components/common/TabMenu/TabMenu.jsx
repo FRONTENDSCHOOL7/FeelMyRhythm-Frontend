@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './TabMenu.styled';
-import { atomEmotionState, atomMyInfo, atomPostContent } from '../../../store/store';
+import { atomEmotionState, atomMyInfo, atomPostContent, atomPostUpdateContent } from '../../../store/store';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ export default function TabMenu() {
   const uselocation = useLocation();
   const setPostContent = useSetRecoilState(atomPostContent);
   const setEmojiState = useSetRecoilState(atomEmotionState);
+  const setPostUpdateContent = useSetRecoilState(atomPostUpdateContent);
 
   // 새로고침 예외처리
   useEffect(() => {
@@ -31,6 +32,10 @@ export default function TabMenu() {
           content: '',
           image: ''
         }
+      });
+      setPostUpdateContent({
+        content: '',
+        image: ''
       });
     }
     if (btnName === 'profile') navigate(`/${btnName}/${user.accountname}`);
