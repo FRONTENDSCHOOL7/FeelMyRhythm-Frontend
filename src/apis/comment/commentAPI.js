@@ -11,7 +11,7 @@ export const commentWriteAPI = async ({ postid, comment }) => {
 
 //댓글 목록
 export const commentListAPI = async (postid) => {
-  const result = await api.get(`/post/${postid}/comments`);
+  const result = await api.get(`/post/${postid}/comments?limit=1000`);
   return result.data;
 };
 
