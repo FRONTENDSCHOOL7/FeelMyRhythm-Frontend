@@ -38,9 +38,9 @@ export const Button = styled.button`
   width: 120px;
   height: 44px;
   border-radius: 44px;
+  color: ${({ theme }) => theme.btnTextColor};
   background-color: ${({ theme }) => theme.btnEnabledBgColor};
   border: none;
-  color: ${({ theme }) => theme.textColor};
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
