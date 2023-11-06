@@ -37,6 +37,7 @@ export const TitleContent = styled.p`
   padding-top: 3px;
   font-weight: 500;
   margin-left: 3px;
+  background-color: green;
 `;
 
 export const TimeBox = styled.div`
@@ -44,6 +45,7 @@ export const TimeBox = styled.div`
   color: ${({ theme }) => theme.subTextColor};
   padding-left: 5px;
   padding-top: 7px;
+  background-color: yellow;
 `;
 
 export const MoreBtn = styled.button`
