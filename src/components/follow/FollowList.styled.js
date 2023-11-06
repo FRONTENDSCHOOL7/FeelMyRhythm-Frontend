@@ -8,6 +8,8 @@ export const ProfileFollowersLayout = styled.div`
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const FollowerRowBox = styled.div`

@@ -5,7 +5,7 @@ import { MoonLoader } from 'react-spinners'; //설치한 cliploader을 import한
 export default function Loading() {
   return (
     <Box>
-      <MoonLoader color='#7B86AA' size={60} />
+      <MoonLoader color='#7f7f7f' size={60} />
     </Box>
   );
 }
@@ -19,5 +19,5 @@ const Box = styled.div`
   top: 0;
   left: 0;
   z-index: 99999;
-  background-color: #f8f9fc;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;

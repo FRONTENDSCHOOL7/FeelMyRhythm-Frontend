@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as S from './chatlists.styled';
 import { useNavigate } from 'react-router-dom';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
 
 const ChatItem = ({ user }) => {
   const navigate = useNavigate();
@@ -29,13 +30,6 @@ const ChatItem = ({ user }) => {
     navigate('/chat/' + accountname);
   };
 
-  const getImageUrl = (imageUrl) => {
-    if (imageUrl === 'http://146.56.183.55:5050/Ellipse.png') {
-      return 'https://api.mandarin.weniv.co.kr/Ellipse.png';
-    }
-    return imageUrl;
-  };
-
   const formatDate = (date) => {
     const mm = String(date.getMonth() + 1).padStart(2, '0');
     const dd = String(date.getDate()).padStart(2, '0');
@@ -45,7 +39,10 @@ const ChatItem = ({ user }) => {
 
   return (
     <S.ChatListItem onClick={() => handleItemClick(user.accountname)}>
-      <S.ProfileImage src={String(getImageUrl(user.image))} alt='profile' />
+      <S.ProfileImage
+        src={String(user.image).includes('Ellipse.png') ? basicProfile : String(user.image)}
+        alt='profile'
+      />
       <S.ChatBox>
         <S.ChatUserName>{user.username}</S.ChatUserName>
         <S.ChatMessage>메세지 미리보기</S.ChatMessage>

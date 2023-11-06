@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const WriteLayout = styled.div`
   position: relative;
+  width: 100%;
   height: 100vh;
   padding-top: 68px;
   padding-left: 16px;
@@ -13,10 +14,10 @@ export const WriteLayout = styled.div`
 
 export const UploadBtn = styled.button`
   position: absolute;
+  bottom: 1vh;
+  right: 1vw;
   width: 50px;
   height: 50px;
-  bottom: 0;
-  right: 0;
   border: 0;
   margin: 0 16px 16px 0;
   border-radius: 50%;
