@@ -6,17 +6,16 @@ export const ChatRoomLayout = styled.div`
   padding-top: 72px;
   padding-bottom: 72px;
   gap: 9px;
-  min-height: 712px;
   width: 100vw;
   max-width: 767px;
-  overflow-x: scroll;
+  overflow-x: none;
+
   background-color: ${({ theme }) => theme.backgroundColor};
-  height: 100vh;
+  min-height: 100vh;
 `;
 export const OthersChatBox = styled.div`
   display: flex;
   flex-direction: row;
-  /* width: 100vw; */
   padding-left: 16px;
 `;
 export const MessageWrapperBox = styled.div`
@@ -45,7 +44,7 @@ export const SpeechBubbleBox = styled.div`
   color: #000;
   border: 1px solid #c4c4c4;
   border-radius: 0px 12px 12px 12px;
-  font-family: 'Orbit-Regular';
+
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -54,7 +53,7 @@ export const SpeechBubbleBox = styled.div`
 `;
 export const Time = styled.p`
   color: #767676;
-  font-family: 'Orbit-Regular';
+
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -65,7 +64,7 @@ export const Time = styled.p`
 export const MeChatBox = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   justify-content: flex-end;
   padding-right: 16px;
 `;
@@ -80,11 +79,10 @@ export const MeSpeechBubbleBox = styled.div`
   padding: 12px;
   max-width: 240px;
   word-wrap: break-word;
-  background-color: #f26e22;
-  /* border: 1px solid #c4c4c4; */
+  background-color: ${({ theme }) => theme.BodyBgColor};
   border-radius: 12px 12px 0px 12px;
-  color: #fff;
-  font-family: 'Orbit-Regular';
+  color: ${({ theme }) => theme.textColor};
+
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -99,7 +97,7 @@ export const MeTimeWrapperBox = styled.div`
 `;
 export const MeTime = styled.p`
   color: #767676;
-  font-family: 'Orbit-Regular';
+
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -110,4 +108,5 @@ export const MeTime = styled.p`
 export const StyledSendImg = styled.img`
   max-width: calc(240 / 390 * 100vw);
   height: auto;
+  border-radius: 0px 12px 12px 12px;
 `;

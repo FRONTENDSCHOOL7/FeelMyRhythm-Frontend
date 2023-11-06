@@ -7,10 +7,10 @@ const set_ham = `
 
 const set_ben = `
   display: flex;
-  width: 114px;
-  height: 114px;
+  width: 31.75%;
+  aspect-ratio: 1;
   overflow: hidden;
-  margin-right: 8px;
+  margin-right: 2.25%;
   margin-bottom: 8px;
   &:nth-child(3n) {
       margin-right: 0;

@@ -26,7 +26,6 @@ export default function NavBar({
   const [youtubeSearchKeyword, setYoutubeSearchKeyword] = useRecoilState(atomYoutubeSearchKeyword);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const postUpdateContent = useRecoilValue(atomPostUpdateContent);
-  console.log('navpostcontent', postContent);
 
   const handleSearchClick = () => {
     if (isToggled) {
@@ -49,7 +48,6 @@ export default function NavBar({
   };
 
   const onCreatePost = (id, postContent) => {
-    console.log('버튼클릭', postContent);
     if (postUpdateContent.content) {
       updatePostMutate({ id, postContent });
       return;
@@ -59,6 +57,12 @@ export default function NavBar({
 
   const handleOnchangeInput = (e) => {
     setYoutubeSearchKeyword(e.target.value);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      onSearchVideo();
+    }
   };
 
   return (
@@ -71,7 +75,7 @@ export default function NavBar({
       )}
       {pathname === '/write' && (
         <>
-          <S.ArrowLeftImg onClick={() => navigate(-1)} />
+          <S.ArrowLeftImg onClick={() => navigate('/home')} />
 
           <S.SelectBox>
             <SelectBox />
@@ -146,6 +150,7 @@ export default function NavBar({
             placeholder='검색어를 입력하세요'
             value={youtubeSearchKeyword}
             onChange={(e) => handleOnchangeInput(e)}
+            onKeyDown={(e) => handleKeyDown(e)}
           />
           <S.SaveBtn onClick={onSearchVideo}>검색</S.SaveBtn>
         </>

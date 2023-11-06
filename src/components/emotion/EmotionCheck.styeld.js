@@ -13,7 +13,9 @@ export const EmotionCheckLayout = styled.div`
 `;
 
 export const H1 = styled.h1`
+  font-family: 'Orbit-Regular';
   font-size: 18px;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const ContentBox = styled.video`
@@ -39,5 +41,5 @@ export const Button = styled.button`
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  background-color: ${({ buttonState, theme }) => (buttonState ? theme.btnDisabledBgColor : theme.btnEnabledBgColor)};
+  background-color: ${({ $buttonState, theme }) => ($buttonState ? theme.btnDisabledBgColor : theme.btnEnabledBgColor)};
 `;

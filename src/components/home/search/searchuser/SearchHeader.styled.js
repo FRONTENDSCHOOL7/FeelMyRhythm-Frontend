@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 
 export const SearchHeaderLayout = styled.div`
   display: flex;
@@ -7,29 +8,27 @@ export const SearchHeaderLayout = styled.div`
   border-bottom: 0.5px solid #dbdbdb;
   max-width: 767px;
   width: 100vw;
-  gap: 20px;
+  /* gap: 10px; */
   align-items: center;
-  justify-content: center;
   height: 48px;
   background-color: ${({ theme }) => theme.backgroundColor};
+  padding-left: 16px;
+  padding-right: 12px;
 `;
 
-export const BackArrowButton = styled.button`
-  width: 22px;
-  height: 22px;
-  border: none;
-  background: none;
+export const ArrowLeftImg = styled(AiOutlineArrowLeft)`
+  margin-right: 10px;
   cursor: pointer;
-  padding: 0;
-  margin: 0;
+  fill: ${({ theme }) => theme.textColor};
 `;
+
 export const SearchBox = styled.input`
-  width: 316px;
+  flex-grow: 1;
   height: 32px;
   border-radius: 32px;
   background-color: #f2f2f2;
   border: none;
-  padding-left: 16px;
+  padding: 0 16px;
 
   ::placeholder {
     color: #c4c4c4;

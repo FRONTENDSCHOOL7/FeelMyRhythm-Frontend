@@ -11,14 +11,18 @@ export const CommentWriteLayout = styled.div`
 `;
 
 export const UserImg = styled.img`
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
+  border-radius: 42px;
   margin-right: 18px;
 `;
 
 export const BottomInput = styled.input`
   display: flex;
   border: 0;
+  max-width: 767px;
+  width: 70%;
+  outline: none;
   color: ${({ theme }) => theme.textColor};
   background-color: ${({ theme }) => theme.backgroundColor};
   &::placeholder {
@@ -36,7 +40,7 @@ export const PostBtn = styled.button`
   margin-left: auto;
   color: ${({ theme }) => theme.subTextColor};
   text-align: right;
-  font-family: 'Orbit-Regular';
+
   font-size: 14px;
   background-color: transparent;
   padding-right: 16px;

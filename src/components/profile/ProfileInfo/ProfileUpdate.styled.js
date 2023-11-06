@@ -24,13 +24,22 @@ export const ProfileImg = styled.img`
   border-radius: 50%;
 `;
 
-export const ChangeImg = styled.img`
-  position: absolute;
+export const ChangeImgBox = styled.div`
   width: 36px;
   height: 36px;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
+  position: absolute;
   right: 0;
   bottom: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const ChangeImg = styled.img`
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 `;
 
@@ -67,8 +76,8 @@ export const Input = styled.input`
 
   padding-left: 8px;
 
-  background-color: ${({ theme }) => theme.textColor};
-  color: ${({ theme }) => theme.backgroundColor};
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.textColor};
 
   &::placeholder {
     color: ${({ theme }) => theme.subTextColor};
@@ -76,7 +85,7 @@ export const Input = styled.input`
 `;
 
 export const WarningContent = styled.p`
-  color: ${({ valid }) => (valid === '사용 가능한 계정ID 입니다.' ? 'green' : '#eb5757')};
+  color: ${({ $valid }) => ($valid === '사용 가능한 계정ID 입니다.' ? 'green' : '#eb5757')};
 
   font-size: 12px;
   font-weight: 500;
@@ -96,18 +105,16 @@ export const CheckaccountButton = styled.button`
   height: 32px;
   border: none;
   color: ${({ theme }) => theme.btnTextColor};
-  background-color: ${({ valid, theme }) => (valid === 'success' ? 'transparent' : theme.btnEnabledBgColor)};
+  background-color: ${({ $valid, theme }) => ($valid === 'success' ? 'transparent' : theme.btnEnabledBgColor)};
 
-  font-size: ${({ valid }) => (valid === 'success' ? '16px' : '12px')};
-  /* color: ${({ valid }) => (valid === 'success' ? 'green' : '#767676')}; */
+  font-size: ${({ $valid }) => ($valid === 'success' ? '16px' : '12px')};
   font-weight: 500;
 
-  margin-bottom: ${({ valid }) => (valid === 'success' ? '5px' : '8px')};
+  margin-bottom: ${({ $valid }) => ($valid === 'success' ? '5px' : '8px')};
   margin-left: auto;
 
-  text-align: ${({ valid }) => (valid === 'success' ? 'right' : 'center')};
-  /* border: ${({ valid }) => (valid === 'success' ? 'none' : '1px solid #dbdbdb')}; */
+  text-align: ${({ $valid }) => ($valid === 'success' ? 'right' : 'center')};
 
-  cursor: ${({ valid }) => (valid === 'success' ? 'default' : 'pointer')};
+  cursor: ${({ $valid }) => ($valid === 'success' ? 'default' : 'pointer')};
   border-radius: 30px;
 `;

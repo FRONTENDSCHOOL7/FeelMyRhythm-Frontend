@@ -5,7 +5,7 @@ export const ProfileSettingLayout = styled.form`
   flex-direction: column;
   max-width: 767px;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 30px;
   background-color: ${({ theme }) => theme.backgroundColor};
   padding-left: 34px;
@@ -48,15 +48,18 @@ export const ChangeImgBox = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: red;
-`;
-export const ChangeImg = styled.img`
+  background-color: ${({ theme }) => theme.btnEnabledBgColor};
   position: absolute;
-  width: 20px;
-  height: 20px;
   right: 0;
   bottom: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const ChangeImg = styled.img`
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 `;
 
@@ -124,6 +127,7 @@ export const Button = styled.button`
 
   font-size: 14px;
   font-weight: 500;
+  outline: none;
 `;
 
 export const CheckBox = styled.div`
@@ -150,4 +154,5 @@ export const CheckaccountButton = styled.button`
 
   cursor: ${({ valid }) => (valid === 'success' ? 'default' : 'pointer')};
   border-radius: 30px;
+  outline: none;
 `;

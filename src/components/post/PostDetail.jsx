@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './PostDetail.styled';
-import { ReactComponent as KebabIcon } from '../../assets/images/home/icon-more-vertical.svg';
+import { ReactComponent as KebabIcon } from '../../assets/images/common/icon-more-vertical.svg';
 import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart.svg';
 import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
 import { ReactComponent as ColoredHearIcon } from '../../assets/images/home/heart.svg';
-import basicProfile from '../../assets/images/home/basic-profile.png';
+import basicProfile from '../../assets/images/common/basic-profile.svg';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { readDetailPost } from '../../apis/post/detailPostAPI';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
@@ -96,8 +96,6 @@ export default function PostDetail() {
     }
   });
 
-  console.log(data);
-
   // 좋아요 취소 API
   const { mutate: mutateUnHeart } = useMutation({
     mutationFn: createUnHeart,
@@ -156,7 +154,7 @@ export default function PostDetail() {
               />
               <S.UserInfoBox onClick={() => navigate('/profile/' + data?.post?.author?.accountname)}>
                 <S.H2>{data?.post?.author?.username}</S.H2>
-                <S.H3>{data?.post?.author?.accountname}</S.H3>
+                <S.H3>{'@' + data?.post?.author?.accountname}</S.H3>
               </S.UserInfoBox>
               <S.Button
                 onClick={(e) => {

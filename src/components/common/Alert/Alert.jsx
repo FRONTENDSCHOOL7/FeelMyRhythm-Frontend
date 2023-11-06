@@ -1,27 +1,44 @@
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { atomPostUpdateContent } from '../../../store/store';
-import { useMutation } from '@tanstack/react-query';
+import { atomPostUpdateContent, atomThemeChange } from '../../../store/store';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deletePost } from '../../../apis/write/writeAPI';
 import { deleteProduct } from '../../../apis/profile/productListAPI';
+import { commentDeleteAPI } from '../../../apis/comment/commentAPI';
 
-export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
+export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, commentId, postId }) {
   const navigate = useNavigate();
 
   const postUpdateContent = useRecoilValue(atomPostUpdateContent);
 
   const { state } = useLocation();
 
+  const { pathname } = useLocation();
+
+  const queryClient = useQueryClient();
+
+  const { id } = useParams();
+
+  const setThemeChange = useSetRecoilState(atomThemeChange);
+
   const { mutate: mutateDeletePost } = useMutation({
     mutationFn: deletePost,
-    onSuccess: () => navigate('/home')
+    onSuccess: () => {
+      if (postUpdateContent.content) navigate(-1);
+      queryClient.invalidateQueries('myPostList');
+    }
   });
 
   const { mutate: mutateDeleteProduct } = useMutation({
     mutationFn: deleteProduct,
     onSuccess: () => navigate(-1)
+  });
+
+  const { mutate: mutateDeleteComment } = useMutation({
+    mutationFn: commentDeleteAPI,
+    onSuccess: () => queryClient.invalidateQueries('commentlist')
   });
 
   useEffect(() => {}, [alertMsg]);
@@ -39,12 +56,16 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
           emojiState: postUpdateContent.image.split('🈳')[4]
         }
       });
-    if (alertMsg === '삭제') mutateDeletePost(postUpdateContent.id);
+    if (alertMsg === '삭제' && pathname.includes('post') && postUpdateContent) mutateDeletePost(postUpdateContent.id);
+    if (alertMsg === '삭제' && (pathname.includes('home') || pathname.includes('profile')) && postId)
+      mutateDeletePost(postId);
   };
 
   const onYoutubeOpen = () => {
-    alertMsg === '삭제된 상품 접근' && window.open(`https://www.youtube.com/watch?v=${state.youtubeId}`);
-    navigate(-1);
+    if (alertMsg === '삭제된 상품 접근') {
+      window.open(`https://www.youtube.com/watch?v=${state.youtubeId}`);
+      navigate(-1);
+    }
   };
 
   const onDeleteProduct = () => {
@@ -53,6 +74,21 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
 
   const onNavigateBack = () => {
     alertMsg === '삭제된 상품 접근' && navigate(-1);
+  };
+
+  const onDeleteComment = (id, commentId) => {
+    if (commentId && id) mutateDeleteComment({ id, commentId });
+  };
+
+  const onThemeChange = () => {
+    if (alertMsg !== '테마 전환') {
+      return;
+    }
+    const theme = localStorage.getItem('theme');
+    setThemeChange((prev) => !prev);
+    if (theme === 'light') {
+      localStorage.setItem('theme', 'dark');
+    } else if (theme === 'dark') localStorage.setItem('theme', 'light');
   };
 
   return (
@@ -74,9 +110,11 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose }) {
             onClose();
             onNavigatePostUpdate();
             onYoutubeOpen();
+            onDeleteComment(id, commentId);
+            onThemeChange();
           }}
           $textColor='#7B86AA'>
-          {alertMsg === '삭제된 상품 접근' ? '원본 유투브 이동' : alertMsg}
+          {alertMsg === '삭제된 상품 접근' ? '유투브로 보기' : alertMsg}
         </AlertButton>
         {alertMsg === '삭제된 상품 접근' && (
           <AlertButton

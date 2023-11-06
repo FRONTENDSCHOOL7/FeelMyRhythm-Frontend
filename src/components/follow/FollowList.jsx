@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { followUser } from '../../apis/profile/followAPI';
 import { unfollowUser } from '../../apis/profile/unfollowAPI';
-import basicProfile from '../../assets/images/profile/basic-profile-img.svg';
+import basicProfile from '../../assets/images/common/basic-profile.svg';
 
 export default function FollowList({ data }) {
   const [follow, setFollow] = useState(data.isfollow);
@@ -27,8 +27,7 @@ export default function FollowList({ data }) {
 
   useEffect(() => {
     setFollow(data.isfollow);
-    console.log(String(data.intro).split('ms7-3🈳'));
-  }, [data.isfollow]);
+  }, [data.isfollow, data.intro]);
 
   return (
     <S.ProfileFollowersLayout>

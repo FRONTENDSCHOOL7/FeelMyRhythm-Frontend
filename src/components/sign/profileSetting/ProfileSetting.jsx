@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as S from './profileSetting.styled';
-import defaultProfile from '../../../assets/images/sign/default_profile.png';
-// import imgChange from '../../../assets/images/sign/imgChange.svg';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
 import imgChange from '../../../assets/images/write/upload.svg';
 import { useNavigate } from 'react-router-dom';
 import { createAccountNameValid, createImage, createUser } from '../../../apis/sign/signUpAPI';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { async } from 'q';
+import { createLogin } from '../../../apis/sign/signInAPI';
 
 export default function ProfileSetting() {
   const [userInfo, setUserInfo] = useState({
@@ -24,10 +24,12 @@ export default function ProfileSetting() {
 
   const [isButtonState, setIsButtonState] = useState(false);
 
-  const { username, accountname, intro } = userInfo.user;
+  const { username, accountname, intro, email, password } = userInfo.user;
   const userNameRef = useRef(null);
   const accountNameRef = useRef(null);
   const navigate = useNavigate();
+
+  const queryClient = useQueryClient();
 
   // 이미지 생성 onChange
   const handleChangeImage = (e) => {
@@ -46,7 +48,6 @@ export default function ProfileSetting() {
       setUserInfo({ ...userInfo, user: { ...userInfo.user, accountname: e.target.value } });
     inputName === 'intro' &&
       setUserInfo({ ...userInfo, user: { ...userInfo.user, intro: 'ms7-3🈳' + e.target.value } });
-    console.log(userInfo);
   };
 
   // 미리보기 이미지 생성
@@ -139,12 +140,22 @@ export default function ProfileSetting() {
     }
   }, [userInfo, warningUserName, warningAccountName]);
 
+  // 로그인 API
+  const { mutate: mutateSignIn } = useMutation({
+    mutationFn: createLogin,
+    onSuccess: (response) => {
+      window.localStorage.setItem('accessToken', response.user.token);
+      queryClient.invalidateQueries('userInfo');
+      navigate('/home');
+    }
+  });
+
   // 회원가입 API
   const { mutate: mutateCreateUser } = useMutation({
     mutationFn: createUser,
     onSuccess: () => {
       window.localStorage.removeItem('loginInfo');
-      navigate('/signin');
+      mutateSignIn({ user: { email, password } });
     }
   });
 
@@ -178,9 +189,11 @@ export default function ProfileSetting() {
       <S.SubTitle mydata='mydata'>나중에 언제든지 변경할 수 있습니다.</S.SubTitle>
 
       <S.ImgBox>
-        <S.ProfileImg src={base64Image || defaultProfile} />
+        <S.ProfileImg src={base64Image || basicProfile} />
         <label htmlFor='imgChange'>
-          <S.ChangeImg src={imgChange} />
+          <S.ChangeImgBox>
+            <S.ChangeImg src={imgChange} />
+          </S.ChangeImgBox>
         </label>
         <input style={{ display: 'none' }} type='file' id='imgChange' onChange={(e) => handleChangeImage(e)} />
       </S.ImgBox>

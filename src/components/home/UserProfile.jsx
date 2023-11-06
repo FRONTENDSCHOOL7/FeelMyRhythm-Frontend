@@ -3,12 +3,14 @@ import * as S from './userProfile.styled';
 import { FaRegSmile } from 'react-icons/fa';
 import { FaRegFaceAngry } from 'react-icons/fa6';
 import { FaRegSadTear } from 'react-icons/fa';
-import { ReactComponent as KebabIcon } from '../../assets/images/home/icon-more-vertical.svg';
+import { ReactComponent as KebabIcon } from '../../assets/images/common/icon-more-vertical.svg';
 import { ReactComponent as HeartIcon } from '../../assets/images/home/icon-heart.svg';
 import { ReactComponent as MessageIcon } from '../../assets/images/home/icon-message-circle.svg';
-import basicProfile from '../../assets/images/home/basic-profile.png';
+import basicProfile from '../../assets/images/common/basic-profile.svg';
 import Modal from '../common/Modal/Modal';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { atomPostUpdateContent } from '../../store/store';
 
 const UserProfile = ({ author, content, image, createdAt, comments, heartCount, id, emotionAi }) => {
   createdAt = new Date(createdAt);
@@ -20,17 +22,31 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoState, setVideoState] = useState(false);
 
+  const setPostUpdateContent = useSetRecoilState(atomPostUpdateContent);
+
   const toggleModal = () => {
+    isModalOpen ||
+      setPostUpdateContent({
+        id: '',
+        content: '',
+        image: ''
+      });
     setIsModalOpen(!isModalOpen);
   };
 
   const handleKebabClick = () => {
     setIsModalOpen(true);
+    setPostUpdateContent({
+      id: id,
+      content: content,
+      image: image
+    });
   };
 
   const onNavigateDetailPost = () => {
     navigate(`/post/${id}`);
   };
+
   const getFaceIcon = () => {
     const faceType = String(image).split('🈳')[4];
 
@@ -51,7 +67,7 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
           />
           <S.UserInfoBox>
             <S.H2>{author?.username}</S.H2>
-            <S.H3>{author?.accountname}</S.H3>
+            <S.H3>{'@' + author?.accountname}</S.H3>
           </S.UserInfoBox>
           <S.Button
             onClick={(e) => {
@@ -77,9 +93,8 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
                   <S.Img src={String(image) && (String(image).split('🈳')[3] ?? 'abc')} alt='' />
                 </S.ImgBox>
               )}
-
-              <S.H4>{String(image) && (String(image).split('🈳')[2] ?? 'abc')}</S.H4>
             </S.VideoImgToggleBox>
+            <S.H4>{String(image) && (String(image).split('🈳')[2] ?? 'abc')}</S.H4>
           </S.ContentsBox>
         </S.DetailNavigateBtn>
         <S.DetailNavigateBtn onClick={onNavigateDetailPost}>
@@ -98,7 +113,12 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
 
         <S.Date>{formatDate}</S.Date>
       </S.ContainerBox>
-      <Modal postModal={true} postUser={author?.accountname} isOpen={isModalOpen} onClose={toggleModal}></Modal>
+      <Modal
+        postModal={true}
+        postId={id}
+        postUser={author?.accountname}
+        isOpen={isModalOpen}
+        onClose={toggleModal}></Modal>
     </>
   );
 };

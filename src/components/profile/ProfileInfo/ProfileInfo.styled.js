@@ -50,7 +50,7 @@ export const FollowText = styled.p`
 `;
 
 export const FollowNum = styled.p`
-  color: ${({ $fontColor }) => $fontColor};
+  color: ${({ theme }) => theme.textColor};
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;

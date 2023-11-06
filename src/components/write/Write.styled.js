@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const WriteLayout = styled.div`
   position: relative;
+  width: 100%;
   height: 100vh;
   padding-top: 68px;
   padding-left: 16px;
@@ -13,10 +14,10 @@ export const WriteLayout = styled.div`
 
 export const UploadBtn = styled.button`
   position: absolute;
+  bottom: 1vh;
+  right: 1vw;
   width: 50px;
   height: 50px;
-  bottom: 0;
-  right: 0;
   border: 0;
   margin: 0 16px 16px 0;
   border-radius: 50%;
@@ -40,11 +41,13 @@ export const Upload = styled.div`
 export const UserImg = styled.img`
   width: 42px;
   height: 42px;
+  border-radius: 50%;
 `;
 
 export const TextInput = styled.textarea`
   border: 0;
   max-width: 687px;
+  max-height: 280px;
   width: 80vw;
   resize: none;
   padding-left: 12px;
@@ -75,8 +78,9 @@ export const Video = styled.iframe`
 
 export const VideoContent = styled.p`
   color: black;
+  width: 90%;
   padding-right: 34px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 `;
 
 export const ShareBtn = styled.button`

@@ -24,7 +24,6 @@ export default function SelectBox({ setEmojiState }) {
   const updatePostContent = useRecoilValue(atomPostUpdateContent);
 
   useEffect(() => {
-    console.log('이모징', updatePostContent.image.split('🈳')[4]);
     if (updatePostContent.content !== '' && window.location.pathname === '/write')
       setSelectedEmotion(updatePostContent.image.split('🈳')[4]);
   }, [updatePostContent]);

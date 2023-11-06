@@ -7,7 +7,7 @@ export const ContainerBox = styled.div`
   padding: 16px 20px;
   background-color: ${({ theme }) => theme.backgroundColor};
   &:hover {
-    background-color: #f1f2f5;
+    background-color: ${({ theme }) => theme.highlightColor};
   }
 `;
 export const AboutUserBox = styled.div`
@@ -19,14 +19,14 @@ export const AboutUserBox = styled.div`
 `;
 
 export const Iframe = styled.iframe`
-  width: 290px;
+  width: 300px;
   height: 163px;
   border-radius: 15px;
   margin-top: 16px;
 `;
 
 export const ImgBox = styled.div`
-  width: 295px;
+  width: 300px;
   height: 168px;
   border-radius: 17px;
   overflow: hidden;
@@ -41,8 +41,9 @@ export const Img = styled.img`
 export const StyledProfileImg = styled.img`
   width: 42px;
   height: 42px;
-  border-radius: 42px;
+  border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 `;
 
 export const UserInfoBox = styled.div`
@@ -157,7 +158,10 @@ export const DetailNavigateBtn = styled.div`
   cursor: pointer;
 `;
 
-export const VideoImgToggleBox = styled.div``;
+export const VideoImgToggleBox = styled.div`
+  width: auto;
+  display: inline-block;
+`;
 
 export const FaceBox = styled.div`
   height: 20px;
@@ -167,7 +171,7 @@ export const FaceBox = styled.div`
   align-items: center;
   font-size: 16px;
   color: ${({ theme }) => theme.subTextColor};
-`
+`;
 
 export const BigIframe = styled.iframe`
   display: block;

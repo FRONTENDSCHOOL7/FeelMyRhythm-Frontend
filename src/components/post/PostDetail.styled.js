@@ -18,7 +18,6 @@ export const AboutUserBox = styled.div`
   flex-direction: row;
   align-items: center;
   position: relative;
-  cursor: pointer;
 `;
 
 export const Iframe = styled.iframe`
@@ -46,11 +45,13 @@ export const StyledProfileImg = styled.img`
   height: 42px;
   border-radius: 42px;
   margin-right: 12px;
+  cursor: pointer;
 `;
 
 export const UserInfoBox = styled.div`
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 `;
 
 export const H2 = styled.p`
@@ -97,7 +98,6 @@ export const Button = styled.button`
 `;
 export const ContentsBox = styled.div`
   margin-left: 54px;
-  cursor: pointer;
 `;
 export const DescriptionContent = styled.p`
   color: ${({ theme }) => theme.textColor};

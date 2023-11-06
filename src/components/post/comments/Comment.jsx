@@ -1,39 +1,64 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './Comment.styled';
-import profile1 from '../../../assets/images/post/Ellipse 4.png';
-import profile2 from '../../../assets/images/post/Ellipse 4-2.png';
+import { atomMyInfo } from '../../../store/store';
+import { useRecoilValue } from 'recoil';
+import { useNavigate, useParams } from 'react-router-dom';
+import { commentDeleteAPI, commentReportAPI } from '../../../apis/comment/commentAPI';
+import moment from 'moment';
+import 'moment/locale/ko';
+import Modal from '../../common/Modal/Modal';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
 
-export default function Comment() {
-  const comments = [
-    {
-      profile: profile1,
-      name: '서귀포시 무슨 농장',
-      time: '5분 전',
-      text: '게시글 답글 ~~ !! 최고최고'
-    },
-    {
-      profile: profile2,
-      name: '감귤러버',
-      time: '15분 전',
-      text: '안녕하세요. 사진이 너무 멋있어요. 한라봉 언제 먹을수 있나요? 기다리기 지쳤어요 땡뻘땡뻘...'
-    }
-  ];
+export default function Comment({ data }) {
+  const navigate = useNavigate();
+  const { id: postId } = useParams();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const { author, createdAt, content, id } = data || {};
+
+  const goProfile = (username) => {
+    navigate(`/profile/${username}`);
+  };
+
+  const commentTime = (createdAt) => {
+    return moment(createdAt).fromNow();
+  };
+
+  const handleOnModal = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <S.CommentLayout>
-      <S.CommentList>
-        {comments.map((comment, index) => (
-          <S.CommentBox key={index}>
+      {data && (
+        <>
+          <S.CommentBox>
             <S.CommentInfo>
-              <S.ProfileImg src={comment.profile} />
-              <S.TitleContent>{comment.name}</S.TitleContent>
-              <S.TimeBox>· {comment.time}</S.TimeBox>
-              <S.MoreBtn />
+              {data?.img}
+              <S.CommentProfile onClick={() => goProfile(author?.accountname)}>
+                <S.ProfileImg
+                  src={!author?.image || String(author?.image).includes('Ellipse.png') ? basicProfile : author?.image}
+                />
+                <S.TitleContent>{author?.username}</S.TitleContent>
+              </S.CommentProfile>
+              <S.TimeBox>·{commentTime(createdAt)}</S.TimeBox>
+              <S.MoreBtn onClick={handleOnModal} />
             </S.CommentInfo>
-            <S.CommentContent>{comment.text}</S.CommentContent>
+            <S.CommentContent>{content}</S.CommentContent>
           </S.CommentBox>
-        ))}
-      </S.CommentList>
+          <Modal
+            modalState={'comment'}
+            postModal={true}
+            postUser={author.accountname}
+            commentId={id}
+            isOpen={isModalOpen}
+            onClose={toggleModal}></Modal>
+        </>
+      )}
     </S.CommentLayout>
   );
 }

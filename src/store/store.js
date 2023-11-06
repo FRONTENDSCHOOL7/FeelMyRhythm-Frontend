@@ -26,3 +26,5 @@ export const atomPostUpdateContent = atom({
     image: ''
   }
 });
+
+export const atomThemeChange = atom({ key: 'atomthemechange', default: false });

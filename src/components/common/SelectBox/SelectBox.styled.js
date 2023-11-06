@@ -37,8 +37,8 @@ export const ButtonSelected = styled.button`
     transition: transform 0.3s;
   }
 
-  ${(props) =>
-    props.isActive &&
+  ${($props) =>
+    $props.isActive &&
     `
     &::after {
       transform: rotate(-180deg); 
@@ -58,8 +58,8 @@ export const Ul = styled.ul`
   border-radius: 12px;
   background: white;
   box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
-  opacity: ${(props) => (props.isEmotionActive ? 1 : 0)};
-  visibility: ${(props) => (props.isEmotionActive ? 'visible' : 'hidden')};
+  opacity: ${($props) => ($props.isEmotionActive ? 1 : 0)};
+  visibility: ${($props) => ($props.isEmotionActive ? 'visible' : 'hidden')};
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease;
@@ -84,7 +84,7 @@ export const ButtonSelect = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #fff3cf;
+    background-color: #eceff7;
   }
 
   &:focus {

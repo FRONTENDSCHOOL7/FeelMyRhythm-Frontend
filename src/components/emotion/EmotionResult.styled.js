@@ -9,16 +9,19 @@ export const EmotionResultLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
+  padding-bottom: 30px;
 `;
 
 export const H1 = styled.h2`
-  font-size: 24px;
+  font-size: 18px;
+  font-family: 'Orbit-Regular';
   color: ${({ theme }) => theme.textColor};
 `;
 
 export const H2 = styled.h3`
-  font-size: 18px;
+  font-size: 14px;
+  font-family: 'Orbit-Regular';
   color: ${({ theme }) => theme.subTextColor};
 `;
 

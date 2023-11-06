@@ -10,15 +10,20 @@ ${reset}
     font-weight: normal;
     font-style: normal;
 }
-
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 * {
   box-sizing: border-box;
-  font-family: 'Orbit-Regular';
+  font-family: 'Pretendard';
 }
 
 body {
   line-height: normal;
-  font-family: 'Orbit-Regular';
+  font-family: 'Pretendard';
   background-color: ${({ theme }) => theme.BodyBgColor};
 }
 

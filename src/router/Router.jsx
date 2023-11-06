@@ -19,9 +19,8 @@ import YoutubeSearch from '../pages/write/YoutubeSearchPage';
 import YoutubeVideoDetail from '../pages/write/YoutubeVideoDetail';
 import ProfileUpdatePage from '../pages/profile/ProfileUpdatePage';
 import Emotion from '../pages/emotion/Emotion';
-
 import styled from 'styled-components';
-import EmotionResult from '../components/emotion/EmotionResult';
+import EmotionResultPage from '../pages/emotion/EmotionResultPage';
 
 export default function AppRouter() {
   return (
@@ -33,7 +32,7 @@ export default function AppRouter() {
           <Route path='/home/searchuser' element={<SearchUserPage />} />
           <Route path='/home/searchpost' element={<SearchPostPage />} />
           <Route path='/emotion' element={<Emotion />} />
-          <Route path='/emotion/result' element={<EmotionResult />} />
+          <Route path='/emotion/result' element={<EmotionResultPage />} />
           <Route path='/chat' element={<Chat />} />
           <Route path='/chat/:accountname' element={<ChatRoom />} />
           <Route path='/write' element={<Write />} />
@@ -62,4 +61,5 @@ export const Container = styled.div`
 
 export const App = styled.div`
   max-width: 767px;
+  width: 100%;
 `;

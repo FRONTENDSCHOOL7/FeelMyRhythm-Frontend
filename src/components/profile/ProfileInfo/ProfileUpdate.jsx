@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './ProfileUpdate.styled';
-import defaultProfile from '../../../assets/images/sign/default_profile.png';
-import imgChange from '../../../assets/images/sign/imgChange.svg';
+import basicProfile from '../../../assets/images/common/basic-profile.svg';
+import imgChange from '../../../assets/images/write/upload.svg';
 import { useNavigate } from 'react-router-dom';
 import { createAccountNameValid } from '../../../apis/sign/signUpAPI';
 import { useMutation } from '@tanstack/react-query';
@@ -21,8 +21,7 @@ export default function ProfileUpdate({
 }) {
   const [base64Image, setBase64Image] = useState('');
   const [accountNameValid, setAccountNameValid] = useState('');
-  const { username, accountname, intro } = userInfo.user;
-
+  const { username, accountname, image } = userInfo.user;
   const navigate = useNavigate();
 
   // 이미지 생성 onChange
@@ -42,7 +41,6 @@ export default function ProfileUpdate({
       setUserInfo({ ...userInfo, user: { ...userInfo.user, accountname: e.target.value } });
     inputName === 'intro' &&
       setUserInfo({ ...userInfo, user: { ...userInfo.user, intro: 'ms7-3🈳' + e.target.value } });
-    console.log(userInfo);
   };
 
   // 미리보기 이미지 생성
@@ -111,9 +109,11 @@ export default function ProfileUpdate({
   return (
     <S.ProfileSettingLayout>
       <S.ImgBox>
-        <S.ProfileImg src={base64Image || defaultProfile} />
+        <S.ProfileImg src={base64Image === '' ? basicProfile : base64Image || basicProfile} />
         <label htmlFor='imgChange'>
-          <S.ChangeImg src={imgChange} />
+          <S.ChangeImgBox>
+            <S.ChangeImg src={imgChange} />
+          </S.ChangeImgBox>
         </label>
         <input style={{ display: 'none' }} type='file' id='imgChange' onChange={(e) => handleChangeImage(e)} />
       </S.ImgBox>
@@ -141,21 +141,17 @@ export default function ProfileUpdate({
             onChange={(e) => handleChangeUserInfo(e, 'accountname')}
           />
           <S.CheckaccountButton
-            valid={warningAccountName === '사용 가능한 계정ID 입니다.' ? 'success' : 'none'}
+            $valid={warningAccountName === '사용 가능한 계정ID 입니다.' ? 'success' : 'none'}
             onClick={(e) => onClickAccountNameValid(e)}>
             {warningAccountName === '사용 가능한 계정ID 입니다.' ? <AiOutlineCheck /> : '중복 확인'}
           </S.CheckaccountButton>
         </S.CheckBox>
       </S.NonPaddingInputBox>
-      <S.WarningContent valid={warningAccountName}>{warningAccountName}</S.WarningContent>
+      <S.WarningContent $valid={warningAccountName}>{warningAccountName}</S.WarningContent>
 
       <S.NonPaddingInputBox>
         <S.SubContent>소개</S.SubContent>
-        <S.Input
-          type='text'
-          placeholder='자신과 판매할 상품에 대해 소개해 주세요!'
-          onChange={(e) => handleChangeUserInfo(e, 'intro')}
-        />
+        <S.Input type='text' placeholder='소개글을 작성해 주세요.' onChange={(e) => handleChangeUserInfo(e, 'intro')} />
       </S.NonPaddingInputBox>
     </S.ProfileSettingLayout>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './TabMenu.styled';
-import { atomMyInfo } from '../../../store/store';
-import { useRecoilValue } from 'recoil';
+import { atomEmotionState, atomMyInfo, atomPostContent, atomPostUpdateContent } from '../../../store/store';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function TabMenu() {
@@ -9,12 +9,14 @@ export default function TabMenu() {
   const [btnActiveState, setBtnActiveState] = useState('home');
   const navigate = useNavigate();
   const uselocation = useLocation();
+  const setPostContent = useSetRecoilState(atomPostContent);
+  const setEmojiState = useSetRecoilState(atomEmotionState);
+  const setPostUpdateContent = useSetRecoilState(atomPostUpdateContent);
 
   // 새로고침 예외처리
   useEffect(() => {
     uselocation.pathname === '/home' && setBtnActiveState('home');
     uselocation.pathname === '/chat' && setBtnActiveState('chat');
-    uselocation.pathname === '/write' && setBtnActiveState('write');
     uselocation.pathname === '/emotion' && setBtnActiveState('emotion');
     uselocation.pathname.includes('/profile/') && setBtnActiveState('profile');
   }, [uselocation]);
@@ -22,15 +24,31 @@ export default function TabMenu() {
   // 버튼 상태 변경, 라우팅
   const handleClickState = (btnName) => {
     setBtnActiveState(btnName);
+    if (btnName === 'write') {
+      navigate('/write', { state: '' });
+      setEmojiState('선택');
+      setPostContent({
+        post: {
+          content: '',
+          image: ''
+        }
+      });
+      setPostUpdateContent({
+        content: '',
+        image: ''
+      });
+    }
     if (btnName === 'profile') navigate(`/${btnName}/${user.accountname}`);
     else navigate(`/${btnName}`);
   };
 
   return (
     <S.FooterLayout>
-      <S.WriteBox onClick={() => handleClickState('write')}>
-        <S.WriteImg />
-      </S.WriteBox>
+      {uselocation.pathname === '/home' && (
+        <S.WriteBox onClick={() => handleClickState('write')}>
+          <S.WriteImg />
+        </S.WriteBox>
+      )}
       <S.HomeBox
         onClick={() => {
           handleClickState('home');
