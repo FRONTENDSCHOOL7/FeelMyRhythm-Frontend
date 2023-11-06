@@ -108,4 +108,5 @@ export const MeTime = styled.p`
 export const StyledSendImg = styled.img`
   max-width: calc(240 / 390 * 100vw);
   height: auto;
+  border-radius: 0px 12px 12px 12px;
 `;
