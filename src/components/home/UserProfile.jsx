@@ -93,9 +93,8 @@ const UserProfile = ({ author, content, image, createdAt, comments, heartCount, 
                   <S.Img src={String(image) && (String(image).split('🈳')[3] ?? 'abc')} alt='' />
                 </S.ImgBox>
               )}
-
-              <S.H4>{String(image) && (String(image).split('🈳')[2] ?? 'abc')}</S.H4>
             </S.VideoImgToggleBox>
+            <S.H4>{String(image) && (String(image).split('🈳')[2] ?? 'abc')}</S.H4>
           </S.ContentsBox>
         </S.DetailNavigateBtn>
         <S.DetailNavigateBtn onClick={onNavigateDetailPost}>

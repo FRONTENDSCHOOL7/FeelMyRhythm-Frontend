@@ -19,14 +19,14 @@ export const AboutUserBox = styled.div`
 `;
 
 export const Iframe = styled.iframe`
-  width: 290px;
+  width: 300px;
   height: 163px;
   border-radius: 15px;
   margin-top: 16px;
 `;
 
 export const ImgBox = styled.div`
-  width: 295px;
+  width: 300px;
   height: 168px;
   border-radius: 17px;
   overflow: hidden;
@@ -157,7 +157,10 @@ export const DetailNavigateBtn = styled.div`
   cursor: pointer;
 `;
 
-export const VideoImgToggleBox = styled.div``;
+export const VideoImgToggleBox = styled.div`
+  width: auto;
+  display: inline-block;
+`;
 
 export const FaceBox = styled.div`
   height: 20px;
