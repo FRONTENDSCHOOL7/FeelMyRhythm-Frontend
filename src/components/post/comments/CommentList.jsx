@@ -14,6 +14,7 @@ export default function CommentList() {
     queryFn: () =>
       commentListAPI(id).then((res) => {
         const reverseComments = res.comments.reverse();
+        console.log('res', res);
         setComments(reverseComments);
         return res.comments;
       }),

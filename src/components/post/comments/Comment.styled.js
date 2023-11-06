@@ -4,6 +4,7 @@ import kebobIcon from '../../../assets/images/common/icon-more-vertical.svg';
 export const CommentLayout = styled.div`
   padding: 10px;
   flex: 1;
+  overflow-y: scroll;
   background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
