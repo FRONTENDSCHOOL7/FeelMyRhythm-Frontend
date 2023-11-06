@@ -13,6 +13,7 @@ export const EmotionCheckLayout = styled.div`
 `;
 
 export const H1 = styled.h1`
+  font-family: 'Orbit-Regular';
   font-size: 18px;
   color: ${({ theme }) => theme.textColor};
 `;
