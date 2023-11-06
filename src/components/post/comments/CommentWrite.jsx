@@ -10,9 +10,12 @@ import basicProfile from '../../../assets/images/common/basic-profile.svg';
 export default function CommentWrite() {
   const [comment, setComment] = useState('');
   const user = useRecoilValue(atomMyInfo);
-  const queryclient = useQueryClient();
+
   const { id } = useParams();
 
+  const queryclient = useQueryClient();
+
+  // 댓글 입력 API 호출
   const { mutate } = useMutation({
     mutationFn: () => commentWriteAPI({ postid: id, comment }),
     onSuccess: () => {
@@ -21,6 +24,7 @@ export default function CommentWrite() {
     }
   });
 
+  // submit
   const onCreateComment = (id, comment) => {
     if (!comment.trim()) {
       alert('댓글을 입력해주세요');
@@ -32,7 +36,8 @@ export default function CommentWrite() {
     });
   };
 
-  const handleKeyDown = (e, id, comment) => {
+  // 키보드에서 엔터 키 눌렀을 때
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       onCreateComment(id, comment);
     }
@@ -45,7 +50,7 @@ export default function CommentWrite() {
         placeholder='댓글을 남겨보세요'
         value={comment}
         onChange={(e) => setComment(e.target.value)}
-        onKeyDown={(e) => handleKeyDown(e, id, comment)}
+        onKeyPress={handleKeyDown}
       />
       <S.PostBtn onClick={() => onCreateComment(id, comment)}>게시</S.PostBtn>
     </S.CommentWriteLayout>
