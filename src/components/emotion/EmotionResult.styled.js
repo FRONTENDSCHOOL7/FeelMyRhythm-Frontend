@@ -15,11 +15,13 @@ export const EmotionResultLayout = styled.div`
 
 export const H1 = styled.h2`
   font-size: 18px;
+  font-family: 'Orbit-Regular';
   color: ${({ theme }) => theme.textColor};
 `;
 
 export const H2 = styled.h3`
   font-size: 14px;
+  font-family: 'Orbit-Regular';
   color: ${({ theme }) => theme.subTextColor};
 `;
 

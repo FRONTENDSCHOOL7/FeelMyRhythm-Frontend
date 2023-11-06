@@ -40,7 +40,7 @@ export const PostBtn = styled.button`
   margin-left: auto;
   color: ${({ theme }) => theme.subTextColor};
   text-align: right;
-  font-family: 'Orbit-Regular';
+
   font-size: 14px;
   background-color: transparent;
   padding-right: 16px;

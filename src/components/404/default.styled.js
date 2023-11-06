@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 const STYLE_CONSTANTS = {
-  textColor: '#767676',
-  fontFamily: "'Orbit-Regular', sans-serif"
+  textColor: '#767676'
 };
 export const DefaultLayout = styled.div`
   background-color: #fff;
