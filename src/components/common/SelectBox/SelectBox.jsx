@@ -30,7 +30,7 @@ export default function SelectBox({ setEmojiState }) {
 
   return (
     <S.SelectBox>
-      <S.ButtonSelected onClick={handleButtonClick} $isActive={isEmotionActive}>
+      <S.ButtonSelected onClick={handleButtonClick} isActive={isEmotionActive}>
         {String(selectedEmotion) === '선택' && '선택'}
         {String(selectedEmotion) === '전체' && '전체'}
         {String(selectedEmotion) === 'smile' && <FaRegSmile />}
@@ -38,7 +38,7 @@ export default function SelectBox({ setEmojiState }) {
         {String(selectedEmotion) === 'sad' && <FaRegSadTear />}
       </S.ButtonSelected>
 
-      <S.Ul $isEmotionActive={isEmotionActive}>
+      <S.Ul isEmotionActive={isEmotionActive}>
         {arrayEmotions.map((emotion, index) => (
           <S.Li key={index} onClick={() => handleListItemClick(emotion)}>
             <S.ButtonSelect type='button'>
