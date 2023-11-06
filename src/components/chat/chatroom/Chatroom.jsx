@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import NavBar from '../../common/NavBar/NavBar';
 import * as S from './chatroom.styled';
 import basicProfile from '../../../assets/images/common/basic-profile.svg';
-import SendImg from '../../../assets/images/chat/Rectangle 65.png';
+import SendImg from '../../../assets/images/chat/RockFestival.jpeg';
 import ChatFooter from './ChatFooter';
 
 export default function Chatroom() {
