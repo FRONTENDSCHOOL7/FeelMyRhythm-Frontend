@@ -5,7 +5,7 @@ export const ProfileSettingLayout = styled.form`
   flex-direction: column;
   max-width: 767px;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 30px;
   background-color: ${({ theme }) => theme.backgroundColor};
   padding-left: 34px;
