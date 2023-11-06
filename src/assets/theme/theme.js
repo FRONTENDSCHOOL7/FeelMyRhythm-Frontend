@@ -15,6 +15,7 @@ export const darkTheme = {
   backgroundColor: '#313338',
   btnDisabledBgColor: '#BFC8EA',
   btnEnabledBgColor: '#7B86AA',
+  btnTextColor: '#F8F9FC',
   BodyBgColor: '#666666',
   highlightColor: '#2c2e32'
 };
