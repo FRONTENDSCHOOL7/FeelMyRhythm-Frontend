@@ -31,12 +31,15 @@ export default function FollowStatus({ emojiState }) {
 
   const [followings, setFollowings] = useState([]);
 
-  const filteredPosts = data?.posts.filter(
-    (post) => post.author.follower.includes(myId) && String(post.image).split('🈳')[0] === 'ms7-3'
-  );
+  const filteredPosts =
+    data && data.posts
+      ? data.posts.filter(
+          (post) => post.author.follower.includes(myId) && String(post.image).split('🈳')[0] === 'ms7-3'
+        )
+      : [];
 
   const followingsWithPosts = followings.filter((following) => {
-    return data?.posts.some((post) => post.author._id === following._id);
+    return data && data.posts ? data.posts.some((post) => post.author._id === following._id) : false;
   });
 
   if (followings.length === 0) {
