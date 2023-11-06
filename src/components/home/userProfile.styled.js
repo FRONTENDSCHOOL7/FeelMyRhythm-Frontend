@@ -41,8 +41,9 @@ export const Img = styled.img`
 export const StyledProfileImg = styled.img`
   width: 42px;
   height: 42px;
-  border-radius: 42px;
+  border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 `;
 
 export const UserInfoBox = styled.div`
