@@ -27,7 +27,7 @@ export const Iframe = styled.iframe`
 
 export const ImgBox = styled.div`
   width: 300px;
-  height: 168px;
+  height: 163px;
   border-radius: 17px;
   overflow: hidden;
   margin-top: 16px;
