@@ -6,30 +6,38 @@ import UserProfile from '../UserProfile';
 import * as S from './yesFollow.styled';
 import NoFollow from './NoFollow';
 import IFollowButNoPosts from './IFollowButNoPosts';
+import Loading from '../../../components/common/Loading/Loading'; // Make sure to import your Loading component
 
 export default function FollowStatus({ emojiState }) {
-  const { data, error } = useQuery({ queryFn: () => showEntirePosts(), queryKey: [''] });
-
+  const [loading, setLoading] = useState(true); // Initialize loading state
   const [myId, setMyId] = useState('');
+  const [followings, setFollowings] = useState([]);
+
+  const { data, error, isFetching } = useQuery({
+    queryFn: () => showEntirePosts(),
+    queryKey: ['posts'],
+    onSettled: () => {
+      setLoading(false); // Turn off loading when query is settled
+    }
+  });
 
   useEffect(() => {
     async function fetchUserInfo() {
       try {
         const userInfo = await readUserInfo();
-
         if (userInfo.user._id) {
           setMyId(userInfo.user._id);
           setFollowings(userInfo.user.following);
         }
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         return error;
       }
     }
 
     fetchUserInfo();
   }, []);
-
-  const [followings, setFollowings] = useState([]);
 
   const filteredPosts =
     data && data.posts
@@ -42,11 +50,15 @@ export default function FollowStatus({ emojiState }) {
     return data && data.posts ? data.posts.some((post) => post.author._id === following._id) : false;
   });
 
+  if (loading) {
+    // Display loading animation when data is being fetched
+    return <Loading />;
+  }
+
   if (followings.length === 0) {
     return <NoFollow />;
   }
 
-  // following은 있지만, 모든 게시물이 필터링 조건에 맞지 않는 경우
   if (filteredPosts.length === 0) {
     return <IFollowButNoPosts />;
   }
