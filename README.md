@@ -2,14 +2,14 @@
 </br>
 
 <p align="center">
-<img width="700" alt="logo 복사본" src='./public/Thumbnail.png'>
+<img width="700" alt="thumbnail" src='./public/Thumbnail.png'>
 </p>
 
 </br>
 
-#### 💫 Feel My Rhythm 배포 링크 및 테스트 계정
+### 💫 Feel My Rhythm 배포 링크 및 테스트 계정
 
-💡 [Feel My Rhythm](https://www.feelmyrhythm.com '바로가기')
+👉🏻 [Feel My Rhythm](https://www.feelmyrhythm.com '바로가기')
 
 ```수정하기
 ID: test1115@test.com
@@ -18,19 +18,7 @@ PW: test1115*
 
 </br>
 
-#### 💻 프로젝트 상세 진행 과정 엿보기
-
-💡[프로젝트 구글 시트](https://docs.google.com/spreadsheets/d/1-1brcFSSZEuCGJYREySDQQqzf1r9IUlHcseddHbIGrU/edit?pli=1#gid=0)
-
-</br>
-
-#### 📚 프로젝트 발표 자료
-
-💡[내용](주소)
-
-</br>
-
-## 1.서비스 소개
+## 1. 서비스 소개
 
 🎧 <em>감정과 음악, 그리고 사람을 연결하는 <strong>Feel My Rhythm</strong>입니다.</em>
 
@@ -46,16 +34,22 @@ PW: test1115*
 
 </br>
 
-| 조병민           | 김소희 | 김정아 | 김지윤 |
-| ---------------- | ------ | ------ | ------ |
-| photo            | photo  | photo  | photo  |
-| FE / Team Leader | FE     | FE     | FE     |
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/merrybmc"><img src="https://avatars.githubusercontent.com/u/65064563?v=4" width="100px;" alt=""/><br /><sub><b> FE 조병민(팀장)</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/esoby"><img src="https://avatars.githubusercontent.com/u/138556584?v=4" width="100px;" alt=""/><br /><sub><b>FE 김소희</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/kirnjiyun"><img src="https://avatars.githubusercontent.com/u/138554290?v=4" width="100px;" alt=""/><br /><sub><b>FE 김지윤</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/haileyja"><img src="https://avatars.githubusercontent.com/u/105365063?v=4" width="100px;" alt=""/><br /><sub><b>FE 김정아</b></sub></a><br /></td>
+     <tr/>
+  </tbody>
+</table>
 
 </br>
 
 ## 3. 역할 분담
 
-🗂[GoogleDocs 요구사항 명세](https://docs.google.com/spreadsheets/d/1-1brcFSSZEuCGJYREySDQQqzf1r9IUlHcseddHbIGrU/edit?pli=1#gid=2124562970)
+🗂[ 요구사항 명세 / 간트 차트](https://docs.google.com/spreadsheets/d/1-1brcFSSZEuCGJYREySDQQqzf1r9IUlHcseddHbIGrU/edit?pli=1#gid=853750057)
 
 </br>
 
@@ -65,12 +59,31 @@ PW: test1115*
 | ------------------------- | --------------------------------------------------------------------------------------------------- |
 | 1주차 </br> 10.16 ~ 10.22 | - 주제 선정, 기술 스택 및 협업툴 선정, 컨벤션 정리 </br> - Figma UI 디자인 작업, 기능 요구사항 명세 |
 | 2주차 </br> 10.23~ 10.29  | - 기획 구체화 </br> - 페이지별 UI 구현                                                              |
-| 3주차 </br> 10.30~ 11.05  | - 분담한 페이지 별 API 기능 구현 </br> - 테스트 후 테스트 케이스 작성 및 수정                       |
-| 4주차 </br> 11.06~ 11.07  | - 최종 테스트 및 버그 수정 </br> - 배포                                                             |
+| 3주차 </br> 10.30~ 11.05  | - 분담한 페이지 내 API 기능 구현 </br> - 기능별 테스트 후 테스트 케이스 작성 및 보완                |
+| 4주차 </br> 11.06~ 11.07  | - 배포 </br> - 실 유저 테스트 및 버그 수정                                                          |
 
-## 5. 개발 환경
+</br>
 
-### 💛 기술 스택
+## 5. 협업 방식
+
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
+  <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"/>
+  <img src="https://img.shields.io/badge/google sheets-34A853?style=for-the-badge&logo=googlesheets&logoColor=white"/>
+  <img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/>
+
+- Github를 통해 프로젝트 코드 공유 및 버전 관리
+- Git Flow 전략으로 main, develop, feature 브랜치별 작업 / 관리
+- 피그마의 공유 프로젝트로 기본적인 와이어 프레임, UI 작업 진행
+- 디스코드를 이용하여 데일리 스크럼을 진행하며 각자의 진행 상황을 공유
+- 디스코드의 보이스 채널에서 실시간 커뮤니케이션 및 페어 프로그래밍 진행
+- 구글 스프레드시트를 이용해 프로젝트 진행 사항, 공유 사항 등을 기록
+  </br>
+  </br>
+  </br>
+
+## 6. 개발 환경
+
+### 🛠 기술 스택
 
 <div>
     <img src="https://img.shields.io/badge/React-grey?style=for-the-badge&logo=React&logoColor=61DAFB"/>
@@ -83,94 +96,27 @@ PW: test1115*
   <img src="https://img.shields.io/badge/React Router-grey?style=for-the-badge&logo=React Router&logoColor=CA4245"/>
   <img src="https://img.shields.io/badge/Prettier-grey?style=for-the-badge&logo=Prettier&logoColor=F7B93E"/>
   <img src="https://img.shields.io/badge/ESLint-grey?style=for-the-badge&logo=ESLint&logoColor=4B32C3"/>
-   <img src="https://img.shields.io/badge/GitHub-grey?style=for-the-badge&logo=GitHub&logoColor=181717"/>
 </div>
 
-- 리액트 상태관리 라이브러리로, 전역 상태 관리를 용이하게 그리고 리액트의 컴포넌트 기반 아키텍처와 잘 어우러 질수 있게 리코일을 사용했습니다.
-- 데이터를 가져오고 캐시하고, 동기화 하는 복잡한 로직을 추상화하여 쉽게 데이터를 관리할수 있게 리액트 쿼리를 사용했습니다.
+### 💬 기술적 의사결정
 
-## 프로젝트 관리
+-
+-
 
-Github Issues / Github Pull Requests
+### 🪜 아키텍처
 
-## 배포
+<img width="700" alt="architecture" src='./public/architecture.png'>
 
- </br>
+### 📋 컨벤션
 
-### 컨벤션
-
-#### commit 컨벤션
-
-| 분류          | 컨벤션                                  |
-| ------------- | --------------------------------------- |
-| 기능 구현     | "feat(기능분류) : 설명 (#이슈번호)"     |
-| 버그 수정     | "fix(기능분류) : 내용 (#이슈번호)"      |
-| 설정 변경     | "chore : 내용 (#이슈번호)"              |
-| 코드 리팩토링 | "refactor(기능분류) : 내용 (#이슈번호)" |
+🗂[ 프로젝트 컨벤션](https://docs.google.com/spreadsheets/d/1-1brcFSSZEuCGJYREySDQQqzf1r9IUlHcseddHbIGrU/edit#gid=946491402)
 
 </br>
-
-#### eslint
-
-```js
-module.exports = {
-  root: true,
-  env: {
-    es6: true
-  },
-  extends: ['react-app', 'eslint:recommended', 'plugin:prettier/recommended', 'prettier'],
-  rules: {
-    'no-var': 'error',
-    'no-multiple-empty-lines': 'error',
-    // 'no-console': ['error', {allow: ['warn', 'error', 'info']}],
-    eqeqeq: 'error',
-    'react/jsx-pascal-case': 'error',
-    'react/jsx-key': 'error',
-    'dot-notation': 'error',
-    'linebreak-style': 0,
-    'no-unused-vars': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto'
-      }
-    ]
-  }
-};
-```
-
-</br>
-
-#### prettier
-
-```js
-module.exports = {
-  printWidth: 120,
-  tabWidth: 2,
-  semi: true,
-  singleQuote: true,
-  jsxSingleQuote: true,
-  trailingComma: 'none',
-  bracketSpacing: true,
-  bracketSameLine: true,
-  jsxBracketSameLine: true,
-  arrowParens: 'always',
-  quoteProps: 'as-needed'
-};
-```
-
-</br>
-
-## 6.협업 과정
 
 ## 7. 프로젝트 폴더 구조
 
 ```
-
 📁 FeelMyRhythm
-├──📁 .github
-├──📁 .husky
-├──📁 node_modules
 ├──📁 public
 ├──📁 src
 │   ├──📁 Apis
@@ -179,17 +125,17 @@ module.exports = {
 │   │   │   ├──📄 GlobalStyle
 │   │   ├──📁 images
 │   ├──📁 Components
+│   │   ├──📁 404
 │   │   ├──📁 Chat
-│   │   ├──📁 Default
+│   │   ├──📁 Common
 │   │   ├──📁 Emotion
-│   │   ├──📁 Floolwers
-│   │   ├──📁 Followings
+│   │   ├──📁 Follow
 │   │   ├──📁 Home
 │   │   ├──📁 Post
+│   │   ├──📁 Profile
 │   │   ├──📁 Randing
 │   │   ├──📁 Sign
-│   │   ├──📁 wite
-│   │   └──📁 Profile
+│   │   ├──📁 write
 │   ├──📁 Hooks
 │   ├──📁 Pages
 │   │   ├──📁 Chat
@@ -199,21 +145,17 @@ module.exports = {
 │   │   ├──📁 Followings
 │   │   ├──📁 Home
 │   │   ├──📁 Post
+│   │   └──📁 Profile
 │   │   ├──📁 Randing
 │   │   ├──📁 Sign
 │   │   ├──📁 write
-│   │   └──📁 Profile
 │   ├──📁 Router
 │   ├──📁 Store
 │   └──📁 Util
+│   └──📄 App.js
+│   └──📄 index.js
 ├──📄 .env
-├──📄 .eslintrc.js
-├──📄 .gitignore
-├──📄 .prettierrc.js
-├──📄 package-lock.json
-├──📄 package.json
 └──📄 README.md
-
 ```
 
 <br />
@@ -232,7 +174,7 @@ module.exports = {
 | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | <img src="src/assets/gifs/홈/%EC%A0%84%EC%B2%B4%EA%B2%8C%EC%8B%9C%EA%B8%80%EB%B3%B4%EA%B8%B0.gif" width="196" height="424"> | <img src="src/assets/gifs/홈//%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%A7%88%EC%9A%B0%EC%8A%A4%20%EC%98%AC%EB%A6%AC%EB%A9%B4%20%EB%8F%99%EC%98%81%EC%83%81.gif" width="196" height="424"> | <img src="src/assets//gifs//%ED%99%88//%EB%AC%B4%ED%95%9C%EC%8A%A4%ED%81%AC%EB%A1%A4.gif" width="196" height="424"> |
 
-| 팔로우를 하지 않을때와 계정검색                                                                                                 | 팔로우 글만 보기                                                                                  | 내가 팔로우 하는 계정이 글을 안 올렸을때                                                             |
+| 팔로우를 하지 않을 때와 계정검색                                                                                                | 팔로우 글만 보기                                                                                  | 내가 팔로우 하는 계정이 글을 안 올렸을때                                                             |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | <img src="https://github.com/haileyja/haileyja/assets/105365063/08ead09c-9dd2-4086-9dbd-9ea3d8561f05" width="196" height="424"> | <img src="src/assets/gifs/홈/내가 팔로우 하는 유저가 글을 올렸을때.gif" width="196" height="424"> | <img src="src/assets/gifs/홈/내가 팔로우 하는 계정이 글을 안 올렸을때.GIF" width="196" height="424"> |
 
