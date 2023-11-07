@@ -109,7 +109,7 @@ export default function ProfileUpdate({
   return (
     <S.ProfileSettingLayout>
       <S.ImgBox>
-        <S.ProfileImg src={base64Image === '' ? basicProfile : base64Image || basicProfile} />
+        <S.ProfileImg src={base64Image === '' ? (image ? image : basicProfile) : base64Image} />
         <label htmlFor='imgChange'>
           <S.ChangeImgBox>
             <S.ChangeImg src={imgChange} />
