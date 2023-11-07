@@ -99,7 +99,7 @@ export default function EntirePosts({ emojiState }) {
               );
             });
           })}
-        {<p ref={ref}>...</p>}
+        {<p ref={ref}></p>}
       </S.DefaultLayout>
     );
   return <Loading />;
