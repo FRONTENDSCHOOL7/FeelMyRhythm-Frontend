@@ -1,4 +1,7 @@
 import styled, { keyframes } from 'styled-components';
+import kakao from '../../assets/images/randingPage/logo_kakao.svg';
+import google from '../../assets/images/randingPage/logo_google.svg';
+import facebook from '../../assets/images/randingPage/logo_facebook.svg';
 
 export const RandingPageLayout = styled.main`
   display: flex;
@@ -96,10 +99,9 @@ export const BottomBox = styled.div`
 export const LoginBtn = styled.button`
   border-radius: 44px;
   padding: 13px;
-  width: 322px;
+  width: 95%;
   background-color: #fff;
   display: flex;
-  align-items: center;
   justify-content: center;
   position: relative;
 
@@ -111,16 +113,38 @@ export const LoginBtn = styled.button`
     left: 14px;
   }
 `;
+
+export const KakaoBtn = styled(LoginBtn)`
+  border: 1px solid #f2c94c;
+  &::before {
+    background: url(${kakao}) no-repeat;
+  }
+`;
+
+export const GoogleBtn = styled(LoginBtn)`
+  border: 1px solid #767676;
+  &::before {
+    background: url(${google}) no-repeat;
+  }
+`;
+
+export const FacebookBtn = styled(LoginBtn)`
+  border: 1px solid #2d9cdb;
+  &::before {
+    background: url(${facebook}) no-repeat;
+    left: 18px;
+  }
+`;
+
 export const SignBox = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 30px;
   gap: 12px;
 `;
 
 export const SignContent = styled.p`
   color: var(--767676, #767676);
-  font-family: 'Orbit-Regular';
   font-size: 15px;
   font-weight: 400;
 

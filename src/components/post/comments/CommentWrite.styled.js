@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CommentWriteLayout = styled.div`
   display: flex;
   align-items: center;
-  border-top: 1px solid #dbdbdb;
+  border-top: 0.5px solid #dbdbdb;
   padding-top: 13px;
   padding-bottom: 16px;
   padding-left: 12px;

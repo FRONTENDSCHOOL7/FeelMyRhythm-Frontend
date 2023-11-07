@@ -7,6 +7,7 @@ export default function Default() {
   const navigate = useNavigate();
   const handleSearchClick = () => {
     navigate('/home/searchuser');
+    window.scrollTo(0, 0);
   };
 
   return (

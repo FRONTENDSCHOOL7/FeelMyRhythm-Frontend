@@ -37,18 +37,18 @@ export default function Comment({ data }) {
       {data && (
         <>
           <S.CommentBox>
+            <S.ProfileImg
+              onClick={() => goProfile(author?.accountname)}
+              src={!author?.image || String(author?.image).includes('Ellipse.png') ? basicProfile : author?.image}
+            />
             <S.CommentInfo>
-              {data?.img}
-              <S.CommentProfile onClick={() => goProfile(author?.accountname)}>
-                <S.ProfileImg
-                  src={!author?.image || String(author?.image).includes('Ellipse.png') ? basicProfile : author?.image}
-                />
-                <S.TitleContent>{author?.username}</S.TitleContent>
-              </S.CommentProfile>
-              <S.TimeBox>·{commentTime(createdAt)}</S.TimeBox>
-              <S.MoreBtn onClick={handleOnModal} />
+              <S.RowBox>
+                <S.TitleContent onClick={() => goProfile(author?.accountname)}>{author?.username}</S.TitleContent>
+                <S.TimeBox>{commentTime(createdAt)}</S.TimeBox>
+                <S.MoreBtn onClick={handleOnModal} />
+              </S.RowBox>
+              <S.CommentContent>{content}</S.CommentContent>
             </S.CommentInfo>
-            <S.CommentContent>{content}</S.CommentContent>
           </S.CommentBox>
           <Modal
             modalState={'comment'}

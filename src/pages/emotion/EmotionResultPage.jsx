@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import NavBar from '../../components/common/NavBar/NavBar';
 import EmotionResult from '../../components/emotion/EmotionResult';
+import TabMenu from '../../components/common/TabMenu/TabMenu';
 
 export default function EmotionResultPage() {
   const ContBox = styled.div`
@@ -14,6 +15,7 @@ export default function EmotionResultPage() {
     <ContBox>
       <NavBar />
       <EmotionResult />
+      <TabMenu />
     </ContBox>
   );
 }

@@ -27,7 +27,7 @@ export const Iframe = styled.iframe`
 
 export const ImgBox = styled.div`
   width: 300px;
-  height: 168px;
+  height: 163px;
   border-radius: 17px;
   overflow: hidden;
   margin-top: 16px;
@@ -70,6 +70,7 @@ export const H3 = styled.h3`
   line-height: 14px;
 `;
 export const H4 = styled.h4`
+  width: 90%;
   margin-top: 5px;
   color: ${({ theme }) => theme.subTextColor};
   font-size: 12px;
@@ -99,6 +100,7 @@ export const ContentsBox = styled.div`
   cursor: pointer;
 `;
 export const DescriptionContent = styled.p`
+  width: 90%;
   color: ${({ theme }) => theme.textColor};
   font-size: 14px;
   font-style: normal;
@@ -159,7 +161,7 @@ export const DetailNavigateBtn = styled.div`
 `;
 
 export const VideoImgToggleBox = styled.div`
-  width: auto;
+  width: 100%;
   display: inline-block;
 `;
 
@@ -177,13 +179,13 @@ export const BigIframe = styled.iframe`
   display: block;
   max-width: 767px;
 
-  width: 77%;
+  width: 73%;
   @media (max-width: 500px) {
-    width: 100%;
-    height: 15.5vh;
+    width: 95%;
+    height: 19vh;
   }
 
-  height: 21.8vh;
+  height: 24vh;
   border-radius: 15px;
   margin-top: 16px;
 `;
