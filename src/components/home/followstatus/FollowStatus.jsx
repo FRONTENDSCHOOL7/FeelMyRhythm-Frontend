@@ -6,10 +6,9 @@ import UserProfile from '../UserProfile';
 import * as S from './yesFollow.styled';
 import NoFollow from './NoFollow';
 import IFollowButNoPosts from './IFollowButNoPosts';
-import Loading from '../../../components/common/Loading/Loading'; // Make sure to import your Loading component
-
+import Loading from '../../../components/common/Loading/Loading';
 export default function FollowStatus({ emojiState }) {
-  const [loading, setLoading] = useState(true); // Initialize loading state
+  const [loading, setLoading] = useState(true);
   const [myId, setMyId] = useState('');
   const [followings, setFollowings] = useState([]);
 
@@ -17,7 +16,7 @@ export default function FollowStatus({ emojiState }) {
     queryFn: () => showEntirePosts(),
     queryKey: ['posts'],
     onSettled: () => {
-      setLoading(false); // Turn off loading when query is settled
+      setLoading(false);
     }
   });
 
@@ -51,7 +50,6 @@ export default function FollowStatus({ emojiState }) {
   });
 
   if (loading) {
-    // Display loading animation when data is being fetched
     return <Loading />;
   }
 
@@ -63,7 +61,6 @@ export default function FollowStatus({ emojiState }) {
     return <IFollowButNoPosts />;
   }
 
-  // 나머지 경우 (filteredPosts에 조건에 맞는 게시물이 있는 경우)
   return (
     <S.DefaultLayout>
       {filteredPosts?.map(
