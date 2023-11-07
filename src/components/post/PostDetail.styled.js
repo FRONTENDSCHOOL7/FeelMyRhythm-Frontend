@@ -11,6 +11,7 @@ export const ContainerBox = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 16px 20px;
+  border-bottom: 0.5px solid #dbdbdb;
 `;
 
 export const AboutUserBox = styled.div`
