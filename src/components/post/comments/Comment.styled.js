@@ -16,12 +16,18 @@ export const CommentList = styled.ul`
 
 export const CommentBox = styled.li`
   display: flex;
-  flex-direction: column;
 `;
 
 export const CommentInfo = styled.div`
   display: flex;
-  padding-bottom: 3px;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const RowBox = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
 `;
 
 export const ProfileImg = styled.img`
@@ -34,16 +40,14 @@ export const ProfileImg = styled.img`
 export const TitleContent = styled.p`
   font-size: 14px;
   color: ${({ theme }) => theme.textColor};
-  padding-top: 3px;
   font-weight: 500;
-  margin-left: 3px;
 `;
 
 export const TimeBox = styled.div`
   font-size: 10px;
   color: ${({ theme }) => theme.subTextColor};
-  padding-left: 5px;
-  padding-top: 7px;
+  padding-left: 6px;
+  padding-top: 1px;
 `;
 
 export const MoreBtn = styled.button`
@@ -59,7 +63,7 @@ export const MoreBtn = styled.button`
 export const CommentContent = styled.p`
   font-size: 14px;
   color: ${({ theme }) => theme.textColor};
-  padding-left: 50px;
+  padding-top: 8px;
 `;
 
 export const CommentProfile = styled.div`
