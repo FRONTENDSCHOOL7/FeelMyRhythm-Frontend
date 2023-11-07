@@ -24,14 +24,13 @@ export const AboutUserBox = styled.div`
 export const Iframe = styled.iframe`
   display: block;
   max-width: 767px;
-
-  width: 77%;
+  width: 73%;
   @media (max-width: 500px) {
-    width: 100%;
-    height: 15.5vh;
+    width: 95%;
+    height: 19vh;
   }
 
-  height: 21.8vh;
+  height: 24vh;
   border-radius: 15px;
   margin-top: 16px;
 `;
