@@ -12,8 +12,8 @@
 👉🏻 [Feel My Rhythm](https://www.feelmyrhythm.com '바로가기')
 
 ```수정하기
-ID: test1115@test.com
-PW: test1115*
+ID: test12345@gmail.com
+PW: test1234!
 ```
 
 </br>
@@ -99,11 +99,6 @@ PW: test1115*
   <img src="https://img.shields.io/badge/Prettier-grey?style=for-the-badge&logo=Prettier&logoColor=F7B93E"/>
   <img src="https://img.shields.io/badge/ESLint-grey?style=for-the-badge&logo=ESLint&logoColor=4B32C3"/>
 </div>
-
-### 💬 기술적 의사결정
-
--
--
 
 ### 🪜 아키텍처
 
