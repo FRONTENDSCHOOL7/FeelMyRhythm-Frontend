@@ -17,7 +17,7 @@ export default function TabMenu() {
   useEffect(() => {
     uselocation.pathname === '/home' && setBtnActiveState('home');
     uselocation.pathname === '/chat' && setBtnActiveState('chat');
-    uselocation.pathname === '/emotion' && setBtnActiveState('emotion');
+    uselocation.pathname.includes('/emotion') && setBtnActiveState('emotion');
     uselocation.pathname.includes('/profile/') && setBtnActiveState('profile');
   }, [uselocation]);
 
