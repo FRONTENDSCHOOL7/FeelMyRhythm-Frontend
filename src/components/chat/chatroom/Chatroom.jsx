@@ -65,7 +65,10 @@ export default function Chatroom({ user }) {
           </S.MessageWrapperBox>
         </S.OthersChatBox>
         <S.OthersChatBox>
-          <S.StyledProfileImg src={user?.image || basicProfile} alt='profile' onClick={handleProfileClick} />
+          <S.StyledProfileImg
+            src={String(user.image).includes('Ellipse.png') ? basicProfile : String(user.image)}
+            alt='profile'
+          />
 
           <S.MessageWrapperBox>
             <S.StyledSendImg src={SendImg} alt='' />
