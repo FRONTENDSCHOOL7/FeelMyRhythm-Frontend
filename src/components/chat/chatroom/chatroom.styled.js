@@ -34,6 +34,7 @@ export const StyledProfileImg = styled.img`
   margin-right: 12px;
   width: 42px;
   height: 42px;
+  border-radius: 50%;
   margin-bottom: 10px;
 `;
 export const SpeechBubbleBox = styled.div`

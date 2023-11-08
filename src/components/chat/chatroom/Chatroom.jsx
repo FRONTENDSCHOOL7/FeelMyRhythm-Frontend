@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import NavBar from '../../common/NavBar/NavBar';
 import * as S from './chatroom.styled';
 import basicProfile from '../../../assets/images/common/basic-profile.svg';
 import SendImg from '../../../assets/images/chat/RockFestival.jpeg';
 import ChatFooter from './ChatFooter';
 
-export default function Chatroom() {
+export default function Chatroom({ user }) {
   const { accountname } = useParams();
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
@@ -42,12 +42,21 @@ export default function Chatroom() {
 
   const formattedHours = formatTime(hours);
   const formattedMinutes = formatTime(minutes);
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    navigate(`/profile/${accountname}`);
+  };
   return (
     <>
       <NavBar chatUser={accountname} />
       <S.ChatRoomLayout>
         <S.OthersChatBox>
-          <S.StyledProfileImg src={basicProfile} alt='profile' />
+          <S.StyledProfileImg
+            src={String(user.image).includes('Ellipse.png') ? basicProfile : String(user.image)}
+            alt='profile'
+          />
+
           <S.MessageWrapperBox>
             <S.SpeechBubbleBox>음악 취향이 비슷하시네요!</S.SpeechBubbleBox>
             <S.TimeWrapperBox>
@@ -56,7 +65,11 @@ export default function Chatroom() {
           </S.MessageWrapperBox>
         </S.OthersChatBox>
         <S.OthersChatBox>
-          <S.StyledProfileImg src={basicProfile} alt='profile' />
+          <S.StyledProfileImg
+            src={String(user.image).includes('Ellipse.png') ? basicProfile : String(user.image)}
+            alt='profile'
+          />
+
           <S.MessageWrapperBox>
             <S.StyledSendImg src={SendImg} alt='' />
             <S.TimeWrapperBox>

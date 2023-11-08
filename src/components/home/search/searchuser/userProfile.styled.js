@@ -28,9 +28,23 @@ export const StyledProfileImg = styled.img`
   background-position: 50%;
   background-size: cover;
   background-repeat: no-repeat;
-
   border: 0.5px solid #dbdbdb;
   margin-right: 12px;
+`;
+export const SvgContainer = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background: lightgray;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 0.5px solid #dbdbdb;
+  margin-right: 12px;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const UserInfoBox = styled.div`
