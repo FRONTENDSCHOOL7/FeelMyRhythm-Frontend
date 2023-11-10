@@ -6,7 +6,6 @@ export const ChatRoomLayout = styled.div`
   padding-top: 72px;
   padding-bottom: 72px;
   gap: 9px;
-  width: 100vw;
   max-width: 767px;
   overflow-x: none;
 
@@ -107,7 +106,7 @@ export const MeTime = styled.p`
 `;
 
 export const StyledSendImg = styled.img`
-  max-width: calc(240 / 390 * 100vw);
+  max-width: calc(240 / 390 * 100%);
   height: auto;
   border-radius: 0px 12px 12px 12px;
 `;
