@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as S from './signUp.styled';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import { createEmailValid } from '../../../apis/sign/signUpAPI';
+import { createEmailValid, useEmailValidMutation } from '../../../apis/sign/signUpAPI';
 import { BsEyeSlash, BsEye } from 'react-icons/bs';
 import { AiOutlineCheck } from 'react-icons/ai';
 
@@ -31,15 +31,19 @@ export default function SignUp() {
       setUserInfo({ ...userInfo, user: { ...userInfo.user, password: e.target.value } });
   };
 
-  // 이메일 중복확인 API
-  const { mutate: mutateEmailValid } = useMutation({
-    mutationFn: createEmailValid,
-    onSuccess: ({ message }) => {
-      setEmailValidState(message);
-      message === '사용 가능한 이메일 입니다.' && setEmailValid(email);
-    },
-    onError: ({ response }) => setEmailValidState(response.data.message)
-  });
+  const { mutate: emailValidMutate } = useEmailValidMutation();
+
+  // // 이메일 중복확인 API
+  // const { mutate: mutateEmailValid } = useMutation({
+  //   mutationFn: createEmailValid,
+  //   onSuccess: ({ message }) => {
+  //     setEmailValidState(message);
+  //     message === '사용 가능한 이메일 입니다.' && setEmailValid(email);
+  //   },
+  //   onError: ({ response }) => setEmailValidState(response.data.message)
+  // });
+
+  console.log('asdf');
 
   // 이메일 중복확인 함수
   const handleClickEmailValid = (e) => {
@@ -50,8 +54,22 @@ export default function SignUp() {
       return;
     }
 
-    const responseData = { user: { email } };
-    mutateEmailValid(responseData);
+    emailValidMutate(
+      {
+        path: `api/user/emailvalid`,
+        data: { email }
+      },
+      {
+        onSuccess: ({ data }) => {
+          console.log(data);
+          setEmailValidState(data);
+          setEmailValid(email);
+        },
+        onError: ({ response }) => {
+          setEmailValidState(response.data.error);
+        }
+      }
+    );
   };
 
   // 이메일 중복확인 유효성 검사

@@ -24,7 +24,7 @@ export default function Write({ state, postContent, handleChangeInput, textInput
       </S.Upload>
       {state && (
         <S.VideoBox>
-          <S.Video src={`http://www.youtube.com/embed/${state.id}`} />
+          <S.Video src={`https://www.youtube.com/embed/${state.id}`} />
           <S.VideoContent>{state.title}</S.VideoContent>
         </S.VideoBox>
       )}

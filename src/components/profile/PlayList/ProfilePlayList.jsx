@@ -9,6 +9,7 @@ export default function ProfilePlaylist() {
   const { accountname } = useParams();
   const [playList, setPlayList] = useState([]);
 
+  // 상품 리스트 get API
   const { data } = useQuery({
     queryFn: () =>
       readProductList(accountname).then((res) => {
@@ -17,6 +18,8 @@ export default function ProfilePlaylist() {
       }),
     queryKey: [accountname]
   });
+
+  console.log(data);
 
   if (!playList[0]) return <></>;
   return (

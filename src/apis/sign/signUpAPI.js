@@ -1,4 +1,12 @@
+import { useMutation } from '@tanstack/react-query';
 import { api } from '../baseURL';
+import { postAsync } from '../methods';
+
+// 회원가입
+// export const createUser = async (userInfo) => {
+//   const { data } = await axios.post('https://api.mandarin.weniv.co.kr//user', userInfo);
+//   return data;
+// };
 
 // 이미지 업로드
 export const createImage = async (image) => {
@@ -7,10 +15,18 @@ export const createImage = async (image) => {
 };
 
 // 이메일 중복검사
-export const createEmailValid = async (email) => {
-  const { data } = await api.post('/user/emailvalid', email);
-  return data;
+export const useEmailValidMutation = () => {
+  return useMutation({
+    mutationKey: ['emailvalid'],
+    mutationFn: ({ path, data }) => postAsync(path, data)
+  });
 };
+
+// 이메일 중복검사
+// export const createEmailValid = async (email) => {
+//   const { data } = await api.post('/user/emailvalid', email);
+//   return data;
+// };
 
 // 계정 중복검사
 export const createAccountNameValid = async (accountName) => {
@@ -18,8 +34,21 @@ export const createAccountNameValid = async (accountName) => {
   return data;
 };
 
-// 회원가입
 export const createUser = async (userInfo) => {
-  const { data } = await api.post('/user', userInfo);
-  return data;
+  const url = 'https://api.mandarin.weniv.co.kr/user';
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userInfo)
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
 };

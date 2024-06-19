@@ -97,13 +97,16 @@ export const BottomBox = styled.div`
 `;
 
 export const LoginBtn = styled.button`
-  border-radius: 44px;
-  padding: 13px;
   width: 95%;
+  padding: 13px;
   background-color: #fff;
+  border-radius: 44px;
   display: flex;
   justify-content: center;
   position: relative;
+
+  border-width: 1px;
+  border-style: solid;
 
   &::before {
     position: absolute;
@@ -115,24 +118,23 @@ export const LoginBtn = styled.button`
 `;
 
 export const KakaoBtn = styled(LoginBtn)`
-  border: 1px solid #f2c94c;
+  border-color: #f2c94c;
   &::before {
     background: url(${kakao}) no-repeat;
   }
 `;
 
 export const GoogleBtn = styled(LoginBtn)`
-  border: 1px solid #767676;
+  border-color: #767676;
   &::before {
     background: url(${google}) no-repeat;
   }
 `;
 
 export const FacebookBtn = styled(LoginBtn)`
-  border: 1px solid #2d9cdb;
+  border-color: solid #2d9cdb;
   &::before {
     background: url(${facebook}) no-repeat;
-    left: 18px;
   }
 `;
 

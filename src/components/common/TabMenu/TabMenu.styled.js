@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import home from '../../../assets/images/tabmenu/icon_home.svg';
-import homeFill from '../../../assets/images/tabmenu/icon_home_fill.svg';
+
 import chat from '../../../assets/images/tabmenu/icon_chat.svg';
 import chatFill from '../../../assets/images/tabmenu/icon_chat_fill.svg';
 import emotion from '../../../assets/images/tabmenu/icon_emotion.svg';
@@ -8,6 +7,9 @@ import emotionFill from '../../../assets/images/tabmenu/icon_emotion_fill.svg';
 import profile from '../../../assets/images/tabmenu/icon_profile.svg';
 import profileFill from '../../../assets/images/tabmenu/icon_profile_fill.svg';
 import write from '../../../assets/images/home/icon_write.svg';
+
+import home from '../../../assets/images/tabmenu/icon_home.svg';
+import homeFill from '../../../assets/images/tabmenu/icon_home_fill.svg';
 
 export const FooterLayout = styled.div`
   position: relative;
