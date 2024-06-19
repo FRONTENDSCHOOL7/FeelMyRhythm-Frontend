@@ -28,7 +28,7 @@ export const ContentBox = styled.video`
 export const ContentCanvas = styled.canvas`
   width: 440px;
   height: 650px;
-  display: none;
+  /* display: none; */
 `;
 
 export const Button = styled.button`

@@ -17,7 +17,7 @@ export default function VideoDetail() {
   return (
     <S.VideoDetailLayout>
       <S.VideoBox>
-        <S.Video src={`http://www.youtube.com/embed/${id}`} />
+        <S.Video src={`https://www.youtube.com/embed/${id}`} />
         <S.VideoContent>{state.title}</S.VideoContent>
         <S.ShareBtn onClick={onShareYoutubeData}>공유</S.ShareBtn>
       </S.VideoBox>

@@ -97,10 +97,10 @@ export default function Alert({ alertMsg, modalFunc, SetAlertMsg, onClose, comme
         {alertMsg === '채팅방 나가기'
           ? '채팅방을 나가시겠어요?'
           : alertMsg === '테마 전환'
-          ? '테마를 전환하시겠어요?'
-          : alertMsg === '삭제된 상품 접근'
-          ? '삭제된 게시글 입니다.'
-          : alertMsg + '하시겠어요?'}
+            ? '테마를 전환하시겠어요?'
+            : alertMsg === '삭제된 상품 접근'
+              ? '삭제된 게시글 입니다.'
+              : alertMsg + '하시겠어요?'}
       </QuesContent>
       <FlexBox>
         <AlertButton
