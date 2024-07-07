@@ -29,14 +29,14 @@ const Modal = ({ isOpen, onClose, postModal, postId, postUser, deleteState, moda
       postModal && user?.accountname === postUser && modalState !== 'comment'
         ? ['수정', '삭제']
         : postModal && user?.accountname !== postUser && deleteState !== true
-        ? ['신고']
-        : pathname.includes('/profile')
-        ? ['테마 전환', '로그아웃']
-        : pathname.includes('/chat')
-        ? '채팅방 나가기'
-        : modalState === 'comment' && user?.accountname === postUser
-        ? ['삭제']
-        : ['']
+          ? ['신고']
+          : pathname.includes('/profile')
+            ? ['테마 전환', '로그아웃']
+            : pathname.includes('/chat')
+              ? '채팅방 나가기'
+              : modalState === 'comment' && user?.accountname === postUser
+                ? ['삭제']
+                : ['']
     );
     deleteState && SetAlertMsg('삭제된 상품 접근');
   }, [deleteState, pathname, postModal, postUser, user?.accountname]);
