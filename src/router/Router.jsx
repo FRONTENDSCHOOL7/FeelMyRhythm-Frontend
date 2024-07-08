@@ -21,7 +21,7 @@ import ProfileUpdatePage from '../pages/profile/ProfileUpdatePage';
 import Emotion from '../pages/emotion/Emotion';
 import styled from 'styled-components';
 import EmotionResultPage from '../pages/emotion/EmotionResultPage';
-import RegisterPage from '../pages/sign/signUp/RegisterPage';
+import RegisterPage from '../pages/sign/register/RegisterPage';
 
 export default function AppRouter() {
   return (
