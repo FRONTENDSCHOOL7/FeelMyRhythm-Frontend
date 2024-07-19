@@ -33,6 +33,8 @@ export const ChangeImgBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 `;
 export const ChangeImg = styled.img`
   width: 20px;
