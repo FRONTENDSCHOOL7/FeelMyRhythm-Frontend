@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as S from './passwordInput.styled';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
-export default function PasswordInput({ setPassword, passwordRef, passwordValidState }) {
+export default function PasswordInput({ password, setPassword, passwordRef, passwordValidState }) {
   const [passwordInputType, setPasswordInputType] = useState('password');
 
   const handleChangeUserInfo = (e) => {
@@ -26,6 +26,7 @@ export default function PasswordInput({ setPassword, passwordRef, passwordValidS
             type={passwordInputType}
             placeholder='비밀번호를 설정해 주세요.'
             ref={passwordRef}
+            value={password}
             onChange={(e) => handleChangeUserInfo(e)}
           />
           <S.EyeButton onClick={(e) => onClickPasswordVisible(e)}>

@@ -117,3 +117,7 @@ export const WarningContent = styled.p`
 export const EmailWarningContent = styled(WarningContent)`
   color: ${({ valid }) => (valid === '사용 가능한 이메일 입니다.' ? 'green' : '#eb5757')};
 `;
+
+export const NicknameWarningContent = styled(WarningContent)`
+  color: ${({ valid }) => (valid === '사용 가능한 이메일 입니다.' ? 'green' : '#eb5757')};
+`;
