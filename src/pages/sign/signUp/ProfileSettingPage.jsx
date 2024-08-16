@@ -8,7 +8,7 @@ export default function ProfileSettingPage() {
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
     token && navigate('/home');
-  }, []);
+  }, [navigate]);
 
   return <ProfileSetting />;
 }

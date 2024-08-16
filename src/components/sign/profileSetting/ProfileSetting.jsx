@@ -89,24 +89,6 @@ export default function ProfileSetting() {
     }
   }, [userInfo]);
 
-  // 이미지 생성 API
-  const { mutate: mutateCreateImage } = useMutation({
-    mutationFn: createImage,
-    onSuccess: (imageURL) => {
-      const updateUserInfo = {
-        ...userInfo,
-        user: { ...userInfo.user, image: imageURL }
-      };
-
-      setUserInfo(updateUserInfo);
-
-      setTimeout(() => {
-        mutateCreateUser(updateUserInfo);
-      }, 0);
-    },
-    onError: () => {}
-  });
-
   // 계정 ID 중복확인
   const onClickAccountNameValid = (e) => {
     e.preventDefault();
@@ -164,6 +146,9 @@ export default function ProfileSetting() {
 
     let form = new FormData();
     form.append('image', image);
+    form.append('name', username);
+    form.append('email', email);
+    form.append('password');
 
     if (username === '' || warningUserName !== '') {
       userNameRef.current.focus();
@@ -175,7 +160,7 @@ export default function ProfileSetting() {
     }
     if (warningAccountName === '사용 가능한 계정ID 입니다.' && warningUserName === '' && username !== '') {
       if (image !== '') {
-        mutateCreateImage(form);
+        // mutateCreateImage(form);
         return;
       }
       mutateCreateUser(userInfo);

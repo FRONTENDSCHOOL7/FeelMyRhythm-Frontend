@@ -1,7 +1,9 @@
 module.exports = {
   root: true,
   env: {
-    es6: true
+    es6: true,
+    browser: true,
+    node: true
   },
   extends: ['react-app', 'eslint:recommended', 'plugin:prettier/recommended', 'prettier'],
   rules: {
