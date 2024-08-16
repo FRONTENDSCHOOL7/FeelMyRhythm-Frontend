@@ -35,10 +35,20 @@ export default function ProfileSetting() {
   const handleChangeImage = (e) => {
     setImage(e.target.files[0]);
     if (e.target.files[0].type.includes('image')) {
-      actionImgCompress(e.target.files[0]);
+      actionBase64Img(e.target.files[0]);
     } else {
       alert('파일이 올바르지 않습니다.');
     }
+  };
+
+  // 미리보기 이미지 생성
+  const actionBase64Img = (image) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+
+    reader.onloadend = () => {
+      setBase64Image(reader.result);
+    };
   };
 
   // 유저 정보 onChagne
@@ -49,17 +59,6 @@ export default function ProfileSetting() {
     inputName === 'intro' &&
       setUserInfo({ ...userInfo, user: { ...userInfo.user, intro: 'ms7-3🈳' + e.target.value } });
   };
-
-  // 미리보기 이미지 생성
-  const actionImgCompress = (image) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(image);
-
-    reader.onloadend = () => {
-      setBase64Image(reader.result);
-    };
-  };
-
   // 새로고침 로그인 데이터 휘발 방지
   useEffect(() => {
     const loginInfo = JSON.parse(window.localStorage.getItem('loginInfo'));

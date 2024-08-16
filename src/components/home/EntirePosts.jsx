@@ -46,7 +46,7 @@ export default function EntirePosts({ emojiState }) {
   useEffect(() => {
     let timer = setTimeout(() => {
       setLoading(true);
-    }, 1500);
+    }, 1800);
   });
 
   useEffect(() => {
