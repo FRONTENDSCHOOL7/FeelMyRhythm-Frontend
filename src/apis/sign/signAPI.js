@@ -8,3 +8,10 @@ export const useEmailValidMutation = () => {
     mutationFn: ({ path, data }) => postAsync(path, data)
   });
 };
+
+export const useEmailRegister = () => {
+  return useMutation({
+    mutationKey: ['emailregister'],
+    mutationFn: ({ path, data }) => postAsync(path, data)
+  });
+};
