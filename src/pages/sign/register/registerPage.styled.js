@@ -11,3 +11,5 @@ export const RegisterLayout = styled.form`
   padding-left: 34px;
   padding-right: 34px;
 `;
+
+export const RegisterButton = styled.button``;
