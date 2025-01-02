@@ -1,7 +1,18 @@
+import { useEffect, useState } from 'react';
+import { useEmailValidMutation } from '../../../apis/sign/signAPI';
 import * as S from './register.styled';
 import { AiOutlineCheck } from 'react-icons/ai';
 
 export default function EmailInput({ email, setEmail, emailRef, emailValidState, setEmailValidState }) {
+  const { mutate: emailValidMutate } = useEmailValidMutation();
+  const [validEmail, setValidEmail] = useState('');
+  const [afterInputCheck, setAfterInputCheck] = useState(false);
+
+  useEffect(() => {
+    if (email === validEmail) setAfterInputCheck(true);
+    if (email !== validEmail) setAfterInputCheck(false);
+  }, [email]);
+
   const handleChangeUserInfo = (e) => {
     setEmail(e.target.value);
   };
@@ -15,6 +26,20 @@ export default function EmailInput({ email, setEmail, emailRef, emailValidState,
       emailRef.current.focus();
       return;
     }
+
+    emailValidMutate(
+      { path: '/user/emailvalid', data: { email } },
+      {
+        onSuccess: (res) => {
+          setEmailValidState(res.data);
+          setValidEmail(email);
+          setAfterInputCheck(true);
+        },
+        onError: ({ response }) => {
+          setEmailValidState(response.data.error);
+        }
+      }
+    );
   };
 
   return (
@@ -30,9 +55,9 @@ export default function EmailInput({ email, setEmail, emailRef, emailValidState,
           />
 
           <S.CheckEmailButton
-            valid={emailValidState === '사용 가능한 이메일 입니다.' ? 'success' : 'none'}
+            valid={emailValidState === '사용 가능한 이메일 입니다.' && afterInputCheck ? 'success' : 'none'}
             onClick={(e) => handleClickEmailValid(e)}>
-            {emailValidState === '사용 가능한 이메일 입니다.' ? <AiOutlineCheck /> : '중복 확인'}
+            {emailValidState === '사용 가능한 이메일 입니다.' && afterInputCheck ? <AiOutlineCheck /> : '중복 확인'}
           </S.CheckEmailButton>
         </S.CheckBox>
       </S.InputBox>

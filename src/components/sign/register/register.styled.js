@@ -83,11 +83,11 @@ export const CheckEmailButton = styled.button`
   width: 70px;
   height: 32px;
   border: none;
-  color: ${({ theme }) => theme.btnTextColor};
+
   background-color: ${({ valid, theme }) => (valid === 'success' ? 'transparent' : theme.btnEnabledBgColor)};
 
   font-size: ${({ valid }) => (valid === 'success' ? '16px' : '12px')};
-  /* color: ${({ valid }) => (valid === 'success' ? 'green' : '#767676')}; */
+  color: ${({ valid, theme }) => (valid === 'success' ? 'green' : theme.btnTextColor)};
   font-weight: 500;
 
   margin-bottom: ${({ valid }) => (valid === 'success' ? '5px' : '8px')};
