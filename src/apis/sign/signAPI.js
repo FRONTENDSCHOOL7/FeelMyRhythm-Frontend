@@ -9,9 +9,18 @@ export const useEmailValidMutation = () => {
   });
 };
 
+// 이메일 회원가입
 export const useEmailRegister = () => {
   return useMutation({
     mutationKey: ['emailregister'],
+    mutationFn: ({ path, data }) => postAsync(path, data)
+  });
+};
+
+// 이메일 로그인
+export const useEmailLoginMutaion = () => {
+  return useMutation({
+    mutationKey: ['emailLogin'],
     mutationFn: ({ path, data }) => postAsync(path, data)
   });
 };

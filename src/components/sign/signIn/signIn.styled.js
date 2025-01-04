@@ -66,6 +66,8 @@ export const WarningContent = styled.p`
 
   padding-top: 6px;
   padding-bottom: 16px;
+
+  text-align: center;
 `;
 
 export const Button = styled.button`
