@@ -34,14 +34,14 @@ export default function RegisterPage() {
     e.preventDefault();
 
     let form = new FormData();
-    form.append('email', email);
+    form.append('accountname', email);
     form.append('password', password);
     form.append('passwordCheck', passwordCheck);
     form.append('nickname', nickname);
     form.append('intro', intro);
     form.append('image', image);
 
-    emailRegisterMutate({ path: '/user/emailregister', data: form });
+    emailRegisterMutate({ path: '/user/register', data: form });
   };
 
   return (

@@ -51,7 +51,7 @@ export default function SignIn() {
       setWarningEmail('');
       setWarningPassword('');
       emailLoginMutate(
-        { path: '/auth/emaillogin', data: userInfo },
+        { path: '/auth/login', data: userInfo },
         {
           onSuccess: () => {
             queryClient.invalidateQueries('userInfo');
