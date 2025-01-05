@@ -18,10 +18,10 @@ export default function ChatRoom() {
     queryFn: () => readFollowings(mydata.accountname)
   });
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    if (!token) navigate('/');
-  }, [navigate]);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   if (!token) navigate('/');
+  // }, [navigate]);
 
   useEffect(() => {
     if (followingsData) {

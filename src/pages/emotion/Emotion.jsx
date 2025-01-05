@@ -15,10 +15,10 @@ const ContBox = styled.div`
 export default function Emotion() {
   const [result, SetResult] = useState(false);
   const navigate = useNavigate();
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   return (
     <ContBox>

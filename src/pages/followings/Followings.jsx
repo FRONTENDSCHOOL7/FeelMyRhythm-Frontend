@@ -20,10 +20,10 @@ export default function Followings() {
   const [followings, setFollowings] = useState([]);
   const { accountname } = useParams();
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   const { data, err } = useQuery({
     queryFn: () =>

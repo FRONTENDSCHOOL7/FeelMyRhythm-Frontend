@@ -6,9 +6,9 @@ export default function DefaultPage() {
   const location = window.location.pathname;
   const navigate = useNavigate();
 
-  useEffect(() => {
-    location === '/profile' && navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   location === '/profile' && navigate('/');
+  // }, []);
   return (
     <>
       <Default />
