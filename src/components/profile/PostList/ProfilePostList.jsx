@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './ProfilePostList.styled';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
@@ -7,12 +7,23 @@ import { ReactComponent as IconBento } from '../../../assets/images/profile/icon
 import PostItem from './PostItem';
 import { readUserPost } from '../../../apis/profile/userPostAPI';
 import { readAccountInfo } from '../../../apis/profile/accountInfoAPI';
+import { useGetOtherProfileQuery } from '../../../apis/profile/profileAPI';
 
 export default function ProfilePlaylist() {
   const { accountname } = useParams();
   const [flag, setFlag] = useState(true);
   const [postList, setPostList] = useState([]);
   const [profile, setProfile] = useState({});
+
+  const { data: otheruser } = useGetOtherProfileQuery(`/user/${accountname}`);
+
+  useEffect(() => {
+    if (otheruser) setProfile(otheruser.data);
+  }, otheruser);
+
+  useEffect(() => {
+    if (profile) console.log('pro', profile);
+  }, [profile]);
 
   const { acc, error } = useQuery({
     queryFn: () =>

@@ -19,10 +19,10 @@ export default function WritePage() {
 
   const setUpdatePostContent = useSetRecoilState(atomPostUpdateContent);
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   useEffect(() => {
     if (state && !state.update) {

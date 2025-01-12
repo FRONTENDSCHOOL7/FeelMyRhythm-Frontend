@@ -17,10 +17,10 @@ const ContBox = styled.div`
 export default function Followers() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   const [followers, setFollowers] = useState([]);
   const { accountname } = useParams();

@@ -15,10 +15,10 @@ export default function Home() {
   const [emojiState, setEmojiState] = useRecoilState(atomEmotionState);
   const [isToggled, setIsToggled] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   return (
     <S.HomeLayout>

@@ -7,10 +7,10 @@ import styled from 'styled-components';
 export default function YoutubeSearchPage() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   return (
     <YoutubeSearchLayout>

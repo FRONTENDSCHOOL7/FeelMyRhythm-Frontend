@@ -28,10 +28,10 @@ export default function ProfileUpdatePage() {
 
   const [isButtonState, setIsButtonState] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   useEffect(() => {
     if (myInfo)

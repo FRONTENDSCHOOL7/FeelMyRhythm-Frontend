@@ -18,7 +18,7 @@ const Modal = ({ isOpen, onClose, postModal, postId, postUser, deleteState, moda
     if (alertMsg === '채팅방 나가기') navigate('/chat');
     if (alertMsg === '로그아웃') {
       window.localStorage.removeItem('accessToken');
-      navigate('/');
+      // navigate('/');
     }
 
     onClose();

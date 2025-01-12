@@ -10,10 +10,10 @@ export default function SearchUserPage() {
 
   const [searchResults, setSearchResults] = useState([]);
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   return (
     <S.HomeLayout>

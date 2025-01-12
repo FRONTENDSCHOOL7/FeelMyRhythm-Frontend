@@ -16,10 +16,10 @@ const ContBox = styled.div`
 export default function Profile() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   return (
     <ContBox>

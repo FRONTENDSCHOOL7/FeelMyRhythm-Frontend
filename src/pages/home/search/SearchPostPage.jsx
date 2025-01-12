@@ -13,10 +13,10 @@ export default function SearchPostPage() {
   const [emojiState, setEmojiState] = useRecoilState(atomEmotionState);
   const [searchResults, setSearchResults] = useState([]);
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   return (
     <S.HomeLayout>

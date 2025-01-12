@@ -10,10 +10,10 @@ import CommentList from '../../components/post/comments/CommentList';
 export default function PostPage() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    token ?? navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('accessToken');
+  //   token ?? navigate('/');
+  // }, []);
 
   return (
     <S.PostLayout>

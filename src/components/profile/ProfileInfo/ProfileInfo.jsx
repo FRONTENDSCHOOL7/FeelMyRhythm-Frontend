@@ -9,6 +9,7 @@ import { followUser } from '../../../apis/profile/followAPI';
 import { unfollowUser } from '../../../apis/profile/unfollowAPI';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import Loading from '../../common/Loading/Loading';
+import { useGetMyProfileQuery, useGetOtherProfileQuery } from '../../../apis/profile/profileAPI';
 
 export default function ProfileInfo() {
   const user = useRecoilValue(atomMyInfo);
@@ -19,19 +20,31 @@ export default function ProfileInfo() {
   const [followerCnt, setFollowerCnt] = useState(0);
   const [followingCnt, setFollowingCnt] = useState(0);
 
+  useEffect(() => {
+    if (user) console.log('user', user);
+  }, [user]);
+
+  const { data: otheruser } = useGetOtherProfileQuery(`/user/${accountname}`);
+
+  useEffect(() => {
+    if (otheruser) setProfile(otheruser.data);
+  }, [otheruser]);
+
   let [loading, setLoading] = useState(false);
 
-  const { data, error } = useQuery({
-    queryFn: () =>
-      readAccountInfo(accountname).then((res) => {
-        // setUserFlag(user.accountname === accountname);
-        setProfile(res.profile);
-        setFollowerCnt(res.profile.followerCount);
-        setFollowingCnt(res.profile.followingCount);
-        return res.profile;
-      }),
-    queryKey: [accountname, user?.accountname]
-  });
+  // const { data } = useGetMyProfileQuery();
+
+  // const { data, error } = useQuery({
+  //   queryFn: () =>
+  //     readAccountInfo(accountname).then((res) => {
+  //       // setUserFlag(user.accountname === accountname);
+  //       setProfile(res.profile);
+  //       setFollowerCnt(res.profile.followerjCount);
+  //       setFollowingCnt(res.profile.followingCount);
+  //       return res.profile;
+  //     }),
+  //   queryKey: [accountname, user?.accountname]
+  // });
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -67,7 +80,7 @@ export default function ProfileInfo() {
     navigate('/profile/update');
   };
 
-  if (data && loading)
+  if (loading)
     return (
       <S.ProfileInfoLayout>
         <S.RowBox>
@@ -89,7 +102,7 @@ export default function ProfileInfo() {
             <S.FollowText>followings</S.FollowText>
           </S.ColBox>
         </S.RowBox>
-        <S.TitleContent>{profile.username}</S.TitleContent>
+        <S.TitleContent>{profile.nickname}</S.TitleContent>
         <S.IDContent>{'@' + profile.accountname}</S.IDContent>
         {String(profile.intro).split('ms7-3🈳')[1] && (
           <S.IntroContent>{String(profile.intro).split('ms7-3🈳')[1]}</S.IntroContent>
