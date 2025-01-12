@@ -102,7 +102,7 @@ export default function ProfileInfo() {
             <S.FollowText>followings</S.FollowText>
           </S.ColBox>
         </S.RowBox>
-        <S.TitleContent>{profile.username}</S.TitleContent>
+        <S.TitleContent>{profile.nickname}</S.TitleContent>
         <S.IDContent>{'@' + profile.accountname}</S.IDContent>
         {String(profile.intro).split('ms7-3🈳')[1] && (
           <S.IntroContent>{String(profile.intro).split('ms7-3🈳')[1]}</S.IntroContent>
