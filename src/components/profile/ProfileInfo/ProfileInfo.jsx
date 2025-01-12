@@ -9,7 +9,7 @@ import { followUser } from '../../../apis/profile/followAPI';
 import { unfollowUser } from '../../../apis/profile/unfollowAPI';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import Loading from '../../common/Loading/Loading';
-import { useGetMyProfileQuery } from '../../../apis/profile/profileAPI';
+import { useGetMyProfileQuery, useGetOtherProfileQuery } from '../../../apis/profile/profileAPI';
 
 export default function ProfileInfo() {
   const user = useRecoilValue(atomMyInfo);
@@ -24,6 +24,12 @@ export default function ProfileInfo() {
     if (user) console.log('user', user);
   }, [user]);
 
+  const { data: otheruser } = useGetOtherProfileQuery(`/user/${accountname}`);
+
+  useEffect(() => {
+    if (otheruser) setProfile(otheruser.data);
+  }, [otheruser]);
+
   let [loading, setLoading] = useState(false);
 
   // const { data } = useGetMyProfileQuery();
@@ -33,7 +39,7 @@ export default function ProfileInfo() {
   //     readAccountInfo(accountname).then((res) => {
   //       // setUserFlag(user.accountname === accountname);
   //       setProfile(res.profile);
-  //       setFollowerCnt(res.profile.followerCount);
+  //       setFollowerCnt(res.profile.followerjCount);
   //       setFollowingCnt(res.profile.followingCount);
   //       return res.profile;
   //     }),

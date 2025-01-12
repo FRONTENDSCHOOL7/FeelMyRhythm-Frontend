@@ -18,6 +18,7 @@ function App() {
 
   useEffect(() => {
     if (data) {
+      console.log('data', data);
       setMyInfo(data);
     }
   }, [data]);

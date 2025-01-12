@@ -7,3 +7,10 @@ export const useGetMyProfileQuery = (path) => {
     queryFn: () => getAsync(path)
   });
 };
+
+export const useGetOtherProfileQuery = (path) => {
+  return useQuery({
+    queryKey: ['otherProfile'],
+    queryFn: () => getAsync(path)
+  });
+};

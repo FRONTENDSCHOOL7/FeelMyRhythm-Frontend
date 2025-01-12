@@ -11,7 +11,7 @@ export default function SignIn() {
 
   const queryClient = useQueryClient();
 
-  const [userInfo, setUserInfo] = useState({ email: '', password: '' });
+  const [userInfo, setUserInfo] = useState({ accountname: '', password: '' });
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -31,14 +31,14 @@ export default function SignIn() {
 
   // 유저 정보 onChange
   const handleChangeUserInfo = (e) => {
-    e.target.type === 'email' && setUserInfo({ ...userInfo, ...userInfo.user, email: e.target.value });
+    e.target.type === 'email' && setUserInfo({ ...userInfo, ...userInfo.user, accountname: e.target.value });
     e.target.type === 'password' && setUserInfo({ ...userInfo, password: e.target.value });
   };
 
   // 로그인 버튼
   const onSubmitLogin = (e) => {
     e.preventDefault();
-    const { email, password } = userInfo;
+    const { accountname: email, password } = userInfo;
     if (email === '') {
       emailRef.current.focus();
       setWarningEmail('이메일을 입력해주세요.');
@@ -67,7 +67,7 @@ export default function SignIn() {
 
   // 유효성 검사에 따른 버튼 색상 변경
   useEffect(() => {
-    if (userInfo.email !== '' && userInfo.password !== '') {
+    if (userInfo.accountname !== '' && userInfo.password !== '') {
       setIsButtonState(true);
     } else {
       setIsButtonState(false);
