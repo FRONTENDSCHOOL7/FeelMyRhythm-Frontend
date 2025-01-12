@@ -20,6 +20,10 @@ export default function ProfileInfo() {
   const [followerCnt, setFollowerCnt] = useState(0);
   const [followingCnt, setFollowingCnt] = useState(0);
 
+  useEffect(() => {
+    if (user) console.log('user', user);
+  }, [user]);
+
   let [loading, setLoading] = useState(false);
 
   // const { data } = useGetMyProfileQuery();
